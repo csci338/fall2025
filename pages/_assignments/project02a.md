@@ -2,13 +2,13 @@
 title: "The Proposal"
 layout: assignment-two-column
 type: project
-draft: 0
+draft: 1
 points: 5
 abbreviation: Project 2a
 num: 2a
 h_max: 5
-start_date: 2025-04-08
-due_date: 2025-04-14
+start_date: 2025-11-11
+due_date: 2025-11-17
 ---
 
 {% include walkthrough-project02.html %}

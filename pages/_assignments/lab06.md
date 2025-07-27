@@ -2,12 +2,12 @@
 layout: assignment-two-column
 title: "Testing & Static Analysis"
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 6
 num: 6
-start_date: 2025-02-20
-due_date: 2025-02-26
+start_date: 2025-09-25
+due_date: 2025-10-01
 h_max: 5
 ---
 

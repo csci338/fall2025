@@ -2,12 +2,12 @@
 layout: assignment-two-column
 title: "A Tour of git Commands"
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 3
 num: 3
-start_date: 2025-01-30
-due_date: 2025-02-05
+start_date: 2025-09-04
+due_date: 2025-09-10
 ---
 
 **Credit: This activity was designed by Semmy Purewall**

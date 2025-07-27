@@ -2,12 +2,12 @@
 title: Design Systems & External Data
 layout: assignment-two-column
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 10
 num: 10
-start_date: 2025-04-17
-due_date: 2025-04-30
+start_date: 2025-11-20
+due_date: 2025-12-03
 ---
 
 

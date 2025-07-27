@@ -2,12 +2,12 @@
 layout: assignment-two-column
 title: "Configuring git and GitHub"
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 2
 num: 2
-start_date: 2025-01-23
-due_date: 2025-01-29
+start_date: 2025-08-28
+due_date: 2025-09-03
 ---
 
 ## Introduction

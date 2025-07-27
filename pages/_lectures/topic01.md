@@ -5,71 +5,71 @@ description: >
     This unit introduces the idea of software engineering, including how it is similar and different from programming, and a host of considerations for building software that is scalable and maintainable over time.  
 type: topic
 num: 1
-draft: 0
-start_date: 2025-01-14
+draft: 1
+start_date: 2025-08-19
 slides:
-    - start_date: "2025-01-14"
+    - start_date: "2025-08-19"
       type: lecture
       title: Intro to the Course
       num: 1
-      draft: 0
+      draft: 1
       url: https://docs.google.com/presentation/d/1v-rDKAHGY02AFgS4jLIjo6eLjHKXhR2N/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       type: lecture
       num: 2
-      draft: 0
+      draft: 1
       title: What is Software Engineering?
       url: https://docs.google.com/presentation/d/1Xus4XHh8M_kmvUYoK5FcQOPwCd6Bv32z/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >
     Please read the following chapters before Thursday in the Software Engineering at Google book:
 readings: 
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 1
       type: reading
       title: Preface. Software Engineering at Google
       url: https://abseil.io/resources/swe-book/html/pr01.html
       required: 1
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 2
       type: reading
       title: Chapter 1. What is Software Engineering?
       url: https://abseil.io/resources/swe-book/html/ch01.html
       required: 1
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 3
       type: reading
       title: Configuring WSL
       url: /resources/wsl
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 4
       type: reading
       title: Command line cheat sheet
       url: /resources/command-line
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 5
       type: reading
       title: Configuring zsh/bash
       url: https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 6
       type: reading
       title: VS Code
       url: /resources/vs-code
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 7
       type: reading
       title: vim
       url: /resources/vim
-    - start_date: "2025-01-16"
+    - start_date: "2025-08-21"
       num: 8
       type: reading
       title: emacs
       url: /resources/emacs
 activities:
-    - start_date: "2025-01-14"
+    - start_date: "2025-08-19"
       type: activity
       num: 1
-      draft: 0
+      draft: 1
       title: Warm Up
       url: https://docs.google.com/document/d/1mfXaWNXMQriL-Gwa2P_YMp0UhoOLh7jP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 

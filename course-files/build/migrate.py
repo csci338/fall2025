@@ -62,12 +62,13 @@ def migrate_date(old_date, new_date, file_path):
 
 
 if __name__ == '__main__':
-    old_date = '2025-08-18'
+    old_date = '2025-01-13'
     new_date = '2025-08-18'
     file_paths = get_files('../../pages/_lectures')
     file_paths += get_files('../../pages/_assignments')
     file_paths += get_files('../../pages/_activities')
     file_paths += get_files('../../pages/_quizzes')
+    file_paths += get_files('../../pages/_exams')
     print(file_paths)
     for file_path in file_paths:
         print(file_path)

@@ -2,13 +2,13 @@
 layout: assignment-two-column
 title: "Intro to Docker"
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 4
 show_schedule: 1
 num: 4
-start_date: 2025-02-06
-due_date: 2025-02-12
+start_date: 2025-09-11
+due_date: 2025-09-17
 
 ---
 

@@ -2,12 +2,12 @@
 layout: assignment-two-column
 title: "Understanding Package Managers"
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 5
 num: 5
-start_date: 2025-02-13
-due_date: 2025-02-19
+start_date: 2025-09-18
+due_date: 2025-09-24
 
 ---
 

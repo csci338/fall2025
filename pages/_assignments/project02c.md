@@ -2,12 +2,12 @@
 title: "Final Deliverable"
 layout: assignment-two-column
 type: project
-draft: 0
+draft: 1
 points: 85
 abbreviation: Project 2c
 num: 2c
 h_max: 5
-due_date: 2025-05-06
+due_date: 2025-12-09
 ---
 
 {:.info}

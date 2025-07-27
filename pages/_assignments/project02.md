@@ -2,13 +2,13 @@
 title: "Full Stack Application: Student Academic Management Tool"
 layout: assignment-two-column
 type: project
-draft: 0
+draft: 1
 points: 20
 abbreviation: Project 2
 num: 2
 h_max: 5
-start_date: 2025-04-08
-due_date: 2025-05-06
+start_date: 2025-11-11
+due_date: 2025-12-09
 hide: true
 ---
 

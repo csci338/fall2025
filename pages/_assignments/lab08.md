@@ -3,11 +3,11 @@ layout: assignment-two-column
 title: Database + ORM Lab
 type: lab
 abbreviation: Lab 8
-draft: 0
+draft: 1
 points: 6
 num: 8
-start_date: 2025-04-03
-due_date: 2025-04-11
+start_date: 2025-11-06
+due_date: 2025-11-14
 ---
 
 <style>

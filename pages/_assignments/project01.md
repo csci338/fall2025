@@ -2,13 +2,13 @@
 title: UNCA Course Lookup
 layout: assignment-two-column
 type: project
-draft: 0
+draft: 1
 points: 20
 abbreviation: Project 1
 num: 1
 h_max: 3
-start_date: 2025-02-27
-due_date: 2025-03-27
+start_date: 2025-10-02
+due_date: 2025-10-30
 ---
 
 <style>
@@ -174,16 +174,16 @@ The job of the Course class (`course.py`) is to parse the incoming dictionary in
     "Instructors": [{"Username": "chughes", "Name": "Hughes, Carolyn"}],
     "Hours": 4,
     "Days": "MW",
-    "StartTime": "2019-10-01T21:30:00Z",
-    "EndTime": "2019-10-01T23:10:00Z",
+    "StartTime": "2020-05-05T21:30:00Z",
+    "EndTime": "2020-05-05T23:10:00Z",
     "Location": {"FullLocation": "DEL 110", "Building": "DEL", "Room": "110"},
     "EnrollmentCurrent": 26,
     "EnrollmentMax": 28,
     "WaitlistMax": 0,
     "WaitlistAvailable": 0,
     "TermPart": "1",
-    "StartDate": "2025-01-13T04:00:00Z",
-    "EndDate": "2025-05-07T05:00:00Z",
+    "StartDate": "2025-08-18T04:00:00Z",
+    "EndDate": "2025-12-10T05:00:00Z",
     "Classification": {
         "DiversityIntensive": False,
         "DiversityIntensiveR": False,

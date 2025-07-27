@@ -2,12 +2,12 @@
 layout: assignment-two-column
 title: Code Editors
 type: lab
-draft: 0
+draft: 1
 points: 6
 abbreviation: Lab 1
 num: 1
-start_date: 2025-01-16
-due_date: 2025-01-22
+start_date: 2025-08-21
+due_date: 2025-08-27
 ---
 
 ## Introduction

@@ -3,11 +3,11 @@ layout: assignment-two-column
 title: AsyncIO + MVC
 type: lab
 abbreviation: Lab 7
-draft: 0
+draft: 1
 points: 6
 num: 7
-start_date: 2025-03-20
-due_date: 2025-03-26
+start_date: 2025-10-30
+due_date: 2025-11-06
 ---
 
 ## Set Up

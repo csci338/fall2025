@@ -16,7 +16,7 @@ permalink: /repos/
     }
 </style>
 
-{% include oops.html %}
+
 
 ## Course Repos
 * Class Exercises: <a href="https://github.com/csci338/class-exercises-fall2025" target="_blank">https://github.com/csci338/class-exercises-fall2025</a>
