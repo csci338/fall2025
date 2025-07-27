@@ -1,0 +1,25 @@
+_site
+.DS_Store
+*.pyc
+.sass-cache
+.jekyll-metadata
+drafts
+administrative
+solution
+solutions
+# exams
+# quizzes
+.ipynb_checkpoints
+__pycache__
+Gemfile.lock
+cpd.db
+.vscode
+course-files/**/results/*.db
+#course-files/**/results/*.txt
+course-files/**/results/*.log
+course-files/**/results/*.jpg
+course-files/**/results/*.png
+course-files/**/results/*.json
+course-files/**/results/*.html
+course-files/lectures/lecture24/answers/files/*.csv
+my_token.py

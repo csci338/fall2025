@@ -1,0 +1,12 @@
+#tasks {
+    max-width: 600px;
+    margin: auto;
+}
+
+section {
+    max-width: 300px;
+}
+
+section img {
+    width: 100%;
+}

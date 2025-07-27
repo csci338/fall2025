@@ -1,0 +1,114 @@
+---
+layout: two-column
+
+---
+<style>
+    .module-table td:nth-child(2),
+    module-table th:nth-child(2) {
+        min-width: 100px;
+        width: 100px;
+    }
+
+    .no-bullets li::before{
+        content: "" !important;
+    }
+    .no-bullets li li::before{
+        content: "\2022" !important;
+    }
+
+    .card-holder {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px 0 40px 0;
+    }
+
+    .card {
+        border: solid 1px #F9F9F9;
+        border-radius: 6px;
+        padding: 20px;
+        background-color: #F6F6F6;
+    }
+
+    .module-table td:nth-child(1),
+    module-table th:nth-child(1) {
+        min-width: 30px;
+        width: 30px;
+    }
+
+    .module-table {
+        border-width: 0;
+    }
+
+    .hr {
+        display: block;
+        margin: 30px auto 30px 0;
+        width: 100%;
+        background-color: #CCC;
+        height: 1px;
+        border-radius: 1px;
+    }
+
+    code {
+        font-weight: bold;
+    }
+
+</style>
+
+<p>
+    {{ page.description }}
+</p>
+
+{{content}}
+
+<div class="card-holder">
+{% assign idx = 1 %}
+{% assign module_dates = page | get_module_dates: site %}
+{% assign lastWeek = "" %}
+{% for date in module_dates %}
+    
+    <div class="card">
+        <h2>{{ date | date: "%A, %-m/%-d" }}</h2>
+
+        <!-- Slides & Activities -->
+        {% assign slides = page.slides | filter_list_by_date: date %}
+        {% assign activities = page.activities | filter_list_by_date: date %}
+        {% assign labs = page | get_labs_by_module_by_date: site, date %}
+        {% assign projects = page | get_projects_by_module_by_date: site, date %}
+        {% assign materials = slides | concat: activities | concat : labs | concat: projects %}
+        <h3 id="slides_{{idx}}">Slides & Activities</h3>
+        <ul class="no-bullets">
+            {% for material in materials %}
+                <li>
+                    {{ material | display_link_or_badge: false, false, false }}
+                    {% if material.notes %}
+                        <ul>
+                            <li>{{material.notes}}</li>
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Readings-->
+        {% include page_readings.html %}
+    </div>
+    {% assign idx = idx | plus: 1 %}
+{% endfor %}
+</div>
+
+
+
+<!-- Study Questions -->
+{% if page.questions %}
+<div class="card">
+    <h2 id="dqs">Study Questions</h2>
+    <ol>
+        {% for question in page.questions %}
+        <li>{{question}}</li>
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+
+

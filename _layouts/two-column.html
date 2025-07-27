@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include head.html %}
+    </head>
+    <body class="two-column">
+        {% include header.html %}
+        {% include navigation.html %}
+        <main>
+            <aside>
+                
+                {% assign h_max = page.h_max | default: 3 %}
+                {% include toc.html html=content class='side-menu' ordered=true sanitize=true h_max=h_max %}
+            </aside>
+            <article>
+                {% include page_title.html %} 
+                {{ content }}
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        {{ page.additional_html }}
+        {% include scripts.html %}
+        {% if page.h_max %}
+        <script>
+            window.h_max = "{{page.h_max}}";
+        </script>
+        {% endif %}
+        <script type="text/javascript" src="{{site.baseurl}}/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="{{site.baseurl}}/assets/js/expandable.js"></script>
+    </body>
+</html>

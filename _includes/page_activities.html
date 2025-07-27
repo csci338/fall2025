@@ -1,0 +1,35 @@
+<!-- Slides -->
+{% assign slides = topic.slides | filter_list_by_date: date %}
+{% for slide in slides %}
+    {{ slide | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Videos -->
+{% assign videos = topic.videos | filter_list_by_date: date %}
+{% for video in videos %}
+    {{ video | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Activities -->
+{% assign activities = topic.activities | filter_list_by_date: date %}
+{% for activity in activities %}
+    {{ activity | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Labs -->
+{% assign labs = topic | get_labs_by_module_by_date: site, date %}
+{% for lab in labs %}
+    {{ lab | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Projects -->
+{% assign projects = topic | get_projects_by_module_by_date: site, date %}
+{% for project in projects %}
+    {{ project | display_link_or_badge: false, true }}
+{% endfor %}
+
+<!-- Exams -->
+{% assign exams = topic | get_exams_by_module_by_date: site, date %}
+{% for exam in exams %}
+    {{ exam | display_link_or_badge: false, true }}
+{% endfor %}

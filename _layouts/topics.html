@@ -1,0 +1,157 @@
+---
+layout: two-column
+---
+
+<style>
+    h2 a,  h2 a:hover {
+        border-bottom: dotted 1px !important;
+        /* background-color: transparent; */
+    }
+    td .reading,
+    td .lecture,
+    td .badge,
+    td .lab,
+    td .activity {
+        font-size: 0.8rem !important;
+    }
+
+    .mb-1 {
+        margin-bottom: 4px;
+    }
+
+    .reading {
+        vertical-align: bottom;
+    }
+
+    .inline-block span {
+        font-weight: 500;
+    }
+
+    .assignments.topics ul {
+        padding: 0;
+        padding-left: 15px;
+    }
+
+    .assignments.topics table {
+        margin-bottom: 50px;
+        border-color: #CCC;
+        border-width: 0px;
+    }
+
+    .assignments.topics table tr {
+        display: grid;
+        grid-template-columns: 80px 80px 1fr 1fr;
+        border-bottom: dotted 1px #CCC;
+    }
+
+    .assignments.topics p,
+    .assignments.li {
+        margin-bottom: 10;
+        line-height: 1.6em;
+    }
+
+    .card {
+        border: solid 1px #F9F9F9;
+        border-radius: 6px;
+        padding: 20px;
+        background-color: #FAFAFA;
+        margin-bottom: 20px;
+    }
+
+
+
+    @media screen and (max-width: 1000px) {
+        main {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .assignments.topics table tr {
+            display: grid;
+            grid-template-columns: 80px 80px 1fr;
+        }
+
+        .assignments.topics table tr td:nth-child(4) {
+            grid-column: 3 / 4;
+        }
+
+        .assignments.topics table tr th:nth-child(4) {
+            display: none;
+        }
+    }
+</style>
+
+{% include toggle-button.html %}
+
+{{content}}
+<section class="assignments topics">
+{% assign topics = site.lectures | where: "type", "topic" | sort: 'start_date' %}
+{% for topic in topics %}
+    {% assign lastWeek = "" %}
+    <!-- Topic Header -->
+    <h2 id="topic_{{topic.num}}">Topic {{topic.num}}. {{ topic | display_link_or_badge: false, false, true }}</h2>
+
+    <p>{{ topic.description }}</p>
+
+    {% assign module_dates = topic | get_module_dates: site %}
+    {% if module_dates.size > 0 %}
+    {% expandable expanded="true" level=3 title="Readings & Activities" %}
+    <table>
+        <thead>
+            <th>Week</th>
+            <th></th>
+            <th>Slides / Activities</th>
+            <th>Readings</th>
+        </thead>
+        <tbody>
+            <!-- Topic Details -->
+            {% for date in module_dates %}
+            {% assign week = site.term_start_date | get_week_number: date %}
+            <tr>
+                <td>
+                    {% if lastWeek != week %}
+                    <strong>Week {{week}}</strong>
+                    {% assign lastWeek = week %}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ date | date: "%a, %-m/%-d" }}
+                </td>
+                <td>
+                    {% include page_activities.html %}
+                </td>
+                <td>
+                    <!-- Readings -->
+                    {% assign readings = topic.readings | filter_list_by_date: date %}
+                    <ul>
+                        {% for reading in readings %}
+                        <li>
+                            {{ reading | display_link_or_badge: true, false, true }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endexpandable %}
+    {% else %}
+        <p>Coming Soon!</p>
+    {% endif %}
+
+
+    {% if topic.questions %}
+        {% expandable expanded="true" level=3 title="Study Questions" %}
+        <ol>
+            {% for question in topic.questions %}
+            <li>{{question}}</li>
+            {% endfor %}
+        </ol>
+        {% endexpandable %}
+    {% endif %}
+{% endfor %}
+</div>
+
+
+</section>
