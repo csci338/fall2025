@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Understanding Package Managers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_objective">Objective</a></li>
+  <li><a href="#id_before-you-begin">Before you begin</a></li>
+  <li><a href="#p1a">Part 1(a): Homebrew (brew)</a>
+    <ol>
+      <li><a href="#id_11-installing-a-package">1.1. Installing a Package</a></li>
+      <li><a href="#id_12-updating-and-removing-packages">1.2. Updating and Removing Packages</a></li>
+    </ol>
+  </li>
+  <li><a href="#p1b">Part 1(b): APT (apt-get)</a>
+    <ol>
+      <li><a href="#id_11-installing-a-package-1">1.1. Installing a Package</a></li>
+      <li><a href="#id_12-updating-and-removing-packages-1">1.2. Updating and Removing Packages</a></li>
+    </ol>
+  </li>
+  <li><a href="#p2">Part 2 (Everyone): Poetry (Python)</a>
+    <ol>
+      <li><a href="#id_3-creating-a-python-project-with-poetry">3. Creating a Python Project with Poetry</a></li>
+      <li><a href="#id_4-adding-dependencies">4. Adding Dependencies</a></li>
+      <li><a href="#id_5-running-the-project-in-a-virtual-environment">5. Running the Project in a Virtual Environment</a></li>
+      <li><a href="#id_6-install-more-dependencies--modify-your-code">6. Install more dependencies + modify your code</a></li>
+      <li><a href="#id_7-removing-dependencies">7. Removing Dependencies</a></li>
+    </ol>
+  </li>
+  <li><a href="#p3">Part 3 (Everyone): npm (Node.js)</a>
+    <ol>
+      <li><a href="#id_installation-instructions">Installation Instructions</a></li>
+      <li><a href="#id_8-initializing-a-nodejs-project">8. Initializing a Node.js Project</a></li>
+      <li><a href="#id_9-install-the-react-and-vite-dependencies">9. Install the React and Vite Dependencies</a></li>
+      <li><a href="#id_10-add-a-new-dependency">10. Add a new dependency</a></li>
+    </ol>
+  </li>
+  <li><a href="#p4">Part 4: Answer the Discussion Questions</a>
+    <ol>
+      <li><a href="#id_submission">Submission</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+    <h1>
+        <a href="../assignments/">Assignments</a> >
+        Lab 5: Understanding Package Managers
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Wed, 09/24 @ 11:59PM.
+    
+    
+        6 Points.
+    
+    
+</p>
+
+<h2 id="id_objective">Objective</h2>
+<p>The objective of this lab is to help you understand the concept of package management and to  gain hands-on experience with various package managers, including:</p>
+
+<ol>
+  <li>Your OS package manager:
+    <ul>
+      <li>Mac: <code class="highlighter-rouge">brew</code> (Homebrew)</li>
+      <li>WSL / Linux: <code class="highlighter-rouge">apt-get</code> (APT)</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">poetry</code> (Python) - Everyone</li>
+  <li><code class="highlighter-rouge">npm</code> (Node.js) - Everyone</li>
+</ol>
+
+<p>By the end of the lab, you should understand how to install, update, remove, and manage dependencies using these package managers. Learn more about each of these package managers on each project’s website:</p>
+<ul>
+  <li><a href="https://brew.sh">Homebrew Documentation</a></li>
+  <li><a href="https://manpages.debian.org/bullseye/apt/apt.8.en.html">APT Documentation</a></li>
+  <li><a href="https://python-poetry.org/docs/">Poetry Documentation</a></li>
+  <li><a href="https://docs.npmjs.com/">npm Documentation</a></li>
+</ul>
+
+<blockquote class="info">
+  <h2 id="id_before-you-begin">Before you begin</h2>
+  <p>Before you begin, get the latest code from class-exercises-fall2025</p>
+
+  <p><strong>On GitHub:</strong></p>
+
+  <ul>
+    <li>Sync the latest changes from the class version of <code class="highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo.</li>
+  </ul>
+
+  <p><strong>On your local computer:</strong></p>
+  <ul>
+    <li>Make sure that all of your changes from the last lab are staged and committed.</li>
+    <li>Checkout your main branch: <code class="highlighter-rouge">git checkout main</code></li>
+    <li>Pull down the latest changes: <code class="highlighter-rouge">git pull</code>
+      <ul>
+        <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab05</code> folder has been created.</li>
+      </ul>
+    </li>
+    <li>Create a new branch called lab05: <code class="highlighter-rouge">git checkout -b lab05-b</code></li>
+    <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
+    <li>You are going to do some coding / package manager activities within your <code class="highlighter-rouge">class-exercises-fall2025/lab05</code> directory</li>
+    <li>After going through the lab, be sure to answer the questions in <code class="highlighter-rouge">lab05/answers.md</code>.</li>
+  </ul>
+</blockquote>
+
+<h2 id="p1a">Part 1(a): Homebrew (brew)</h2>
+<blockquote>
+  <p>If you are a Windows user, skip this section and jump to <a href="#p1b">Part 1(b)</a>.</p>
+</blockquote>
+
+<p><strong>Homebrew</strong> is a package manager for macOS that simplifies the installation of software.</p>
+
+<h3 id="id_11-installing-a-package">1.1. Installing a Package</h3>
+<ol>
+  <li>Open a terminal and check if you already have <code class="highlighter-rouge">brew</code> installed by typing: <code class="highlighter-rouge">brew</code></li>
+  <li>If Homebrew is not already installed, install it by following the official installation instructions (see <a href="https://brew.sh/" target="_blank">https://brew.sh/</a> for more info):<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Once Homebrew is installed, use it to install <code class="highlighter-rouge">wget</code>:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>wget
+</code></pre></div>    </div>
+  </li>
+  <li>Verify the installation by running:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Now that wget is installed, try coping a file from the Internet to your current working directory as follows: <br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget https://www.google.com
+</code></pre></div>    </div>
+
+    <p>If it worked, an <code class="highlighter-rouge">index.html</code> file should have been copied to your local directory. Use the <code class="highlighter-rouge">cat</code> command to view it. Then remove it using the <code class="highlighter-rouge">rm</code> command.</p>
+  </li>
+  <li>Finally, list all of the packages that brew manages on your Mac as follows:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> brew list
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="id_12-updating-and-removing-packages">1.2. Updating and Removing Packages</h3>
+<ol>
+  <li>Update all installed packages using:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update
+</code></pre></div>    </div>
+  </li>
+  <li>Uninstall <code class="highlighter-rouge">wget</code>:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew uninstall wget
+</code></pre></div>    </div>
+  </li>
+  <li>Test that it worked by running the same <code class="highlighter-rouge">wget</code> command again. It should throw an error: <br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wget https://www.google.com
+</code></pre></div>    </div>
+  </li>
+  <li>Now reinstall <code class="highlighter-rouge">wget</code>:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>wget
+</code></pre></div>    </div>
+  </li>
+  <li>Test that it worked by running the same <code class="highlighter-rouge">wget</code> command again. The Google <code class="highlighter-rouge">index.html</code> should again be in your working directory (go ahead and delete it once you’ve verified it’s in there).</li>
+</ol>
+
+<h2 id="p1b">Part 1(b): APT (apt-get)</h2>
+<blockquote>
+  <p>If you are a Mac user skip this section (but make sure you completed <a href="#p1a">Part 1(a)</a>).</p>
+</blockquote>
+
+<p><strong>APT</strong> is a package management system used by Debian-based Linux distributions (e.g., Ubuntu).</p>
+
+<h3 id="id_11-installing-a-package-1">1.1. Installing a Package</h3>
+<ol>
+  <li>Open a terminal in a Debian-based Linux environment.</li>
+  <li>Update the local package index:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div>    </div>
+  </li>
+  <li>Install the <code class="highlighter-rouge">curl</code> package:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>curl
+</code></pre></div>    </div>
+  </li>
+  <li>Verify the installation:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Use curl to save the Google Homepage in your current directory:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://www.google.com <span class="o">&gt;</span> google.html
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>If it worked, an <code class="highlighter-rouge">google.html</code> file should have been created to your local directory. Use the <code class="highlighter-rouge">cat</code> command to view it. Then remove it using the <code class="highlighter-rouge">rm</code> command.</p>
+
+<h3 id="id_12-updating-and-removing-packages-1">1.2. Updating and Removing Packages</h3>
+<ol>
+  <li>Upgrade all installed packages:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get upgrade
+</code></pre></div>    </div>
+  </li>
+  <li>Remove the <code class="highlighter-rouge">curl</code> package:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get remove curl
+</code></pre></div>    </div>
+  </li>
+  <li>Test that it worked by running the same <code class="highlighter-rouge">curl</code> command again. It should throw an error: <br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl https://www.google.com <span class="o">&gt;</span> google.html
+</code></pre></div>    </div>
+  </li>
+  <li>Now reinstall <code class="highlighter-rouge">wget</code>:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">sudo </span>apt-get <span class="nb">install </span>curl
+</code></pre></div>    </div>
+  </li>
+  <li>Test that it worked by running the same <code class="highlighter-rouge">curl</code> command again. <code class="highlighter-rouge">google.html</code> should again be in your working directory (go ahead and delete it once you’ve verified it’s in there).</li>
+</ol>
+
+<h2 id="p2">Part 2 (Everyone): Poetry (Python)</h2>
+<p><strong>Poetry</strong> is a dependency manager for Python projects that handles dependencies and packaging.</p>
+
+<h3 id="id_3-creating-a-python-project-with-poetry">3. Creating a Python Project with Poetry</h3>
+<ol>
+  <li>Verify that you’re on a local branch called <code class="highlighter-rouge">lab05-b</code> (<code class="highlighter-rouge">git branch</code>). If you’re not, jump to the top and re-read the “Before You Begin” section.</li>
+  <li>Check if poetry is already installed by typing <code class="highlighter-rouge">poetry</code> at your Terminal / WSL command prompt.</li>
+  <li>If it’s not, install Poetry:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://install.python-poetry.org | python3 -
+</code></pre></div>    </div>
+  </li>
+  <li>Verify the installation:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nt">--version</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>If you get an error, you will need to add your poetry installation to your path file. See <a href="" target="_blank">this StackOverflow post</a>. It will probably tell you to run this command:
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH="$HOME/.local/bin:$PATH"
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Navigate to your <code class="highlighter-rouge">class-exercises-fall2025/lab05</code> directory.</li>
+  <li>From within the <code class="highlighter-rouge">lab05</code> directory, create a new Python project using Poetry:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry new poetry-demo
+<span class="nb">cd </span>poetry-demo
+</code></pre></div>    </div>
+
+    <p>Your file structure should look like the one below:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> class-exercises-fall2025
+ ├── .git
+ ├── .gitignore
+ ├── README.md
+ ├── lab03
+ │   └── answers.md
+ ├── lab04
+ │   └── answers.md
+ └── lab05
+     ├── answers.md
+     ├── node-demo
+     └── poetry-demo
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="id_4-adding-dependencies">4. Adding Dependencies</h3>
+<ol>
+  <li>Add a dependency, e.g., <code class="highlighter-rouge">requests</code>, to the project:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry add requests
+</code></pre></div>    </div>
+  </li>
+  <li>Check that the <code class="highlighter-rouge">requests</code> package was added to <code class="highlighter-rouge">pyproject.toml</code> and installed:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry show
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="id_5-running-the-project-in-a-virtual-environment">5. Running the Project in a Virtual Environment</h3>
+<p>Create a new file in your <code class="highlighter-rouge">poetry-demo</code> folder called <code class="highlighter-rouge">lab05-experiments.py</code>. Paste the following starter code inside of it:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"hello world"</span><span class="p">)</span>
+    <span class="c1"># user_agent makes it seem like the request is coming from a web browser (versus a bot)
+</span>    <span class="n">user_agent</span> <span class="o">=</span> <span class="p">{</span><span class="s">'User-agent'</span><span class="p">:</span> <span class="s">'Mozilla/5.0'</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://new.cs.unca.edu/"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">user_agent</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Now, run this file on the command line using the python virtual environment you just made:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python lab05-experiments.py
+</code></pre></div></div>
+
+<p>It should have outputted the web page from the URL given to the screen.</p>
+
+<p>Now run the same python file again (outside of your virtual environment):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 lab05-experiments.py
+</code></pre></div></div>
+<p>You should see an error because <code class="highlighter-rouge">requests</code> and <code class="highlighter-rouge">bs4</code> are not installed for your system-level python installation.</p>
+
+<h3 id="id_6-install-more-dependencies--modify-your-code">6. Install more dependencies + modify your code</h3>
+<p>Now we are going to make the beginnings of a simple web crawler that extracts all of the links from the <a href="https://new.cs.unca.edu/" target="_blank">https://new.cs.unca.edu/</a> page, using another package called beautiful soup. To do this, you will install “Beautiful Soup” – a python module with various utilities that makes it easy to extract items from web pages. Please do the following:</p>
+
+<ol>
+  <li>Install the <code class="highlighter-rouge">bs4</code> package using poetry</li>
+  <li>Modify the <code class="highlighter-rouge">main</code> function inside of <code class="highlighter-rouge">lab05-experiments.py</code> so that it only output the URLs of any links on the CS homepage.</li>
+</ol>
+
+<p>If you wrote your code correctly, this should be the output (there should be around 85 links total):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://unca.edu
+https://new.unca.edu/admission/apply/
+/
+https://new.cs.unca.edu/our-mission/
+https://new.cs.unca.edu/our-programs/
+https://new.cs.unca.edu/computer-systems-major/
+...
+</code></pre></div></div>
+
+<h4 id="id_hints">Hints:</h4>
+<ul>
+  <li>Make sure you import Beautiful soup at the top of your python file:<br /><br />
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Create a BeautifulSoup object from the HTML:<br /><br />
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Use the built-in BeautifulSoup functions to extract all of the links. Feel free to ask Google or Chat GPT something like: “How to I extract URLs using beautiful soup?”</li>
+</ul>
+
+<h3 id="id_7-removing-dependencies">7. Removing Dependencies</h3>
+<ol>
+  <li>Remove the <code class="highlighter-rouge">requests</code> and <code class="highlighter-rouge">bs4</code> packages from the project:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry remove requests
+poetry remove bs4
+</code></pre></div>    </div>
+  </li>
+  <li>Try running your python script again:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> poetry run python lab05-experiments.py
+</code></pre></div>    </div>
+    <p>What happened?</p>
+  </li>
+  <li>Add <code class="highlighter-rouge">requests</code> and <code class="highlighter-rouge">bs4</code> back:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry add requests
+poetry add bs4
+</code></pre></div>    </div>
+  </li>
+  <li>Try running your python script again:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> poetry run python lab05-experiments.py
+</code></pre></div>    </div>
+    <p>What happened?</p>
+  </li>
+</ol>
+
+<h2 id="p3">Part 3 (Everyone): npm (Node.js)</h2>
+<p><strong>npm</strong> is the default package manager for Node.js. It helps manage project dependencies. Before you begin, check to see whether node is already installed by running the following on the command line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node -v
+</code></pre></div></div>
+<ul>
+  <li>If your version of Node is less than version 18x, talk to Sarah.</li>
+  <li>If Node.js is not installed, follow the installation instructions for your respective OS</li>
+  <li>Otherwise, skip down to 7</li>
+</ul>
+
+<h3 id="id_installation-instructions">Installation Instructions</h3>
+
+<h4 id="id_mac">Mac</h4>
+<p>Use brew:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>node
+node <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h4 id="id_ubuntu--wsl">Ubuntu / WSL</h4>
+<p>Because <code class="highlighter-rouge">apt</code> has a very outdated node version, you’re going to install and use <code class="highlighter-rouge">nvm</code> (Node.js version manager) to install the latest version of node. Please issue the following commands on your WSL terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> curl
+curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+</code></pre></div></div>
+
+<p>When you’re done, restart your WSL terminal for the changes to take effect, and then install node as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvm <span class="nb">install </span>node
+node <span class="nt">-v</span>
+</code></pre></div></div>
+<p>Source: <a href="https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp" target="_blank">https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl-mac-ubuntu-43pp</a></p>
+
+<h3 id="id_8-initializing-a-nodejs-project">8. Initializing a Node.js Project</h3>
+<ol>
+  <li>Open a terminal and navigate into the <code class="highlighter-rouge">lab05/node-demo</code> folder. Note that there are already some files in this folder for a “starter” React project. However, the underlying dependencies are not installed. Then, from within the <code class="highlighter-rouge">node-demo</code> folder, initialize a new node project using the node package manager:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init <span class="nt">-y</span>
+</code></pre></div>    </div>
+
+    <p>The <code class="highlighter-rouge">npm init</code> command should have created two new files within <code class="highlighter-rouge">node-demo</code>: <code class="highlighter-rouge">package.json</code>. Verify this.</p>
+  </li>
+</ol>
+
+<h3 id="id_9-install-the-react-and-vite-dependencies">9. Install the React and Vite Dependencies</h3>
+<ol>
+  <li>Install the <code class="highlighter-rouge">react</code>, <code class="highlighter-rouge">react-dom</code>, and <code class="highlighter-rouge">vite</code> packages through the node package manager as shown below:<br /><br />
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>react react-dom vite
+</code></pre></div>    </div>
+  </li>
+  <li>Verify that the package was installed by checking the <code class="highlighter-rouge">node_modules</code> folder and <code class="highlighter-rouge">package.json</code> file. You should also notice that a <code class="highlighter-rouge">package-lock.json</code> was created.</li>
+  <li>Modify the <code class="highlighter-rouge">package.json</code> file by replacing the entire “scripts” entry with this one:<br /><br />
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite build"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"serve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="w">
+ </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>When you’re done, issue the following command in the terminal from within your <code class="highlighter-rouge">node-demo</code> folder:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> npm start
+</code></pre></div>    </div>
+    <p>Then navigate to <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a> in your web browser.</p>
+
+    <p>If you did everything correctly, you should see a simple screen that says <strong>Hello world!</strong></p>
+  </li>
+</ol>
+
+<h3 id="id_10-add-a-new-dependency">10. Add a new dependency</h3>
+<p>Now that you have a working react app, stop your vite process (Control + C on the Terminal). We will now install a design system package called “Ant”, which includes some nice react widgets that we can use to accelerate our development process:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>antd
+</code></pre></div></div>
+
+<p>Now, open <code class="highlighter-rouge">src/App.js</code> and replace the current code with this code:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Button</span><span class="p">,</span> <span class="nx">Modal</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">antd</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">isModalOpen</span><span class="p">,</span> <span class="nx">setIsModalOpen</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">showModal</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setIsModalOpen</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">handleOk</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setIsModalOpen</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">handleCancel</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setIsModalOpen</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nc">Button</span> <span class="na">type</span><span class="p">=</span><span class="s">"primary"</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">showModal</span><span class="si">}</span><span class="p">&gt;</span>
+                Open Modal
+            <span class="p">&lt;/</span><span class="nc">Button</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nc">Modal</span>
+                <span class="na">title</span><span class="p">=</span><span class="s">"Basic Modal"</span>
+                <span class="na">open</span><span class="p">=</span><span class="si">{</span><span class="nx">isModalOpen</span><span class="si">}</span>
+                <span class="na">onOk</span><span class="p">=</span><span class="si">{</span><span class="nx">handleOk</span><span class="si">}</span>
+                <span class="na">onCancel</span><span class="p">=</span><span class="si">{</span><span class="nx">handleCancel</span><span class="si">}</span>
+            <span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">img</span>
+                    <span class="na">alt</span><span class="p">=</span><span class="s">"example"</span>
+                    <span class="na">src</span><span class="p">=</span><span class="s">"https://picsum.photos/400/300"</span>
+                    <span class="na">width</span><span class="p">=</span><span class="s">"400"</span>
+                    <span class="na">height</span><span class="p">=</span><span class="s">"300"</span>
+                    <span class="na">style</span><span class="p">=</span><span class="si">{</span>
+                        <span class="p">{</span>
+                            <span class="na">width</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100%</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="si">}</span>
+                <span class="p">/&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some contents...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some contents...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some contents...<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nc">Modal</span><span class="p">&gt;</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">);</span>
+<span class="p">};</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Finally, run your react app again…</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm start
+</code></pre></div></div>
+<p>…and then navigate to <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a>.</p>
+
+<p>If you did it correctly, you should see a modal:</p>
+
+<p><img src="/fall2025/assets/images/labs/lab05/modal.png" class="large" /></p>
+
+<p>If you are new to web development, this modal may not look like much, but building components like modals from scratch is a pain! Thanks to the React components built into the Ant Design System (and there are many other design systems out there), we can just import some packages and hit the ground running!</p>
+
+<h2 id="p4">Part 4: Answer the Discussion Questions</h2>
+<p>Please answer all of the discussion questions in the <code class="highlighter-rouge">class-exercises-fall2025/lab05/answers.md</code> file.</p>
+
+<h3 id="id_submission">Submission</h3>
+<p>Please verify that you completed the Lab 5 tasks:</p>
+
+<ul class="checkbox-list">
+  <li>You experimented with your operating system’s package manager (Part 1)</li>
+  <li>You created a python app in poetry that extracts and prints URLs from the UNCA Computer Science homepage (Part 2)</li>
+  <li>You have created an interactive modal box using React (Part 3)</li>
+  <li>You have answered all of the questions in <code class="highlighter-rouge">answers.md</code>.</li>
+</ul>
+
+<p>Then, push your <code class="highlighter-rouge">lab05-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab05-b</code> branch of <strong>your repo</strong></p>
+
+<p>Paste a link to your pull request in the Moodle submission.</p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

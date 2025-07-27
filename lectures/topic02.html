@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Version Control & Branch Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#">Tuesday, 8/26</a>
+    <ol>
+      <li><a href="#slides_1">Slides &amp; Activities</a></li>
+      <li><a href="#readings_2">Readings</a></li>
+    </ol>
+  </li>
+  <li><a href="#">Thursday, 8/28</a>
+    <ol>
+      <li><a href="#slides_2">Slides &amp; Activities</a></li>
+    </ol>
+  </li>
+  <li><a href="#">Tuesday, 9/2</a>
+    <ol>
+      <li><a href="#slides_3">Slides &amp; Activities</a></li>
+      <li><a href="#readings_2">Readings</a></li>
+    </ol>
+  </li>
+  <li><a href="#">Thursday, 9/4</a>
+    <ol>
+      <li><a href="#slides_4">Slides &amp; Activities</a></li>
+      <li><a href="#readings_2">Readings</a></li>
+    </ol>
+  </li>
+  <li><a href="#dqs">Study Questions</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+
+        
+        
+        <h1>
+            Topic 2.  Version Control & Branch Management
+        </h1>
+    
+ 
+                <style>
+    .module-table td:nth-child(2),
+    module-table th:nth-child(2) {
+        min-width: 100px;
+        width: 100px;
+    }
+
+    .no-bullets li::before{
+        content: "" !important;
+    }
+    .no-bullets li li::before{
+        content: "\2022" !important;
+    }
+
+    .card-holder {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px 0 40px 0;
+    }
+
+    .card {
+        border: solid 1px #F9F9F9;
+        border-radius: 6px;
+        padding: 20px;
+        background-color: #F6F6F6;
+    }
+
+    .module-table td:nth-child(1),
+    module-table th:nth-child(1) {
+        min-width: 30px;
+        width: 30px;
+    }
+
+    .module-table {
+        border-width: 0;
+    }
+
+    .hr {
+        display: block;
+        margin: 30px auto 30px 0;
+        width: 100%;
+        background-color: #CCC;
+        height: 1px;
+        border-radius: 1px;
+    }
+
+    code {
+        font-weight: bold;
+    }
+
+</style>
+
+<p>
+    Version control is perhaps one of the most important topics in software engineering. Version control systems allow teams to collaborate on projects, review one another's code, experiment with new features and ideas, and revert to previous versions when needed. In this unit, we will explore different approaches that teams might take to organize their code repositories. We will also do various hands-on activities so that you can familiarize yourself with bash and git commands.
+
+</p>
+
+
+
+
+<div class="card-holder">
+
+
+
+
+    
+    <div class="card">
+        <h2>Tuesday, 8/26</h2>
+
+        <!-- Slides & Activities -->
+        
+        
+        
+        
+        
+        <h3 id="slides_1">Slides & Activities</h3>
+        <ul class="no-bullets">
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lecture 3</span><span style='display: none'>: </span><span>Intro to Version Control</span></span><div></div>
+                    
+                </li>
+            
+        </ul>
+
+        <!-- Readings-->
+        
+
+    <h3 id="readings_2">Readings</h3>
+    <ul>
+    
+        <li><span class='mb-1 inline' target=''><a class='' href='https://abseil.io/resources/swe-book/html/ch16.html' target='_blank'> Chapter 16. Version Control and Branch Management</a><span style='display: none'>: </span></span><div></div></li>
+    
+    </ul>
+
+    </div>
+    
+
+    
+    <div class="card">
+        <h2>Thursday, 8/28</h2>
+
+        <!-- Slides & Activities -->
+        
+        
+        
+        
+        
+        <h3 id="slides_2">Slides & Activities</h3>
+        <ul class="no-bullets">
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lecture </span><span style='display: none'>: </span><span>Introduction to Lab 2</span></span><div></div>
+                    
+                </li>
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lab 2</span><span style='display: none'>: </span><span>Configuring git and GitHub</span></span><div></div>
+                    
+                </li>
+            
+        </ul>
+
+        <!-- Readings-->
+        
+
+    </div>
+    
+
+    
+    <div class="card">
+        <h2>Tuesday, 9/2</h2>
+
+        <!-- Slides & Activities -->
+        
+        
+        
+        
+        
+        <h3 id="slides_3">Slides & Activities</h3>
+        <ul class="no-bullets">
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lecture 4</span><span style='display: none'>: </span><span>Version Control and Collaborative Workflows</span></span><div></div>
+                    
+                </li>
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Activity 2</span><span style='display: none'>: </span><span>Git Collaboration Activity</span></span><div></div>
+                    
+                </li>
+            
+        </ul>
+
+        <!-- Readings-->
+        
+
+    <h3 id="readings_2">Readings</h3>
+    <ul>
+    
+        <li><span class='mb-1 inline'><span class=''></span><span style='display: none'>: </span><a href="https://en.wikipedia.org/wiki/git" target="_blank">Git Wikipedia article </a><br>Read the "History" and "Characteristics" sections.
+</span><div></div></li>
+    
+        <li><span class='mb-1 inline'> <span class='optional'>optional</span><span class=''></span><span style='display: none'>: </span><a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git book</a><br>The Pro Git book provides some useful context and conceptual models, particularly 2.1-2.5, 3.1-3.1, and 3.6.
+</span><div></div></li>
+    
+    </ul>
+
+    </div>
+    
+
+    
+    <div class="card">
+        <h2>Thursday, 9/4</h2>
+
+        <!-- Slides & Activities -->
+        
+        
+        
+        
+        
+        <h3 id="slides_4">Slides & Activities</h3>
+        <ul class="no-bullets">
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lecture </span><span style='display: none'>: </span><span>Intro to Lab 3</span></span><div></div>
+                    
+                </li>
+            
+                <li>
+                    <span class='mb-1 inline'><span class='badge'>Lab 3</span><span style='display: none'>: </span><span>A Tour of git Commands</span></span><div></div>
+                    
+                </li>
+            
+        </ul>
+
+        <!-- Readings-->
+        
+
+    <h3 id="readings_2">Readings</h3>
+    <ul>
+    
+        <li><span class='mb-1 inline' target=''><a class='' href='https://www.youtube.com/watch?v=_wQdY_5Tb5Q' target='_blank'> Collaborating with git and GitHub (video)</a><span style='display: none'>: </span></span><div></div></li>
+    
+        <li><span class='mb-1 inline' target=''> <span class='optional'>optional</span><a class='' href='https://www.youtube.com/watch?v=_UZEXUrj-Ds' target='_blank'> What is git rebase? (video)</a><span style='display: none'>: </span></span><div></div></li>
+    
+        <li><span class='mb-1 inline' target=''> <span class='optional'>optional</span><a class='' href='https://www.atlassian.com/git/tutorials/comparing-workflows' target='_blank'> How to rebase + handle merge conflicts</a><span style='display: none'>: </span></span><div></div></li>
+    
+    </ul>
+
+    </div>
+    
+
+</div>
+
+
+
+<!-- Study Questions -->
+
+<div class="card">
+    <h2 id="dqs">Study Questions</h2>
+    <ol>
+        
+        <li>Why is version control important?</li>
+        
+        <li>Why is code history important?</li>
+        
+        <li>What is the difference between centralized and distributed version control?</li>
+        
+        <li>What is the problem with having long-running dev branches? What is the solution?</li>
+        
+        <li>What is the one version rule?</li>
+        
+        <li>What are the tradeoffs of having a "monorepo" versus multiple repos?</li>
+        
+        <li>What is the difference between git and GitHub?</li>
+        
+        <li>What is the difference between a merge commit and rebasing? What would you want to do one over the other (i.e., what are the the tradeoffs of each)?</li>
+        
+        <li>What does the "origin" typically refer to?</li>
+        
+        <li>What is a public / private key pair?</li>
+        
+        <li>What do the following git commands do?  <code>clone</code>, <code>status</code>, <code>add</code>, <code>log</code>, <code>commit</code>, <code>push</code>, <code>pull</code>, <code>merge</code>, <code>rebase</code>
+</li>
+        
+        <li>What do the following bash commands do?  <code>ls</code>, <code>cat</code>, <code>mv</code>, <code>pwd</code>, <code>cd</code>, <code>rm</code>
+</li>
+        
+    </ol>
+</div>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

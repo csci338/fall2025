@@ -1,0 +1,16 @@
+{
+    "name": "modulestestapp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node run-tests-vanilla.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "mocha": "^10.2.0"
+    }
+}

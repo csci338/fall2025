@@ -1,0 +1,7 @@
+_site
+.sass-cache
+*.sh
+*.yml
+Gemfile
+Gemfile.lock
+

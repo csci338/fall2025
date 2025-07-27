@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Database + ORM Lab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-introduction">1. Introduction</a></li>
+  <li><a href="#id_2-setup">2. Setup</a>
+    <ol>
+      <li><a href="#id_version-control-stuff">Version Control Stuff</a></li>
+      <li><a href="#id_build-and-run-your-docker-file">Build and run your Docker file</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-sql-exercises">3. SQL Exercises</a>
+    <ol>
+      <li><a href="#id_run-the-postgres-sql-client">Run the Postgres SQL Client</a></li>
+      <li><a href="#id_optional-using-a-gui-client">[Optional] Using a GUI Client</a></li>
+      <li><a href="#id_tutorial">Tutorial</a></li>
+      <li><a href="#id_sql-questions">SQL Questions</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-sql-alchemy--python-exercises">4. SQL Alchemy / Python Exercises</a>
+    <ol>
+      <li><a href="#id_sql-alchemy-questions">SQL Alchemy Questions</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_what-to-submit">What to Submit</a></li>
+  <li><a href="#id_extra-credit-opportunity">Extra Credit Opportunity</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+    <h1>
+        <a href="../assignments/">Assignments</a> >
+        Lab 8: Database + ORM Lab
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 11/14 @ 11:59PM.
+    
+    
+        6 Points.
+    
+    
+</p>
+
+<style>
+
+    blockquote.info {
+        padding: 20px;
+    }
+    blockquote.info h3, blockquote.info li {
+        margin-bottom: 20px;
+    }
+    td ul {
+        margin-top: 10px !important;
+    }
+    table th:first-child, 
+    table td:first-child {
+        width: auto;
+        max-width: 200px;
+        /* min-width:200px; */
+    }
+
+    table th:last-child, 
+    table td:last-child {
+        width: auto;
+        min-width:130px !important;
+    }
+
+    table th:nth-child(3), 
+    table td:nth-child(3) {
+        width: auto;
+        min-width:200px !important;
+    }
+
+    table code {
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    blockquote.updates {
+        background-color: #d4edda;
+        border: solid 1px #c3e6cb;
+    }
+    blockquote.updates h2, 
+    blockquote.updates p, 
+    blockquote.updates li, 
+    blockquote.updates a {
+        color: #155724;
+    }
+    blockquote.updates h2 {
+        border-bottom: solid 1px #155724;
+    }
+    blockquote.updates a:hover {
+        background-color: transparent;
+    }
+
+</style>
+
+<h2 id="id_1-introduction">1. Introduction</h2>
+
+<p>The goals of this lab are as follows:</p>
+
+<ol>
+  <li>Set up a docker container with a postgres tutorial</li>
+  <li>Get some basic experience with SQL</li>
+  <li>Get experience interacting with a Postgres database from Python</li>
+  <li>Get experience querying the database via an ORM</li>
+</ol>
+
+<h2 id="id_2-setup">2. Setup</h2>
+
+<h3 id="id_version-control-stuff">Version Control Stuff</h3>
+<p>Before you begin, get the latest code from <a href="https://github.com/csci338/class-exercises-fall2025" target="_blank">class-exercises-fall2025</a>.</p>
+
+<p><strong>On GitHub:</strong></p>
+<ul>
+  <li>Sync the latest changes from the class version of <code class="highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo on GitHub.</li>
+</ul>
+
+<p><strong>On your local computer:</strong></p>
+<ul>
+  <li>Make sure that all of your changes from the last lab are staged and committed.</li>
+  <li>Checkout your main branch: <code class="highlighter-rouge">git checkout main</code></li>
+  <li>Pull down the latest changes: <code class="highlighter-rouge">git pull</code>
+    <ul>
+      <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab08</code> folder has been created.</li>
+    </ul>
+  </li>
+  <li>Create a new branch called <strong>lab08-b</strong>: <code class="highlighter-rouge">git checkout -b lab08-b</code></li>
+  <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
+</ul>
+
+<h3 id="id_build-and-run-your-docker-file">Build and run your Docker file</h3>
+<p>Navigate to your <code class="highlighter-rouge">lab08</code> directory and type:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<p>As you may recall, this command builds your Docker container <em>and</em> runs it. Keep your terminal running and do the remaining tasks on anther terminal.</p>
+
+<h2 id="id_3-sql-exercises">3. SQL Exercises</h2>
+
+<h3 id="id_run-the-postgres-sql-client">Run the Postgres SQL Client</h3>
+
+<p>In the new terminal window we’ll run <code class="highlighter-rouge">psql</code> (the postgres SQL
+client) on the your running container.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># get container id:</span>
+docker ps <span class="nt">-la</span>
+
+<span class="c"># connect to the docker container</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; psql <span class="nt">-U</span> postgres
+</code></pre></div></div>
+
+<p>If you did this correctly, you should see a PostgreSQL shell that looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=#
+</code></pre></div></div>
+
+<p>Now let’s confirm things are working. Try typing in the <code class="highlighter-rouge">\list</code>
+command and confirm you see the <code class="highlighter-rouge">dvdrental</code> database.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \list
+</code></pre></div></div>
+
+<p>If that works, let’s change to the <code class="highlighter-rouge">dvdrental</code> database and run a
+simple sql query to list all customer’s first names.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \c dvdrental
+dvdrental=# select first_name from customer;
+</code></pre></div></div>
+
+<h3 id="id_optional-using-a-gui-client">[Optional] Using a GUI Client</h3>
+<p>For those of you who would like to look at the data in a visual way, feel free to use DBeaver (which you can <a href="https://dbeaver.io/download/" target="_blank">download here</a>). Once downloaded and installed, you can preview the DVD Rental database by using the following connection information for a PostgreSQL connection:</p>
+
+<ul>
+  <li>host: <strong>localhost</strong></li>
+  <li>database: <strong>postgres</strong></li>
+  <li>username: <strong>postgres</strong></li>
+  <li>password: <strong>postgres</strong></li>
+  <li>port: <strong>5433</strong></li>
+</ul>
+
+<p>Also, make sure that the “Show all databases” option is checked (as pictured in the screenshot below):</p>
+
+<p><img class="medium frame" src="/fall2025/assets/images/labs/lab08/dbeaver-ss.png" /></p>
+
+<h3 id="id_tutorial">Tutorial</h3>
+
+<p>Now that you’re all set up, please answer the 10 SQL questions (listed below) in the “SQL” section of your <code class="highlighter-rouge">lab08/answers_sql.md</code> file. Here are some references from the PostgreSQL tutorial to help you:</p>
+
+<ul>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/">Select</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/">Where</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-limit/">Limit</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/">Joins</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-alias/">Table Aliases</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-inner-join/">Inner Join</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-insert/">Insert</a></li>
+  <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-insert-multiple-rows/">Insert Multiple Rows</a></li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_sql-questions">SQL Questions</h3>
+  <ol>
+    <li><strong>SELECT - Retrieving Data.</strong> Write a query to list the titles and release years of all movies in the film table.</li>
+    <li><strong>WHERE - Filtering Data.</strong> Write a query to find all customers whose last name starts with the letter ‘S’.</li>
+    <li><strong>ORDER BY - Sorting Results.</strong> List all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
+    <li><strong>JOIN - Combining Tables.</strong> Write a query to list all films along with their categories. Show the film title and category name.</li>
+    <li><strong>AGGREGATE FUNCTIONS - Summarizing Data.</strong> Write a query to find the average rental duration for movies in each category.</li>
+    <li><strong>COUNT - Counting Rows.</strong> Write a query to count how many films are in the Action category.</li>
+    <li><strong>INSERT - Adding Data.</strong> Insert a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
+    <li><strong>UPDATE - Modifying Data.</strong> Update the rental rate of all films in the Comedy category, increasing it by 10%.</li>
+    <li><strong>DELETE - Removing Data.</strong> Write a query to delete all films that have never been rented. Make sure to use a subquery to identify the films that haven’t been rented.</li>
+  </ol>
+</blockquote>
+
+<h2 id="id_4-sql-alchemy--python-exercises">4. SQL Alchemy / Python Exercises</h2>
+<p>Now, you’re going to try connecting to your postgres database using python on your local computer.</p>
+
+<p>Open a terminal window, navigate to your <code class="highlighter-rouge">lab08</code> directory, and install the dependencies in the <code class="highlighter-rouge">pyproject.toml</code> file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nb">install</span>
+</code></pre></div></div>
+
+<p>You should now be able to run the <code class="highlighter-rouge">orm_samples.py</code> file as usual from your local terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python orm_samples.py
+</code></pre></div></div>
+
+<p>Take a look at the file and try to understand what it does. The code samples are very similar to SQLAlchemy tasks you will be completing (below).</p>
+
+<blockquote class="info">
+  <h3 id="id_sql-alchemy-questions">SQL Alchemy Questions</h3>
+  <p>You will be implementing some python functions in the <code class="highlighter-rouge">answers_orm.py</code> as instructed below.
+Before you begin, please run the <code class="highlighter-rouge">answers_orm.py</code> script first to see what it does:<br /><br />
+<code class="highlighter-rouge">poetry run python answers_orm.py</code><br /><br />
+Note that the first exercise has already been completed for you.</p>
+  <ol>
+    <li><strong><code class="highlighter-rouge">print_titles_and_release_years</code></strong> Write a function that uses SQLAlchemy to print the titles and release years of all movies in the film table.</li>
+    <li><strong><code class="highlighter-rouge">print_customers_starting_with</code></strong> Write a function that uses SQLAlchemy to print all customers whose last name starts with the character passed into the function.</li>
+    <li><strong><code class="highlighter-rouge">print_film_titles_and_durations</code></strong> Write a function that uses SQLAlchemy to print all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
+    <li><strong><code class="highlighter-rouge">print_film_titles_and_categories</code></strong> Write a function that uses SQLAlchemy to print all films along with their categories. Show the film title and category name.</li>
+    <li><strong><code class="highlighter-rouge">print_num_films_in_action_category</code></strong> Write a function that uses SQLAlchemy to print the number of films in the Action category.</li>
+    <li><strong><code class="highlighter-rouge">create_new_customer</code></strong> Write a function that uses SQLAlchemy to create a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
+    <li><strong><code class="highlighter-rouge">delete_customer_by_id</code></strong> Write a function that uses SQLAlchemy to delete a customer from the database based on the <code class="highlighter-rouge">id</code> argument.
+      <ul>
+        <li><em>Note that many of the customers in the database are referenced in other tables (e.g., each customer is associated with a record in the store table, the address table, etc.). Given this, be sure to test your delete functionality with one of the customers you created in the previous exercise (which has no dependencies yet).</em></li>
+      </ul>
+    </li>
+    <li><strong><code class="highlighter-rouge">update_customer_email</code></strong> Write a function that uses SQLAlchemy to update a customer’s email. Required arguments are the customer’s id and the new email address.</li>
+  </ol>
+</blockquote>
+
+<h2 id="id_what-to-submit">What to Submit</h2>
+<p>Before you submit, make sure you’ve completed the two sets of tasks:</p>
+
+<ul class="checkbox-list">
+  <li>SQL tasks: you have written the SQL for the 9 SQL tasks in <code class="highlighter-rouge">answers_sql.md</code></li>
+  <li>SQLAlchemy tasks: you have successfully written and invoked the 8 SQLAlchemy-based functions using asynchronous database queries in <code class="highlighter-rouge">answers_orm.py</code>.</li>
+</ul>
+
+<p>When you’re done, please push your <code class="highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+
+<blockquote class="updates">
+  <h2 id="id_extra-credit-opportunity">Extra Credit Opportunity</h2>
+  <p>If you need extra credit, complete the following tasks:</p>
+  <ol>
+    <li>Create a SQL statement new table called <code class="highlighter-rouge">movie_reviews</code> with columns for <code class="highlighter-rouge">review_id</code>, <code class="highlighter-rouge">film_id</code>, <code class="highlighter-rouge">reviewer_name</code>, <code class="highlighter-rouge">rating</code>, and <code class="highlighter-rouge">comments</code>. Then, add a foreign key constraint linking <code class="highlighter-rouge">film_id</code> to the <code class="highlighter-rouge">film</code> table’s <code class="highlighter-rouge">film_id</code>.</li>
+  </ol>
+</blockquote>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

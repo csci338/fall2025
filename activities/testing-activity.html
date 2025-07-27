@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Unit Test Activity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-get-situated--pull-down-the-files">1. Get Situated / Pull Down the Files</a></li>
+  <li><a href="#id_2-configure-your-development-environment-using-poetry">2. Configure your development environment using Poetry</a></li>
+  <li><a href="#id_3-run-the-python-files-and-the-tests">3. Run the python files and the tests:</a></li>
+  <li><a href="#id_4-refactor-the-code">4. Refactor the code</a>
+    <ol>
+      <li><a href="#id_organize-code-for-doing-math">Organize code for doing math</a></li>
+      <li><a href="#id_organize-code-for-interacting-with-the-user">Organize code for interacting with the user</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_5-create-two-new-static-methods">5. Create two new static methods</a></li>
+  <li><a href="#id_6-use-the-static-analysis--formatter-tools">6. Use the static analysis / formatter tools</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>Unit Test Activity</h1>
+    
+ 
+                <h2 id="id_1-get-situated--pull-down-the-files">1. Get Situated / Pull Down the Files</h2>
+<p><strong>On GitHub:</strong> sync your fork of the <strong>class-exercises-fall2025</strong> repo on GitHub.</p>
+
+<p><strong>On your local machine:</strong></p>
+<ul>
+  <li>Navigate to your <code class="highlighter-rouge">csci338/class-exercises-fall2025</code> directory</li>
+  <li>Check that everything is committed and pushed to your remote branch (some command reminders below):<br /><br />
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git branch
+  git status
+  git add .
+  git commit -m "Message describing your changes"
+</code></pre></div>    </div>
+  </li>
+  <li>Checkout <code class="highlighter-rouge">main</code></li>
+  <li>Pull down the latest code (<code class="highlighter-rouge">git pull</code>). You should see a new <code class="highlighter-rouge">writing-tests</code> folder within your local <code class="highlighter-rouge">class-exercises-fall2025</code> folder.</li>
+  <li>Create a new branch from main called <strong>writing-tests-b</strong>: <code class="highlighter-rouge">git checkout -b writing-tests-b</code></li>
+</ul>
+
+<h2 id="id_2-configure-your-development-environment-using-poetry">2. Configure your development environment using Poetry</h2>
+<ol>
+  <li>Navigate into your <code class="highlighter-rouge">writing-tests</code> directory from the command line.</li>
+  <li>Open the entire <code class="highlighter-rouge">writing-tests</code> directory in VS Code by typinc <code class="highlighter-rouge">code .</code> on the terminal.</li>
+  <li>Create a new Poetry project: <code class="highlighter-rouge">poetry init</code> (take all the defaults by pressing the enter key).</li>
+  <li>Install the following dependencies with <code class="highlighter-rouge">poetry add</code><br /><br />
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pytest
+ black
+ flake8
+ isort
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="id_3-run-the-python-files-and-the-tests">3. Run the python files and the tests:</h2>
+<p>Navigate back into the <code class="highlighter-rouge">writing-tests</code> directory on the command line. Then type the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python app/main.py       <span class="c"># runs the app</span>
+poetry run pytest <span class="nt">-v</span>                <span class="c"># runs the tests</span>
+</code></pre></div></div>
+
+<p>Now, open <code class="highlighter-rouge">tests/test_main.py</code> and take a look at it. Uncomment the tests one by one.</p>
+<ul>
+  <li>What do you think the decorators do?</li>
+  <li>Under what circumstances might it be important to create test mocks?</li>
+</ul>
+
+<h2 id="id_4-refactor-the-code">4. Refactor the code</h2>
+
+<h3 id="id_organize-code-for-doing-math">Organize code for doing math</h3>
+<ol>
+  <li>You decided to create a new class that contains static methods for doing Arithmetic (I have already created this class for you – just uncomment the first static method I have created for you).</li>
+  <li>Delete the <code class="highlighter-rouge">add_nums</code> function defintion from <code class="highlighter-rouge">main.py</code> and use the one in <code class="highlighter-rouge">Arithmetic</code> instead.</li>
+  <li>Run <code class="highlighter-rouge">test_main.py</code> again. Fix the failing tests.</li>
+</ol>
+
+<h3 id="id_organize-code-for-interacting-with-the-user">Organize code for interacting with the user</h3>
+<ol>
+  <li>Create a new Python class called <code class="highlighter-rouge">UserInterface</code>. (I have already created a stub for this class. You will need to migrate the functions and convert them into static methods (by using the <code class="highlighter-rouge">@staticmethod</code> decorator.</li>
+  <li>Delete <code class="highlighter-rouge">add_nums_from_user_input</code> function defintion from <code class="highlighter-rouge">main.py</code> and use the one in <code class="highlighter-rouge">UserInterface</code> instead.</li>
+  <li>Fix your tests so that they work again.</li>
+</ol>
+
+<blockquote class="info">
+  <h4 id="id_metacomment-about-testing">Metacomment about testing:</h4>
+
+  <ol>
+    <li>One of the most useful things about tests is that they will tell you when your code refactor broke something.</li>
+    <li>One of the challenges of tests (as you’ve already seen) is that you have to maintain them. Figuring out ways of designing manageable tests is a lifelong pursuit.</li>
+  </ol>
+</blockquote>
+
+<h2 id="id_5-create-two-new-static-methods">5. Create two new static methods</h2>
+<ol>
+  <li>Create a new static method in the Arithmetic class called <code class="highlighter-rouge">subtract_nums</code> that subtracts two numbers.</li>
+  <li>Create a new static method in the Arithmetic class called <code class="highlighter-rouge">subtract_nums_from_user_input</code> that subtracts two numbers based on user input.</li>
+  <li>Write some tests to test your new methods.</li>
+</ol>
+
+<h2 id="id_6-use-the-static-analysis--formatter-tools">6. Use the static analysis / formatter tools</h2>
+<ol>
+  <li>Run the import sorter check: <code class="highlighter-rouge">poetry run isort . --check-only</code></li>
+  <li>Run the import sorter fix: <code class="highlighter-rouge">poetry run isort</code></li>
+  <li>Run the formatter check: <code class="highlighter-rouge">poetry run black .</code></li>
+  <li>Run the formatter fixes: <code class="highlighter-rouge">poetry run black .</code></li>
+  <li>Run flake8 (linter / code quality checker): <code class="highlighter-rouge">poetry run flake8</code></li>
+</ol>
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>
