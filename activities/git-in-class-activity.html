@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Git Collaboration Activity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_part-1-merging">Part 1: Merging</a>
+    <ol>
+      <li><a href="#id_11-owner-setup">1.1. Owner setup</a></li>
+      <li><a href="#id_12-collaborator-setup">1.2. Collaborator setup</a></li>
+      <li><a href="#id_13-creating-a-conflict">1.3. Creating a conflict</a></li>
+      <li><a href="#id_14-pulling-down-the-owners-changes">1.4. Pulling down the owners changes</a></li>
+      <li><a href="#id_15-merging">1.5. Merging</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_part-2-rebasing">Part 2: Rebasing</a>
+    <ol>
+      <li><a href="#id_21-owner-setup">2.1. Owner setup</a></li>
+      <li><a href="#id_22-collaborator-setup">2.2. Collaborator setup</a></li>
+      <li><a href="#id_23-creating-a-conflict">2.3. Creating a conflict</a></li>
+      <li><a href="#id_24-pulling-down-the-owners-changes">2.4. Pulling down the owner’s changes</a></li>
+      <li><a href="#id_25-rebasing">2.5. Rebasing</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>Git Collaboration Activity</h1>
+    
+ 
+                <blockquote class="info">
+  <p>Credit: This activity was designed by Semmy Purewall</p>
+</blockquote>
+
+<p>This activity is designed to be completed entirely in class. The goals with this activity are as follows:</p>
+
+<ol>
+  <li>Practice with merge conflicts</li>
+  <li>Practicing with various merging/rebasing strategies</li>
+  <li>More practice with basic git &amp; CLI stuff</li>
+</ol>
+
+<p>For this activity, you’ll work with (at least) one other person. The person who creates the initial repository will be called the “owner.” Any additional collaborators will be called “the collaborator”</p>
+
+<h2 id="id_part-1-merging">Part 1: Merging</h2>
+<p>Nominate one person in your group to be “the owner.”</p>
+
+<h3 id="id_11-owner-setup">1.1. Owner setup</h3>
+<p>If you are the owner, you will create a new git repository as follows:</p>
+<ol>
+  <li>
+    <p>Open a new command line shell (Windows users use WSL),  navigate to your <code class="highlighter-rouge">csci338</code> folder, and make a directory called <code class="highlighter-rouge">merge-activity</code>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>merge-activity
+</code></pre></div>    </div>
+  </li>
+  <li>Navigate into the directory (<code class="highlighter-rouge">cd merge-activity</code>)</li>
+  <li>Initialize a new git repository (<code class="highlighter-rouge">git init</code>)</li>
+  <li>Create a <code class="highlighter-rouge">README.md</code> file directly inside of <code class="highlighter-rouge">merge-activity</code>. Inside <code class="highlighter-rouge">README</code>, add a heading that says “Merge / Rebase Practice”</li>
+  <li>Stage your <code class="highlighter-rouge">README.md</code> file using (<code class="highlighter-rouge">git add .</code>)</li>
+  <li>Commit it (e.g., <code class="highlighter-rouge">git commit -m "Added README.md"</code>)</li>
+  <li>
+    <p>Next create a <code class="highlighter-rouge">my_code.py</code> file. It should look like this.</p>
+
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">say_hello</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">"hello world!"</span><span class="p">);</span>
+
+
+ <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+     <span class="n">say_hello</span><span class="p">();</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Commit it.</li>
+  <li>Now create a <em>private</em> repository on GitHub (github.com) for your local git repository and push your local repository to the remote repository.</li>
+  <li>After a successful push, add your collaborator(s) to the
+repository (GitHub &gt; Settings &gt; “Collaborators and Teams”).</li>
+</ol>
+
+<h3 id="id_12-collaborator-setup">1.2. Collaborator setup</h3>
+<p>After the owner has added you as a collaborator to the <code class="highlighter-rouge">merge-activity</code> repo, you are going to clone their repository. To do this:</p>
+
+<ol>
+  <li>Open a new command line shell (Windows users use WSL),  navigate to your <code class="highlighter-rouge">csci338</code> folder.</li>
+  <li>*From within the <code class="highlighter-rouge">csci338</code> folder, clone the the <code class="highlighter-rouge">merge-activity</code> repo using the SSH protocol. If you forgot how to do this, refer back to Lab 2.</li>
+  <li>Navigate into the <code class="highlighter-rouge">merge-activity</code> repo that has just been created on your local machine.</li>
+</ol>
+
+<p>You and your partner are now going to work on two features in parallel. The owner will work on Feature A and the collaborator will work on Feature B. Both of your repositories should have the same remote urls.</p>
+
+<p><strong>Question:</strong> Which Git subcommand can you use to confirm that? Go ahead and confirm it.</p>
+
+<p><strong>Answer:</strong> <code class="highlighter-rouge">git remote show origin</code></p>
+
+<p>Complete the next two sections in parallel.</p>
+
+<h3 id="id_13-creating-a-conflict">1.3. Creating a conflict</h3>
+<p>You are now going to both edit the same file on different branches and practice resolving the conflicts.</p>
+
+<h4 id="id_feature-a-owner">Feature A (Owner)</h4>
+
+<p>This feature will be implemented on the <code class="highlighter-rouge">main</code> branch.</p>
+
+<p><strong>The owner of the repository</strong> should complete Feature A. Instead of always printing “hello world”, let’s make your function print out “hello &lt;name&gt;” where “&lt;name&gt;” is specified as a parameter to the
+function. In other words, when called like this:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">say_hello</span><span class="p">(</span><span class="s">"Walter"</span><span class="p">)</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s">"Ruth"</span><span class="p">)</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s">"Larry"</span><span class="p">)</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s">"Helen"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It will print out:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello Walter!
+Hello Ruth!
+Hello Larry!
+Hello Helen!
+</code></pre></div></div>
+
+<p>Once this is tested and working, commit it locally, then <strong>push your main branch to the remote repository</strong> on GitHub.</p>
+
+<h4 id="id_feature-b-collaborator">Feature B (Collaborator)</h4>
+
+<p>The collaborator will complete this feature on a different branch. First, create
+and check out a branch.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">-b</span> feature-b
+</code></pre></div></div>
+
+<p>Now implement feature-b. Allow an argument to specify the number of
+times the message should be repeated. So if it’s called like this:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">say_hello</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It will print out:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello world!
+hello world!
+hello world!
+</code></pre></div></div>
+
+<p>Once you’re happy with your change, commit it locally, but <strong>do not push
+anything yet.</strong></p>
+
+<h3 id="id_14-pulling-down-the-owners-changes">1.4. Pulling down the owners changes</h3>
+
+<p>Once you’re both finished with the sections above, you’ll work
+together on this section on the <strong>collaborator’s</strong> computer.</p>
+
+<p>At this point, we are in the situation where you are in a feature
+branch, but main is ahead (i.e., changes have been made to main since you branched from it, making the collaborator’s branch is no longer in sync with main).</p>
+
+<p><img src="/fall2025/assets/images/activities/feature_branch_main_ahead.png" alt="image" /></p>
+
+<p>Check the state of your git repository and make sure you’re on the <code class="highlighter-rouge">feature-b</code> branch. Let’s checkout <code class="highlighter-rouge">main</code> on your laptop and then  pull your partner’s changes down from GitHub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout main
+</code></pre></div></div>
+
+<p>Confirm you’re on the main branch now.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin main
+</code></pre></div></div>
+
+<p>Now take a look at the history (<code class="highlighter-rouge">git log</code>) to make sure you see the commit that
+implements feature A. Then, check out your feature branch again:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout feature-b
+</code></pre></div></div>
+
+<p>Let’s take a look at the history again. Do you see the commit with
+feature A? Probably not, but you can see it by doing this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--all</span>
+</code></pre></div></div>
+
+<p>And if you want a visual representation, add the <code class="highlighter-rouge">--graph</code>
+option. Where is <code class="highlighter-rouge">HEAD</code>? Where is <code class="highlighter-rouge">feature-b</code>?</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--all</span> <span class="nt">--graph</span>
+</code></pre></div></div>
+
+<h3 id="id_15-merging">1.5. Merging</h3>
+<p>Let’s merge the branches! First, check out main again. Take a look at
+the history (with all commits and the graph option enabled). Where is
+<code class="highlighter-rouge">HEAD</code>?</p>
+
+<p>Now let’s use the <code class="highlighter-rouge">merge</code> subcommand to merge the branches. Make sure
+you’re on <code class="highlighter-rouge">main</code> and then run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge feature-b
+</code></pre></div></div>
+
+<p>This attempts to merge the <code class="highlighter-rouge">feature-b</code> branch into the <code class="highlighter-rouge">main</code>
+branch. It should look something like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt; HEAD
+<span class="o">[</span>Feature A Code]
+<span class="o">=======</span>
+<span class="o">[</span>Feature B Code]
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature-b
+</code></pre></div></div>
+
+<p>Note that <code class="highlighter-rouge">[Feature A Code]</code> will be replaced with the actual code
+associated with Feature A. The top part represents the state of the
+code at your <code class="highlighter-rouge">HEAD</code> (in this case, <code class="highlighter-rouge">HEAD</code> is an alias for <code class="highlighter-rouge">main</code>).</p>
+
+<p>Before going further, take a look at the state of your
+repository. Note that <code class="highlighter-rouge">git</code> gives you helpful instructions on how to
+proceed – you can either fix the conflicts and then run <code class="highlighter-rouge">git commit -m "some message"</code>
+which will create your merge commit, or you can abort the process
+altogether.</p>
+
+<p>Your job is now to reconcile these conflicts, and remove the merge conflict separators. Do that now. At the end of your reconciliation, both features should work as expected. You can test them by running it with Python.</p>
+
+<p>Once that’s done, let’s take a look at the state of the repo
+again. Git should tell you that you’re good to go!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
+</code></pre></div></div>
+
+<p>Let’s take a look at the log with the <code class="highlighter-rouge">--graph</code> option. You should see
+your merge commit with two parent pointers.</p>
+
+<p>Commit and push the changes to the main branch on Github, and take a look at all
+the commits. Have your partner (the owner) pull down the changes. You both should now have the exact same code on the <code class="highlighter-rouge">main</code> branch.</p>
+
+<h2 id="id_part-2-rebasing">Part 2: Rebasing</h2>
+<p>We’re going to to do a rebase and fast-forward this time, instead of a merge. <strong><em>Let’s reverse roles</em></strong> now so that the owner becomes the collaborator and vice-versa.</p>
+
+<h3 id="id_21-owner-setup">2.1. Owner setup</h3>
+<p>Repeat Step 1.1 above, but instead of working with <code class="highlighter-rouge">merge-activity</code>, you will create a new repo within <code class="highlighter-rouge">csci338</code> called <code class="highlighter-rouge">rebase-activity</code>.</p>
+
+<p>Your directory structure should look something like:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
+├── class-exercises-fall2025
+├── lab01
+├── merge-activity
+└── rebase-activity
+</code></pre></div></div>
+
+<h3 id="id_22-collaborator-setup">2.2. Collaborator setup</h3>
+<p>Repeat Step 1.2 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+
+<h3 id="id_23-creating-a-conflict">2.3. Creating a conflict</h3>
+<p>Repeat Step 1.3 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+
+<h3 id="id_24-pulling-down-the-owners-changes">2.4. Pulling down the owner’s changes</h3>
+<p>Repeat Step 1.4 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+
+<h3 id="id_25-rebasing">2.5. Rebasing</h3>
+<p>Now, we’re going to rebase the branches to see how this process differs. The <strong><em>collaborator</em></strong> will do the rebase.</p>
+
+<p>Check out <code class="highlighter-rouge">main</code> again. Take a look at the history (with all commits and the graph option enabled). Where is HEAD?</p>
+
+<p>Next, we’ll rebase <code class="highlighter-rouge">main</code> on the <code class="highlighter-rouge">feature-b</code> branch, then fast-forward merge <code class="highlighter-rouge">feature-b</code> back into <code class="highlighter-rouge">main</code>. So check out the <code class="highlighter-rouge">feature-b</code> branch. And then, after confirming you’re in the right place, do the rebase.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase main
+</code></pre></div></div>
+
+<p>Git will try to “replay” the new commit in <code class="highlighter-rouge">main</code> on top but it will hit the same conflict we saw in the merge case. Read the message Git outputs.</p>
+
+<p>Now take a look at the code. You’ll see it looks something like this.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt; HEAD
+<span class="o">[</span>Feature A Code]
+<span class="o">=======</span>
+<span class="o">[</span>Feature B Code]
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> 1a0ffaa <span class="o">(</span>Add feature b<span class="o">)</span>
+</code></pre></div></div>
+
+<p>In this case <code class="highlighter-rouge">HEAD</code> is <code class="highlighter-rouge">main</code> again, since we checked it out to replay
+the commits on top. Check the status of the repository, and read all
+the hints Git is giving you. Fix the conflicts as you did this time.</p>
+
+<p>Once you’re done, check the status again and read the message.</p>
+
+<p><strong>Question:</strong> What should you do now?</p>
+
+<p><strong>Answer:</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
+git rebase --continue
+</code></pre></div></div>
+
+<p>Once that’s done, you’ve successfully rebase <code class="highlighter-rouge">main</code> onto
+<code class="highlighter-rouge">feature-b</code>. Check the history and note that the commit hash
+associated with <code class="highlighter-rouge">feature-b</code> has changed as we expected!</p>
+
+<p>We’re not finished yet, because we wanted to get <code class="highlighter-rouge">feature-b</code> into
+<code class="highlighter-rouge">main</code>. Now that <code class="highlighter-rouge">main</code> is no longer ahead, we can do a fast-forward
+merge into main. To complete this, check out the main branch and do a
+merge.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout main
+<span class="nv">$ </span>git merge feature-b
+</code></pre></div></div>
+
+<p>Read the output. Now take a look at the history with the <code class="highlighter-rouge">--graph</code>
+option. How is the history different from the merge above? Do you see
+a merge commit?</p>
+
+<p>Push the changes to Github and take a look at the commits.</p>
+
+<p>Now you’ve successfully fixed some merge conflicts, merged, and
+rebased. Do you have any opinions on which is better? Talk with your
+partner about your newly found strong opinions.</p>
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

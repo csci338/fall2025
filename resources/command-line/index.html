@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>The Command Line</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li class="active" ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_10-reasons-to-know-how-to-use-the-command-line">10 reasons to know how to use the command line</a></li>
+  <li><a href="#id_useful-references">Useful References</a>
+    <ol>
+      <li><a href="#id_using-linux-commands-on-windows-via-wsl">Using Linux Commands on Windows via WSL</a></li>
+      <li><a href="#id_environment-files">Environment files</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_cheatsheet-of-useful-bash-commands">Cheatsheet of Useful Bash Commands</a>
+    <ol>
+      <li><a href="#id_command-history">Command History</a></li>
+      <li><a href="#id_navigating-directories">Navigating Directories</a></li>
+      <li><a href="#id_reading-files">Reading Files</a></li>
+      <li><a href="#id_creating-directories--files">Creating Directories &amp; Files</a></li>
+      <li><a href="#id_copying--moving-files--directories">Copying &amp; Moving Files &amp; Directories</a></li>
+      <li><a href="#id_deleting-directories--files">Deleting Directories &amp; Files</a></li>
+      <li><a href="#id_standard-output-standard-error-and-standard-input">Standard Output, Standard Error and Standard Input</a></li>
+      <li><a href="#id_finding-text-within-files">Finding Text within Files</a></li>
+      <li><a href="#id_finding-files">Finding Files</a></li>
+      <li><a href="#id_replace-in-files">Replace in Files</a></li>
+      <li><a href="#id_symbolic-links">Symbolic Links</a></li>
+      <li><a href="#id_file-permissions">File Permissions</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_what-is-sudo">What is sudo?</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1><a href="../resources">Resources</a> > The Command Line</h1>
+    
+ 
+                <h2 id="id_10-reasons-to-know-how-to-use-the-command-line">10 reasons to know how to use the command line</h2>
+<ol>
+  <li>You can SSH (Secure Shell) into any server in the world without installing special software / clients.</li>
+  <li>It allows you greater control over your system’s functions (creating files and folders, changing permissions, running executables, creating shortcuts / symlinks).</li>
+  <li>Many advanced system functions don’t have a GUI interface (or the GUI isn’t any easier to use!).</li>
+  <li>It’s faster (once you get the hang of it).</li>
+  <li>You can bundle system commands into scripts tailored to specific use cases (and configure when and how they run).</li>
+  <li>It allows you to easily stop and start services and processes (e.g., database servers, web servers, system tasks).</li>
+  <li>Most package managers (e.g., <code class="highlighter-rouge">npm</code>, <code class="highlighter-rouge">pip</code>, <code class="highlighter-rouge">gem</code>, <code class="highlighter-rouge">brew</code>, <code class="highlighter-rouge">apt-get</code>, <code class="highlighter-rouge">yum</code>) require them for tracking / organizing dependencies (which you need when building software).</li>
+  <li>Even if you use a GUI for git, you’ll eventually have to use the command line for advanced features (and debugging).</li>
+  <li>Allows you to easily configure and replicate your operating system environment across different machines.</li>
+  <li>You’ll need bash skills for your CS jobs (no matter what kind of shop you’re in).</li>
+</ol>
+
+<h2 id="id_useful-references">Useful References</h2>
+<p>In this course, we will be using bash. Bash is a Unix shell and command language that runs natively on Mac, Linux, and Unix operating systems. If you are a Windows user, you will be using WSL (see below) to run a GNU/Linux environment.</p>
+
+<h3 id="id_using-linux-commands-on-windows-via-wsl">Using Linux Commands on Windows via WSL</h3>
+<p>If you are a Windows user, <a href="wsl">please install WSL</a> in order to practice using the bash commands in a Linux environment.</p>
+
+<h3 id="id_environment-files">Environment files</h3>
+<p>Environment files set environment variables on your operating system. This allows you to configure shortcuts and run scripts on startup. Here are some relevant resources for configuring these files:</p>
+<ul>
+  <li><a href="https://medium.com/@rajsek/zsh-bash-startup-files-loading-order-bashrc-zshrc-etc-e30045652f2e">Bash startup files loading order</a></li>
+  <li>Sample <code class="highlighter-rouge">.zshrc</code> customizations you can make: Check out <a href="https://github.com/semmypurewal/dotfiles/blob/master/zsh">Semmy’s GitHub repo</a>.</li>
+</ul>
+
+<h2 id="id_cheatsheet-of-useful-bash-commands">Cheatsheet of Useful Bash Commands</h2>
+<p>The following commands are taken from <a href="https://github.com/RehanSaeed/Bash-Cheat-Sheet">this bash cheat sheet</a> by <a href="https://github.com/RehanSaeed">@RehanSaeed</a></p>
+
+<h3 id="id_command-history">Command History</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">history</span>
+</code></pre></div></div>
+
+<h3 id="id_navigating-directories">Navigating Directories</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>                       <span class="c"># Print current directory path</span>
+<span class="nb">ls</span>                        <span class="c"># List directories</span>
+<span class="nb">ls</span> <span class="nt">-a</span>|--all               <span class="c"># List directories including hidden</span>
+<span class="nb">ls</span> <span class="nt">-l</span>                     <span class="c"># List directories in long form</span>
+<span class="nb">ls</span> <span class="nt">-l</span> <span class="nt">-h</span>|--human-readable <span class="c"># List directories in long form with human readable sizes</span>
+<span class="nb">ls</span> <span class="nt">-t</span>                     <span class="c"># List directories by modification time, newest first</span>
+<span class="nb">cd </span>foo                    <span class="c"># Go to foo sub-directory</span>
+<span class="nb">cd</span>                        <span class="c"># Go to home directory</span>
+<span class="nb">cd</span> ~                      <span class="c"># Go to home directory</span>
+<span class="nb">cd</span> -                      <span class="c"># Go to last directory</span>
+<span class="nb">cd</span> ..                     <span class="c"># Go up one directory</span>
+<span class="nb">cd</span> ../..                  <span class="c"># Go up two directories</span>
+<span class="nb">cd </span>foo/bar                <span class="c"># Go into the foo sub-directory, then go into the bar sub-directory</span>
+<span class="nb">cd</span> ../foo/bar             <span class="c"># Go up one directory, then into foo, then into bar</span>
+<span class="nb">stat </span>foo.txt              <span class="c"># List size, created and modified timestamps for a file</span>
+<span class="nb">stat </span>foo                  <span class="c"># List size, created and modified timestamps for a directory</span>
+tree                      <span class="c"># List directory and file tree</span>
+tree <span class="nt">-a</span>                   <span class="c"># List directory and file tree including hidden</span>
+tree <span class="nt">-d</span>                   <span class="c"># List directory tree</span>
+</code></pre></div></div>
+
+<h3 id="id_reading-files">Reading Files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>foo.txt            <span class="c"># Print all contents</span>
+less foo.txt           <span class="c"># Print some contents at a time (g - go to top of file, SHIFT+g, go to bottom of file, /foo to search for 'foo')</span>
+<span class="nb">head </span>foo.txt           <span class="c"># Print top 10 lines of file</span>
+<span class="nb">tail </span>foo.txt           <span class="c"># Print bottom 10 lines of file</span>
+open foo.txt           <span class="c"># Open file in the default editor</span>
+<span class="nb">wc </span>foo.txt             <span class="c"># List number of lines words and characters in the file</span>
+</code></pre></div></div>
+
+<h3 id="id_creating-directories--files">Creating Directories &amp; Files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>foo.txt                   <span class="c"># Create file or update existing files modified timestamp</span>
+<span class="nb">touch </span>foo.txt bar.txt           <span class="c"># Create multiple files</span>
+<span class="nb">touch</span> <span class="o">{</span>foo,bar<span class="o">}</span>.txt             <span class="c"># Create multiple files</span>
+<span class="nb">touch test</span><span class="o">{</span>1..3<span class="o">}</span>                <span class="c"># Create test1, test2 and test3 files</span>
+<span class="nb">touch test</span><span class="o">{</span>a..c<span class="o">}</span>                <span class="c"># Create testa, testb and testc files</span>
+
+<span class="nb">mktemp</span>                          <span class="c"># Create a temporary file</span>
+
+<span class="nb">mkdir </span>foo                        <span class="c"># Create a directory</span>
+<span class="nb">mkdir </span>foo bar                    <span class="c"># Create multiple directories</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span>|--parents foo/bar       <span class="c"># Create nested directory</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span>|--parents <span class="o">{</span>foo,bar<span class="o">}</span>/baz <span class="c"># Create multiple nested directories</span>
+
+<span class="nb">mktemp</span> <span class="nt">-d</span>|--directory            <span class="c"># Create a temporary directory</span>
+</code></pre></div></div>
+
+<h3 id="id_copying--moving-files--directories">Copying &amp; Moving Files &amp; Directories</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-R</span>|--recursive foo bar                               <span class="c"># Copy directory</span>
+<span class="nb">mv </span>foo ../.                                             <span class="c"># Moves a directory up one level</span>
+<span class="nb">mv </span>foo bar                                              <span class="c"># Renames a directory</span>
+<span class="nb">cp </span>foo.txt bar.txt                                      <span class="c"># Copy file</span>
+<span class="nb">mv </span>foo.txt bar.txt                                      <span class="c"># Move file</span>
+</code></pre></div></div>
+
+<h3 id="id_deleting-directories--files">Deleting Directories &amp; Files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rmdir </span>foo                        <span class="c"># Delete empty directory</span>
+<span class="nb">rm</span> <span class="nt">-r</span>|--recursive foo            <span class="c"># Delete directory including contents</span>
+<span class="nb">rm</span> <span class="nt">-r</span>|--recursive <span class="nt">-f</span>|--force foo <span class="c"># Delete directory including contents, ignore nonexistent files and never prompt</span>
+
+<span class="sb">```</span>bash
+<span class="nb">rm </span>foo.txt                       <span class="c"># Delete file</span>
+<span class="nb">rm</span> <span class="nt">-f</span>|--force foo.txt            <span class="c"># Delete file, ignore nonexistent files and never prompt</span>
+</code></pre></div></div>
+
+<h3 id="id_standard-output-standard-error-and-standard-input">Standard Output, Standard Error and Standard Input</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"foo"</span> <span class="o">&gt;</span> bar.txt       <span class="c"># Overwrite file with content</span>
+<span class="nb">echo</span> <span class="s2">"foo"</span> <span class="o">&gt;&gt;</span> bar.txt      <span class="c"># Append to file with content</span>
+
+<span class="nb">ls </span>exists 1&gt; stdout.txt    <span class="c"># Redirect the standard output to a file</span>
+<span class="nb">ls </span>noexist 2&gt; stderror.txt <span class="c"># Redirect the standard error output to a file</span>
+<span class="nb">ls </span>2&gt;&amp;1 out.txt            <span class="c"># Redirect standard output and error to a file</span>
+<span class="nb">ls</span> <span class="o">&gt;</span> /dev/null             <span class="c"># Discard standard output and error</span>
+
+<span class="nb">read </span>foo                   <span class="c"># Read from standard input and write to the variable foo</span>
+</code></pre></div></div>
+
+<h3 id="id_finding-text-within-files">Finding Text within Files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s1">'foo'</span> ./bar.txt                         <span class="c"># Search for 'foo' in file 'bar.txt'</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-r</span>|--recursive              <span class="c"># Search for 'foo' in directory 'bar'</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-R</span>|--dereference-recursive  <span class="c"># Search for 'foo' in directory 'bar' and follow symbolic links</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-l</span>|--files-with-matches     <span class="c"># Show only files that match</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-L</span>|--files-without-match    <span class="c"># Show only files that don't match</span>
+<span class="nb">grep</span> <span class="s1">'Foo'</span> ./bar <span class="nt">-i</span>|--ignore-case            <span class="c"># Case insensitive search</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-x</span>|--line-regexp            <span class="c"># Match the entire line</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-C</span>|--context 1              <span class="c"># Add N line of context above and below each search result</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-v</span>|--invert-match           <span class="c"># Show only lines that don't match</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-c</span>|--count                  <span class="c"># Count the number lines that match</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">-n</span>|--line-number            <span class="c"># Add line numbers</span>
+<span class="nb">grep</span> <span class="s1">'foo'</span> ./bar <span class="nt">--colour</span>                    <span class="c"># Add colour to output</span>
+</code></pre></div></div>
+
+<h3 id="id_finding-files">Finding Files</h3>
+
+<p>Find binary files for a command. The following uses the <code class="highlighter-rouge">wget</code> package as an example, but any binary file could be used (e.g., <code class="highlighter-rouge">ruby</code>, <code class="highlighter-rouge">python</code>, <code class="highlighter-rouge">bash</code>, <code class="highlighter-rouge">git</code>, <code class="highlighter-rouge">java</code>, etc.)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">type </span>wget                                  <span class="c"># Find the binary</span>
+which wget                                 <span class="c"># Find the binary</span>
+whereis wget                               <span class="c"># Find the binary, source, and manual page files</span>
+</code></pre></div></div>
+
+<h3 id="id_replace-in-files">Replace in Files</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="s1">'s/fox/bear/g'</span> foo.txt               <span class="c"># Replace fox with bear in foo.txt and output to console</span>
+<span class="nb">sed</span> <span class="s1">'s/fox/bear/gi'</span> foo.txt              <span class="c"># Replace fox (case insensitive) with bear in foo.txt and output to console</span>
+<span class="nb">sed</span> <span class="s1">'s/red fox/blue bear/g'</span> foo.txt      <span class="c"># Replace red with blue and fox with bear in foo.txt and output to console</span>
+<span class="nb">sed</span> <span class="s1">'s/fox/bear/g'</span> foo.txt <span class="o">&gt;</span> bar.txt     <span class="c"># Replace fox with bear in foo.txt and save in bar.txt</span>
+<span class="nb">sed</span> <span class="s1">'s/fox/bear/g'</span> foo.txt <span class="nt">-i</span>|--in-place <span class="c"># Replace fox with bear and overwrite foo.txt</span>
+</code></pre></div></div>
+
+<h3 id="id_symbolic-links">Symbolic Links</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span>|--symbolic foo bar            <span class="c"># Create a link 'bar' to the 'foo' folder</span>
+<span class="nb">ln</span> <span class="nt">-s</span>|--symbolic <span class="nt">-f</span>|--force foo bar <span class="c"># Overwrite an existing symbolic link 'bar'</span>
+<span class="nb">ls</span> <span class="nt">-l</span>                               <span class="c"># Show where symbolic links are pointing</span>
+</code></pre></div></div>
+
+<h3 id="id_file-permissions">File Permissions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Permission</th>
+      <th>rwx</th>
+      <th>Binary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>7</td>
+      <td>read, write and execute</td>
+      <td>rwx</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>read and write</td>
+      <td>rw-</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>read and execute</td>
+      <td>r-x</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>read only</td>
+      <td>r–</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>write and execute</td>
+      <td>-wx</td>
+      <td>011</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>write only</td>
+      <td>-w-</td>
+      <td>010</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>execute only</td>
+      <td>–x</td>
+      <td>001</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>none</td>
+      <td>—</td>
+      <td>000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For a directory, execute means you can enter a directory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Group</th>
+      <th>Others</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td>4</td>
+      <td>4</td>
+      <td>User can read and write, everyone else can read (Default file permissions)</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>5</td>
+      <td>5</td>
+      <td>User can read, write and execute, everyone else can read and execute (Default directory permissions)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>u - User</li>
+  <li>g - Group</li>
+  <li>o - Others</li>
+  <li>a - All of the above</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-l</span> /foo.sh            <span class="c"># List file permissions</span>
+<span class="nb">chmod</span> +100 foo.sh        <span class="c"># Add 1 to the user permission</span>
+<span class="nb">chmod</span> <span class="nt">-100</span> foo.sh        <span class="c"># Subtract 1 from the user permission</span>
+<span class="nb">chmod </span>u+x foo.sh         <span class="c"># Give the user execute permission</span>
+<span class="nb">chmod </span>g+x foo.sh         <span class="c"># Give the group execute permission</span>
+<span class="nb">chmod </span>u-x,g-x foo.sh     <span class="c"># Take away the user and group execute permission</span>
+<span class="nb">chmod </span>u+x,g+x,o+x foo.sh <span class="c"># Give everybody execute permission</span>
+<span class="nb">chmod </span>a+x foo.sh         <span class="c"># Give everybody execute permission</span>
+<span class="nb">chmod</span> +x foo.sh          <span class="c"># Give everybody execute permission</span>
+</code></pre></div></div>
+
+<h2 id="id_what-is-sudo">What is sudo?</h2>
+<p><img src="https://imgs.xkcd.com/comics/sandwich.png" /></p>
+
+<p>Sudo is a command line utility that provides a way to temporarily grant users or user groups privileged access to system resources so that they can run commands that they cannot run under their regular accounts. Only accounts listed in the system’s “sudoers” file are granted privileged access. On Macs and PCs, accounts that have administrator privileges are typically also added to the sudoers file.</p>
+
+<ul>
+  <li>Read more <a href="https://www.techtarget.com/searchsecurity/definition/sudo-superuser-do">here</a>.</li>
+</ul>
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

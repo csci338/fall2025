@@ -1,1 +1,0 @@
-All lab starter files stored here.
