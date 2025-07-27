@@ -1,0 +1,116 @@
+.subtitle {
+    margin: -15px 0px 35px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #777;
+}
+
+.caption {
+    line-height: 1.2em;
+    font-size: 0.9em;
+    margin-top: -8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.frame {
+    border-radius: 5px;
+    padding: 5px;
+    border: solid 1px #CCC;
+}
+
+img.xsmall {
+    max-width: 30%;
+}
+img.small {
+    max-width: 40%;
+}
+img.medium {
+    max-width: 70%;
+}
+img.med-lg {
+    max-width: 85%;
+}
+img.large {
+    max-width: 100%;
+}
+.center {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+img.creature {
+    max-width: 20%;
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+.module-image {
+    border-radius: 5px;
+    padding: 5px;
+    border: solid 1px #CCC;
+    max-width: 30%;
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+.highlighter-rouge {
+    margin-bottom: 20px;
+}
+
+.button {
+    background: #fff;
+    border: solid 1px $br1;
+    color: $br1 !important;
+    margin: 20px .5em 20px 0;
+    padding: .8em 1em .7em 1em;
+    align-self: flex-start;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    text-decoration: none;
+    i {
+        margin-left: 5px;
+    }   
+}
+
+.nu-button, .nu-button:visited, .nu-button:active {
+    &:hover {
+        background: $br2;
+        border: none;
+    }
+    background: $br1;
+    color: #fff !important;
+    border: none;
+    margin: 20px .5em 20px 0;
+    padding: .8em 1em .7em 1em;
+    align-self: flex-start;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    text-decoration: none;
+    i {
+        margin-left: 5px;
+    } 
+}
+
+table.instructions {
+    td, th {
+        font-size: 1em;
+    }
+}
+
+ol.compact, ul.compact {
+    li {
+        margin: 0;
+        line-height: 1.4em;
+    }
+}
+
+@media (max-width: 800px) { 
+    img.small, img.medium, img.med-lg {
+        max-width: 100%;
+    }
+    img.module-image, img.creature {
+        max-width: 40%;
+    }
+}

@@ -1,0 +1,64 @@
+title: "CSCI 338: Fall 2025"
+subtitle: "Software Engineering"
+email: vanwars@unca.edu
+baseurl: "/fall2025"
+term_start_date: "2025-08-18"
+term_end_date: "2025-12-14"
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username:  jekyll
+
+timezone: "America/New_York"
+# Build settings
+markdown: kramdown
+kramdown:
+  # auto_ids: true
+  auto_id_prefix: "id_"
+# kramdown:
+#   syntax_highlighter_opts:
+#     block:
+#       line_numbers: true
+theme: minima
+plugins:
+  - jekyll-feed
+exclude: 
+  - _lectures/draft
+  - _assignments/draft
+  - course-files/administrative
+  - course-files/build
+  - course-files/homework/drafts
+  - course-files/tutorials/drafts
+  - course-files/lectures/drafts
+  - course-files/practice_exams/drafts
+  - course-files/projects/drafts
+collections:
+  activities:
+    output: true
+    sort_by: ordering
+    permalink: /activities/:name
+  assignments:
+    output: true
+    sort_by: ordering
+    permalink: /assignments/:name
+  lectures:
+    output: true
+    sort_by: lecture_date
+    permalink: /lectures/:name
+  exams:
+    output: true
+    sort_by: start_date
+    permalink: /exams/:name
+  resources:
+    output: true
+    sort_by: lecture_date
+    permalink: /resources/:name/
+
+collections_dir: pages
+
+sass:
+  style: compact
+  sass_dir: _sass
+
+deadline_reminder: true
+
+

@@ -1,0 +1,9 @@
+{% assign readings = page.readings | filter_list_by_date: date %}
+{% if readings.size > 0 %}
+    <h3 id="readings_{{page.num}}">Readings</h3>
+    <ul>
+    {% for reading in readings %}
+        <li>{{ reading | display_link_or_badge: true, false, true }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}

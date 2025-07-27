@@ -1,0 +1,51 @@
+.expandable-section {
+  margin: 0 0 1em 0;
+}
+
+.toggle-button {
+  background-color: transparent;
+  width: 20px;
+  text-align: center;
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.toggle-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.toggle-header {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
+}
+
+.expandable-content {
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#toggle-button {
+    position: fixed;
+    top: 5px;
+    margin: 0;
+    right: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+
+    #toggle-button,
+    #toggle-button.show {
+        display: none;
+    }
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+</head>
+
+<body class="two-column">
+    {% include header.html %}
+    {% include navigation.html %}
+    {% assign all_content = schedule_simple | append: content %}
+    <main class="syllabus">
+        <aside>
+            {% include toc.html html=all_content class='side-menu' ordered=true %}
+        </aside>
+        <article>
+            {% include page_title.html %}
+
+            <table class="course-overview">
+                <tbody>
+                    <tr>
+                        <td><strong>Term</strong></td>
+                        <td>{{ page.term }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td>{{ page.course }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Time / Location</strong></td>
+                        <td>{{ page.time }}, {{ page.location }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instructor</strong></td>
+                        <td>
+                            {{ page.instructor_name }} ({{ page.instructor_pronouns }})
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td>{{ page.instructor_email }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Office Hours</strong></td>
+                        <td>{{ page.office_hours }}, {{ page.instructor_location }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prerequisites</strong></td>
+                        <td>{{ page.prerequisites }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            {{ content }}
+
+        </article>
+    </main>
+
+    {% include footer.html %}
+    {% include scripts.html %}
+    {% if page.h_max %}
+    <script>
+        window.h_max = "{{page.h_max}}";
+    </script>
+    {% endif %}
+    <script type="text/javascript" src="{{site.baseurl}}/assets/js/scrollspy.js"></script>
+    <script type="text/javascript" src="{{site.baseurl}}/assets/js/expandable.js"></script>
+</body>
+
+</html>
