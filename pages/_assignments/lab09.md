@@ -6,8 +6,8 @@ draft: 1
 points: 6
 abbreviation: Lab 9
 num: 9
-start_date: 2025-11-18
-due_date: 2025-11-26
+start_date: 2025-11-04
+due_date: 2025-11-13
 ---
 
 <!-- {% include walkthrough-react-activity.html %} -->

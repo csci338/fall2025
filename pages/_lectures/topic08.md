@@ -4,10 +4,10 @@ title: "Back-End: Databases & ORMs"
 type: topic
 draft: 1
 num: 8
-start_date: 2025-10-30
+start_date: 2025-10-23
 labs: [8]
 readings: 
-    - start_date: 2025-11-04
+    - start_date: 2025-10-23
       type: reading
       citation: >
         <strong>SQL Readings</strong>: Please review the reference materials on SQL:
@@ -21,7 +21,7 @@ readings:
             <li><a href="https://www.postgresql.org/docs/current/tutorial-delete.html" target="_blank">Deletions</a></li>
         </ul>
       required: 1
-    - start_date: 2025-11-04
+    - start_date: 2025-10-23
       type: reading
       citation: >
         <strong>Object-Relational Mapping Readings</strong>:
@@ -31,14 +31,14 @@ readings:
         </ul>
       required: 1
 slides: 
-    - start_date: 2025-11-04
+    - start_date: 2025-10-23
       type: lecture
       draft: 1
       num: 11
       title: Intro to Databases & Object-Relational Mappings
       url: https://docs.google.com/presentation/d/1ND9V2eVBVDEoaF_T-XvMeyjM73l9NqBD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 activities:
-    - start_date: 2025-11-06
+    - start_date: 2025-10-23
       title: Team Formation Questionnaire
       draft: 1
       type: activity

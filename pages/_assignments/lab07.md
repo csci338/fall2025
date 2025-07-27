@@ -6,8 +6,8 @@ abbreviation: Lab 7
 draft: 1
 points: 6
 num: 7
-start_date: 2025-10-30
-due_date: 2025-11-06
+start_date: 2025-10-21
+due_date: 2025-11-28
 ---
 
 ## Set Up

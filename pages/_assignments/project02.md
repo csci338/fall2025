@@ -7,7 +7,7 @@ points: 20
 abbreviation: Project 2
 num: 2
 h_max: 5
-start_date: 2025-11-11
+start_date: 2025-10-30
 due_date: 2025-12-09
 hide: true
 ---

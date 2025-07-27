@@ -3,14 +3,14 @@ layout: syllabus
 title: Syllabus
 permalink: /syllabus/
 course: "CSCI 338: Software Engineering"
-term: "Spring 2025"
+term: "Fall 2025"
 prerequisites: "CSCI 202 and CSCI 235"
-time: "Tu, Th 3:15 PM - 4:55 PM"
+time: "Tu, Th 9:55 PM - 11:35 PM"
 location: "RRO Rm. 217"
 instructor_name: "Dr. Sarah Van Wart"
 instructor_email: "svanwart@unca.edu"
 instructor_pronouns: "she / her"
-office_hours: "Mo, We, Fr 3:30 PM - 4:30 PM"
+office_hours: "Mo, We, Fr 2:30 PM - 3:30 PM"
 instructor_location: "RRO Rm. 220"
 ---
 
@@ -95,26 +95,18 @@ Labs will be graded according to the following scale (from 0-3 points):
 | 2pts | Check | Most of the assignment was completed. |
 | 3pts | Check Plus | Assignment fully completed and works as expected. |
 
-**Late labs will not be accepted.**
+**Late labs will penalized 20% if they are turned in within a week of the deadline. After 1 week, late labs will not be accepted.**
 
 ### Projects
 Projects involve building part of a larger system, and will be graded according to a rubric. We will be using a code review workflow for assessment. Here is how the process will work:
 
-#### Code Reviews
-1. You will submit your work as a series of pull requests (PR) on or before the due date.
-1. I will do a code review and either ask for changes or accept your changes. 
-    * If your PR is accepted, you're done and will receive full credit for your work.
-    * Otherwise, you will need to implement the requested changes and re-submit before the deadline.
-
-#### Code Review Resubmissions and Late Work
-* All late submissions will incur a 15% penalty. 
-* If you anticipate not being able to complete your feature on time, please talk to the instructor as soon as possible (just as you would if this were your job).
+**No late project deliverables will be accepted.**
  
 ### Participation
 In this class, participation is defined as:
 
-1. [8%] Attendance – "Half of life is just showing up."
-2. [2%] Engaging with the course ideas and with your peers, including completing the readings and participating in the discussions and activities, and performance on the quizzes.
+1. [5%] Attendance – "Half of life is just showing up."
+2. [5%] Engaging with the course ideas and with your peers, including completing the readings and participating in the discussions and activities, and performance on the quizzes.
 
 We will take attendance. You may miss **two** class sessions – no questions asked – without a grade penalty. Any additional absences (beyond your two “freebies”) will impact your participation grade (and more to the point, your capacity to productively engage with the class).
 
