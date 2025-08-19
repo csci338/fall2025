@@ -75,10 +75,6 @@ img.creature {
 }
 
 .nu-button, .nu-button:visited, .nu-button:active {
-    &:hover {
-        background: $br2;
-        border: none;
-    }
     background: $br1;
     color: #fff !important;
     border: none;
@@ -88,6 +84,11 @@ img.creature {
     text-transform: uppercase;
     transition: 0.3s ease;
     text-decoration: none;
+    
+    &:hover {
+        background: $br2;
+        border: none;
+    }
     i {
         margin-left: 5px;
     } 
