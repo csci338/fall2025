@@ -150,33 +150,33 @@
 
 <p><strong>On GitHub:</strong></p>
 <ul>
-  <li>Sync the latest changes from the class version of <code class="highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo on GitHub.</li>
+  <li>Sync the latest changes from the class version of <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo on GitHub.</li>
 </ul>
 
 <p><strong>On your local computer:</strong></p>
 <ul>
   <li>Make sure that all of your changes from the last lab are staged and committed.</li>
-  <li>Checkout your main branch: <code class="highlighter-rouge">git checkout main</code></li>
-  <li>Pull down the latest changes: <code class="highlighter-rouge">git pull</code>
+  <li>Checkout your main branch: <code class="language-plaintext highlighter-rouge">git checkout main</code></li>
+  <li>Pull down the latest changes: <code class="language-plaintext highlighter-rouge">git pull</code>
     <ul>
-      <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab09</code> folder has been created.</li>
+      <li>If you did it correctly, you will notice that a new <code class="language-plaintext highlighter-rouge">lab09</code> folder has been created.</li>
     </ul>
   </li>
-  <li>Create a new branch called lab09: <code class="highlighter-rouge">git checkout -b lab09-b</code></li>
-  <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
+  <li>Create a new branch called lab09: <code class="language-plaintext highlighter-rouge">git checkout -b lab09-b</code></li>
+  <li>Verify that you’re on your new branch: <code class="language-plaintext highlighter-rouge">git branch</code></li>
 </ul>
 
 <h3 id="id_starter-files">Starter Files</h3>
 <ol>
-  <li>Inside of your <code class="highlighter-rouge">lab09</code> folder, create 3 files:
+  <li>Inside of your <code class="language-plaintext highlighter-rouge">lab09</code> folder, create 3 files:
     <ul>
-      <li><code class="highlighter-rouge">index.html</code></li>
-      <li><code class="highlighter-rouge">styles.css</code></li>
-      <li><code class="highlighter-rouge">.gitignore</code> (this file should start with the “.” prefix, which means that it’s a system, hidden file).</li>
+      <li><code class="language-plaintext highlighter-rouge">index.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">styles.css</code></li>
+      <li><code class="language-plaintext highlighter-rouge">.gitignore</code> (this file should start with the “.” prefix, which means that it’s a system, hidden file).</li>
     </ul>
   </li>
   <li>
-    <p>Inside of your <code class="highlighter-rouge">index.html</code> file, paste the following code:</p>
+    <p>Inside of your <code class="language-plaintext highlighter-rouge">index.html</code> file, paste the following code:</p>
 
     <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">&lt;!DOCTYPE html&gt;</span>
  <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
@@ -197,16 +197,16 @@
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Inside of your <code class="highlighter-rouge">styles.css</code> file, paste the following code:</p>
+    <p>Inside of your <code class="language-plaintext highlighter-rouge">styles.css</code> file, paste the following code:</p>
 
     <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">body</span> <span class="p">{</span>
      <span class="nl">font-family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-     <span class="nl">background-color</span><span class="p">:</span> <span class="no">navy</span><span class="p">;</span>
-     <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+     <span class="nl">background-color</span><span class="p">:</span> <span class="nx">navy</span><span class="p">;</span>
+     <span class="nl">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
  <span class="p">}</span>
 </code></pre></div>    </div>
   </li>
-  <li>Inside your <code class="highlighter-rouge">.gitignore</code> file, type the word <code class="highlighter-rouge">node_modules</code>. This file is telling git not to put the <code class="highlighter-rouge">node_modules</code> folder under version control. Since these files were built by somebody else, you don’t typically commit them to your version control repository.</li>
+  <li>Inside your <code class="language-plaintext highlighter-rouge">.gitignore</code> file, type the word <code class="language-plaintext highlighter-rouge">node_modules</code>. This file is telling git not to put the <code class="language-plaintext highlighter-rouge">node_modules</code> folder under version control. Since these files were built by somebody else, you don’t typically commit them to your version control repository.</li>
 </ol>
 
 <p>When you’re done, preview your HTML page in the browser. If you did it correctly, you should see your HTML, and the background should be navy blue.</p>
@@ -233,7 +233,7 @@
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>After editing your <code class="highlighter-rouge">package.json</code> file, run <strong><code class="highlighter-rouge">npm run dev</code></strong> on the command line. When you do, you should see the following output:</p>
+    <p>After editing your <code class="language-plaintext highlighter-rouge">package.json</code> file, run <strong><code class="language-plaintext highlighter-rouge">npm run dev</code></strong> on the command line. When you do, you should see the following output:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">**</span>VITE<span class="k">**</span> v5.2.6  ready <span class="k">in</span> <span class="k">**</span>307<span class="k">**</span> ms
  ➜  <span class="k">**</span>Local<span class="k">**</span>:   http://localhost:<span class="k">**</span>5173<span class="k">**</span>/
@@ -265,15 +265,15 @@
 <p>Now, we’re going to make a few changes to our HTML and JavaScript to make it a React App.</p>
 
 <ol>
-  <li>Create a new folder called <code class="highlighter-rouge">src</code> inside of your <code class="highlighter-rouge">lab09</code> folder.</li>
+  <li>Create a new folder called <code class="language-plaintext highlighter-rouge">src</code> inside of your <code class="language-plaintext highlighter-rouge">lab09</code> folder.</li>
   <li>
-    <p>Inside of <code class="highlighter-rouge">src</code>, create a new file called <code class="highlighter-rouge">App.jsx</code></p>
+    <p>Inside of <code class="language-plaintext highlighter-rouge">src</code>, create a new file called <code class="language-plaintext highlighter-rouge">App.jsx</code></p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
 
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;&gt;</span>
              <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
                  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First App<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -287,23 +287,23 @@
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Also inside of <code class="highlighter-rouge">src</code>, Create another new file called <code class="highlighter-rouge">main.jsx</code> and paste the following code into your page:</p>
+    <p>Also inside of <code class="language-plaintext highlighter-rouge">src</code>, Create another new file called <code class="language-plaintext highlighter-rouge">main.jsx</code> and paste the following code into your page:</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="p">{</span> <span class="nx">createRoot</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom/client</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./App.jsx</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-     <span class="kd">const</span> <span class="nx">rootEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">);</span>
-     <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">createRoot</span><span class="p">(</span><span class="nx">rootEl</span><span class="p">);</span>
-     <span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nc">App</span> <span class="p">/&gt;);</span>
+ <span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+     <span class="kd">const</span> <span class="nx">rootEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">);</span>
+     <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nf">createRoot</span><span class="p">(</span><span class="nx">rootEl</span><span class="p">);</span>
+     <span class="nx">root</span><span class="p">.</span><span class="nf">render</span><span class="p">(&lt;</span><span class="nc">App</span> <span class="p">/&gt;);</span>
  <span class="p">}</span>
 
- <span class="nx">main</span><span class="p">();</span>
+ <span class="nf">main</span><span class="p">();</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Modify <code class="highlighter-rouge">index.html</code> as follows:</p>
+    <p>Modify <code class="language-plaintext highlighter-rouge">index.html</code> as follows:</p>
 
     <ol>
       <li>
@@ -319,7 +319,7 @@
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>Add the following JavaScript reference within the <code class="highlighter-rouge">&lt;head&gt;&lt;/head&gt;</code> of your HTML file to point to the <strong>main.jsx</strong> file you just made:</p>
+        <p>Add the following JavaScript reference within the <code class="language-plaintext highlighter-rouge">&lt;head&gt;&lt;/head&gt;</code> of your HTML file to point to the <strong>main.jsx</strong> file you just made:</p>
 
         <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;head&gt;</span>
      ...
@@ -337,13 +337,13 @@
 <p>You have now successfully configured your computer to run React applications. A few notes:</p>
 
 <ol>
-  <li>The <code class="highlighter-rouge">main.jsx</code> script essentially injects our first component, <code class="highlighter-rouge">App</code>, into the DOM.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">main.jsx</code> script essentially injects our first component, <code class="language-plaintext highlighter-rouge">App</code>, into the DOM.</li>
   <li>Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.</li>
   <li>Currently, the App component doesn’t do much, but in the subsequent steps, we’re going to make it more interesting.</li>
 </ol>
 
 <h2 id="id_5-create-your-first-component">5. Create your first component</h2>
-<p>Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let’s try making one inside of your <code class="highlighter-rouge">src</code> folder:</p>
+<p>Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let’s try making one inside of your <code class="language-plaintext highlighter-rouge">src</code> folder:</p>
 
 <ol>
   <li>Create a new component called <strong>Profile.jsx</strong> and a corresponding stylesheet called <strong>Profile.css</strong></li>
@@ -353,8 +353,8 @@
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="dl">"</span><span class="s2">./Profile.css</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">()</span> <span class="p">{</span>
-     <span class="k">return</span> <span class="p">(</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Profile</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;</span><span class="nt">section</span> <span class="na">className</span><span class="p">=</span><span class="s">"profile"</span><span class="p">&gt;</span>
              Profile Goes here!
          <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
@@ -369,7 +369,7 @@
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>You can now make new <Profile></Profile> tags. Let’s add a few to your <code class="highlighter-rouge">App.jsx</code> file underneath your <code class="highlighter-rouge">&lt;p&gt;Hello React!&lt;/p&gt;</code> message:</p>
+    <p>You can now make new <Profile></Profile> tags. Let’s add a few to your <code class="language-plaintext highlighter-rouge">App.jsx</code> file underneath your <code class="language-plaintext highlighter-rouge">&lt;p&gt;Hello React!&lt;/p&gt;</code> message:</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello React!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
  <span class="p">&lt;</span><span class="nc">Profile</span> <span class="p">/&gt;</span>
@@ -382,7 +382,7 @@
 </ol>
 
 <h3 id="id_challenge-1">Challenge 1</h3>
-<p>Can you get your <code class="highlighter-rouge">Profile.jsx</code> component to display the “name” attribute? In other words, if I make different profile tags that look like this, 
+<p>Can you get your <code class="language-plaintext highlighter-rouge">Profile.jsx</code> component to display the “name” attribute? In other words, if I make different profile tags that look like this, 
 the component should output each of their names to the screen.</p>
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">Profile</span> <span class="na">name</span><span class="p">=</span><span class="s">"Anita"</span> <span class="p">/&gt;</span>
@@ -391,7 +391,7 @@ the component should output each of their names to the screen.</p>
 <span class="p">&lt;</span><span class="nc">Profile</span> <span class="na">name</span><span class="p">=</span><span class="s">"Laciesha"</span> <span class="p">/&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Hint:</strong> you need to use <code class="highlighter-rouge">props</code> in your <code class="highlighter-rouge">Profile.jsx</code> file.</p>
+<p><strong>Hint:</strong> you need to use <code class="language-plaintext highlighter-rouge">props</code> in your <code class="language-plaintext highlighter-rouge">Profile.jsx</code> file.</p>
 
 <h4 id="id_answer-dont-look-until-youve-tried-it">Answer (don’t look until you’ve tried it!)</h4>
 
@@ -400,9 +400,9 @@ the component should output each of their names to the screen.</p>
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="dl">"</span><span class="s2">./Profile.css</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Profile</span><span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">{</span>
         
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;</span><span class="nt">section</span> <span class="na">className</span><span class="p">=</span><span class="s">"profile"</span><span class="p">&gt;</span>
              <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
          <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
@@ -413,7 +413,7 @@ the component should output each of their names to the screen.</p>
   <li>
     <p>Notice that a <strong>property</strong> is passed into Profile within a set of curly braces:</p>
 
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">{</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Profile</span><span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">{</span>
      <span class="p">...</span>
  <span class="p">}</span>
 </code></pre></div>    </div>
@@ -445,9 +445,9 @@ the component should output each of their names to the screen.</p>
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="dl">"</span><span class="s2">./Profile.css</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">picture</span> <span class="p">})</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Profile</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">picture</span> <span class="p">})</span> <span class="p">{</span>
         
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;</span><span class="nt">section</span> <span class="na">className</span><span class="p">=</span><span class="s">"profile"</span><span class="p">&gt;</span>
              <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
              <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="p">=</span><span class="si">{</span><span class="nx">picture</span><span class="si">}</span> <span class="p">/&gt;</span>
@@ -460,7 +460,7 @@ the component should output each of their names to the screen.</p>
   <li>
     <p>Notice that a second <strong>property</strong> is passed into Profile within a set of curly braces:</p>
 
-    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">Profile</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">picture</span> <span class="p">})</span> <span class="p">{</span>
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Profile</span><span class="p">({</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">picture</span> <span class="p">})</span> <span class="p">{</span>
      <span class="p">...</span>
  <span class="p">}</span>
 </code></pre></div>    </div>
@@ -469,14 +469,14 @@ the component should output each of their names to the screen.</p>
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="p">=</span><span class="si">{</span><span class="nx">picture</span><span class="si">}</span> <span class="p">/&gt;</span>
 </code></pre></div>    </div>
   </li>
-  <li>Feel free to style your card by editing your <code class="highlighter-rouge">Profile.css</code> file.</li>
+  <li>Feel free to style your card by editing your <code class="language-plaintext highlighter-rouge">Profile.css</code> file.</li>
 </ol>
 
 <h2 id="id_6-working-with-data">6. Working with Data</h2>
 <p>Components are often rendered “on-the-fly,” in response to a user event or server request.</p>
 
 <h3 id="id_challenge-1-1">Challenge 1</h3>
-<p>See if you can modify your <code class="highlighter-rouge">App.jsx</code> file to iterate through the following array of classmates and generate a Profile component for each one.</p>
+<p>See if you can modify your <code class="language-plaintext highlighter-rouge">App.jsx</code> file to iterate through the following array of classmates and generate a Profile component for each one.</p>
 
 <ol>
   <li>Add this array within your App function:
@@ -502,7 +502,7 @@ the component should output each of their names to the screen.</p>
   </li>
   <li>Modify the JSX that’s returned
     <ul>
-      <li>Hint: use the array’s <code class="highlighter-rouge">map</code> function.</li>
+      <li>Hint: use the array’s <code class="language-plaintext highlighter-rouge">map</code> function.</li>
     </ul>
   </li>
 </ol>
@@ -513,10 +513,10 @@ the component should output each of their names to the screen.</p>
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">Profile</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./Profile.jsx</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
      <span class="kd">const</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">[...];</span>
 
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;&gt;</span>
              <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
                  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First App<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -524,8 +524,8 @@ the component should output each of their names to the screen.</p>
              <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
                  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello React!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
                  <span class="si">{</span><span class="cm">/* expressions are embedded in curly braces in JSX */</span><span class="si">}</span>
-                 <span class="si">{</span> <span class="nx">people</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">person</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                     <span class="k">return</span> <span class="p">(</span>
+                 <span class="si">{</span> <span class="nx">people</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">person</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                     <span class="k">return </span><span class="p">(</span>
                          <span class="p">&lt;</span><span class="nc">Profile</span>
                              <span class="na">name</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span>
                              <span class="na">picture</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">image_url</span><span class="si">}</span>
@@ -539,11 +539,11 @@ the component should output each of their names to the screen.</p>
 </code></pre></div>    </div>
   </li>
   <li>Note that JSX expressions are embedded in the JSX using curly braces.</li>
-  <li>The <code class="highlighter-rouge">people.map(...)</code> expression is the same JavaScript we’ve been using this whole time.</li>
-  <li>The job of <code class="highlighter-rouge">people.map(...)</code>’s inner function (shown below) is to return a <code class="highlighter-rouge">&lt;Profile /&gt;</code> component for each element in the array:
+  <li>The <code class="language-plaintext highlighter-rouge">people.map(...)</code> expression is the same JavaScript we’ve been using this whole time.</li>
+  <li>The job of <code class="language-plaintext highlighter-rouge">people.map(...)</code>’s inner function (shown below) is to return a <code class="language-plaintext highlighter-rouge">&lt;Profile /&gt;</code> component for each element in the array:
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="c1">// inner anonymous function</span>
      <span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-         <span class="k">return</span> <span class="p">(</span>
+         <span class="k">return </span><span class="p">(</span>
              <span class="p">&lt;</span><span class="nc">Profile</span>
                  <span class="na">name</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span>
                  <span class="na">picture</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">image_url</span><span class="si">}</span>
@@ -553,23 +553,23 @@ the component should output each of their names to the screen.</p>
 
 </code></pre></div>    </div>
   </li>
-  <li>After the <code class="highlighter-rouge">people.map(...)</code> expression has been processed, the return value is an array of React components that are inserted into the surrounding JSX object.</li>
+  <li>After the <code class="language-plaintext highlighter-rouge">people.map(...)</code> expression has been processed, the return value is an array of React components that are inserted into the surrounding JSX object.</li>
   <li>
     <p>An alternate way to do this is to separate the “map” part of the logic into its own function:</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
  <span class="k">import</span> <span class="nx">Profile</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./Profile.jsx</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
      <span class="kd">const</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">[...];</span>
 
-     <span class="kd">function</span> <span class="nx">getProfileComponents</span><span class="p">()</span> <span class="p">{</span>
-         <span class="k">return</span> <span class="nx">people</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="kd">function</span> <span class="nf">getProfileComponents</span><span class="p">()</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="nx">people</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
              <span class="k">return</span> <span class="p">&lt;</span><span class="nc">Profile</span> <span class="na">name</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span> <span class="na">picture</span><span class="p">=</span><span class="si">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">image_url</span><span class="si">}</span> <span class="p">/&gt;;</span>
          <span class="p">});</span>
      <span class="p">}</span>
 
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;&gt;</span>
              <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
                  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First App<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -577,7 +577,7 @@ the component should output each of their names to the screen.</p>
              <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
                  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello React!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
                  <span class="si">{</span><span class="cm">/* expressions are embedded in curly braces in JSX */</span><span class="si">}</span>
-                 <span class="si">{</span><span class="nx">getProfileComponents</span><span class="p">()</span><span class="si">}</span>
+                 <span class="si">{</span><span class="nf">getProfileComponents</span><span class="p">()</span><span class="si">}</span>
              <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
          <span class="p">&lt;/&gt;</span>
      <span class="p">);</span>
@@ -593,7 +593,7 @@ the component should output each of their names to the screen.</p>
 <p><strong>“State Variables”</strong> enable a component to dynamically redraw after a state change – usually caused by a user interaction or an external process like retrieving data from a server). In React, we don’t target DOM elements. Instead, we just redraw our components. The process for getting state variables to work is as follows:</p>
 
 <ol>
-  <li>Create a state variable and a “setter” using the built-in <code class="highlighter-rouge">useState()</code> function.</li>
+  <li>Create a state variable and a “setter” using the built-in <code class="language-plaintext highlighter-rouge">useState()</code> function.</li>
   <li>Manipulate the state variable via a user interaction (e.g., onClick, onMouseOver, etc.). The user interaction will invoke the state variable’s “setter” and set the variable to a new value.</li>
   <li>Once the “setter” is finished setting the new value, the component redraws automatically.</li>
 </ol>
@@ -602,25 +602,25 @@ the component should output each of their names to the screen.</p>
 <p>Let’s talk through state concretely by looking at an example:</p>
 
 <ol>
-  <li>In your <code class="highlighter-rouge">src</code> folder, create a new file called <code class="highlighter-rouge">ButtonCount.jsx</code></li>
+  <li>In your <code class="language-plaintext highlighter-rouge">src</code> folder, create a new file called <code class="language-plaintext highlighter-rouge">ButtonCount.jsx</code></li>
   <li>
     <p>Paste the following code into the file:</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
- <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">ButtonCount</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">ButtonCount</span><span class="p">()</span> <span class="p">{</span>
      <span class="c1">// biggest idea in React is: state variables!</span>
-     <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+     <span class="kd">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-     <span class="kd">function</span> <span class="nx">addOne</span><span class="p">()</span> <span class="p">{</span>
-         <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+     <span class="kd">function</span> <span class="nf">addOne</span><span class="p">()</span> <span class="p">{</span>
+         <span class="nf">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
      <span class="p">}</span>
 
-     <span class="kd">function</span> <span class="nx">resetCounter</span><span class="p">()</span> <span class="p">{</span>
-         <span class="nx">setCount</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+     <span class="kd">function</span> <span class="nf">resetCounter</span><span class="p">()</span> <span class="p">{</span>
+         <span class="nf">setCount</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
      <span class="p">}</span>
 
-     <span class="k">return</span> <span class="p">(</span>
+     <span class="k">return </span><span class="p">(</span>
          <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
              <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">addOne</span><span class="si">}</span><span class="p">&gt;</span>You have clicked <span class="si">{</span><span class="nx">count</span><span class="si">}</span> times<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
              <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">resetCounter</span><span class="si">}</span><span class="p">&gt;</span>reset<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -630,13 +630,13 @@ the component should output each of their names to the screen.</p>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Now, in <code class="highlighter-rouge">App.jsx</code>, import the component you just made…</p>
+    <p>Now, in <code class="language-plaintext highlighter-rouge">App.jsx</code>, import the component you just made…</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">import</span> <span class="nx">ButtonCount</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./ButtonCount.jsx</span><span class="dl">"</span><span class="p">;</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>…and then add some <code class="highlighter-rouge">&lt;ButtonCount /&gt;</code> tags to the bottom of your JSX object</p>
+    <p>…and then add some <code class="language-plaintext highlighter-rouge">&lt;ButtonCount /&gt;</code> tags to the bottom of your JSX object</p>
 
     <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="p">&lt;</span><span class="nc">ButtonCount</span> <span class="p">/&gt;</span>
  <span class="p">&lt;</span><span class="nc">ButtonCount</span> <span class="p">/&gt;</span>
@@ -652,24 +652,24 @@ the component should output each of their names to the screen.</p>
 <p>Some things to notice:</p>
 
 <ol>
-  <li>In the example above that the <code class="highlighter-rouge">addOne()</code> and <code class="highlighter-rouge">reset()</code> functions – which are invoked by button clicks – both invoke the <code class="highlighter-rouge">setCounter()</code> function.</li>
-  <li>The <code class="highlighter-rouge">setCounter()</code> function, which was generated from React’s <code class="highlighter-rouge">useState</code> function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.</li>
+  <li>In the example above that the <code class="language-plaintext highlighter-rouge">addOne()</code> and <code class="language-plaintext highlighter-rouge">reset()</code> functions – which are invoked by button clicks – both invoke the <code class="language-plaintext highlighter-rouge">setCounter()</code> function.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">setCounter()</code> function, which was generated from React’s <code class="language-plaintext highlighter-rouge">useState</code> function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.</li>
 </ol>
 
 <h3 id="id_challenge">Challenge</h3>
-<p>Can you figure out how to modify the <code class="highlighter-rouge">ButtonCount</code> component so that it initializes to any value (which is specified in the component tag)?</p>
+<p>Can you figure out how to modify the <code class="language-plaintext highlighter-rouge">ButtonCount</code> component so that it initializes to any value (which is specified in the component tag)?</p>
 
 <ol>
   <li><strong><em>Takeaway</em></strong>: Every time you want to trigger a screen redraw, use a state variable as follows:
     <ol>
-      <li>Create a state variable and setter using React’s built-in <code class="highlighter-rouge">useState</code> function</li>
+      <li>Create a state variable and setter using React’s built-in <code class="language-plaintext highlighter-rouge">useState</code> function</li>
       <li>Invoke the setter function to set the state variable, which will automatically redraw the component.</li>
     </ol>
   </li>
 </ol>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
-<p>When you’re done, push your <code class="highlighter-rouge">lab09-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab09-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+<p>When you’re done, push your <code class="language-plaintext highlighter-rouge">lab09-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">lab09-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
 
 
 

@@ -170,24 +170,24 @@
 
 <p><strong>On GitHub:</strong></p>
 <ul>
-  <li>Sync the latest changes from the class version of <code class="highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo on GitHub.</li>
+  <li>Sync the latest changes from the class version of <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> to your copy of the repo on GitHub.</li>
 </ul>
 
 <p><strong>On your local computer:</strong></p>
 <ul>
   <li>Make sure that all of your changes from the last lab are staged and committed.</li>
-  <li>Checkout your main branch: <code class="highlighter-rouge">git checkout main</code></li>
-  <li>Pull down the latest changes: <code class="highlighter-rouge">git pull</code>
+  <li>Checkout your main branch: <code class="language-plaintext highlighter-rouge">git checkout main</code></li>
+  <li>Pull down the latest changes: <code class="language-plaintext highlighter-rouge">git pull</code>
     <ul>
-      <li>If you did it correctly, you will notice that a new <code class="highlighter-rouge">lab08</code> folder has been created.</li>
+      <li>If you did it correctly, you will notice that a new <code class="language-plaintext highlighter-rouge">lab08</code> folder has been created.</li>
     </ul>
   </li>
-  <li>Create a new branch called <strong>lab08-b</strong>: <code class="highlighter-rouge">git checkout -b lab08-b</code></li>
-  <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
+  <li>Create a new branch called <strong>lab08-b</strong>: <code class="language-plaintext highlighter-rouge">git checkout -b lab08-b</code></li>
+  <li>Verify that you’re on your new branch: <code class="language-plaintext highlighter-rouge">git branch</code></li>
 </ul>
 
 <h3 id="id_build-and-run-your-docker-file">Build and run your Docker file</h3>
-<p>Navigate to your <code class="highlighter-rouge">lab08</code> directory and type:</p>
+<p>Navigate to your <code class="language-plaintext highlighter-rouge">lab08</code> directory and type:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker compose up <span class="nt">-d</span>
 </code></pre></div></div>
@@ -198,7 +198,7 @@
 
 <h3 id="id_run-the-postgres-sql-client">Run the Postgres SQL Client</h3>
 
-<p>In the new terminal window we’ll run <code class="highlighter-rouge">psql</code> (the postgres SQL
+<p>In the new terminal window we’ll run <code class="language-plaintext highlighter-rouge">psql</code> (the postgres SQL
 client) on the your running container.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># get container id:</span>
@@ -210,19 +210,19 @@ docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; psql
 
 <p>If you did this correctly, you should see a PostgreSQL shell that looks like this:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=#
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=#
 </code></pre></div></div>
 
-<p>Now let’s confirm things are working. Try typing in the <code class="highlighter-rouge">\list</code>
-command and confirm you see the <code class="highlighter-rouge">dvdrental</code> database.</p>
+<p>Now let’s confirm things are working. Try typing in the <code class="language-plaintext highlighter-rouge">\list</code>
+command and confirm you see the <code class="language-plaintext highlighter-rouge">dvdrental</code> database.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \list
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \list
 </code></pre></div></div>
 
-<p>If that works, let’s change to the <code class="highlighter-rouge">dvdrental</code> database and run a
+<p>If that works, let’s change to the <code class="language-plaintext highlighter-rouge">dvdrental</code> database and run a
 simple sql query to list all customer’s first names.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \c dvdrental
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \c dvdrental
 dvdrental=# select first_name from customer;
 </code></pre></div></div>
 
@@ -243,7 +243,7 @@ dvdrental=# select first_name from customer;
 
 <h3 id="id_tutorial">Tutorial</h3>
 
-<p>Now that you’re all set up, please answer the 10 SQL questions (listed below) in the “SQL” section of your <code class="highlighter-rouge">lab08/answers_sql.md</code> file. Here are some references from the PostgreSQL tutorial to help you:</p>
+<p>Now that you’re all set up, please answer the 10 SQL questions (listed below) in the “SQL” section of your <code class="language-plaintext highlighter-rouge">lab08/answers_sql.md</code> file. Here are some references from the PostgreSQL tutorial to help you:</p>
 
 <ul>
   <li><a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/">Select</a></li>
@@ -274,12 +274,12 @@ dvdrental=# select first_name from customer;
 <h2 id="id_4-sql-alchemy--python-exercises">4. SQL Alchemy / Python Exercises</h2>
 <p>Now, you’re going to try connecting to your postgres database using python on your local computer.</p>
 
-<p>Open a terminal window, navigate to your <code class="highlighter-rouge">lab08</code> directory, and install the dependencies in the <code class="highlighter-rouge">pyproject.toml</code> file:</p>
+<p>Open a terminal window, navigate to your <code class="language-plaintext highlighter-rouge">lab08</code> directory, and install the dependencies in the <code class="language-plaintext highlighter-rouge">pyproject.toml</code> file:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nb">install</span>
 </code></pre></div></div>
 
-<p>You should now be able to run the <code class="highlighter-rouge">orm_samples.py</code> file as usual from your local terminal:</p>
+<p>You should now be able to run the <code class="language-plaintext highlighter-rouge">orm_samples.py</code> file as usual from your local terminal:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python orm_samples.py
 </code></pre></div></div>
@@ -288,23 +288,23 @@ dvdrental=# select first_name from customer;
 
 <blockquote class="info">
   <h3 id="id_sql-alchemy-questions">SQL Alchemy Questions</h3>
-  <p>You will be implementing some python functions in the <code class="highlighter-rouge">answers_orm.py</code> as instructed below.
-Before you begin, please run the <code class="highlighter-rouge">answers_orm.py</code> script first to see what it does:<br /><br />
-<code class="highlighter-rouge">poetry run python answers_orm.py</code><br /><br />
+  <p>You will be implementing some python functions in the <code class="language-plaintext highlighter-rouge">answers_orm.py</code> as instructed below.
+Before you begin, please run the <code class="language-plaintext highlighter-rouge">answers_orm.py</code> script first to see what it does:<br /><br />
+<code class="language-plaintext highlighter-rouge">poetry run python answers_orm.py</code><br /><br />
 Note that the first exercise has already been completed for you.</p>
   <ol>
-    <li><strong><code class="highlighter-rouge">print_titles_and_release_years</code></strong> Write a function that uses SQLAlchemy to print the titles and release years of all movies in the film table.</li>
-    <li><strong><code class="highlighter-rouge">print_customers_starting_with</code></strong> Write a function that uses SQLAlchemy to print all customers whose last name starts with the character passed into the function.</li>
-    <li><strong><code class="highlighter-rouge">print_film_titles_and_durations</code></strong> Write a function that uses SQLAlchemy to print all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
-    <li><strong><code class="highlighter-rouge">print_film_titles_and_categories</code></strong> Write a function that uses SQLAlchemy to print all films along with their categories. Show the film title and category name.</li>
-    <li><strong><code class="highlighter-rouge">print_num_films_in_action_category</code></strong> Write a function that uses SQLAlchemy to print the number of films in the Action category.</li>
-    <li><strong><code class="highlighter-rouge">create_new_customer</code></strong> Write a function that uses SQLAlchemy to create a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
-    <li><strong><code class="highlighter-rouge">delete_customer_by_id</code></strong> Write a function that uses SQLAlchemy to delete a customer from the database based on the <code class="highlighter-rouge">id</code> argument.
+    <li><strong><code class="language-plaintext highlighter-rouge">print_titles_and_release_years</code></strong> Write a function that uses SQLAlchemy to print the titles and release years of all movies in the film table.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">print_customers_starting_with</code></strong> Write a function that uses SQLAlchemy to print all customers whose last name starts with the character passed into the function.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">print_film_titles_and_durations</code></strong> Write a function that uses SQLAlchemy to print all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">print_film_titles_and_categories</code></strong> Write a function that uses SQLAlchemy to print all films along with their categories. Show the film title and category name.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">print_num_films_in_action_category</code></strong> Write a function that uses SQLAlchemy to print the number of films in the Action category.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">create_new_customer</code></strong> Write a function that uses SQLAlchemy to create a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">delete_customer_by_id</code></strong> Write a function that uses SQLAlchemy to delete a customer from the database based on the <code class="language-plaintext highlighter-rouge">id</code> argument.
       <ul>
         <li><em>Note that many of the customers in the database are referenced in other tables (e.g., each customer is associated with a record in the store table, the address table, etc.). Given this, be sure to test your delete functionality with one of the customers you created in the previous exercise (which has no dependencies yet).</em></li>
       </ul>
     </li>
-    <li><strong><code class="highlighter-rouge">update_customer_email</code></strong> Write a function that uses SQLAlchemy to update a customer’s email. Required arguments are the customer’s id and the new email address.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">update_customer_email</code></strong> Write a function that uses SQLAlchemy to update a customer’s email. Required arguments are the customer’s id and the new email address.</li>
   </ol>
 </blockquote>
 
@@ -312,17 +312,17 @@ Note that the first exercise has already been completed for you.</p>
 <p>Before you submit, make sure you’ve completed the two sets of tasks:</p>
 
 <ul class="checkbox-list">
-  <li>SQL tasks: you have written the SQL for the 9 SQL tasks in <code class="highlighter-rouge">answers_sql.md</code></li>
-  <li>SQLAlchemy tasks: you have successfully written and invoked the 8 SQLAlchemy-based functions using asynchronous database queries in <code class="highlighter-rouge">answers_orm.py</code>.</li>
+  <li>SQL tasks: you have written the SQL for the 9 SQL tasks in <code class="language-plaintext highlighter-rouge">answers_sql.md</code></li>
+  <li>SQLAlchemy tasks: you have successfully written and invoked the 8 SQLAlchemy-based functions using asynchronous database queries in <code class="language-plaintext highlighter-rouge">answers_orm.py</code>.</li>
 </ul>
 
-<p>When you’re done, please push your <code class="highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+<p>When you’re done, please push your <code class="language-plaintext highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
 
 <blockquote class="updates">
   <h2 id="id_extra-credit-opportunity">Extra Credit Opportunity</h2>
   <p>If you need extra credit, complete the following tasks:</p>
   <ol>
-    <li>Create a SQL statement new table called <code class="highlighter-rouge">movie_reviews</code> with columns for <code class="highlighter-rouge">review_id</code>, <code class="highlighter-rouge">film_id</code>, <code class="highlighter-rouge">reviewer_name</code>, <code class="highlighter-rouge">rating</code>, and <code class="highlighter-rouge">comments</code>. Then, add a foreign key constraint linking <code class="highlighter-rouge">film_id</code> to the <code class="highlighter-rouge">film</code> table’s <code class="highlighter-rouge">film_id</code>.</li>
+    <li>Create a SQL statement new table called <code class="language-plaintext highlighter-rouge">movie_reviews</code> with columns for <code class="language-plaintext highlighter-rouge">review_id</code>, <code class="language-plaintext highlighter-rouge">film_id</code>, <code class="language-plaintext highlighter-rouge">reviewer_name</code>, <code class="language-plaintext highlighter-rouge">rating</code>, and <code class="language-plaintext highlighter-rouge">comments</code>. Then, add a foreign key constraint linking <code class="language-plaintext highlighter-rouge">film_id</code> to the <code class="language-plaintext highlighter-rouge">film</code> table’s <code class="language-plaintext highlighter-rouge">film_id</code>.</li>
   </ol>
 </blockquote>
 

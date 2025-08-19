@@ -102,25 +102,25 @@
 <p>If you are the owner, you will create a new git repository as follows:</p>
 <ol>
   <li>
-    <p>Open a new command line shell (Windows users use WSL),  navigate to your <code class="highlighter-rouge">csci338</code> folder, and make a directory called <code class="highlighter-rouge">merge-activity</code>:</p>
+    <p>Open a new command line shell (Windows users use WSL),  navigate to your <code class="language-plaintext highlighter-rouge">csci338</code> folder, and make a directory called <code class="language-plaintext highlighter-rouge">merge-activity</code>:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>merge-activity
 </code></pre></div>    </div>
   </li>
-  <li>Navigate into the directory (<code class="highlighter-rouge">cd merge-activity</code>)</li>
-  <li>Initialize a new git repository (<code class="highlighter-rouge">git init</code>)</li>
-  <li>Create a <code class="highlighter-rouge">README.md</code> file directly inside of <code class="highlighter-rouge">merge-activity</code>. Inside <code class="highlighter-rouge">README</code>, add a heading that says “Merge / Rebase Practice”</li>
-  <li>Stage your <code class="highlighter-rouge">README.md</code> file using (<code class="highlighter-rouge">git add .</code>)</li>
-  <li>Commit it (e.g., <code class="highlighter-rouge">git commit -m "Added README.md"</code>)</li>
+  <li>Navigate into the directory (<code class="language-plaintext highlighter-rouge">cd merge-activity</code>)</li>
+  <li>Initialize a new git repository (<code class="language-plaintext highlighter-rouge">git init</code>)</li>
+  <li>Create a <code class="language-plaintext highlighter-rouge">README.md</code> file directly inside of <code class="language-plaintext highlighter-rouge">merge-activity</code>. Inside <code class="language-plaintext highlighter-rouge">README</code>, add a heading that says “Merge / Rebase Practice”</li>
+  <li>Stage your <code class="language-plaintext highlighter-rouge">README.md</code> file using (<code class="language-plaintext highlighter-rouge">git add .</code>)</li>
+  <li>Commit it (e.g., <code class="language-plaintext highlighter-rouge">git commit -m "Added README.md"</code>)</li>
   <li>
-    <p>Next create a <code class="highlighter-rouge">my_code.py</code> file. It should look like this.</p>
+    <p>Next create a <code class="language-plaintext highlighter-rouge">my_code.py</code> file. It should look like this.</p>
 
     <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">say_hello</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s">"hello world!"</span><span class="p">);</span>
+     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">hello world!</span><span class="sh">"</span><span class="p">);</span>
 
 
- <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-     <span class="n">say_hello</span><span class="p">();</span>
+ <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+     <span class="nf">say_hello</span><span class="p">();</span>
 </code></pre></div>    </div>
   </li>
   <li>Commit it.</li>
@@ -130,19 +130,19 @@ repository (GitHub &gt; Settings &gt; “Collaborators and Teams”).</li>
 </ol>
 
 <h3 id="id_12-collaborator-setup">1.2. Collaborator setup</h3>
-<p>After the owner has added you as a collaborator to the <code class="highlighter-rouge">merge-activity</code> repo, you are going to clone their repository. To do this:</p>
+<p>After the owner has added you as a collaborator to the <code class="language-plaintext highlighter-rouge">merge-activity</code> repo, you are going to clone their repository. To do this:</p>
 
 <ol>
-  <li>Open a new command line shell (Windows users use WSL),  navigate to your <code class="highlighter-rouge">csci338</code> folder.</li>
-  <li>*From within the <code class="highlighter-rouge">csci338</code> folder, clone the the <code class="highlighter-rouge">merge-activity</code> repo using the SSH protocol. If you forgot how to do this, refer back to Lab 2.</li>
-  <li>Navigate into the <code class="highlighter-rouge">merge-activity</code> repo that has just been created on your local machine.</li>
+  <li>Open a new command line shell (Windows users use WSL),  navigate to your <code class="language-plaintext highlighter-rouge">csci338</code> folder.</li>
+  <li>*From within the <code class="language-plaintext highlighter-rouge">csci338</code> folder, clone the the <code class="language-plaintext highlighter-rouge">merge-activity</code> repo using the SSH protocol. If you forgot how to do this, refer back to Lab 2.</li>
+  <li>Navigate into the <code class="language-plaintext highlighter-rouge">merge-activity</code> repo that has just been created on your local machine.</li>
 </ol>
 
 <p>You and your partner are now going to work on two features in parallel. The owner will work on Feature A and the collaborator will work on Feature B. Both of your repositories should have the same remote urls.</p>
 
 <p><strong>Question:</strong> Which Git subcommand can you use to confirm that? Go ahead and confirm it.</p>
 
-<p><strong>Answer:</strong> <code class="highlighter-rouge">git remote show origin</code></p>
+<p><strong>Answer:</strong> <code class="language-plaintext highlighter-rouge">git remote show origin</code></p>
 
 <p>Complete the next two sections in parallel.</p>
 
@@ -151,15 +151,15 @@ repository (GitHub &gt; Settings &gt; “Collaborators and Teams”).</li>
 
 <h4 id="id_feature-a-owner">Feature A (Owner)</h4>
 
-<p>This feature will be implemented on the <code class="highlighter-rouge">main</code> branch.</p>
+<p>This feature will be implemented on the <code class="language-plaintext highlighter-rouge">main</code> branch.</p>
 
 <p><strong>The owner of the repository</strong> should complete Feature A. Instead of always printing “hello world”, let’s make your function print out “hello &lt;name&gt;” where “&lt;name&gt;” is specified as a parameter to the
 function. In other words, when called like this:</p>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">say_hello</span><span class="p">(</span><span class="s">"Walter"</span><span class="p">)</span>
-<span class="n">say_hello</span><span class="p">(</span><span class="s">"Ruth"</span><span class="p">)</span>
-<span class="n">say_hello</span><span class="p">(</span><span class="s">"Larry"</span><span class="p">)</span>
-<span class="n">say_hello</span><span class="p">(</span><span class="s">"Helen"</span><span class="p">)</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Walter</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Ruth</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Larry</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Helen</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>It will print out:</p>
@@ -183,7 +183,7 @@ and check out a branch.</p>
 <p>Now implement feature-b. Allow an argument to specify the number of
 times the message should be repeated. So if it’s called like this:</p>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">say_hello</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">say_hello</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>It will print out:</p>
@@ -206,7 +206,7 @@ branch, but main is ahead (i.e., changes have been made to main since you branch
 
 <p><img src="/fall2025/assets/images/activities/feature_branch_main_ahead.png" alt="image" /></p>
 
-<p>Check the state of your git repository and make sure you’re on the <code class="highlighter-rouge">feature-b</code> branch. Let’s checkout <code class="highlighter-rouge">main</code> on your laptop and then  pull your partner’s changes down from GitHub.</p>
+<p>Check the state of your git repository and make sure you’re on the <code class="language-plaintext highlighter-rouge">feature-b</code> branch. Let’s checkout <code class="language-plaintext highlighter-rouge">main</code> on your laptop and then  pull your partner’s changes down from GitHub.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout main
 </code></pre></div></div>
@@ -216,7 +216,7 @@ branch, but main is ahead (i.e., changes have been made to main since you branch
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin main
 </code></pre></div></div>
 
-<p>Now take a look at the history (<code class="highlighter-rouge">git log</code>) to make sure you see the commit that
+<p>Now take a look at the history (<code class="language-plaintext highlighter-rouge">git log</code>) to make sure you see the commit that
 implements feature A. Then, check out your feature branch again:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout feature-b
@@ -228,8 +228,8 @@ feature A? Probably not, but you can see it by doing this:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--all</span>
 </code></pre></div></div>
 
-<p>And if you want a visual representation, add the <code class="highlighter-rouge">--graph</code>
-option. Where is <code class="highlighter-rouge">HEAD</code>? Where is <code class="highlighter-rouge">feature-b</code>?</p>
+<p>And if you want a visual representation, add the <code class="language-plaintext highlighter-rouge">--graph</code>
+option. Where is <code class="language-plaintext highlighter-rouge">HEAD</code>? Where is <code class="language-plaintext highlighter-rouge">feature-b</code>?</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log <span class="nt">--all</span> <span class="nt">--graph</span>
 </code></pre></div></div>
@@ -237,15 +237,15 @@ option. Where is <code class="highlighter-rouge">HEAD</code>? Where is <code cla
 <h3 id="id_15-merging">1.5. Merging</h3>
 <p>Let’s merge the branches! First, check out main again. Take a look at
 the history (with all commits and the graph option enabled). Where is
-<code class="highlighter-rouge">HEAD</code>?</p>
+<code class="language-plaintext highlighter-rouge">HEAD</code>?</p>
 
-<p>Now let’s use the <code class="highlighter-rouge">merge</code> subcommand to merge the branches. Make sure
-you’re on <code class="highlighter-rouge">main</code> and then run:</p>
+<p>Now let’s use the <code class="language-plaintext highlighter-rouge">merge</code> subcommand to merge the branches. Make sure
+you’re on <code class="language-plaintext highlighter-rouge">main</code> and then run:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git merge feature-b
 </code></pre></div></div>
 
-<p>This attempts to merge the <code class="highlighter-rouge">feature-b</code> branch into the <code class="highlighter-rouge">main</code>
+<p>This attempts to merge the <code class="language-plaintext highlighter-rouge">feature-b</code> branch into the <code class="language-plaintext highlighter-rouge">main</code>
 branch. It should look something like this:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt; HEAD
@@ -255,13 +255,13 @@ branch. It should look something like this:</p>
 <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> feature-b
 </code></pre></div></div>
 
-<p>Note that <code class="highlighter-rouge">[Feature A Code]</code> will be replaced with the actual code
+<p>Note that <code class="language-plaintext highlighter-rouge">[Feature A Code]</code> will be replaced with the actual code
 associated with Feature A. The top part represents the state of the
-code at your <code class="highlighter-rouge">HEAD</code> (in this case, <code class="highlighter-rouge">HEAD</code> is an alias for <code class="highlighter-rouge">main</code>).</p>
+code at your <code class="language-plaintext highlighter-rouge">HEAD</code> (in this case, <code class="language-plaintext highlighter-rouge">HEAD</code> is an alias for <code class="language-plaintext highlighter-rouge">main</code>).</p>
 
 <p>Before going further, take a look at the state of your
-repository. Note that <code class="highlighter-rouge">git</code> gives you helpful instructions on how to
-proceed – you can either fix the conflicts and then run <code class="highlighter-rouge">git commit -m "some message"</code>
+repository. Note that <code class="language-plaintext highlighter-rouge">git</code> gives you helpful instructions on how to
+proceed – you can either fix the conflicts and then run <code class="language-plaintext highlighter-rouge">git commit -m "some message"</code>
 which will create your merge commit, or you can abort the process
 altogether.</p>
 
@@ -273,20 +273,20 @@ again. Git should tell you that you’re good to go!</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
 </code></pre></div></div>
 
-<p>Let’s take a look at the log with the <code class="highlighter-rouge">--graph</code> option. You should see
+<p>Let’s take a look at the log with the <code class="language-plaintext highlighter-rouge">--graph</code> option. You should see
 your merge commit with two parent pointers.</p>
 
 <p>Commit and push the changes to the main branch on Github, and take a look at all
-the commits. Have your partner (the owner) pull down the changes. You both should now have the exact same code on the <code class="highlighter-rouge">main</code> branch.</p>
+the commits. Have your partner (the owner) pull down the changes. You both should now have the exact same code on the <code class="language-plaintext highlighter-rouge">main</code> branch.</p>
 
 <h2 id="id_part-2-rebasing">Part 2: Rebasing</h2>
 <p>We’re going to to do a rebase and fast-forward this time, instead of a merge. <strong><em>Let’s reverse roles</em></strong> now so that the owner becomes the collaborator and vice-versa.</p>
 
 <h3 id="id_21-owner-setup">2.1. Owner setup</h3>
-<p>Repeat Step 1.1 above, but instead of working with <code class="highlighter-rouge">merge-activity</code>, you will create a new repo within <code class="highlighter-rouge">csci338</code> called <code class="highlighter-rouge">rebase-activity</code>.</p>
+<p>Repeat Step 1.1 above, but instead of working with <code class="language-plaintext highlighter-rouge">merge-activity</code>, you will create a new repo within <code class="language-plaintext highlighter-rouge">csci338</code> called <code class="language-plaintext highlighter-rouge">rebase-activity</code>.</p>
 
 <p>Your directory structure should look something like:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
 ├── class-exercises-fall2025
 ├── lab01
 ├── merge-activity
@@ -294,25 +294,25 @@ the commits. Have your partner (the owner) pull down the changes. You both shoul
 </code></pre></div></div>
 
 <h3 id="id_22-collaborator-setup">2.2. Collaborator setup</h3>
-<p>Repeat Step 1.2 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+<p>Repeat Step 1.2 above, but with the <code class="language-plaintext highlighter-rouge">rebase-activity</code> repo.</p>
 
 <h3 id="id_23-creating-a-conflict">2.3. Creating a conflict</h3>
-<p>Repeat Step 1.3 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+<p>Repeat Step 1.3 above, but with the <code class="language-plaintext highlighter-rouge">rebase-activity</code> repo.</p>
 
 <h3 id="id_24-pulling-down-the-owners-changes">2.4. Pulling down the owner’s changes</h3>
-<p>Repeat Step 1.4 above, but with the <code class="highlighter-rouge">rebase-activity</code> repo.</p>
+<p>Repeat Step 1.4 above, but with the <code class="language-plaintext highlighter-rouge">rebase-activity</code> repo.</p>
 
 <h3 id="id_25-rebasing">2.5. Rebasing</h3>
 <p>Now, we’re going to rebase the branches to see how this process differs. The <strong><em>collaborator</em></strong> will do the rebase.</p>
 
-<p>Check out <code class="highlighter-rouge">main</code> again. Take a look at the history (with all commits and the graph option enabled). Where is HEAD?</p>
+<p>Check out <code class="language-plaintext highlighter-rouge">main</code> again. Take a look at the history (with all commits and the graph option enabled). Where is HEAD?</p>
 
-<p>Next, we’ll rebase <code class="highlighter-rouge">main</code> on the <code class="highlighter-rouge">feature-b</code> branch, then fast-forward merge <code class="highlighter-rouge">feature-b</code> back into <code class="highlighter-rouge">main</code>. So check out the <code class="highlighter-rouge">feature-b</code> branch. And then, after confirming you’re in the right place, do the rebase.</p>
+<p>Next, we’ll rebase <code class="language-plaintext highlighter-rouge">main</code> on the <code class="language-plaintext highlighter-rouge">feature-b</code> branch, then fast-forward merge <code class="language-plaintext highlighter-rouge">feature-b</code> back into <code class="language-plaintext highlighter-rouge">main</code>. So check out the <code class="language-plaintext highlighter-rouge">feature-b</code> branch. And then, after confirming you’re in the right place, do the rebase.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase main
 </code></pre></div></div>
 
-<p>Git will try to “replay” the new commit in <code class="highlighter-rouge">main</code> on top but it will hit the same conflict we saw in the merge case. Read the message Git outputs.</p>
+<p>Git will try to “replay” the new commit in <code class="language-plaintext highlighter-rouge">main</code> on top but it will hit the same conflict we saw in the merge case. Read the message Git outputs.</p>
 
 <p>Now take a look at the code. You’ll see it looks something like this.</p>
 
@@ -323,7 +323,7 @@ the commits. Have your partner (the owner) pull down the changes. You both shoul
 <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> 1a0ffaa <span class="o">(</span>Add feature b<span class="o">)</span>
 </code></pre></div></div>
 
-<p>In this case <code class="highlighter-rouge">HEAD</code> is <code class="highlighter-rouge">main</code> again, since we checked it out to replay
+<p>In this case <code class="language-plaintext highlighter-rouge">HEAD</code> is <code class="language-plaintext highlighter-rouge">main</code> again, since we checked it out to replay
 the commits on top. Check the status of the repository, and read all
 the hints Git is giving you. Fix the conflicts as you did this time.</p>
 
@@ -332,16 +332,16 @@ the hints Git is giving you. Fix the conflicts as you did this time.</p>
 <p><strong>Question:</strong> What should you do now?</p>
 
 <p><strong>Answer:</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
 git rebase --continue
 </code></pre></div></div>
 
-<p>Once that’s done, you’ve successfully rebase <code class="highlighter-rouge">main</code> onto
-<code class="highlighter-rouge">feature-b</code>. Check the history and note that the commit hash
-associated with <code class="highlighter-rouge">feature-b</code> has changed as we expected!</p>
+<p>Once that’s done, you’ve successfully rebase <code class="language-plaintext highlighter-rouge">main</code> onto
+<code class="language-plaintext highlighter-rouge">feature-b</code>. Check the history and note that the commit hash
+associated with <code class="language-plaintext highlighter-rouge">feature-b</code> has changed as we expected!</p>
 
-<p>We’re not finished yet, because we wanted to get <code class="highlighter-rouge">feature-b</code> into
-<code class="highlighter-rouge">main</code>. Now that <code class="highlighter-rouge">main</code> is no longer ahead, we can do a fast-forward
+<p>We’re not finished yet, because we wanted to get <code class="language-plaintext highlighter-rouge">feature-b</code> into
+<code class="language-plaintext highlighter-rouge">main</code>. Now that <code class="language-plaintext highlighter-rouge">main</code> is no longer ahead, we can do a fast-forward
 merge into main. To complete this, check out the main branch and do a
 merge.</p>
 
@@ -349,7 +349,7 @@ merge.</p>
 <span class="nv">$ </span>git merge feature-b
 </code></pre></div></div>
 
-<p>Read the output. Now take a look at the history with the <code class="highlighter-rouge">--graph</code>
+<p>Read the output. Now take a look at the history with the <code class="language-plaintext highlighter-rouge">--graph</code>
 option. How is the history different from the merge above? Do you see
 a merge commit?</p>
 

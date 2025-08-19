@@ -126,34 +126,34 @@
 
 <ol>
   <li>Continue practicing your React skills</li>
-  <li>Work with a design system / component library – we will be using Ant Design (<code class="highlighter-rouge">antd</code> node module) by Alibaba</li>
+  <li>Work with a design system / component library – we will be using Ant Design (<code class="language-plaintext highlighter-rouge">antd</code> node module) by Alibaba</li>
 </ol>
 
 <h2 id="id_1-getting-started">1. Getting Started</h2>
 
-<p>For this lab, there is no starter code. You will create everything yourself. Begin by navigating to your <code class="highlighter-rouge">class-exercises-fall2025</code> directory on your local machine and creating a new branch:</p>
+<p>For this lab, there is no starter code. You will create everything yourself. Begin by navigating to your <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> directory on your local machine and creating a new branch:</p>
 <ul>
-  <li><code class="highlighter-rouge">git checkout -b lab10-b</code></li>
-  <li>Verify that you’re on your new branch: <code class="highlighter-rouge">git branch</code></li>
+  <li><code class="language-plaintext highlighter-rouge">git checkout -b lab10-b</code></li>
+  <li>Verify that you’re on your new branch: <code class="language-plaintext highlighter-rouge">git branch</code></li>
 </ul>
 
-<p>Now, create a brand new folder called <code class="highlighter-rouge">lab10</code>.</p>
+<p>Now, create a brand new folder called <code class="language-plaintext highlighter-rouge">lab10</code>.</p>
 
 <p>Like before, you will build your React app from scratch, which will involve:</p>
 <ol>
-  <li>Creating a <code class="highlighter-rouge">package.json</code> at the root of your <code class="highlighter-rouge">lab10</code> directory.
+  <li>Creating a <code class="language-plaintext highlighter-rouge">package.json</code> at the root of your <code class="language-plaintext highlighter-rouge">lab10</code> directory.
     <ul>
-      <li>Hint: <code class="highlighter-rouge">npm init</code></li>
+      <li>Hint: <code class="language-plaintext highlighter-rouge">npm init</code></li>
     </ul>
   </li>
-  <li>Installing the following 4 packages: <code class="highlighter-rouge">react</code>, <code class="highlighter-rouge">react-dom</code>, <code class="highlighter-rouge">vite</code>, and <code class="highlighter-rouge">antd</code>.
+  <li>Installing the following 4 packages: <code class="language-plaintext highlighter-rouge">react</code>, <code class="language-plaintext highlighter-rouge">react-dom</code>, <code class="language-plaintext highlighter-rouge">vite</code>, and <code class="language-plaintext highlighter-rouge">antd</code>.
     <ul>
-      <li>Hint: <code class="highlighter-rouge">npm install</code></li>
+      <li>Hint: <code class="language-plaintext highlighter-rouge">npm install</code></li>
     </ul>
   </li>
-  <li>Creating the following 5 base files: <code class="highlighter-rouge">index.html</code>, <code class="highlighter-rouge">styles.css</code>,  <code class="highlighter-rouge">main.jsx</code>, <code class="highlighter-rouge">App.jsx</code>, and <code class="highlighter-rouge">.gitignore</code></li>
+  <li>Creating the following 5 base files: <code class="language-plaintext highlighter-rouge">index.html</code>, <code class="language-plaintext highlighter-rouge">styles.css</code>,  <code class="language-plaintext highlighter-rouge">main.jsx</code>, <code class="language-plaintext highlighter-rouge">App.jsx</code>, and <code class="language-plaintext highlighter-rouge">.gitignore</code></li>
   <li>
-    <p>Adding the vite <code class="highlighter-rouge">dev</code> and <code class="highlighter-rouge">build</code> scripts under the <code class="highlighter-rouge">scripts</code> entry of your <code class="highlighter-rouge">package.json</code> file like this:</p>
+    <p>Adding the vite <code class="language-plaintext highlighter-rouge">dev</code> and <code class="language-plaintext highlighter-rouge">build</code> scripts under the <code class="language-plaintext highlighter-rouge">scripts</code> entry of your <code class="language-plaintext highlighter-rouge">package.json</code> file like this:</p>
 
     <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="err">...</span><span class="w">
  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -169,7 +169,7 @@
 <p>Please add the following starter code to your files:</p>
 
 <h3 id="id_indexhtml">index.html</h3>
-<p>Paste the following code in <code class="highlighter-rouge">index.html</code>:</p>
+<p>Paste the following code in <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
@@ -186,7 +186,7 @@
 </code></pre></div></div>
 
 <h3 id="id_stylescss">styles.css</h3>
-<p>Paste the following code in <code class="highlighter-rouge">styles.css</code> (simple formatting to start you off):</p>
+<p>Paste the following code in <code class="language-plaintext highlighter-rouge">styles.css</code> (simple formatting to start you off):</p>
 
 <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
     <span class="nl">font-family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
@@ -196,7 +196,7 @@
 <span class="nt">header</span> <span class="p">{</span>
     <span class="nl">border-bottom</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">2px</span><span class="p">;</span>
     <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
-    <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">flex</span><span class="p">;</span>
     <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -208,13 +208,13 @@
 </code></pre></div></div>
 
 <h3 id="id_appjsx">App.jsx</h3>
-<p>Paste the following code in <code class="highlighter-rouge">App.jsx</code> (sets up an HTML skeleton that you will later be enhancing):</p>
+<p>Paste the following code in <code class="language-plaintext highlighter-rouge">App.jsx</code> (sets up an HTML skeleton that you will later be enhancing):</p>
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">App</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
             
-    <span class="k">return</span> <span class="p">(</span>
+    <span class="k">return </span><span class="p">(</span>
         <span class="p">&lt;&gt;</span>
             <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
                 <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Spotify Demo<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -228,23 +228,23 @@
 </code></pre></div></div>
 
 <h3 id="id_mainjsx">main.jsx</h3>
-<p>Paste the following code in <code class="highlighter-rouge">main.jsx</code> (imports your <code class="highlighter-rouge">App.jsx</code> component and renders it inside of <code class="highlighter-rouge">&lt;div id="app" /&gt;</code>):</p>
+<p>Paste the following code in <code class="language-plaintext highlighter-rouge">main.jsx</code> (imports your <code class="language-plaintext highlighter-rouge">App.jsx</code> component and renders it inside of <code class="language-plaintext highlighter-rouge">&lt;div id="app" /&gt;</code>):</p>
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">createRoot</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom/client</span><span class="dl">"</span><span class="p">;</span>
 <span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./App.jsx</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="kd">function</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">rootEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">);</span>
-    <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">createRoot</span><span class="p">(</span><span class="nx">rootEl</span><span class="p">);</span>
-    <span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nc">App</span> <span class="p">/&gt;);</span>
+<span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">rootEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">app</span><span class="dl">"</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nf">createRoot</span><span class="p">(</span><span class="nx">rootEl</span><span class="p">);</span>
+    <span class="nx">root</span><span class="p">.</span><span class="nf">render</span><span class="p">(&lt;</span><span class="nc">App</span> <span class="p">/&gt;);</span>
 <span class="p">}</span>
 
-<span class="nx">main</span><span class="p">();</span>
+<span class="nf">main</span><span class="p">();</span>
 </code></pre></div></div>
 
 <h3 id="id_packagejson">package.json</h3>
-<p>In the scripts section of your <code class="highlighter-rouge">package.json</code>, add the following two entries to configure the vite bundler (recall that you already installed vite via npm):</p>
+<p>In the scripts section of your <code class="language-plaintext highlighter-rouge">package.json</code>, add the following two entries to configure the vite bundler (recall that you already installed vite via npm):</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="err">...</span><span class="w">
   </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -255,12 +255,12 @@
 </span></code></pre></div></div>
 
 <h3 id="id_gitignore">.gitignore</h3>
-<p>Exclude <code class="highlighter-rouge">node_modules</code>, <code class="highlighter-rouge">.DS_Store</code>, and any other system files you don’t want in your repo</p>
+<p>Exclude <code class="language-plaintext highlighter-rouge">node_modules</code>, <code class="language-plaintext highlighter-rouge">.DS_Store</code>, and any other system files you don’t want in your repo</p>
 
 <h2 id="id_3-test-your-files">3. Test Your files</h2>
 <p>Run your react app by issuing the following command via the command line:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm run dev
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm run dev
 </code></pre></div></div>
 
 <p>You should see the following output:</p>
@@ -294,18 +294,18 @@
 
 <p>There are three query parameters that you can adjust:</p>
 <ul>
-  <li><code class="highlighter-rouge">q</code>: the search term</li>
-  <li><code class="highlighter-rouge">type</code>: the resource type. Valid options are <code class="highlighter-rouge">album</code>, <code class="highlighter-rouge">track</code>, or <code class="highlighter-rouge">artist</code></li>
-  <li><code class="highlighter-rouge">limit</code>: how many results to return</li>
+  <li><code class="language-plaintext highlighter-rouge">q</code>: the search term</li>
+  <li><code class="language-plaintext highlighter-rouge">type</code>: the resource type. Valid options are <code class="language-plaintext highlighter-rouge">album</code>, <code class="language-plaintext highlighter-rouge">track</code>, or <code class="language-plaintext highlighter-rouge">artist</code></li>
+  <li><code class="language-plaintext highlighter-rouge">limit</code>: how many results to return</li>
 </ul>
 
 <p>Try playing around with these three parameters to see what happens.</p>
 
 <h2 id="id_5-warmup-using-the-antd-component-library">5. Warmup: Using the antd component library</h2>
-<p>Recall from lecture on Thursday, that you can use Ant Design components by importing them from the <code class="highlighter-rouge">antd</code> component library. Let’s practice doing this.</p>
+<p>Recall from lecture on Thursday, that you can use Ant Design components by importing them from the <code class="language-plaintext highlighter-rouge">antd</code> component library. Let’s practice doing this.</p>
 
 <h3 id="id_make-some-antd-images">Make some antd images</h3>
-<p>In <code class="highlighter-rouge">App.jsx</code>, import the Image component from the <code class="highlighter-rouge">antd</code> library, and add some image tags inside of the <code class="highlighter-rouge">&lt;main&gt;&lt;/main&gt;</code> tag. Check out the documentation to figure out how to do this:</p>
+<p>In <code class="language-plaintext highlighter-rouge">App.jsx</code>, import the Image component from the <code class="language-plaintext highlighter-rouge">antd</code> library, and add some image tags inside of the <code class="language-plaintext highlighter-rouge">&lt;main&gt;&lt;/main&gt;</code> tag. Check out the documentation to figure out how to do this:</p>
 
 <ul>
   <li><a href="https://ant.design/components/image">https://ant.design/components/image</a></li>
@@ -319,7 +319,7 @@
 </ul>
 
 <h3 id="id_make-a-carousel">Make a carousel</h3>
-<p>Using the antd <code class="highlighter-rouge">Carousel</code> component, see if you can make a carousel of Beyonce albums. Here is a list of JSON objects representing 5 of Beyonce’s albums:</p>
+<p>Using the antd <code class="language-plaintext highlighter-rouge">Carousel</code> component, see if you can make a carousel of Beyonce albums. Here is a list of JSON objects representing 5 of Beyonce’s albums:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
@@ -355,7 +355,7 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p>See if you can figure out how to use JavaScript’s built-in <code class="highlighter-rouge">Array.map()</code> function to programmatically generate each slide of the carousel. Try asking ChatGPT something like</p>
+<p>See if you can figure out how to use JavaScript’s built-in <code class="language-plaintext highlighter-rouge">Array.map()</code> function to programmatically generate each slide of the carousel. Try asking ChatGPT something like</p>
 
 <blockquote>
   <p>“How do I create JSX components from a list of objects in React?”</p>
@@ -387,8 +387,8 @@
         <span class="p">...</span>
      <span class="p">];</span>
 
-    <span class="kd">function</span> <span class="nx">albumToJSX</span><span class="p">(</span><span class="nx">albumJSON</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span>
+    <span class="kd">function</span> <span class="nf">albumToJSX</span><span class="p">(</span><span class="nx">albumJSON</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return </span><span class="p">(</span>
             <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">albumJSON</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
                 <span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="p">{</span><span class="nx">albumJSON</span><span class="p">.</span><span class="nx">image_url</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
 </span>                <span class="o">&lt;</span><span class="nx">h3</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">albumJSON</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h3</span><span class="err">&gt;
@@ -396,30 +396,30 @@
 </span>        <span class="p">)</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="p">(</span>
+    <span class="k">return </span><span class="p">(</span>
         <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">style</span><span class="o">=</span><span class="p">{</span><span class="nx">carouselStyles</span><span class="p">}</span><span class="o">&gt;</span>
             <span class="o">&lt;</span><span class="nx">Carousel</span> <span class="nx">dotPosition</span><span class="o">=</span><span class="dl">"</span><span class="s2">top</span><span class="dl">"</span><span class="o">&gt;</span>
                 <span class="p">{</span> 
-                    <span class="nx">albums</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">albumToJSX</span><span class="p">)</span>
+                    <span class="nx">albums</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">albumToJSX</span><span class="p">)</span>
                 <span class="p">}</span>
             <span class="o">&lt;</span><span class="sr">/Carousel</span><span class="err">&gt;
 </span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>    <span class="p">);</span>
 </code></pre></div></div>
 
-<p>Note that the argument within <code class="highlighter-rouge">albums.map()</code> is a function definition that is invoked for each JSON object in the list. The job of “map()” is to return a new array with a data transformation applied to each element. In this case, map returns a list of JSX objects, where each JSX object is a visual representation of the album.</p>
+<p>Note that the argument within <code class="language-plaintext highlighter-rouge">albums.map()</code> is a function definition that is invoked for each JSON object in the list. The job of “map()” is to return a new array with a data transformation applied to each element. In this case, map returns a list of JSX objects, where each JSX object is a visual representation of the album.</p>
 
 <h2 id="id_6-your-task-allow-your-user-to-query-display-and-listen-to-songs">6. Your Task: Allow your user to query, display, and listen to songs</h2>
 <p>To complete this lab, please do the following:</p>
 
 <ol>
-  <li>Create a form – using the <code class="highlighter-rouge">antd</code> form components (that we reviewed during lecture) – that allows a user to input:
+  <li>Create a form – using the <code class="language-plaintext highlighter-rouge">antd</code> form components (that we reviewed during lecture) – that allows a user to input:
     <ul>
       <li>A search term (e.g., “Beyonce”)</li>
       <li>The number of songs they want (max is 20)</li>
     </ul>
   </li>
-  <li>When the clicks the search button, issue a query to Spotify with the user-specified <code class="highlighter-rouge">q</code> and <code class="highlighter-rouge">limit</code> arguments.</li>
+  <li>When the clicks the search button, issue a query to Spotify with the user-specified <code class="language-plaintext highlighter-rouge">q</code> and <code class="language-plaintext highlighter-rouge">limit</code> arguments.</li>
   <li>When the response comes back from the server draw a carousel with an audio player (iframe) for each song – one per slide.</li>
 </ol>
 
@@ -429,7 +429,7 @@
 
 <p>Create a state variable to hold the tracks:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">[</span><span class="nx">tracks</span><span class="p">,</span> <span class="nx">setTracks</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">[</span><span class="nx">tracks</span><span class="p">,</span> <span class="nx">setTracks</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([]);</span>
 </code></pre></div></div>
 
 <p>Create a function that transforms each track JSON object to an iframe JSX. Your JSX iframe should look something like this:</p>
@@ -447,20 +447,20 @@
 
 <p>The function that fetches the data should look something like this:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchData</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchData</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">const</span> <span class="nx">baseURL</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://www.apitutor.org/spotify/simple/v1/search</span><span class="dl">'</span><span class="p">;</span>
     <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">baseURL</span><span class="p">}</span><span class="s2">?q=</span><span class="p">${</span><span class="nx">searchTerm</span><span class="p">}</span><span class="s2">&amp;type=</span><span class="p">${</span><span class="nx">dataType</span><span class="p">}</span><span class="s2">&amp;limit=5`</span><span class="p">;</span>
-    <span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
-    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="c1">// set state variable to redraw...</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <h3 id="id_extra-credit">Extra Credit</h3>
 <ol>
-  <li>See if you can deploy your React App on GitHub pages. One way of doing this is using the <code class="highlighter-rouge">gh-pages</code> module (which you can install via npm). Here’s a <a href="https://blog.seancoughlin.me/deploying-to-github-pages-using-gh-pages" target="_blank">blog post about it</a>, but you can also use ChatGPT to get some insight.</li>
-  <li>Refactor <code class="highlighter-rouge">App.jsx</code> so that the <strong>Form</strong> functionality and the <strong>Carousel</strong> functionality are separated into two standalone components. Then, get them to talk to each other.
+  <li>See if you can deploy your React App on GitHub pages. One way of doing this is using the <code class="language-plaintext highlighter-rouge">gh-pages</code> module (which you can install via npm). Here’s a <a href="https://blog.seancoughlin.me/deploying-to-github-pages-using-gh-pages" target="_blank">blog post about it</a>, but you can also use ChatGPT to get some insight.</li>
+  <li>Refactor <code class="language-plaintext highlighter-rouge">App.jsx</code> so that the <strong>Form</strong> functionality and the <strong>Carousel</strong> functionality are separated into two standalone components. Then, get them to talk to each other.
     <ul>
       <li>In other words, how does the Form component notify the Carousel to redraw after the user submits their search?</li>
     </ul>
@@ -468,7 +468,7 @@
 </ol>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
-<p>When you’re done, push your <code class="highlighter-rouge">lab10-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="highlighter-rouge">lab10-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
+<p>When you’re done, push your <code class="language-plaintext highlighter-rouge">lab10-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">lab10-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
 
 
 

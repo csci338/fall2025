@@ -133,10 +133,10 @@ repo on your computer). &gt; 1. Re-fork your copy of the repo from
 csci338/class-exercises-fall2025&lt;/a</p>
 
   <ol class="checkbox-list">
-    <li>Re-push the <code class="highlighter-rouge">lab02-b</code> branch to your remote. &gt; 1. You will not need to
+    <li>Re-push the <code class="language-plaintext highlighter-rouge">lab02-b</code> branch to your remote. &gt; 1. You will not need to
 recreate a pull request for lab 2 if you already created and submitted one on
-the Moodle. &gt; * Make sure that your version of the <code class="highlighter-rouge">class-exercises-fall2025</code>
-repo is private. &gt; * Add <code class="highlighter-rouge">svanwart</code> as a collaborator on your private repo.</li>
+the Moodle. &gt; * Make sure that your version of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code>
+repo is private. &gt; * Add <code class="language-plaintext highlighter-rouge">svanwart</code> as a collaborator on your private repo.</li>
   </ol>
 </blockquote>
 
@@ -152,33 +152,33 @@ repo is private. &gt; * Add <code class="highlighter-rouge">svanwart</code> as a
 
 <p>On GitHub:</p>
 <ol>
-  <li>Navigate to your fork of the <code class="highlighter-rouge">class-exercises-fall2025</code> repository. Sync your fork to incorporate new changes into the main branch by clicking the “sync fork” button (below the green “Code” button).</li>
+  <li>Navigate to your fork of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repository. Sync your fork to incorporate new changes into the main branch by clicking the “sync fork” button (below the green “Code” button).</li>
 </ol>
 
 <p>On your laptop:</p>
 <ol>
-  <li>Navigate to your version of <code class="highlighter-rouge">class-exercises-fall2025</code>, located inside of your <code class="highlighter-rouge">csci338</code> folder.</li>
-  <li>Check which branch you’re on using the <code class="highlighter-rouge">git branch</code> command.</li>
-  <li>Check if you have any uncommitted changes using the <code class="highlighter-rouge">git status</code> command.
+  <li>Navigate to your version of <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code>, located inside of your <code class="language-plaintext highlighter-rouge">csci338</code> folder.</li>
+  <li>Check which branch you’re on using the <code class="language-plaintext highlighter-rouge">git branch</code> command.</li>
+  <li>Check if you have any uncommitted changes using the <code class="language-plaintext highlighter-rouge">git status</code> command.
     <ul>
       <li>If you have lingering changes, stage and commit them.</li>
     </ul>
   </li>
-  <li>Checkout the main branch: <code class="highlighter-rouge">git checkout main</code></li>
-  <li>Pull the latest changes from your remote main branch into your local main branch: <code class="highlighter-rouge">git pull origin main</code></li>
-  <li>If you did it correctly, you should notice that you should now have a <code class="highlighter-rouge">lab03</code> directory inside of your <code class="highlighter-rouge">class-exercises-fall2025</code> folder.</li>
-  <li>Create a new branch (while on the main branch) to do our work for lab 3: <code class="highlighter-rouge">git checkout -b lab03-b</code>
+  <li>Checkout the main branch: <code class="language-plaintext highlighter-rouge">git checkout main</code></li>
+  <li>Pull the latest changes from your remote main branch into your local main branch: <code class="language-plaintext highlighter-rouge">git pull origin main</code></li>
+  <li>If you did it correctly, you should notice that you should now have a <code class="language-plaintext highlighter-rouge">lab03</code> directory inside of your <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> folder.</li>
+  <li>Create a new branch (while on the main branch) to do our work for lab 3: <code class="language-plaintext highlighter-rouge">git checkout -b lab03-b</code>
     <ul>
-      <li>Note that branches are created from the branch you’re currently on (in this case <code class="highlighter-rouge">main</code>). Therefore, it’s important to pay attention to which branch you’re on before making new branches.</li>
-      <li>Typically, you always branch from <code class="highlighter-rouge">main</code>.</li>
+      <li>Note that branches are created from the branch you’re currently on (in this case <code class="language-plaintext highlighter-rouge">main</code>). Therefore, it’s important to pay attention to which branch you’re on before making new branches.</li>
+      <li>Typically, you always branch from <code class="language-plaintext highlighter-rouge">main</code>.</li>
     </ul>
   </li>
 </ol>
 
-<p>Use the <code class="highlighter-rouge">lab03/answers.md</code> markdown file to answer questions as you’re
+<p>Use the <code class="language-plaintext highlighter-rouge">lab03/answers.md</code> markdown file to answer questions as you’re
 going through the lab.</p>
 
-<p><strong>Note:</strong> Whenever the lab says “What do you see?” that usually means to copy the command and the output to your <code class="highlighter-rouge">answers.md</code> file. You should do this in Markdown’s preformatted mode which is simply 3 backticks before and after the block.</p>
+<p><strong>Note:</strong> Whenever the lab says “What do you see?” that usually means to copy the command and the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file. You should do this in Markdown’s preformatted mode which is simply 3 backticks before and after the block.</p>
 
 <h3 id="id_getting-help">Getting Help</h3>
 
@@ -188,15 +188,15 @@ faster than using Chat GPT). Read through
 see how to access it.</p>
 
 <h3 id="id_create-a-new-git-repository">Create a New Git Repository</h3>
-<p>Create a new repository for code exercises directly inside of your <code class="highlighter-rouge">csci338</code> directory. To do this, create a directory called <code class="highlighter-rouge">lab03-exercises</code> using the <code class="highlighter-rouge">mkdir</code> command.</p>
+<p>Create a new repository for code exercises directly inside of your <code class="language-plaintext highlighter-rouge">csci338</code> directory. To do this, create a directory called <code class="language-plaintext highlighter-rouge">lab03-exercises</code> using the <code class="language-plaintext highlighter-rouge">mkdir</code> command.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir lab03-exercises
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir lab03-exercises
 </code></pre></div></div>
 
 <blockquote class="info">
-  <p><strong>Important</strong>: Make sure you don’t create the <code class="highlighter-rouge">lab03-exercises</code> repo inside of your <code class="highlighter-rouge">class-exercises-fall2025</code> repo (no nested repos). Rather, your directory structure should look something like this:</p>
+  <p><strong>Important</strong>: Make sure you don’t create the <code class="language-plaintext highlighter-rouge">lab03-exercises</code> repo inside of your <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo (no nested repos). Rather, your directory structure should look something like this:</p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
 ├── class-exercises-fall2025
 ├── lab03-exercises
 ├── merge-activity
@@ -204,30 +204,30 @@ see how to access it.</p>
 </code></pre></div>  </div>
 </blockquote>
 
-<p>Verify that you’ve created your new <code class="highlighter-rouge">lab03-exercises</code> directory directly inside of <code class="highlighter-rouge">csci338</code> before proceeding. Then, change your working directory to <code class="highlighter-rouge">csci338/lab03-exercises</code>. Within <code class="highlighter-rouge">lab03-exercises</code>, create a new markdown file called <code class="highlighter-rouge">README.md</code>. Add a header to the top.</p>
+<p>Verify that you’ve created your new <code class="language-plaintext highlighter-rouge">lab03-exercises</code> directory directly inside of <code class="language-plaintext highlighter-rouge">csci338</code> before proceeding. Then, change your working directory to <code class="language-plaintext highlighter-rouge">csci338/lab03-exercises</code>. Within <code class="language-plaintext highlighter-rouge">lab03-exercises</code>, create a new markdown file called <code class="language-plaintext highlighter-rouge">README.md</code>. Add a header to the top.</p>
 
 <p>Great! First let’s try to commit this.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add README.md
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add README.md
 </code></pre></div></div>
 
 <p>Oh no! Something went wrong. What error do you see?</p>
 
 <p>The problem is we haven’t created a repository yet. Before we fix
 this, let’s take a look at what we have in the directory using the
-<code class="highlighter-rouge">ls</code> command, along with the flags to show all hidden files. If you
+<code class="language-plaintext highlighter-rouge">ls</code> command, along with the flags to show all hidden files. If you
 don’t remember the flag to look for hidden files, take a look at the command line cheatsheet on the course website.</p>
 
-<p>You should see a single file, the <code class="highlighter-rouge">README.md</code> file you made. Now let’s
+<p>You should see a single file, the <code class="language-plaintext highlighter-rouge">README.md</code> file you made. Now let’s
 initialize the our new git repository.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
 </code></pre></div></div>
 
 <p>Git will initialize a repository for you. Now let’s list the contents of the directory again (including hidden files). Do you see anything new? Is it a directory or a file? How can you tell? List the contents of the new directory.</p>
 
 <blockquote class="blockquote-no-margin">
-  <p>1.1. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
+  <p>1.1. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
 <p>This is Git’s internal implementation. You generally won’t have to look in here, but whenever you’re working in a Git repository, this special directory
@@ -238,22 +238,22 @@ will exist.</p>
 <p>Git is <em>stateful</em> and <em>modal</em>, which means that it sometimes behaves
 differently depending on what state or mode it’s in. It’s a good idea
 to get in the habit of checking Git’s state prior to making any
-changes. Let’s do that now with the <code class="highlighter-rouge">status</code> subcommand.</p>
+changes. Let’s do that now with the <code class="language-plaintext highlighter-rouge">status</code> subcommand.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
 </code></pre></div></div>
 
 <blockquote class="blockquote-no-margin">
-  <p>1.2. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
+  <p>1.2. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
-<p>When you issue the <code class="highlighter-rouge">git status command</code>, you’re usually looking for 2 things:</p>
+<p>When you issue the <code class="language-plaintext highlighter-rouge">git status command</code>, you’re usually looking for 2 things:</p>
 <ol>
-  <li>The <code class="highlighter-rouge">branch</code> you’re on (in this case, <code class="highlighter-rouge">main</code>) and</li>
-  <li>a list of untracked files (in this case, just <code class="highlighter-rouge">README.md</code>).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">branch</code> you’re on (in this case, <code class="language-plaintext highlighter-rouge">main</code>) and</li>
+  <li>a list of untracked files (in this case, just <code class="language-plaintext highlighter-rouge">README.md</code>).</li>
 </ol>
 
-<p>Let’s add <code class="highlighter-rouge">README.md</code> to Git’s staging area using the <code class="highlighter-rouge">add</code>
+<p>Let’s add <code class="language-plaintext highlighter-rouge">README.md</code> to Git’s staging area using the <code class="language-plaintext highlighter-rouge">add</code>
 subcommand.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add README.md
@@ -263,7 +263,7 @@ subcommand.</p>
 way you can check the state of git to confirm that your file was added
 (hint: see above)?</p>
 
-<p>Note that <code class="highlighter-rouge">README.md</code> is under the <code class="highlighter-rouge">Changes to be committed</code> header
+<p>Note that <code class="language-plaintext highlighter-rouge">README.md</code> is under the <code class="language-plaintext highlighter-rouge">Changes to be committed</code> header
 now. That means this file will be included on our next commit. Let’s
 do that now.</p>
 
@@ -273,24 +273,24 @@ do that now.</p>
 <p>What do you see? After you commit this, let’s check the state of the repository.</p>
 
 <blockquote class="blockquote-no-margin">
-  <p>1.3. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
+  <p>1.3. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
 <p>Now that our repository has history, let’s explore that history. To do
-that, we use the <code class="highlighter-rouge">log</code> subcommand.</p>
+that, we use the <code class="language-plaintext highlighter-rouge">log</code> subcommand.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log
 </code></pre></div></div>
 <blockquote class="blockquote-no-margin">
-  <p>1.4. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
+  <p>1.4. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
-<p>The <a href="https://git-scm.com/docs/git-log"><code class="highlighter-rouge">log</code> subcommand</a> has a lot of great
+<p>The <a href="https://git-scm.com/docs/git-log"><code class="language-plaintext highlighter-rouge">log</code> subcommand</a> has a lot of great
 features that we’ll want to use going forward, but for now let’s just
 bask in the glory of the fact we’ve created a brand new git repository
 and made our first commit to it!</p>
 
-<p>Now let’s modify our file.  Open <code class="highlighter-rouge">README.md</code> and add the following description of the first problem we are going to solve, and then save
+<p>Now let’s modify our file.  Open <code class="language-plaintext highlighter-rouge">README.md</code> and add the following description of the first problem we are going to solve, and then save
 the file.</p>
 
 <blockquote>
@@ -300,22 +300,22 @@ the file.</p>
 </blockquote>
 
 <p>Now that we have a change, let’s check Git’s state. What’s different
-about this message than when we first added the <code class="highlighter-rouge">README.md</code> file?</p>
+about this message than when we first added the <code class="language-plaintext highlighter-rouge">README.md</code> file?</p>
 
 <p>You can see what has changed between the previous commit and now with
-the <code class="highlighter-rouge">diff</code> subcommand.</p>
+the <code class="language-plaintext highlighter-rouge">diff</code> subcommand.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff
 </code></pre></div></div>
 <blockquote class="blockquote-no-margin">
-  <p>1.5. What do you see? Copy the output to your <code class="highlighter-rouge">answers.md</code> file.</p>
+  <p>1.5. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
 </blockquote>
 
 <p>Let’s add this change to Git’s staging area and commit it with a commit message “add first problem”.</p>
 
 <h3 id="id_reflection-and-review">Reflection and Review</h3>
 
-<p>We’ve learned 6 git subcommands now. In your <code class="highlighter-rouge">answers.md</code> file,
+<p>We’ve learned 6 git subcommands now. In your <code class="language-plaintext highlighter-rouge">answers.md</code> file,
 describe each of them in your own words.</p>
 
 <h3 id="id_practice">Practice</h3>
@@ -324,8 +324,8 @@ describe each of them in your own words.</p>
 
 <p>You may use Google, but you may not cut and paste any code.</p>
 
-<p>Let’s write some code. Create a new directory called <code class="highlighter-rouge">java</code> and let’s
-answer that first coding question in a file called <code class="highlighter-rouge">FindDuplicates.java</code>. In it, create a static method called <code class="highlighter-rouge">findDuplicatesNestedLoops</code> that takes a list of integers as an argument and returns a list of integers that have duplicates. Use a “nested loop” strategy to implement your method. Then, in your <code class="highlighter-rouge">main</code> function, invoke your <code class="highlighter-rouge">findDuplicatesNestedLoops</code> method with a few examples to confirm it’s working correctly. Here’s a sample stub of <code class="highlighter-rouge">FindDuplicates.java</code>:</p>
+<p>Let’s write some code. Create a new directory called <code class="language-plaintext highlighter-rouge">java</code> and let’s
+answer that first coding question in a file called <code class="language-plaintext highlighter-rouge">FindDuplicates.java</code>. In it, create a static method called <code class="language-plaintext highlighter-rouge">findDuplicatesNestedLoops</code> that takes a list of integers as an argument and returns a list of integers that have duplicates. Use a “nested loop” strategy to implement your method. Then, in your <code class="language-plaintext highlighter-rouge">main</code> function, invoke your <code class="language-plaintext highlighter-rouge">findDuplicatesNestedLoops</code> method with a few examples to confirm it’s working correctly. Here’s a sample stub of <code class="language-plaintext highlighter-rouge">FindDuplicates.java</code>:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
@@ -357,7 +357,7 @@ answer that first coding question in a file called <code class="highlighter-roug
 
 <p>You can compile and run your code using:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac FindDuplicates.java
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac FindDuplicates.java
 $ java FindDuplicates
 </code></pre></div></div>
 
@@ -372,7 +372,7 @@ that creates an ecosystem of software-related tools around Git. In this section,
 <h3 id="id_create-a-new-repository">Create a New Repository</h3>
 
 <p>On Github, click the “New” button that’s next to your list of
-repos. Let’s call it <code class="highlighter-rouge">lab03-exercises</code> (same as our local repo name, though you could name it something different). Please make it <strong>public</strong>. Leave all of the GitHub options unchecked (i.e. Add README, Add .gitignore, Choose license).</p>
+repos. Let’s call it <code class="language-plaintext highlighter-rouge">lab03-exercises</code> (same as our local repo name, though you could name it something different). Please make it <strong>public</strong>. Leave all of the GitHub options unchecked (i.e. Add README, Add .gitignore, Choose license).</p>
 
 <p>Once you click the green “Create repository” button, you’ll see some
 instructions. We’re going to follow the ones labeled “push an existing
@@ -380,11 +380,11 @@ repository from the command line.”</p>
 
 <blockquote>
   <h3 id="id_important-use-the-ssh-protocol">Important: Use the ssh protocol</h3>
-  <p>You’ll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the <strong>SSH</strong> button is selected (not HTTPS) and that your origin looks something like this: <code class="highlighter-rouge">git@github.com:csci338/your-repo.git</code></p>
+  <p>You’ll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the <strong>SSH</strong> button is selected (not HTTPS) and that your origin looks something like this: <code class="language-plaintext highlighter-rouge">git@github.com:csci338/your-repo.git</code></p>
 </blockquote>
 
 <p>Note that the second command is redundant since we already call our
-default branch <code class="highlighter-rouge">main</code>. But let’s go ahead and do it anyway.</p>
+default branch <code class="language-plaintext highlighter-rouge">main</code>. But let’s go ahead and do it anyway.</p>
 
 <p>Once you push, reload the Github page in your browser, and you should
 see your readme file in all its glory!</p>
@@ -393,17 +393,17 @@ see your readme file in all its glory!</p>
 
 <p>What we’ve done is we’ve created a <em>copy</em> of our repository on
 Github’s servers. In Git, a copy of the repo living somewhere else is
-called a <code class="highlighter-rouge">remote</code>. Note that this doesn’t mean that Github is the
+called a <code class="language-plaintext highlighter-rouge">remote</code>. Note that this doesn’t mean that Github is the
 “source of truth” for our code, it just means that Github is a
 copy. By convention, we can think of the Github version of our code as
 the source of truth, and the clones that live everywhere else as
 secondary, but we don’t have to.</p>
 
 <p>We can even create other remotes, other than “origin” if we want. The
-<code class="highlighter-rouge">remote</code> subcommand will list all of our remotes (using the <code class="highlighter-rouge">-v</code> flag
+<code class="language-plaintext highlighter-rouge">remote</code> subcommand will list all of our remotes (using the <code class="language-plaintext highlighter-rouge">-v</code> flag
 will show us ‘verbose’ details).</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote -v
 </code></pre></div></div>
 
 <p>Once we make a <em>local</em> change to our repository, we have to <em>push</em> the
@@ -415,33 +415,33 @@ changes to our remote to see them reflected.</p>
 
 <p>You may use Google, but you may not cut and paste any code.</p>
 
-<p>Let’s add a directory called <code class="highlighter-rouge">python</code> and repeat this exercise in
+<p>Let’s add a directory called <code class="language-plaintext highlighter-rouge">python</code> and repeat this exercise in
 Python. Generally, Python doesn’t use CamelCase for filenames, so name
-your file <code class="highlighter-rouge">find_duplicates.py</code>. In it, you will implement a function called <code class="highlighter-rouge">find_duplicates_nested_loop</code>. Here’s a basic python skeleton program you
+your file <code class="language-plaintext highlighter-rouge">find_duplicates.py</code>. In it, you will implement a function called <code class="language-plaintext highlighter-rouge">find_duplicates_nested_loop</code>. Here’s a basic python skeleton program you
 can run.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="c1"># Replace "return None" with your code
 </span>    <span class="k">return</span> <span class="bp">None</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="n">sample1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">66</span><span class="p">]</span>
     <span class="n">sample2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
     <span class="n">sample3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
     <span class="n">sample4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
     
-    <span class="k">print</span><span class="p">(</span><span class="s">"Sample 1:"</span><span class="p">,</span> <span class="n">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample1</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Sample 2:"</span><span class="p">,</span> <span class="n">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample2</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Sample 3:"</span><span class="p">,</span> <span class="n">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample3</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Sample 4:"</span><span class="p">,</span> <span class="n">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample4</span><span class="p">))</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Sample 1:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample1</span><span class="p">))</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Sample 2:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample2</span><span class="p">))</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Sample 3:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample3</span><span class="p">))</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Sample 4:</span><span class="sh">"</span><span class="p">,</span> <span class="nf">find_duplicates_nested_loop</span><span class="p">(</span><span class="n">sample4</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>You can run it like this:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3 find_duplicates.py
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3 find_duplicates.py
 </code></pre></div></div>
 
-<p>Go ahead and modify the <code class="highlighter-rouge">find_duplicates_nested_loop</code> function so it works as we
+<p>Go ahead and modify the <code class="language-plaintext highlighter-rouge">find_duplicates_nested_loop</code> function so it works as we
 described. Once you have it working, add it and commit it to the
 repository. Take a look at your Git history. What do you see? Take a
 look at your repo on Github and click on the “commits” link. Do you
@@ -453,83 +453,83 @@ difference between your local repository and the remote repository?</p>
 
 <p>Now let’s push these changes to our remote.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin main
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin main
 </code></pre></div></div>
 
 <p>Some notes:</p>
 <ul>
   <li>If you reload your Github repository and you should now see your latest commit on GitHub.</li>
-  <li>Similarly, if you type <code class="highlighter-rouge">git status</code> on the command line again, you can see that your current and remote branches are the same.</li>
+  <li>Similarly, if you type <code class="language-plaintext highlighter-rouge">git status</code> on the command line again, you can see that your current and remote branches are the same.</li>
 </ul>
 
 <h2 id="id_branching">Branching</h2>
 
-<p>So far we’ve been committing directly to the <code class="highlighter-rouge">main</code> branch and pushing that branch to the remote. This is fine for personal projects, or experimental codebases. It’s not fine for production projects that have users.</p>
+<p>So far we’ve been committing directly to the <code class="language-plaintext highlighter-rouge">main</code> branch and pushing that branch to the remote. This is fine for personal projects, or experimental codebases. It’s not fine for production projects that have users.</p>
 
-<p>Generally speaking, on collaborative projects we’ll consider our <code class="highlighter-rouge">main</code> branch on our <code class="highlighter-rouge">origin</code> remote sacred. Indeed, it’s probably good practice to keep the <code class="highlighter-rouge">main</code> branch of your local repository
+<p>Generally speaking, on collaborative projects we’ll consider our <code class="language-plaintext highlighter-rouge">main</code> branch on our <code class="language-plaintext highlighter-rouge">origin</code> remote sacred. Indeed, it’s probably good practice to keep the <code class="language-plaintext highlighter-rouge">main</code> branch of your local repository
 sacred as well.</p>
 
 <blockquote class="blockquote-no-margin">
-  <p>Generally, this means we will never commit <em>directly</em> to the <code class="highlighter-rouge">main</code> branch anywhere.</p>
+  <p>Generally, this means we will never commit <em>directly</em> to the <code class="language-plaintext highlighter-rouge">main</code> branch anywhere.</p>
 </blockquote>
 
 <p>Instead we will commit to a local
 <em>branch</em> and then use a process called a Pull Request to get our local
-branch into our remote <code class="highlighter-rouge">main</code> branch, then we’ll use <code class="highlighter-rouge">fetch</code> and
-<code class="highlighter-rouge">pull</code> to sync our local branch with the remote.</p>
+branch into our remote <code class="language-plaintext highlighter-rouge">main</code> branch, then we’ll use <code class="language-plaintext highlighter-rouge">fetch</code> and
+<code class="language-plaintext highlighter-rouge">pull</code> to sync our local branch with the remote.</p>
 
 <p>This is convenient because it allows us to apply some basic <em>process</em>
 to our pull requests (e.g. static analysis, testing, code review) to
 make sure only quality, working code makes it into our <em>main</em> branch.</p>
 
-<p>Let’s start by listing all of our branches using the <code class="highlighter-rouge">branch</code>
+<p>Let’s start by listing all of our branches using the <code class="language-plaintext highlighter-rouge">branch</code>
 subcommand.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
 * main
 </code></pre></div></div>
 
 <p>You only have the main branch. Let’s create a new branch in our
-<code class="highlighter-rouge">exercises</code> repository.</p>
+<code class="language-plaintext highlighter-rouge">exercises</code> repository.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch one-set
 </code></pre></div></div>
 
 <p>Hmmmm. No output. Let’s rerun the command from above to see our
 branches.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
 * main
   one-set
 </code></pre></div></div>
 
-<p>The asterisk (*) means you are still on the <code class="highlighter-rouge">main</code> branch. You can
+<p>The asterisk (*) means you are still on the <code class="language-plaintext highlighter-rouge">main</code> branch. You can
 also see this by checking the state of your repository. Do that. Where
 do you see that specified?</p>
 
-<p>Let’s <code class="highlighter-rouge">checkout</code> the <code class="highlighter-rouge">one-set</code> branch.</p>
+<p>Let’s <code class="language-plaintext highlighter-rouge">checkout</code> the <code class="language-plaintext highlighter-rouge">one-set</code> branch.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout one-set
 </code></pre></div></div>
 
-<p>Confirm you are indeed on the <code class="highlighter-rouge">one-set</code>
-branch (use <code class="highlighter-rouge">git status</code>)</p>
+<p>Confirm you are indeed on the <code class="language-plaintext highlighter-rouge">one-set</code>
+branch (use <code class="language-plaintext highlighter-rouge">git status</code>)</p>
 
 <blockquote>
   <h3 id="id_add-to-readmemd-1">Add to README.md</h3>
   <h4 id="id_describe-different-approaches-to-solving-this-problem">Describe Different Approaches to Solving This Problem</h4>
-  <p>Describe the two different ways to figure out all of the duplicate values of a list of integers in english. The first solution is the nested loop solution. The second solution is to use a dictionary or a map (similar to the <code class="highlighter-rouge">containsPair</code> method we wrote in class. Describe both in as much detail as you can (with no code) and describe the trade-offs between the two solutions.</p>
+  <p>Describe the two different ways to figure out all of the duplicate values of a list of integers in english. The first solution is the nested loop solution. The second solution is to use a dictionary or a map (similar to the <code class="language-plaintext highlighter-rouge">containsPair</code> method we wrote in class. Describe both in as much detail as you can (with no code) and describe the trade-offs between the two solutions.</p>
 </blockquote>
 
-<p>Now let’s commit this change to our <code class="highlighter-rouge">README.md</code> file. Note that as long as you’re on the correct branch, all git operations will happen on that branch. Maybe check you’re on the correct branch one more time? Once you’re confident, add and commit your changes.</p>
+<p>Now let’s commit this change to our <code class="language-plaintext highlighter-rouge">README.md</code> file. Note that as long as you’re on the correct branch, all git operations will happen on that branch. Maybe check you’re on the correct branch one more time? Once you’re confident, add and commit your changes.</p>
 
-<p>Now let’s look at our history again. You should have several commits now. One of those commits is the top of <code class="highlighter-rouge">main</code> and one of those commits is the top of <code class="highlighter-rouge">one-set</code>. There’s also one that’s labeled
-<code class="highlighter-rouge">HEAD</code>. Which one?</p>
+<p>Now let’s look at our history again. You should have several commits now. One of those commits is the top of <code class="language-plaintext highlighter-rouge">main</code> and one of those commits is the top of <code class="language-plaintext highlighter-rouge">one-set</code>. There’s also one that’s labeled
+<code class="language-plaintext highlighter-rouge">HEAD</code>. Which one?</p>
 
-<p>Now let’s checkout our <code class="highlighter-rouge">main</code> branch and check our history again. What’s different?</p>
+<p>Now let’s checkout our <code class="language-plaintext highlighter-rouge">main</code> branch and check our history again. What’s different?</p>
 <ul>
-  <li>Is <code class="highlighter-rouge">HEAD</code> the same?</li>
-  <li>If you look at your <code class="highlighter-rouge">README.md</code> file in VS Code (or by “catting” it), is it the same?</li>
+  <li>Is <code class="language-plaintext highlighter-rouge">HEAD</code> the same?</li>
+  <li>If you look at your <code class="language-plaintext highlighter-rouge">README.md</code> file in VS Code (or by “catting” it), is it the same?</li>
 </ul>
 
 <p>Describe in english what happened here.</p>
@@ -547,22 +547,22 @@ Set</a>.</p>
 <p>Now we’re going to solve the question one using a dictionary (or hashmap) data structure
 instead of nested loops. You may do this in either your Python file or in the Java file that you’ve already made.</p>
 
-<p>Once you’re done, commit your changes to the <code class="highlighter-rouge">one-set</code> branch. Double
+<p>Once you’re done, commit your changes to the <code class="language-plaintext highlighter-rouge">one-set</code> branch. Double
 check you’re on the right branch before committing.</p>
 
-<p>Remember the <code class="highlighter-rouge">diff</code> subcommand? Note that you can use the <code class="highlighter-rouge">diff</code>
+<p>Remember the <code class="language-plaintext highlighter-rouge">diff</code> subcommand? Note that you can use the <code class="language-plaintext highlighter-rouge">diff</code>
 subcommand to compare your two branches!</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff main..one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff main..one-set
 </code></pre></div></div>
 
 <h3 id="id_pull-requests">Pull Requests</h3>
 
 <p>Let’s create a pull request by pushing our local branch to our
-remote. Previously, we pushed to <code class="highlighter-rouge">main</code> but we don’t want to do that
+remote. Previously, we pushed to <code class="language-plaintext highlighter-rouge">main</code> but we don’t want to do that
 anymore. Instead, we want to push to our new branch.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin one-set
 </code></pre></div></div>
 
 <p>What do you see? Note that there’s a URL there that will take you to a
@@ -570,7 +570,7 @@ page that allows you to immediately create a pull request. Instead of
 doing that, visit the homepage of your repository on Github. Notice
 that at the top it also allows you to create a pull request.</p>
 
-<p>Before doing that, notice that the dropdown that says <code class="highlighter-rouge">main</code> also
+<p>Before doing that, notice that the dropdown that says <code class="language-plaintext highlighter-rouge">main</code> also
 shows your new branch! You can click the drop-down and explore the
 code in your branch before making a pull request.</p>
 
@@ -581,7 +581,7 @@ that I described above.</p>
 commit message. That may be okay, but if you have multiple commits in
 your branch you might want to change it.</p>
 
-<p>More interesting is the <code class="highlighter-rouge">Preview</code> tab. Github supports Markdown for
+<p>More interesting is the <code class="language-plaintext highlighter-rouge">Preview</code> tab. Github supports Markdown for
 your pull request description! This means you can easily add links,
 lists, and preformatted code snippets to your pull request
 description. Add all of those things.</p>
@@ -604,7 +604,7 @@ button. There are three options there. Based on our discusssion in
 class, what do the three options mean?</p>
 
 <blockquote>
-  <p>What do the three “Merge pull request” options mean? Add them to your <code class="highlighter-rouge">answers.md</code>
+  <p>What do the three “Merge pull request” options mean? Add them to your <code class="language-plaintext highlighter-rouge">answers.md</code>
 file.</p>
 </blockquote>
 
@@ -618,24 +618,24 @@ your local repository. You can confirm this by examining the state of
 both of your branches in your local repository.</p>
 
 <p>You can pull the latest updates in your remote repository without
-affecting your local repositories by using the <code class="highlighter-rouge">fetch</code> subcommand.</p>
+affecting your local repositories by using the <code class="language-plaintext highlighter-rouge">fetch</code> subcommand.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch
 </code></pre></div></div>
 
 <p>Now check the state of the two branches on your local repository. What
 do you see?</p>
 
-<p>You can use <code class="highlighter-rouge">pull</code> to actually pull the latest changes into your local
+<p>You can use <code class="language-plaintext highlighter-rouge">pull</code> to actually pull the latest changes into your local
 branch. In this case, on the main branch, pull the changes.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git pull
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git pull
 </code></pre></div></div>
 
-<p>Now you can delete your local <code class="highlighter-rouge">one-set</code> branch since we don’t need it
+<p>Now you can delete your local <code class="language-plaintext highlighter-rouge">one-set</code> branch since we don’t need it
 anymore.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -D one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -D one-set
 </code></pre></div></div>
 
 <h2 id="id_summary">Summary</h2>
@@ -667,7 +667,7 @@ review at this point, but there’s a few new things in there.</p>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
 
-<p>Commit your <code class="highlighter-rouge">answers.md</code> to your branch in the <code class="highlighter-rouge">class-exercises-fall2025</code> repository and make a pull request. Include some markdown and a screenshot (or some other pic) in your Github description. Then paste a link to your pull request in the Moodle. Make sure that Sarah has been added as a collaborator on your version of the <code class="highlighter-rouge">class-exercises-fall2025</code> repo (<code class="highlighter-rouge">svanwart</code>).</p>
+<p>Commit your <code class="language-plaintext highlighter-rouge">answers.md</code> to your branch in the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repository and make a pull request. Include some markdown and a screenshot (or some other pic) in your Github description. Then paste a link to your pull request in the Moodle. Make sure that Sarah has been added as a collaborator on your version of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo (<code class="language-plaintext highlighter-rouge">svanwart</code>).</p>
 
 
 

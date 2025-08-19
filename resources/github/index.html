@@ -169,17 +169,17 @@
 
 <p>Assumptions:</p>
 <ul>
-  <li>You are currently working on a branch called <code class="highlighter-rouge">my-feature</code></li>
-  <li>You want to rebase your branch with the latest changes from <code class="highlighter-rouge">main</code> that are currently on GitHub.</li>
+  <li>You are currently working on a branch called <code class="language-plaintext highlighter-rouge">my-feature</code></li>
+  <li>You want to rebase your branch with the latest changes from <code class="language-plaintext highlighter-rouge">main</code> that are currently on GitHub.</li>
 </ul>
 
 <h3 id="id_a-great-question-here-are-the-steps">A: Great question! Here are the steps</h3>
 
 <h4 id="id_step-1-sync-your-github-repo">Step 1: Sync your GitHub repo</h4>
-<p>Since you’ve forked your version of the repo from the class’s repo, you’ll want to make sure you’ve got the most recent changes on the <code class="highlighter-rouge">main</code> branch. To do this, navigate to <strong>your version of the class repo</strong> on GitHub and click the “Sync Fork” button (located right underneath the green button).</p>
+<p>Since you’ve forked your version of the repo from the class’s repo, you’ll want to make sure you’ve got the most recent changes on the <code class="language-plaintext highlighter-rouge">main</code> branch. To do this, navigate to <strong>your version of the class repo</strong> on GitHub and click the “Sync Fork” button (located right underneath the green button).</p>
 
 <h4 id="id_step-2-get-to-a-stopping-point-on-your-my-feature-branch">Step 2: Get to a stopping point on your my-feature branch</h4>
-<p>When you’re at a stopping point, stage and commit your changes to the <code class="highlighter-rouge">my-feature</code> branch:</p>
+<p>When you’re at a stopping point, stage and commit your changes to the <code class="language-plaintext highlighter-rouge">my-feature</code> branch:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status      <span class="c"># check if there's anything you need to commit</span>
 git add <span class="nb">.</span>       <span class="c"># stage all of your changes </span>
@@ -203,13 +203,13 @@ git rebase <span class="nt">--continue</span>       <span class="c"># continue r
 </code></pre></div></div>
 
 <h4 id="id_step-5-when-your-my-feature-branch-is-ready-push-it-to-github">Step 5: When your my-feature branch is ready, push it to GitHub</h4>
-<p>One caveat: if you’ve rebased <code class="highlighter-rouge">my-feature</code> from <code class="highlighter-rouge">main</code> on your local machine but you’ve already created a remote <code class="highlighter-rouge">my-feature</code> branch on GitHub, you will need to use the force flag to upload your new changes to GitHub:</p>
+<p>One caveat: if you’ve rebased <code class="language-plaintext highlighter-rouge">my-feature</code> from <code class="language-plaintext highlighter-rouge">main</code> on your local machine but you’ve already created a remote <code class="language-plaintext highlighter-rouge">my-feature</code> branch on GitHub, you will need to use the force flag to upload your new changes to GitHub:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push            <span class="c"># try this first (you may not need the force flag)</span>
 git push <span class="nt">--force</span>    <span class="c"># if you get an error, use the force flag</span>
 </code></pre></div></div>
 
-<p>Why do you need the force flag? If the lineage of your local <code class="highlighter-rouge">my-feature</code> branch differs from the remote version of the branch (because of the rebase), then GitHub will refuse the push. But you can just override the branch protection default and push anyway by using <code class="highlighter-rouge">--force</code> (as this is expected behavior).</p>
+<p>Why do you need the force flag? If the lineage of your local <code class="language-plaintext highlighter-rouge">my-feature</code> branch differs from the remote version of the branch (because of the rebase), then GitHub will refuse the push. But you can just override the branch protection default and push anyway by using <code class="language-plaintext highlighter-rouge">--force</code> (as this is expected behavior).</p>
 
             </article>  
         </main>

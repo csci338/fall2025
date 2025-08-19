@@ -79,26 +79,26 @@
 
 <p><strong>On your local machine:</strong></p>
 <ul>
-  <li>Navigate to your <code class="highlighter-rouge">csci338/class-exercises-fall2025</code> directory</li>
+  <li>Navigate to your <code class="language-plaintext highlighter-rouge">csci338/class-exercises-fall2025</code> directory</li>
   <li>Check that everything is committed and pushed to your remote branch (some command reminders below):<br /><br />
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git branch
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git branch
   git status
   git add .
   git commit -m "Message describing your changes"
 </code></pre></div>    </div>
   </li>
-  <li>Checkout <code class="highlighter-rouge">main</code></li>
-  <li>Pull down the latest code (<code class="highlighter-rouge">git pull</code>). You should see a new <code class="highlighter-rouge">writing-tests</code> folder within your local <code class="highlighter-rouge">class-exercises-fall2025</code> folder.</li>
-  <li>Create a new branch from main called <strong>writing-tests-b</strong>: <code class="highlighter-rouge">git checkout -b writing-tests-b</code></li>
+  <li>Checkout <code class="language-plaintext highlighter-rouge">main</code></li>
+  <li>Pull down the latest code (<code class="language-plaintext highlighter-rouge">git pull</code>). You should see a new <code class="language-plaintext highlighter-rouge">writing-tests</code> folder within your local <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> folder.</li>
+  <li>Create a new branch from main called <strong>writing-tests-b</strong>: <code class="language-plaintext highlighter-rouge">git checkout -b writing-tests-b</code></li>
 </ul>
 
 <h2 id="id_2-configure-your-development-environment-using-poetry">2. Configure your development environment using Poetry</h2>
 <ol>
-  <li>Navigate into your <code class="highlighter-rouge">writing-tests</code> directory from the command line.</li>
-  <li>Open the entire <code class="highlighter-rouge">writing-tests</code> directory in VS Code by typinc <code class="highlighter-rouge">code .</code> on the terminal.</li>
-  <li>Create a new Poetry project: <code class="highlighter-rouge">poetry init</code> (take all the defaults by pressing the enter key).</li>
-  <li>Install the following dependencies with <code class="highlighter-rouge">poetry add</code><br /><br />
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pytest
+  <li>Navigate into your <code class="language-plaintext highlighter-rouge">writing-tests</code> directory from the command line.</li>
+  <li>Open the entire <code class="language-plaintext highlighter-rouge">writing-tests</code> directory in VS Code by typinc <code class="language-plaintext highlighter-rouge">code .</code> on the terminal.</li>
+  <li>Create a new Poetry project: <code class="language-plaintext highlighter-rouge">poetry init</code> (take all the defaults by pressing the enter key).</li>
+  <li>Install the following dependencies with <code class="language-plaintext highlighter-rouge">poetry add</code><br /><br />
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pytest
  black
  flake8
  isort
@@ -107,13 +107,13 @@
 </ol>
 
 <h2 id="id_3-run-the-python-files-and-the-tests">3. Run the python files and the tests:</h2>
-<p>Navigate back into the <code class="highlighter-rouge">writing-tests</code> directory on the command line. Then type the following:</p>
+<p>Navigate back into the <code class="language-plaintext highlighter-rouge">writing-tests</code> directory on the command line. Then type the following:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry run python app/main.py       <span class="c"># runs the app</span>
 poetry run pytest <span class="nt">-v</span>                <span class="c"># runs the tests</span>
 </code></pre></div></div>
 
-<p>Now, open <code class="highlighter-rouge">tests/test_main.py</code> and take a look at it. Uncomment the tests one by one.</p>
+<p>Now, open <code class="language-plaintext highlighter-rouge">tests/test_main.py</code> and take a look at it. Uncomment the tests one by one.</p>
 <ul>
   <li>What do you think the decorators do?</li>
   <li>Under what circumstances might it be important to create test mocks?</li>
@@ -124,14 +124,14 @@ poetry run pytest <span class="nt">-v</span>                <span class="c"># ru
 <h3 id="id_organize-code-for-doing-math">Organize code for doing math</h3>
 <ol>
   <li>You decided to create a new class that contains static methods for doing Arithmetic (I have already created this class for you – just uncomment the first static method I have created for you).</li>
-  <li>Delete the <code class="highlighter-rouge">add_nums</code> function defintion from <code class="highlighter-rouge">main.py</code> and use the one in <code class="highlighter-rouge">Arithmetic</code> instead.</li>
-  <li>Run <code class="highlighter-rouge">test_main.py</code> again. Fix the failing tests.</li>
+  <li>Delete the <code class="language-plaintext highlighter-rouge">add_nums</code> function defintion from <code class="language-plaintext highlighter-rouge">main.py</code> and use the one in <code class="language-plaintext highlighter-rouge">Arithmetic</code> instead.</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">test_main.py</code> again. Fix the failing tests.</li>
 </ol>
 
 <h3 id="id_organize-code-for-interacting-with-the-user">Organize code for interacting with the user</h3>
 <ol>
-  <li>Create a new Python class called <code class="highlighter-rouge">UserInterface</code>. (I have already created a stub for this class. You will need to migrate the functions and convert them into static methods (by using the <code class="highlighter-rouge">@staticmethod</code> decorator.</li>
-  <li>Delete <code class="highlighter-rouge">add_nums_from_user_input</code> function defintion from <code class="highlighter-rouge">main.py</code> and use the one in <code class="highlighter-rouge">UserInterface</code> instead.</li>
+  <li>Create a new Python class called <code class="language-plaintext highlighter-rouge">UserInterface</code>. (I have already created a stub for this class. You will need to migrate the functions and convert them into static methods (by using the <code class="language-plaintext highlighter-rouge">@staticmethod</code> decorator.</li>
+  <li>Delete <code class="language-plaintext highlighter-rouge">add_nums_from_user_input</code> function defintion from <code class="language-plaintext highlighter-rouge">main.py</code> and use the one in <code class="language-plaintext highlighter-rouge">UserInterface</code> instead.</li>
   <li>Fix your tests so that they work again.</li>
 </ol>
 
@@ -146,18 +146,18 @@ poetry run pytest <span class="nt">-v</span>                <span class="c"># ru
 
 <h2 id="id_5-create-two-new-static-methods">5. Create two new static methods</h2>
 <ol>
-  <li>Create a new static method in the Arithmetic class called <code class="highlighter-rouge">subtract_nums</code> that subtracts two numbers.</li>
-  <li>Create a new static method in the Arithmetic class called <code class="highlighter-rouge">subtract_nums_from_user_input</code> that subtracts two numbers based on user input.</li>
+  <li>Create a new static method in the Arithmetic class called <code class="language-plaintext highlighter-rouge">subtract_nums</code> that subtracts two numbers.</li>
+  <li>Create a new static method in the Arithmetic class called <code class="language-plaintext highlighter-rouge">subtract_nums_from_user_input</code> that subtracts two numbers based on user input.</li>
   <li>Write some tests to test your new methods.</li>
 </ol>
 
 <h2 id="id_6-use-the-static-analysis--formatter-tools">6. Use the static analysis / formatter tools</h2>
 <ol>
-  <li>Run the import sorter check: <code class="highlighter-rouge">poetry run isort . --check-only</code></li>
-  <li>Run the import sorter fix: <code class="highlighter-rouge">poetry run isort</code></li>
-  <li>Run the formatter check: <code class="highlighter-rouge">poetry run black .</code></li>
-  <li>Run the formatter fixes: <code class="highlighter-rouge">poetry run black .</code></li>
-  <li>Run flake8 (linter / code quality checker): <code class="highlighter-rouge">poetry run flake8</code></li>
+  <li>Run the import sorter check: <code class="language-plaintext highlighter-rouge">poetry run isort . --check-only</code></li>
+  <li>Run the import sorter fix: <code class="language-plaintext highlighter-rouge">poetry run isort</code></li>
+  <li>Run the formatter check: <code class="language-plaintext highlighter-rouge">poetry run black .</code></li>
+  <li>Run the formatter fixes: <code class="language-plaintext highlighter-rouge">poetry run black .</code></li>
+  <li>Run flake8 (linter / code quality checker): <code class="language-plaintext highlighter-rouge">poetry run flake8</code></li>
 </ol>
 
             </article>  

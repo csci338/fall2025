@@ -1,610 +1,1803 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-html { scroll-behavior: smooth; scroll-padding-top: 70px; }
-
-* { box-sizing: border-box; }
-
-iframe { margin: 20px 0px; }
-
-body { margin: 0; font-family: 'Montserrat', sans-serif; color: #342f2e; box-sizing: border-box; overflow-x: hidden; }
-
-section, div, aside { box-sizing: border-box; }
-
-section a, section a:hover, section a:visited, section a:active, article a, article a:hover, article a:visited, article a:active { text-decoration: none; color: #444; border-bottom: solid #4298B5 1px; }
-section a:hover, article a:hover { background: #f6f6f6; }
-section p, section li, article p, article li { font-size: 16px; color: #5c5962; line-height: 1.6em; }
-section code, section code *, article code, article code * { font-size: 0.95rem; }
-section p, article p { margin: 0 0 15px 0; }
-section li, article li { margin: 0 0 3px 0; }
-
-a, a:hover, a:visited, a:active { text-decoration: none; color: #444; border-bottom: solid transparent 2px; }
-
-ol, ul { margin-top: 0px; }
-
-li { line-height: 1.5em; }
-
-ol.spaced li, ul.spaced li { line-height: 1.5em; margin-bottom: 5px; }
-
-h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; color: #003da5; font-weight: 600; }
-h1 a, h1 a:hover, h1 a:visited, h1 a:active, h2 a, h2 a:hover, h2 a:visited, h2 a:active, h3 a, h3 a:hover, h3 a:visited, h3 a:active, h4 a, h4 a:hover, h4 a:visited, h4 a:active, h5 a, h5 a:hover, h5 a:visited, h5 a:active { text-decoration: none; color: #003da5; border-bottom: none !important; }
-
-h1 { font-weight: 400; }
-h1 a, h1 a:visited { color: #003da5; text-decoration: none; padding-left: 5px; padding-right: 5px; margin-left: -5px; }
-h1 a:hover { background: #EEE; border-radius: 5px; }
-h1 span { display: inline-block; border-radius: 4px; color: white; }
-h1 span.hw { background: #0076A5; }
-h1 span.pj { background: #0076A5; }
-
-h2, h3, h4, h5 { margin-bottom: 0px; }
-h2.slashes::before, h2.slashes::after, h3.slashes::before, h3.slashes::after, h4.slashes::before, h4.slashes::after, h5.slashes::before, h5.slashes::after { background: url(https://common.northwestern.edu/v8/css/images/icons/grey-slash.svg) no-repeat 50%/17px 21px; padding: 0 20px; content: " "; }
-h2.slash::after, h3.slash::after, h4.slash::after, h5.slash::after { background: url(https://common.northwestern.edu/v8/css/images/icons/grey-slash.svg) no-repeat 50%/17px 21px; padding: 0 20px; content: " "; }
-
-h2 { margin-bottom: 10px; }
-
-h3 { margin-bottom: 5px; color: #0076A5 !important; }
-
-h4 { font-size: 1.1em; color: #444; font-weight: 500; }
-
-h5 { font-size: 1em; margin-top: 10px; color: #222; font-weight: 700; margin-bottom: 5px !important; }
-
-strong { font-weight: 600; }
-
-code.highlighter-rouge { background: #F3F3F3; padding: 3px; border-radius: 6px; }
-
-.codepen-frame { height: 350px; }
-
-.highlight table { margin: 0 !important; border: 0 !important; }
-
-.highlight table td, .highlight table th { border-bottom: 0; padding: 0px; }
-
-pre.highlight { padding: 0 10px; }
-
-.highlight table td, .highlight table th { font-size: 1.1em; line-height: 1.1em; }
-
-.rouge-gutter.gl { width: 25px; }
-
-pre.highlight { margin: 0; }
-
-.rouge-gutter { padding-right: 5px !important; }
-
-.desktop { display: flex; }
-
-.mobile { display: none; }
-
-.due-date { display: none; }
-
-ol.flush, ul.flush { padding-left: 17px; }
-ol.flush li, ul.flush li { padding-left: 8px; }
-ol.flush li img, ol.flush li .highlighter-rouge, ul.flush li img, ul.flush li .highlighter-rouge { margin: 5px 0px 5px 5px; }
-
-.checkbox { text-indent: -34px; margin-left: 34px; }
-
-.checkbox:before { font-family: "Font Awesome 5 Free"; content: "\f00c"; font-weight: 600; color: #1cb954; margin-right: 10px; font-size: 1.5em; vertical-align: top; }
-
-.checkbox-list { padding-left: 22px; list-style-type: none; }
-
-.checkbox-list > li { text-indent: -8px; margin-left: 22px; }
-.checkbox-list > li ul > li, .checkbox-list > li ol > li { text-indent: 0; }
-
-.checkbox-list > li:before { font-family: "Font Awesome 5 Free"; content: "\f00c" !important; font-weight: 600 !important; color: #1cb954 !important; font-size: 1.2em !important; vertical-align: top !important; margin-right: 6px !important; }
-
-pre.highlight { border-radius: 10px; background: #F6F6F6; padding: 10px; }
-
-.blockquote-no-margin { margin-top: 0px; }
-
-blockquote { border-left: solid 7px #F6F6F6; background: #F6F6F6; padding: 20px; margin: 0px; margin-bottom: 20px; border-left: solid 7px #0076A5; }
-blockquote p { margin: 0px; }
-
-footer { background: url("/fall2025/assets/images/mountains4.png"); background-size: cover; margin-top: 50px; background-repeat: no-repeat; height: 600px !important; align-items: flex-end !important; color: white; font-weight: bold; grid-area: bottom; }
-footer p { text-align: center; }
-
-main { grid-area: main; }
-main.sticky { padding-top: 48px; }
-
-header { grid-area: top; background: #4298B5; height: 116px; background: #0076A5; display: grid; grid-template-columns: 5fr 1fr; align-items: center; justify-content: center; text-align: center; background-position-y: -270px; }
-header canvas { position: absolute; top: 0px; left: 0; }
-
-header img { width: 200px; margin-right: 20px; z-index: 100; }
-header p.kudos { position: absolute; left: 10px; color: white; top: 80px; font-size: .8em; z-index: 100; }
-header p.kudos a, header p.kudos a:hover, header p.kudos a:visited, header p.kudos a:link, header p.kudos a:active { color: white; text-decoration: underline; }
-header section { display: flex; align-items: center; flex-direction: column; margin-left: 200px; }
-header section h1 { margin-bottom: 0px; color: white; margin-top: 0px; z-index: 100; }
-header section h1 a, header section h1 a:hover, header section h1 a:visited, header section h1 a:active { color: white; background: none; }
-header section h2 { margin-top: 0px; margin-bottom: 0px; font-family: 'Montserrat', sans-serif; border-bottom: none; color: white; text-align: center; z-index: 100; }
-header section h2 a, header section h2 a:hover, header section h2 a:visited, header section h2 a:active { color: white; }
-header section a { z-index: 100; }
-
-nav { background: #F6F6F6; grid-area: menu; position: sticky; top: 0; }
-nav.sticky { position: fixed; top: 0; width: 100%; }
-nav ul { display: flex; flex-direction: row; padding: 0px; margin: 0px; }
-nav ul li { border-bottom: solid 3px transparent; list-style: none; padding: 10px 5px; }
-nav ul li.active { border-bottom: solid 3px #003da5; }
-nav ul li a { padding: 5px 8px; }
-nav ul li a, nav ul li a:visited, nav ul li:active { text-decoration: none; color: #444; }
-nav ul li:hover, nav ul li:active { background: #F9F9F9; border-bottom: solid 3px #C26E60; }
-
-.mb-1 { margin-bottom: 2px; }
-
-.block { display: block; }
-
-.inline-block { display: inline-block; }
-
-table { border-top: solid 1px #444; border-bottom: solid 1px #444; border-collapse: collapse; width: 100%; margin-bottom: 30px; }
-table td, table th { font-size: 0.9em; line-height: 1.5em; margin-top: 5px; vertical-align: top; }
-table td ul, table th ul { margin-bottom: 0px; }
-table td ul li, table th ul li { line-height: 1.5em; font-size: 1em; }
-table td { font-family: 'Montserrat', sans-serif; }
-table td strong, table td i, table td a.lec, table td a.hw, table td a.pj { font-family: 'Montserrat', sans-serif; }
-table thead tr:first-child { border-bottom: solid 1px #444; }
-table tr.section td:nth-child(3) span, table tr.section td:nth-child(3) a { font-weight: normal; }
-table tr.holiday td, table tr.holiday th { background: #F3F3F3; }
-table tr { border-bottom: dotted 1px #CCC; }
-table td, table th { padding: 8px; }
-table th { font-weight: 500; min-width: 60px; text-align: left; }
-
-.schedule table td:first-child, .schedule table th:first-child { width: 80px; }
-.schedule table td:nth-child(2), .schedule table th:nth-child(2) { width: 100px; }
-
-.assignments table td:first-child, .assignments table th:first-child { width: 80px; }
-.assignments table td:nth-child(2), .assignments table th:nth-child(2) { width: 130px; min-width: 60px !important; }
-
-table.rubric-short td:nth-child(1), table.rubric-short th:nth-child(1) { width: 40px; min-width: 40px; max-width: 40px; }
-table.rubric-short td:nth-child(2), table.rubric-short th:nth-child(2) { width: 80px; }
-table.rubric-short ul { margin: 0px; }
-
-table.rubric td:nth-child(1), table.rubric th:nth-child(1) { min-width: 160px; }
-table.rubric ul { margin: 0px; }
-
-.assignments td:nth-child(1), .assignments th:nth-child(1) { font-weight: 500; }
-
-.readings td:nth-child(3), .readings th:nth-child(3), .schedule td:nth-child(3), .schedule th:nth-child(3), .labs td:nth-child(3), .labs th:nth-child(3) { min-width: 310px; }
-.readings td:last-child, .readings th:last-child, .schedule td:last-child, .schedule th:last-child, .labs td:last-child, .labs th:last-child { max-width: 180px; min-width: 100px; }
-
-.schedule td:nth-child(3), .schedule th:nth-child(3), .labs td:nth-child(3), .labs th:nth-child(3) { min-width: 280px; }
-
-table.xsmall { width: 250px !important; }
-
-table.small { width: 400px !important; }
-
-table.medium { width: 600px !important; }
-table.medium.module td:nth-child(2) { max-width: 320px; }
-
-.container { grid-template-columns: 1fr; grid-template-areas: "top" "menu" "main" "bottom"; }
-
-.assignments .passed, .schedule .passed { background: #F9F9F9; }
-.assignments .passed strong, .schedule .passed strong { color: #777; }
-
-.assignments .passed strong, .assignments .passed th, .lectures .passed strong, .lectures .passed th, .readings .passed strong, .readings .passed th, .syllabus .passed strong, .syllabus .passed th, .schedule .passed strong, .schedule .passed th { font-weight: 200; color: #5c5962; }
-
-.assignments, .lectures, .assignment, .reference, .lecture, .readings, .link-menu, .two-column article, .syllabus, .schedule { display: flex; flex-direction: column; }
-.assignments .badge, .assignments a.badge, .assignments .badge-dark, .assignments a.badge-dark, .assignments .topic, .assignments a.topic, .assignments .hw, .assignments a.hw, .assignments .homework, .assignments a.homework, .assignments .pj, .assignments a.pj, .assignments .project, .assignments a.project, .assignments .lec, .assignments a.lec, .assignments .activity, .assignments a.activity, .assignments .reading, .assignments a.reading, .assignments .video, .assignments a.video, .assignments .lecture, .assignments a.lecture, .assignments .lab, .assignments a.lab, .assignments .optional, .assignments a.optional, .assignments .required, .assignments a.required, .assignments .skim, .assignments a.skim .quiz, .assignments a.quiz, .assignments .live, .assignments .recorded, .assignments .ec, .assignments a.ec, .lectures .badge, .lectures a.badge, .lectures .badge-dark, .lectures a.badge-dark, .lectures .topic, .lectures a.topic, .lectures .hw, .lectures a.hw, .lectures .homework, .lectures a.homework, .lectures .pj, .lectures a.pj, .lectures .project, .lectures a.project, .lectures .lec, .lectures a.lec, .lectures .activity, .lectures a.activity, .lectures .reading, .lectures a.reading, .lectures .video, .lectures a.video, .lectures .lecture, .lectures a.lecture, .lectures .lab, .lectures a.lab, .lectures .optional, .lectures a.optional, .lectures .required, .lectures a.required, .lectures .skim, .lectures a.skim .quiz, .lectures a.quiz, .lectures .live, .lectures .recorded, .lectures .ec, .lectures a.ec, .assignment .badge, .assignment a.badge, .assignment .badge-dark, .assignment a.badge-dark, .assignment .topic, .assignment a.topic, .assignment .hw, .assignment a.hw, .assignment .homework, .assignment a.homework, .assignment .pj, .assignment a.pj, .assignment .project, .assignment a.project, .assignment .lec, .assignment a.lec, .assignment .activity, .assignment a.activity, .assignment .reading, .assignment a.reading, .assignment .video, .assignment a.video, .assignment .lecture, .assignment a.lecture, .assignment .lab, .assignment a.lab, .assignment .optional, .assignment a.optional, .assignment .required, .assignment a.required, .assignment .skim, .assignment a.skim .quiz, .assignment a.quiz, .assignment .live, .assignment .recorded, .assignment .ec, .assignment a.ec, .reference .badge, .reference a.badge, .reference .badge-dark, .reference a.badge-dark, .reference .topic, .reference a.topic, .reference .hw, .reference a.hw, .reference .homework, .reference a.homework, .reference .pj, .reference a.pj, .reference .project, .reference a.project, .reference .lec, .reference a.lec, .reference .activity, .reference a.activity, .reference .reading, .reference a.reading, .reference .video, .reference a.video, .reference .lecture, .reference a.lecture, .reference .lab, .reference a.lab, .reference .optional, .reference a.optional, .reference .required, .reference a.required, .reference .skim, .reference a.skim .quiz, .reference a.quiz, .reference .live, .reference .recorded, .reference .ec, .reference a.ec, .lecture .badge, .lecture a.badge, .lecture .badge-dark, .lecture a.badge-dark, .lecture .topic, .lecture a.topic, .lecture .hw, .lecture a.hw, .lecture .homework, .lecture a.homework, .lecture .pj, .lecture a.pj, .lecture .project, .lecture a.project, .lecture .lec, .lecture a.lec, .lecture .activity, .lecture a.activity, .lecture .reading, .lecture a.reading, .lecture .video, .lecture a.video, .lecture .lecture, .lecture a.lecture, .lecture .lab, .lecture a.lab, .lecture .optional, .lecture a.optional, .lecture .required, .lecture a.required, .lecture .skim, .lecture a.skim .quiz, .lecture a.quiz, .lecture .live, .lecture .recorded, .lecture .ec, .lecture a.ec, .readings .badge, .readings a.badge, .readings .badge-dark, .readings a.badge-dark, .readings .topic, .readings a.topic, .readings .hw, .readings a.hw, .readings .homework, .readings a.homework, .readings .pj, .readings a.pj, .readings .project, .readings a.project, .readings .lec, .readings a.lec, .readings .activity, .readings a.activity, .readings .reading, .readings a.reading, .readings .video, .readings a.video, .readings .lecture, .readings a.lecture, .readings .lab, .readings a.lab, .readings .optional, .readings a.optional, .readings .required, .readings a.required, .readings .skim, .readings a.skim .quiz, .readings a.quiz, .readings .live, .readings .recorded, .readings .ec, .readings a.ec, .link-menu .badge, .link-menu a.badge, .link-menu .badge-dark, .link-menu a.badge-dark, .link-menu .topic, .link-menu a.topic, .link-menu .hw, .link-menu a.hw, .link-menu .homework, .link-menu a.homework, .link-menu .pj, .link-menu a.pj, .link-menu .project, .link-menu a.project, .link-menu .lec, .link-menu a.lec, .link-menu .activity, .link-menu a.activity, .link-menu .reading, .link-menu a.reading, .link-menu .video, .link-menu a.video, .link-menu .lecture, .link-menu a.lecture, .link-menu .lab, .link-menu a.lab, .link-menu .optional, .link-menu a.optional, .link-menu .required, .link-menu a.required, .link-menu .skim, .link-menu a.skim .quiz, .link-menu a.quiz, .link-menu .live, .link-menu .recorded, .link-menu .ec, .link-menu a.ec, .two-column article .badge, .two-column article a.badge, .two-column article .badge-dark, .two-column article a.badge-dark, .two-column article .topic, .two-column article a.topic, .two-column article .hw, .two-column article a.hw, .two-column article .homework, .two-column article a.homework, .two-column article .pj, .two-column article a.pj, .two-column article .project, .two-column article a.project, .two-column article .lec, .two-column article a.lec, .two-column article .activity, .two-column article a.activity, .two-column article .reading, .two-column article a.reading, .two-column article .video, .two-column article a.video, .two-column article .lecture, .two-column article a.lecture, .two-column article .lab, .two-column article a.lab, .two-column article .optional, .two-column article a.optional, .two-column article .required, .two-column article a.required, .two-column article .skim, .two-column article a.skim .quiz, .two-column article a.quiz, .two-column article .live, .two-column article .recorded, .two-column article .ec, .two-column article a.ec, .syllabus .badge, .syllabus a.badge, .syllabus .badge-dark, .syllabus a.badge-dark, .syllabus .topic, .syllabus a.topic, .syllabus .hw, .syllabus a.hw, .syllabus .homework, .syllabus a.homework, .syllabus .pj, .syllabus a.pj, .syllabus .project, .syllabus a.project, .syllabus .lec, .syllabus a.lec, .syllabus .activity, .syllabus a.activity, .syllabus .reading, .syllabus a.reading, .syllabus .video, .syllabus a.video, .syllabus .lecture, .syllabus a.lecture, .syllabus .lab, .syllabus a.lab, .syllabus .optional, .syllabus a.optional, .syllabus .required, .syllabus a.required, .syllabus .skim, .syllabus a.skim .quiz, .syllabus a.quiz, .syllabus .live, .syllabus .recorded, .syllabus .ec, .syllabus a.ec, .schedule .badge, .schedule a.badge, .schedule .badge-dark, .schedule a.badge-dark, .schedule .topic, .schedule a.topic, .schedule .hw, .schedule a.hw, .schedule .homework, .schedule a.homework, .schedule .pj, .schedule a.pj, .schedule .project, .schedule a.project, .schedule .lec, .schedule a.lec, .schedule .activity, .schedule a.activity, .schedule .reading, .schedule a.reading, .schedule .video, .schedule a.video, .schedule .lecture, .schedule a.lecture, .schedule .lab, .schedule a.lab, .schedule .optional, .schedule a.optional, .schedule .required, .schedule a.required, .schedule .skim, .schedule a.skim .quiz, .schedule a.quiz, .schedule .live, .schedule .recorded, .schedule .ec, .schedule a.ec { display: inline-block; border-radius: 4px; color: white; text-transform: uppercase; font-size: .90em; line-height: 1.2em; text-decoration: none; padding: 3px 7px; border-bottom: solid transparent 1px; margin-right: 5px; text-indent: 0px; }
-.assignments .badge, .assignments .badge:hover, .lectures .badge, .lectures .badge:hover, .assignment .badge, .assignment .badge:hover, .reference .badge, .reference .badge:hover, .lecture .badge, .lecture .badge:hover, .readings .badge, .readings .badge:hover, .link-menu .badge, .link-menu .badge:hover, .two-column article .badge, .two-column article .badge:hover, .syllabus .badge, .syllabus .badge:hover, .schedule .badge, .schedule .badge:hover { background: #DDD; color: #444; }
-.assignments .hw, .assignments .hw:hover, .assignments .homework, .assignments .hw:hover, .lectures .hw, .lectures .hw:hover, .lectures .homework, .lectures .hw:hover, .assignment .hw, .assignment .hw:hover, .assignment .homework, .assignment .hw:hover, .reference .hw, .reference .hw:hover, .reference .homework, .reference .hw:hover, .lecture .hw, .lecture .hw:hover, .lecture .homework, .lecture .hw:hover, .readings .hw, .readings .hw:hover, .readings .homework, .readings .hw:hover, .link-menu .hw, .link-menu .hw:hover, .link-menu .homework, .link-menu .hw:hover, .two-column article .hw, .two-column article .hw:hover, .two-column article .homework, .two-column article .hw:hover, .syllabus .hw, .syllabus .hw:hover, .syllabus .homework, .syllabus .hw:hover, .schedule .hw, .schedule .hw:hover, .schedule .homework, .schedule .hw:hover { background: #3F6C7D; }
-.assignments .quiz, .assignments .quiz:hover, .lectures .quiz, .lectures .quiz:hover, .assignment .quiz, .assignment .quiz:hover, .reference .quiz, .reference .quiz:hover, .lecture .quiz, .lecture .quiz:hover, .readings .quiz, .readings .quiz:hover, .link-menu .quiz, .link-menu .quiz:hover, .two-column article .quiz, .two-column article .quiz:hover, .syllabus .quiz, .syllabus .quiz:hover, .schedule .quiz, .schedule .quiz:hover { background: #A6192E; }
-.assignments .pj, .assignments .pj:hover, .assignments .project, .assignments .project:hover, .lectures .pj, .lectures .pj:hover, .lectures .project, .lectures .project:hover, .assignment .pj, .assignment .pj:hover, .assignment .project, .assignment .project:hover, .reference .pj, .reference .pj:hover, .reference .project, .reference .project:hover, .lecture .pj, .lecture .pj:hover, .lecture .project, .lecture .project:hover, .readings .pj, .readings .pj:hover, .readings .project, .readings .project:hover, .link-menu .pj, .link-menu .pj:hover, .link-menu .project, .link-menu .project:hover, .two-column article .pj, .two-column article .pj:hover, .two-column article .project, .two-column article .project:hover, .syllabus .pj, .syllabus .pj:hover, .syllabus .project, .syllabus .project:hover, .schedule .pj, .schedule .pj:hover, .schedule .project, .schedule .project:hover { background: #C26E60; }
-.assignments .lecture, .assignments .lecture:hover, .assignments a.lecture, .assignments .lec, .assignments .lec:hover, .assignments a.lec, .lectures .lecture, .lectures .lecture:hover, .lectures a.lecture, .lectures .lec, .lectures .lec:hover, .lectures a.lec, .assignment .lecture, .assignment .lecture:hover, .assignment a.lecture, .assignment .lec, .assignment .lec:hover, .assignment a.lec, .reference .lecture, .reference .lecture:hover, .reference a.lecture, .reference .lec, .reference .lec:hover, .reference a.lec, .lecture .lecture, .lecture .lecture:hover, .lecture a.lecture, .lecture .lec, .lecture .lec:hover, .lecture a.lec, .readings .lecture, .readings .lecture:hover, .readings a.lecture, .readings .lec, .readings .lec:hover, .readings a.lec, .link-menu .lecture, .link-menu .lecture:hover, .link-menu a.lecture, .link-menu .lec, .link-menu .lec:hover, .link-menu a.lec, .two-column article .lecture, .two-column article .lecture:hover, .two-column article a.lecture, .two-column article .lec, .two-column article .lec:hover, .two-column article a.lec, .syllabus .lecture, .syllabus .lecture:hover, .syllabus a.lecture, .syllabus .lec, .syllabus .lec:hover, .syllabus a.lec, .schedule .lecture, .schedule .lecture:hover, .schedule a.lecture, .schedule .lec, .schedule .lec:hover, .schedule a.lec { background: #7F9C90; }
-.assignments .activity, .assignments .activity:hover, .assignments a.activity, .lectures .activity, .lectures .activity:hover, .lectures a.activity, .assignment .activity, .assignment .activity:hover, .assignment a.activity, .reference .activity, .reference .activity:hover, .reference a.activity, .lecture .activity, .lecture .activity:hover, .lecture a.activity, .readings .activity, .readings .activity:hover, .readings a.activity, .link-menu .activity, .link-menu .activity:hover, .link-menu a.activity, .two-column article .activity, .two-column article .activity:hover, .two-column article a.activity, .syllabus .activity, .syllabus .activity:hover, .syllabus a.activity, .schedule .activity, .schedule .activity:hover, .schedule a.activity { background-color: #BD9B60; }
-.assignments .video, .assignments .video:hover, .lectures .video, .lectures .video:hover, .assignment .video, .assignment .video:hover, .reference .video, .reference .video:hover, .lecture .video, .lecture .video:hover, .readings .video, .readings .video:hover, .link-menu .video, .link-menu .video:hover, .two-column article .video, .two-column article .video:hover, .syllabus .video, .syllabus .video:hover, .schedule .video, .schedule .video:hover { background: #C26E60; }
-.assignments .reading, .assignments a.reading, .lectures .reading, .lectures a.reading, .assignment .reading, .assignment a.reading, .reference .reading, .reference a.reading, .lecture .reading, .lecture a.reading, .readings .reading, .readings a.reading, .link-menu .reading, .link-menu a.reading, .two-column article .reading, .two-column article a.reading, .syllabus .reading, .syllabus a.reading, .schedule .reading, .schedule a.reading { background: #E6A65D; }
-.assignments .topic, .assignments .topic:hover, .assignments a.topic, .lectures .topic, .lectures .topic:hover, .lectures a.topic, .assignment .topic, .assignment .topic:hover, .assignment a.topic, .reference .topic, .reference .topic:hover, .reference a.topic, .lecture .topic, .lecture .topic:hover, .lecture a.topic, .readings .topic, .readings .topic:hover, .readings a.topic, .link-menu .topic, .link-menu .topic:hover, .link-menu a.topic, .two-column article .topic, .two-column article .topic:hover, .two-column article a.topic, .syllabus .topic, .syllabus .topic:hover, .syllabus a.topic, .schedule .topic, .schedule .topic:hover, .schedule a.topic { background: #003865; }
-.assignments .lab, .assignments .lab:hover, .lectures .lab, .lectures .lab:hover, .assignment .lab, .assignment .lab:hover, .reference .lab, .reference .lab:hover, .lecture .lab, .lecture .lab:hover, .readings .lab, .readings .lab:hover, .link-menu .lab, .link-menu .lab:hover, .two-column article .lab, .two-column article .lab:hover, .syllabus .lab, .syllabus .lab:hover, .schedule .lab, .schedule .lab:hover { background: #0076A5; }
-.assignments .optional, .assignments .optional:hover, .assignments .required, .assignments .required:hover, .assignments .badge-dark, .assignments .badge-dark:hover, .assignments .skim, .assignments .skim:hover, .lectures .optional, .lectures .optional:hover, .lectures .required, .lectures .required:hover, .lectures .badge-dark, .lectures .badge-dark:hover, .lectures .skim, .lectures .skim:hover, .assignment .optional, .assignment .optional:hover, .assignment .required, .assignment .required:hover, .assignment .badge-dark, .assignment .badge-dark:hover, .assignment .skim, .assignment .skim:hover, .reference .optional, .reference .optional:hover, .reference .required, .reference .required:hover, .reference .badge-dark, .reference .badge-dark:hover, .reference .skim, .reference .skim:hover, .lecture .optional, .lecture .optional:hover, .lecture .required, .lecture .required:hover, .lecture .badge-dark, .lecture .badge-dark:hover, .lecture .skim, .lecture .skim:hover, .readings .optional, .readings .optional:hover, .readings .required, .readings .required:hover, .readings .badge-dark, .readings .badge-dark:hover, .readings .skim, .readings .skim:hover, .link-menu .optional, .link-menu .optional:hover, .link-menu .required, .link-menu .required:hover, .link-menu .badge-dark, .link-menu .badge-dark:hover, .link-menu .skim, .link-menu .skim:hover, .two-column article .optional, .two-column article .optional:hover, .two-column article .required, .two-column article .required:hover, .two-column article .badge-dark, .two-column article .badge-dark:hover, .two-column article .skim, .two-column article .skim:hover, .syllabus .optional, .syllabus .optional:hover, .syllabus .required, .syllabus .required:hover, .syllabus .badge-dark, .syllabus .badge-dark:hover, .syllabus .skim, .syllabus .skim:hover, .schedule .optional, .schedule .optional:hover, .schedule .required, .schedule .required:hover, .schedule .badge-dark, .schedule .badge-dark:hover, .schedule .skim, .schedule .skim:hover { background: #DDD; color: #222; }
-.assignments .ec, .assignments .ec:hover, .lectures .ec, .lectures .ec:hover, .assignment .ec, .assignment .ec:hover, .reference .ec, .reference .ec:hover, .lecture .ec, .lecture .ec:hover, .readings .ec, .readings .ec:hover, .link-menu .ec, .link-menu .ec:hover, .two-column article .ec, .two-column article .ec:hover, .syllabus .ec, .syllabus .ec:hover, .schedule .ec, .schedule .ec:hover { background: #003865; font-weight: 600; }
-.assignments .live, .lectures .live, .assignment .live, .reference .live, .lecture .live, .readings .live, .link-menu .live, .two-column article .live, .syllabus .live, .schedule .live { background: #C26E60; }
-.assignments .recorded, .lectures .recorded, .assignment .recorded, .reference .recorded, .lecture .recorded, .readings .recorded, .link-menu .recorded, .two-column article .recorded, .syllabus .recorded, .schedule .recorded { background: #4298B5; }
-.assignments ul, .lectures ul, .assignment ul, .reference ul, .lecture ul, .readings ul, .link-menu ul, .two-column article ul, .syllabus ul, .schedule ul { margin-top: 0px; }
-
-.readings h3 { font-size: 1em; font-weight: 500; }
-.readings li { margin-bottom: 8px; }
-
-.two-column .outline { background: #F6F6F6; padding: 10px; border-radius: 10px; margin-bottom: 15px; padding: 0px; margin: 0px; }
-.two-column .outline ol, .two-column .outline ul { padding: 10px 10px 5px 15px; }
-.two-column .outline li { list-style-type: none; padding: 0px; margin-bottom: 5px; }
-.two-column .outline li a { border-bottom: dotted 1px #999; }
-
-.assignment ul.toc, .reference ul.toc, .lecture ul.toc, .two-column article ul.toc, .syllabus ul.toc, .schedule ul.toc { padding-left: 0px; }
-.assignment ul.toc li, .reference ul.toc li, .lecture ul.toc li, .two-column article ul.toc li, .syllabus ul.toc li, .schedule ul.toc li { margin-left: 10px; }
-.assignment ul.toc li::before, .reference ul.toc li::before, .lecture ul.toc li::before, .two-column article ul.toc li::before, .syllabus ul.toc li::before, .schedule ul.toc li::before { content: none; }
-.assignment .outline, .reference .outline, .lecture .outline, .two-column article .outline, .syllabus .outline, .schedule .outline { background: #F6F6F6; padding: 10px; border-radius: 10px; margin-bottom: 15px; }
-.assignment .outline h3, .reference .outline h3, .lecture .outline h3, .two-column article .outline h3, .syllabus .outline h3, .schedule .outline h3 { margin-top: 0px; }
-
-ol.readings, ul.readings { margin-top: 0px; margin-bottom: 0px; }
-ol.readings li, ul.readings li { margin-top: 0px; }
-
-.lectures ul, .schedule ul, .readings ul { margin: 0px; }
-.lectures p, .lectures li, .schedule p, .schedule li, .readings p, .readings li { margin-top: 0px; }
-.lectures ol, .schedule ol, .readings ol { margin-top: 0px; margin-bottom: 0px; padding-left: 14px; }
-.lectures ol li, .schedule ol li, .readings ol li { margin-bottom: 5px; }
-
-blockquote.info { background-color: #0076a514; padding: 25px 50px; border-width: 0; padding: 20px 20px 20px 40px; border-radius: 10px; }
-blockquote.info p { margin-bottom: 15px; }
-
-blockquote.info.updates { background-color: #fff3cd !important; }
-blockquote.info.updates h1, blockquote.info.updates h2, blockquote.info.updates h3 { color: #876700; }
-
-blockquote.info.new { background-color: #dac0202b; }
-blockquote.info.new h2 { color: #86760d; }
-blockquote.info.new .badge.info { background-color: #86760d; color: white; }
-blockquote.info.new a, blockquote.info.new a:hover, blockquote.info.new a:active, blockquote.info.new a:visited, blockquote.info.new a:link { border-color: #86760d; background: transparent; }
-
-blockquote.caveat { margin: 20px 0px 20px 40px; background: none; border-left: 0px; padding: 25px; padding: 0px; }
-
-blockquote.quote { margin-left: 20px; background: none; border-left: 0px; padding: 25px; font-size: 1.2em; font-weight: 500; margin-bottom: 30px; }
-blockquote.quote p:before { content: '“'; color: #0076A5; font-size: 3em; line-height: 0.1em; margin-right: 0.1em; vertical-align: -0.4em; font-family: 'Times New Roman', sans-serif; vertical-align: text-bottom; }
-blockquote.quote.slim { border-left: solid 10px #EEE; color: #BBB; margin-left: 30px; background: #FCFCFC; padding-left: 20px; padding-bottom: 0px; }
-blockquote.quote.slim p { margin-bottom: 20px; font-weight: 400; color: #aaa; font-size: 20px; }
-blockquote.quote.slim:before { font-size: 3em; }
-
-div.schedule-simple { margin: 20px 0; display: grid; grid-template-columns: repeat(2, 1fr); background-color: #F4F4F4; column-gap: 30px; padding: 10px; }
-div.schedule-simple .header { grid-column: 1 / span 2; }
-
-@media screen and (max-width: 1000px) { div.schedule-simple { grid-template-columns: 1fr; row-gap: 30px; }
-  div.schedule-simple .header { grid-column: 1 / span 1; } }
-.syllabus article .course-overview li { margin-bottom: 0; }
-.syllabus article .course-overview ul { margin-bottom: 10px; }
-
-.schedule-simple ul li, schedule-simple ol li, .syllabus article li { margin-bottom: 5px; }
-.schedule-simple ul ul ul li, .schedule-simple ul li ul li, .schedule-simple ul li ul li, schedule-simple ol ul ul li, schedule-simple ol li ul li, schedule-simple ol li ul li, .syllabus article ul ul li, .syllabus article li ul li, .syllabus article li ul li { margin-bottom: 0px; }
-
-table.schedule-simple { max-width: 700px; border: solid transparent 0 !important; }
-table.schedule-simple thead tr:first-child { border-bottom: solid #CCC 0px !important; background: #DDD; display: none; }
-table.schedule-simple tr { border: solid transparent 0 !important; }
-table.schedule-simple th, table.schedule-simple td { padding: 4px 0px 4px 12px; border: solid transparent 0; }
-
-.schedule ul, .labs ul { padding-left: 20px; }
-
-.assignment .outline, .lecture .outline, .details .outline, .two-column article .outline, .syllabus .outline, .schedule .outline { margin-top: 30px; }
-.assignment .summary, .lecture .summary, .details .summary, .two-column article .summary, .syllabus .summary, .schedule .summary { background: #F3F3F3; padding: 10px; }
-.assignment .summary li, .lecture .summary li, .details .summary li, .two-column article .summary li, .syllabus .summary li, .schedule .summary li { margin-left: 30px; }
-.assignment ul, .lecture ul, .details ul, .two-column article ul, .syllabus ul, .schedule ul { list-style: none; }
-.assignment ul > li::before, .lecture ul > li::before, .details ul > li::before, .two-column article ul > li::before, .syllabus ul > li::before, .schedule ul > li::before { font-size: 20px; content: "\2022"; font-weight: bold; display: inline-block; text-indent: -16px; color: #0076A5; }
-.assignment h2, .lecture h2, .details h2, .two-column article h2, .syllabus h2, .schedule h2 { color: #003da5; }
-.assignment h3, .lecture h3, .details h3, .two-column article h3, .syllabus h3, .schedule h3 { color: #444; font-family: 'Montserrat', sans-serif; font-size: 1.3em; }
-
-.container { grid-template-columns: 1fr; grid-template-areas: "top" "menu" "main" "bottom"; }
-
-.one-column nav, .one-column footer, .one-column main { display: flex; }
-.one-column header, .one-column nav, .one-column footer { justify-content: center; align-items: center; }
-.one-column footer > div { margin-top: 80px; margin-bottom: 20px; }
-.one-column main { min-height: 80vh; flex-direction: column; padding-left: 15vw; padding-right: 15vw; }
-
-.two-column { padding: 0px; }
-.two-column footer { display: none; }
-.two-column main { display: grid; grid-template-columns: 300px auto; }
-.two-column main > article { padding: 20px 60px; margin-bottom: 100px; }
-.two-column main > article h1 { font-size: 1.8em; }
-.two-column .desktop { display: flex; }
-.two-column .mobile { display: none; }
-.two-column header { z-index: 100; }
-.two-column header h1 { z-index: 100; }
-.two-column nav { border-bottom: dotted 1px #CCC; width: 100vw; display: flex; align-items: center; justify-content: center; }
-.two-column nav ul { z-index: 300; }
-.two-column aside { top: 48px; position: sticky; height: calc(100vh - 44px); left: 0px; background: #F6F6F6; left: 0px; width: 300px; overflow-y: auto; padding-bottom: 40px; }
-.two-column aside h3 { margin-top: 0px; }
-.two-column aside ol { padding: 0px; margin: 0px; }
-.two-column aside .side-menu { width: 100%; padding: 30px 0px; }
-.two-column aside .side-menu a { font-size: 0.9em; padding-right: 20px !important; }
-.two-column aside .side-menu a:hover { background: #EEE; }
-.two-column aside .side-menu > li a { display: block; padding-top: 3px; }
-.two-column aside .side-menu > li a.active { background: #4298B5; color: white !important; }
-.two-column aside .side-menu > li > a:first-child { padding: 4px 0px 3px 20px; font-weight: 500; color: #444; }
-.two-column aside .side-menu > li > ol { margin-top: 0px; margin-bottom: 20px; }
-.two-column aside .side-menu > li > ol li a { color: #444; font-size: 0.85em; padding-left: 20px; padding: 2px 0px 2px 30px; }
-.two-column aside .side-menu > li > ol li ol li a { color: #888; font-size: 0.9em; padding-left: 45px; }
-.two-column aside .side-menu > li > ol li ol li ol li > a { padding-left: 65px; }
-.two-column aside .side-menu li { margin-top: 0px; list-style-type: none; line-height: 1.2em; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+iframe {
+  margin: 20px 0px;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #342f2e;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+section, div, aside {
+  box-sizing: border-box;
+}
+
+section a, section a:hover, section a:visited, section a:active, article a, article a:hover, article a:visited, article a:active {
+  text-decoration: none;
+  color: #444;
+  border-bottom: solid #4298B5 1px;
+}
+section a:hover, article a:hover {
+  background: #f6f6f6;
+}
+section p, section li, article p, article li {
+  font-size: 16px;
+  color: #5c5962;
+  line-height: 1.6em;
+}
+section code, section code *, article code, article code * {
+  font-size: 0.95rem;
+}
+section p, article p {
+  margin: 0 0 15px 0;
+}
+section li, article li {
+  margin: 0 0 3px 0;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: #444;
+  border-bottom: solid transparent 2px;
+}
+
+ol, ul {
+  margin-top: 0px;
+}
+
+li {
+  line-height: 1.5em;
+}
+
+ol.spaced li, ul.spaced li {
+  line-height: 1.5em;
+  margin-bottom: 5px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Montserrat", sans-serif;
+  color: #003da5;
+  font-weight: 600;
+}
+h1 a, h1 a:hover, h1 a:visited, h1 a:active, h2 a, h2 a:hover, h2 a:visited, h2 a:active, h3 a, h3 a:hover, h3 a:visited, h3 a:active, h4 a, h4 a:hover, h4 a:visited, h4 a:active, h5 a, h5 a:hover, h5 a:visited, h5 a:active {
+  text-decoration: none;
+  color: #003da5;
+  border-bottom: none !important;
+}
+
+h1 {
+  font-weight: 400;
+}
+h1 a, h1 a:visited {
+  color: #003da5;
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: -5px;
+}
+h1 a:hover {
+  background: #EEE;
+  border-radius: 5px;
+}
+h1 span {
+  display: inline-block;
+  border-radius: 4px;
+  color: white;
+}
+h1 span.hw {
+  background: #0076A5;
+}
+h1 span.pj {
+  background: #0076A5;
+}
+
+h2, h3, h4, h5 {
+  margin-bottom: 0px;
+}
+h2.slashes::before, h2.slashes::after, h3.slashes::before, h3.slashes::after, h4.slashes::before, h4.slashes::after, h5.slashes::before, h5.slashes::after {
+  background: url(https://common.northwestern.edu/v8/css/images/icons/grey-slash.svg) no-repeat 50%/17px 21px;
+  padding: 0 20px;
+  content: " ";
+}
+h2.slash::after, h3.slash::after, h4.slash::after, h5.slash::after {
+  background: url(https://common.northwestern.edu/v8/css/images/icons/grey-slash.svg) no-repeat 50%/17px 21px;
+  padding: 0 20px;
+  content: " ";
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 5px;
+  color: #0076A5 !important;
+}
+
+h4 {
+  font-size: 1.1em;
+  color: #444;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1em;
+  margin-top: 10px;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 5px !important;
+}
+
+strong {
+  font-weight: 600;
+}
+
+code.highlighter-rouge {
+  background: #F3F3F3;
+  padding: 3px;
+  border-radius: 6px;
+}
+
+.codepen-frame {
+  height: 350px;
+}
+
+.highlight table {
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+.highlight table td, .highlight table th {
+  border-bottom: 0;
+  padding: 0px;
+}
+
+pre.highlight {
+  padding: 0 10px;
+}
+
+.highlight table td, .highlight table th {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+.rouge-gutter.gl {
+  width: 25px;
+}
+
+pre.highlight {
+  margin: 0;
+}
+
+.rouge-gutter {
+  padding-right: 5px !important;
+}
+
+.desktop {
+  display: flex;
+}
+
+.mobile {
+  display: none;
+}
+
+.due-date {
+  display: none;
+}
+
+ol.flush, ul.flush {
+  padding-left: 17px;
+}
+ol.flush li, ul.flush li {
+  padding-left: 8px;
+}
+ol.flush li img, ol.flush li .highlighter-rouge, ul.flush li img, ul.flush li .highlighter-rouge {
+  margin: 5px 0px 5px 5px;
+}
+
+.checkbox {
+  text-indent: -34px;
+  margin-left: 34px;
+}
+
+.checkbox:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 600;
+  color: #1cb954;
+  margin-right: 10px;
+  font-size: 1.5em;
+  vertical-align: top;
+}
+
+.checkbox-list {
+  padding-left: 22px;
+  list-style-type: none;
+}
+
+.checkbox-list > li {
+  text-indent: -8px;
+  margin-left: 22px;
+}
+.checkbox-list > li ul > li, .checkbox-list > li ol > li {
+  text-indent: 0;
+}
+
+.checkbox-list > li:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c" !important;
+  font-weight: 600 !important;
+  color: #1cb954 !important;
+  font-size: 1.2em !important;
+  vertical-align: top !important;
+  margin-right: 6px !important;
+}
+
+pre.highlight {
+  border-radius: 10px;
+  background: #F6F6F6;
+  padding: 10px;
+}
+
+.blockquote-no-margin {
+  margin-top: 0px;
+}
+
+blockquote {
+  border-left: solid 7px #F6F6F6;
+  background: #F6F6F6;
+  padding: 20px;
+  margin: 0px;
+  margin-bottom: 20px;
+  border-left: solid 7px #0076A5;
+}
+blockquote p {
+  margin: 0px;
+}
+
+footer {
+  background: url("/fall2025/assets/images/mountains4.png");
+  background-size: cover;
+  margin-top: 50px;
+  background-repeat: no-repeat;
+  height: 600px !important;
+  align-items: flex-end !important;
+  color: white;
+  font-weight: bold;
+  grid-area: bottom;
+}
+footer p {
+  text-align: center;
+}
+
+main {
+  grid-area: main;
+}
+main.sticky {
+  padding-top: 48px;
+}
+
+header {
+  grid-area: top;
+  background: #4298B5;
+  height: 116px;
+  background: #0076A5;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-position-y: -270px;
+}
+header canvas {
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+header img {
+  width: 200px;
+  margin-right: 20px;
+  z-index: 100;
+}
+header p.kudos {
+  position: absolute;
+  left: 10px;
+  color: white;
+  top: 80px;
+  font-size: 0.8em;
+  z-index: 100;
+}
+header p.kudos a, header p.kudos a:hover, header p.kudos a:visited, header p.kudos a:link, header p.kudos a:active {
+  color: white;
+  text-decoration: underline;
+}
+header section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 200px;
+}
+header section h1 {
+  margin-bottom: 0px;
+  color: white;
+  margin-top: 0px;
+  z-index: 100;
+}
+header section h1 a, header section h1 a:hover, header section h1 a:visited, header section h1 a:active {
+  color: white;
+  background: none;
+}
+header section h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Montserrat", sans-serif;
+  border-bottom: none;
+  color: white;
+  text-align: center;
+  z-index: 100;
+}
+header section h2 a, header section h2 a:hover, header section h2 a:visited, header section h2 a:active {
+  color: white;
+}
+header section a {
+  z-index: 100;
+}
+
+nav {
+  background: #F6F6F6;
+  grid-area: menu;
+  position: sticky;
+  top: 0;
+}
+nav.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin: 0px;
+}
+nav ul li {
+  border-bottom: solid 3px transparent;
+  list-style: none;
+  padding: 10px 5px;
+}
+nav ul li.active {
+  border-bottom: solid 3px #003da5;
+}
+nav ul li a {
+  padding: 5px 8px;
+}
+nav ul li a, nav ul li a:visited, nav ul li:active {
+  text-decoration: none;
+  color: #444;
+}
+nav ul li:hover, nav ul li:active {
+  background: #F9F9F9;
+  border-bottom: solid 3px #C26E60;
+}
+
+.mb-1 {
+  margin-bottom: 2px;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+table {
+  border-top: solid 1px #444;
+  border-bottom: solid 1px #444;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 30px;
+}
+table td, table th {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin-top: 5px;
+  vertical-align: top;
+}
+table td ul, table th ul {
+  margin-bottom: 0px;
+}
+table td ul li, table th ul li {
+  line-height: 1.5em;
+  font-size: 1em;
+}
+table td {
+  font-family: "Montserrat", sans-serif;
+}
+table td strong, table td i, table td a.lec, table td a.hw, table td a.pj {
+  font-family: "Montserrat", sans-serif;
+}
+table thead tr:first-child {
+  border-bottom: solid 1px #444;
+}
+table tr.section td:nth-child(3) span, table tr.section td:nth-child(3) a {
+  font-weight: normal;
+}
+table tr.holiday td, table tr.holiday th {
+  background: #F3F3F3;
+}
+table tr {
+  border-bottom: dotted 1px #CCC;
+}
+table td, table th {
+  padding: 8px;
+}
+table th {
+  font-weight: 500;
+  min-width: 60px;
+  text-align: left;
+}
+
+.schedule table td:first-child, .schedule table th:first-child {
+  width: 80px;
+}
+.schedule table td:nth-child(2), .schedule table th:nth-child(2) {
+  width: 100px;
+}
+
+.assignments table td:first-child, .assignments table th:first-child {
+  width: 80px;
+}
+.assignments table td:nth-child(2), .assignments table th:nth-child(2) {
+  width: 130px;
+  min-width: 60px !important;
+}
+
+table.rubric-short td:nth-child(1), table.rubric-short th:nth-child(1) {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+}
+table.rubric-short td:nth-child(2), table.rubric-short th:nth-child(2) {
+  width: 80px;
+}
+table.rubric-short ul {
+  margin: 0px;
+}
+
+table.rubric td:nth-child(1), table.rubric th:nth-child(1) {
+  min-width: 160px;
+}
+table.rubric ul {
+  margin: 0px;
+}
+
+.assignments td:nth-child(1), .assignments th:nth-child(1) {
+  font-weight: 500;
+}
+
+.readings td:nth-child(3), .readings th:nth-child(3), .schedule td:nth-child(3), .schedule th:nth-child(3), .labs td:nth-child(3), .labs th:nth-child(3) {
+  min-width: 310px;
+}
+.readings td:last-child, .readings th:last-child, .schedule td:last-child, .schedule th:last-child, .labs td:last-child, .labs th:last-child {
+  max-width: 180px;
+  min-width: 100px;
+}
+
+.schedule td:nth-child(3), .schedule th:nth-child(3), .labs td:nth-child(3), .labs th:nth-child(3) {
+  min-width: 280px;
+}
+
+table.xsmall {
+  width: 250px !important;
+}
+
+table.small {
+  width: 400px !important;
+}
+
+table.medium {
+  width: 600px !important;
+}
+table.medium.module td:nth-child(2) {
+  max-width: 320px;
+}
+
+.container {
+  grid-template-columns: 1fr;
+  grid-template-areas: "top" "menu" "main" "bottom";
+}
+
+.assignments .passed, .schedule .passed {
+  background: #F9F9F9;
+}
+.assignments .passed strong, .schedule .passed strong {
+  color: #777;
+}
+
+.assignments .passed strong, .assignments .passed th, .lectures .passed strong, .lectures .passed th, .readings .passed strong, .readings .passed th, .syllabus .passed strong, .syllabus .passed th, .schedule .passed strong, .schedule .passed th {
+  font-weight: 200;
+  color: #5c5962;
+}
+
+.assignments, .lectures, .assignment, .reference, .lecture, .readings, .link-menu, .two-column article, .syllabus, .schedule {
+  display: flex;
+  flex-direction: column;
+}
+.assignments .badge, .assignments a.badge,
+.assignments .badge-dark, .assignments a.badge-dark,
+.assignments .topic, .assignments a.topic,
+.assignments .hw, .assignments a.hw,
+.assignments .homework, .assignments a.homework,
+.assignments .pj, .assignments a.pj,
+.assignments .project, .assignments a.project,
+.assignments .lec, .assignments a.lec,
+.assignments .activity, .assignments a.activity,
+.assignments .reading, .assignments a.reading,
+.assignments .video, .assignments a.video,
+.assignments .lecture, .assignments a.lecture,
+.assignments .lab, .assignments a.lab,
+.assignments .optional, .assignments a.optional,
+.assignments .required, .assignments a.required,
+.assignments .skim, .assignments a.skim .quiz,
+.assignments a.quiz,
+.assignments .live, .assignments .recorded,
+.assignments .ec, .assignments a.ec, .lectures .badge, .lectures a.badge,
+.lectures .badge-dark, .lectures a.badge-dark,
+.lectures .topic, .lectures a.topic,
+.lectures .hw, .lectures a.hw,
+.lectures .homework, .lectures a.homework,
+.lectures .pj, .lectures a.pj,
+.lectures .project, .lectures a.project,
+.lectures .lec, .lectures a.lec,
+.lectures .activity, .lectures a.activity,
+.lectures .reading, .lectures a.reading,
+.lectures .video, .lectures a.video,
+.lectures .lecture, .lectures a.lecture,
+.lectures .lab, .lectures a.lab,
+.lectures .optional, .lectures a.optional,
+.lectures .required, .lectures a.required,
+.lectures .skim, .lectures a.skim .quiz,
+.lectures a.quiz,
+.lectures .live, .lectures .recorded,
+.lectures .ec, .lectures a.ec, .assignment .badge, .assignment a.badge,
+.assignment .badge-dark, .assignment a.badge-dark,
+.assignment .topic, .assignment a.topic,
+.assignment .hw, .assignment a.hw,
+.assignment .homework, .assignment a.homework,
+.assignment .pj, .assignment a.pj,
+.assignment .project, .assignment a.project,
+.assignment .lec, .assignment a.lec,
+.assignment .activity, .assignment a.activity,
+.assignment .reading, .assignment a.reading,
+.assignment .video, .assignment a.video,
+.assignment .lecture, .assignment a.lecture,
+.assignment .lab, .assignment a.lab,
+.assignment .optional, .assignment a.optional,
+.assignment .required, .assignment a.required,
+.assignment .skim, .assignment a.skim .quiz,
+.assignment a.quiz,
+.assignment .live, .assignment .recorded,
+.assignment .ec, .assignment a.ec, .reference .badge, .reference a.badge,
+.reference .badge-dark, .reference a.badge-dark,
+.reference .topic, .reference a.topic,
+.reference .hw, .reference a.hw,
+.reference .homework, .reference a.homework,
+.reference .pj, .reference a.pj,
+.reference .project, .reference a.project,
+.reference .lec, .reference a.lec,
+.reference .activity, .reference a.activity,
+.reference .reading, .reference a.reading,
+.reference .video, .reference a.video,
+.reference .lecture, .reference a.lecture,
+.reference .lab, .reference a.lab,
+.reference .optional, .reference a.optional,
+.reference .required, .reference a.required,
+.reference .skim, .reference a.skim .quiz,
+.reference a.quiz,
+.reference .live, .reference .recorded,
+.reference .ec, .reference a.ec, .lecture .badge, .lecture a.badge,
+.lecture .badge-dark, .lecture a.badge-dark,
+.lecture .topic, .lecture a.topic,
+.lecture .hw, .lecture a.hw,
+.lecture .homework, .lecture a.homework,
+.lecture .pj, .lecture a.pj,
+.lecture .project, .lecture a.project,
+.lecture .lec, .lecture a.lec,
+.lecture .activity, .lecture a.activity,
+.lecture .reading, .lecture a.reading,
+.lecture .video, .lecture a.video,
+.lecture .lecture, .lecture a.lecture,
+.lecture .lab, .lecture a.lab,
+.lecture .optional, .lecture a.optional,
+.lecture .required, .lecture a.required,
+.lecture .skim, .lecture a.skim .quiz,
+.lecture a.quiz,
+.lecture .live, .lecture .recorded,
+.lecture .ec, .lecture a.ec, .readings .badge, .readings a.badge,
+.readings .badge-dark, .readings a.badge-dark,
+.readings .topic, .readings a.topic,
+.readings .hw, .readings a.hw,
+.readings .homework, .readings a.homework,
+.readings .pj, .readings a.pj,
+.readings .project, .readings a.project,
+.readings .lec, .readings a.lec,
+.readings .activity, .readings a.activity,
+.readings .reading, .readings a.reading,
+.readings .video, .readings a.video,
+.readings .lecture, .readings a.lecture,
+.readings .lab, .readings a.lab,
+.readings .optional, .readings a.optional,
+.readings .required, .readings a.required,
+.readings .skim, .readings a.skim .quiz,
+.readings a.quiz,
+.readings .live, .readings .recorded,
+.readings .ec, .readings a.ec, .link-menu .badge, .link-menu a.badge,
+.link-menu .badge-dark, .link-menu a.badge-dark,
+.link-menu .topic, .link-menu a.topic,
+.link-menu .hw, .link-menu a.hw,
+.link-menu .homework, .link-menu a.homework,
+.link-menu .pj, .link-menu a.pj,
+.link-menu .project, .link-menu a.project,
+.link-menu .lec, .link-menu a.lec,
+.link-menu .activity, .link-menu a.activity,
+.link-menu .reading, .link-menu a.reading,
+.link-menu .video, .link-menu a.video,
+.link-menu .lecture, .link-menu a.lecture,
+.link-menu .lab, .link-menu a.lab,
+.link-menu .optional, .link-menu a.optional,
+.link-menu .required, .link-menu a.required,
+.link-menu .skim, .link-menu a.skim .quiz,
+.link-menu a.quiz,
+.link-menu .live, .link-menu .recorded,
+.link-menu .ec, .link-menu a.ec, .two-column article .badge, .two-column article a.badge,
+.two-column article .badge-dark, .two-column article a.badge-dark,
+.two-column article .topic, .two-column article a.topic,
+.two-column article .hw, .two-column article a.hw,
+.two-column article .homework, .two-column article a.homework,
+.two-column article .pj, .two-column article a.pj,
+.two-column article .project, .two-column article a.project,
+.two-column article .lec, .two-column article a.lec,
+.two-column article .activity, .two-column article a.activity,
+.two-column article .reading, .two-column article a.reading,
+.two-column article .video, .two-column article a.video,
+.two-column article .lecture, .two-column article a.lecture,
+.two-column article .lab, .two-column article a.lab,
+.two-column article .optional, .two-column article a.optional,
+.two-column article .required, .two-column article a.required,
+.two-column article .skim, .two-column article a.skim .quiz,
+.two-column article a.quiz,
+.two-column article .live, .two-column article .recorded,
+.two-column article .ec, .two-column article a.ec, .syllabus .badge, .syllabus a.badge,
+.syllabus .badge-dark, .syllabus a.badge-dark,
+.syllabus .topic, .syllabus a.topic,
+.syllabus .hw, .syllabus a.hw,
+.syllabus .homework, .syllabus a.homework,
+.syllabus .pj, .syllabus a.pj,
+.syllabus .project, .syllabus a.project,
+.syllabus .lec, .syllabus a.lec,
+.syllabus .activity, .syllabus a.activity,
+.syllabus .reading, .syllabus a.reading,
+.syllabus .video, .syllabus a.video,
+.syllabus .lecture, .syllabus a.lecture,
+.syllabus .lab, .syllabus a.lab,
+.syllabus .optional, .syllabus a.optional,
+.syllabus .required, .syllabus a.required,
+.syllabus .skim, .syllabus a.skim .quiz,
+.syllabus a.quiz,
+.syllabus .live, .syllabus .recorded,
+.syllabus .ec, .syllabus a.ec, .schedule .badge, .schedule a.badge,
+.schedule .badge-dark, .schedule a.badge-dark,
+.schedule .topic, .schedule a.topic,
+.schedule .hw, .schedule a.hw,
+.schedule .homework, .schedule a.homework,
+.schedule .pj, .schedule a.pj,
+.schedule .project, .schedule a.project,
+.schedule .lec, .schedule a.lec,
+.schedule .activity, .schedule a.activity,
+.schedule .reading, .schedule a.reading,
+.schedule .video, .schedule a.video,
+.schedule .lecture, .schedule a.lecture,
+.schedule .lab, .schedule a.lab,
+.schedule .optional, .schedule a.optional,
+.schedule .required, .schedule a.required,
+.schedule .skim, .schedule a.skim .quiz,
+.schedule a.quiz,
+.schedule .live, .schedule .recorded,
+.schedule .ec, .schedule a.ec {
+  display: inline-block;
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  text-decoration: none;
+  padding: 3px 7px;
+  border-bottom: solid transparent 1px;
+  margin-right: 5px;
+  text-indent: 0px;
+}
+.assignments .badge, .assignments .badge:hover, .lectures .badge, .lectures .badge:hover, .assignment .badge, .assignment .badge:hover, .reference .badge, .reference .badge:hover, .lecture .badge, .lecture .badge:hover, .readings .badge, .readings .badge:hover, .link-menu .badge, .link-menu .badge:hover, .two-column article .badge, .two-column article .badge:hover, .syllabus .badge, .syllabus .badge:hover, .schedule .badge, .schedule .badge:hover {
+  background: #DDD;
+  color: #444;
+}
+.assignments .hw, .assignments .hw:hover, .assignments .homework, .assignments .hw:hover, .lectures .hw, .lectures .hw:hover, .lectures .homework, .lectures .hw:hover, .assignment .hw, .assignment .hw:hover, .assignment .homework, .assignment .hw:hover, .reference .hw, .reference .hw:hover, .reference .homework, .reference .hw:hover, .lecture .hw, .lecture .hw:hover, .lecture .homework, .lecture .hw:hover, .readings .hw, .readings .hw:hover, .readings .homework, .readings .hw:hover, .link-menu .hw, .link-menu .hw:hover, .link-menu .homework, .link-menu .hw:hover, .two-column article .hw, .two-column article .hw:hover, .two-column article .homework, .two-column article .hw:hover, .syllabus .hw, .syllabus .hw:hover, .syllabus .homework, .syllabus .hw:hover, .schedule .hw, .schedule .hw:hover, .schedule .homework, .schedule .hw:hover {
+  background: #3F6C7D;
+}
+.assignments .quiz, .assignments .quiz:hover, .lectures .quiz, .lectures .quiz:hover, .assignment .quiz, .assignment .quiz:hover, .reference .quiz, .reference .quiz:hover, .lecture .quiz, .lecture .quiz:hover, .readings .quiz, .readings .quiz:hover, .link-menu .quiz, .link-menu .quiz:hover, .two-column article .quiz, .two-column article .quiz:hover, .syllabus .quiz, .syllabus .quiz:hover, .schedule .quiz, .schedule .quiz:hover {
+  background: #A6192E;
+}
+.assignments .pj, .assignments .pj:hover, .assignments .project, .assignments .project:hover, .lectures .pj, .lectures .pj:hover, .lectures .project, .lectures .project:hover, .assignment .pj, .assignment .pj:hover, .assignment .project, .assignment .project:hover, .reference .pj, .reference .pj:hover, .reference .project, .reference .project:hover, .lecture .pj, .lecture .pj:hover, .lecture .project, .lecture .project:hover, .readings .pj, .readings .pj:hover, .readings .project, .readings .project:hover, .link-menu .pj, .link-menu .pj:hover, .link-menu .project, .link-menu .project:hover, .two-column article .pj, .two-column article .pj:hover, .two-column article .project, .two-column article .project:hover, .syllabus .pj, .syllabus .pj:hover, .syllabus .project, .syllabus .project:hover, .schedule .pj, .schedule .pj:hover, .schedule .project, .schedule .project:hover {
+  background: #C26E60;
+}
+.assignments .lecture, .assignments .lecture:hover, .assignments a.lecture,
+.assignments .lec, .assignments .lec:hover, .assignments a.lec, .lectures .lecture, .lectures .lecture:hover, .lectures a.lecture,
+.lectures .lec, .lectures .lec:hover, .lectures a.lec, .assignment .lecture, .assignment .lecture:hover, .assignment a.lecture,
+.assignment .lec, .assignment .lec:hover, .assignment a.lec, .reference .lecture, .reference .lecture:hover, .reference a.lecture,
+.reference .lec, .reference .lec:hover, .reference a.lec, .lecture .lecture, .lecture .lecture:hover, .lecture a.lecture,
+.lecture .lec, .lecture .lec:hover, .lecture a.lec, .readings .lecture, .readings .lecture:hover, .readings a.lecture,
+.readings .lec, .readings .lec:hover, .readings a.lec, .link-menu .lecture, .link-menu .lecture:hover, .link-menu a.lecture,
+.link-menu .lec, .link-menu .lec:hover, .link-menu a.lec, .two-column article .lecture, .two-column article .lecture:hover, .two-column article a.lecture,
+.two-column article .lec, .two-column article .lec:hover, .two-column article a.lec, .syllabus .lecture, .syllabus .lecture:hover, .syllabus a.lecture,
+.syllabus .lec, .syllabus .lec:hover, .syllabus a.lec, .schedule .lecture, .schedule .lecture:hover, .schedule a.lecture,
+.schedule .lec, .schedule .lec:hover, .schedule a.lec {
+  background: #7F9C90;
+}
+.assignments .activity, .assignments .activity:hover, .assignments a.activity, .lectures .activity, .lectures .activity:hover, .lectures a.activity, .assignment .activity, .assignment .activity:hover, .assignment a.activity, .reference .activity, .reference .activity:hover, .reference a.activity, .lecture .activity, .lecture .activity:hover, .lecture a.activity, .readings .activity, .readings .activity:hover, .readings a.activity, .link-menu .activity, .link-menu .activity:hover, .link-menu a.activity, .two-column article .activity, .two-column article .activity:hover, .two-column article a.activity, .syllabus .activity, .syllabus .activity:hover, .syllabus a.activity, .schedule .activity, .schedule .activity:hover, .schedule a.activity {
+  background-color: #BD9B60;
+}
+.assignments .video, .assignments .video:hover, .lectures .video, .lectures .video:hover, .assignment .video, .assignment .video:hover, .reference .video, .reference .video:hover, .lecture .video, .lecture .video:hover, .readings .video, .readings .video:hover, .link-menu .video, .link-menu .video:hover, .two-column article .video, .two-column article .video:hover, .syllabus .video, .syllabus .video:hover, .schedule .video, .schedule .video:hover {
+  background: #C26E60;
+}
+.assignments .reading, .assignments a.reading, .lectures .reading, .lectures a.reading, .assignment .reading, .assignment a.reading, .reference .reading, .reference a.reading, .lecture .reading, .lecture a.reading, .readings .reading, .readings a.reading, .link-menu .reading, .link-menu a.reading, .two-column article .reading, .two-column article a.reading, .syllabus .reading, .syllabus a.reading, .schedule .reading, .schedule a.reading {
+  background: #E6A65D;
+}
+.assignments .topic, .assignments .topic:hover, .assignments a.topic, .lectures .topic, .lectures .topic:hover, .lectures a.topic, .assignment .topic, .assignment .topic:hover, .assignment a.topic, .reference .topic, .reference .topic:hover, .reference a.topic, .lecture .topic, .lecture .topic:hover, .lecture a.topic, .readings .topic, .readings .topic:hover, .readings a.topic, .link-menu .topic, .link-menu .topic:hover, .link-menu a.topic, .two-column article .topic, .two-column article .topic:hover, .two-column article a.topic, .syllabus .topic, .syllabus .topic:hover, .syllabus a.topic, .schedule .topic, .schedule .topic:hover, .schedule a.topic {
+  background: #003865;
+}
+.assignments .lab, .assignments .lab:hover, .lectures .lab, .lectures .lab:hover, .assignment .lab, .assignment .lab:hover, .reference .lab, .reference .lab:hover, .lecture .lab, .lecture .lab:hover, .readings .lab, .readings .lab:hover, .link-menu .lab, .link-menu .lab:hover, .two-column article .lab, .two-column article .lab:hover, .syllabus .lab, .syllabus .lab:hover, .schedule .lab, .schedule .lab:hover {
+  background: #0076A5;
+}
+.assignments .optional, .assignments .optional:hover, .assignments .required,
+.assignments .required:hover, .assignments .badge-dark, .assignments .badge-dark:hover,
+.assignments .skim, .assignments .skim:hover, .lectures .optional, .lectures .optional:hover, .lectures .required,
+.lectures .required:hover, .lectures .badge-dark, .lectures .badge-dark:hover,
+.lectures .skim, .lectures .skim:hover, .assignment .optional, .assignment .optional:hover, .assignment .required,
+.assignment .required:hover, .assignment .badge-dark, .assignment .badge-dark:hover,
+.assignment .skim, .assignment .skim:hover, .reference .optional, .reference .optional:hover, .reference .required,
+.reference .required:hover, .reference .badge-dark, .reference .badge-dark:hover,
+.reference .skim, .reference .skim:hover, .lecture .optional, .lecture .optional:hover, .lecture .required,
+.lecture .required:hover, .lecture .badge-dark, .lecture .badge-dark:hover,
+.lecture .skim, .lecture .skim:hover, .readings .optional, .readings .optional:hover, .readings .required,
+.readings .required:hover, .readings .badge-dark, .readings .badge-dark:hover,
+.readings .skim, .readings .skim:hover, .link-menu .optional, .link-menu .optional:hover, .link-menu .required,
+.link-menu .required:hover, .link-menu .badge-dark, .link-menu .badge-dark:hover,
+.link-menu .skim, .link-menu .skim:hover, .two-column article .optional, .two-column article .optional:hover, .two-column article .required,
+.two-column article .required:hover, .two-column article .badge-dark, .two-column article .badge-dark:hover,
+.two-column article .skim, .two-column article .skim:hover, .syllabus .optional, .syllabus .optional:hover, .syllabus .required,
+.syllabus .required:hover, .syllabus .badge-dark, .syllabus .badge-dark:hover,
+.syllabus .skim, .syllabus .skim:hover, .schedule .optional, .schedule .optional:hover, .schedule .required,
+.schedule .required:hover, .schedule .badge-dark, .schedule .badge-dark:hover,
+.schedule .skim, .schedule .skim:hover {
+  background: #DDD;
+  color: #222;
+}
+.assignments .ec, .assignments .ec:hover, .lectures .ec, .lectures .ec:hover, .assignment .ec, .assignment .ec:hover, .reference .ec, .reference .ec:hover, .lecture .ec, .lecture .ec:hover, .readings .ec, .readings .ec:hover, .link-menu .ec, .link-menu .ec:hover, .two-column article .ec, .two-column article .ec:hover, .syllabus .ec, .syllabus .ec:hover, .schedule .ec, .schedule .ec:hover {
+  background: #003865;
+  font-weight: 600;
+}
+.assignments .live, .lectures .live, .assignment .live, .reference .live, .lecture .live, .readings .live, .link-menu .live, .two-column article .live, .syllabus .live, .schedule .live {
+  background: #C26E60;
+}
+.assignments .recorded, .lectures .recorded, .assignment .recorded, .reference .recorded, .lecture .recorded, .readings .recorded, .link-menu .recorded, .two-column article .recorded, .syllabus .recorded, .schedule .recorded {
+  background: #4298B5;
+}
+.assignments ul, .lectures ul, .assignment ul, .reference ul, .lecture ul, .readings ul, .link-menu ul, .two-column article ul, .syllabus ul, .schedule ul {
+  margin-top: 0px;
+}
+
+.readings h3 {
+  font-size: 1em;
+  font-weight: 500;
+}
+.readings li {
+  margin-bottom: 8px;
+}
+
+.two-column .outline {
+  background: #F6F6F6;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 0px;
+  margin: 0px;
+}
+.two-column .outline ol, .two-column .outline ul {
+  padding: 10px 10px 5px 15px;
+}
+.two-column .outline li {
+  list-style-type: none;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+.two-column .outline li a {
+  border-bottom: dotted 1px #999;
+}
+
+.assignment ul.toc, .reference ul.toc, .lecture ul.toc, .two-column article ul.toc, .syllabus ul.toc, .schedule ul.toc {
+  padding-left: 0px;
+}
+.assignment ul.toc li, .reference ul.toc li, .lecture ul.toc li, .two-column article ul.toc li, .syllabus ul.toc li, .schedule ul.toc li {
+  margin-left: 10px;
+}
+.assignment ul.toc li::before, .reference ul.toc li::before, .lecture ul.toc li::before, .two-column article ul.toc li::before, .syllabus ul.toc li::before, .schedule ul.toc li::before {
+  content: none;
+}
+.assignment .outline, .reference .outline, .lecture .outline, .two-column article .outline, .syllabus .outline, .schedule .outline {
+  background: #F6F6F6;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.assignment .outline h3, .reference .outline h3, .lecture .outline h3, .two-column article .outline h3, .syllabus .outline h3, .schedule .outline h3 {
+  margin-top: 0px;
+}
+
+ol.readings, ul.readings {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+ol.readings li, ul.readings li {
+  margin-top: 0px;
+}
+
+.lectures ul, .schedule ul, .readings ul {
+  margin: 0px;
+}
+.lectures p, .lectures li, .schedule p, .schedule li, .readings p, .readings li {
+  margin-top: 0px;
+}
+.lectures ol, .schedule ol, .readings ol {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 14px;
+}
+.lectures ol li, .schedule ol li, .readings ol li {
+  margin-bottom: 5px;
+}
+
+blockquote.info {
+  background-color: rgba(0, 118, 165, 0.0784313725);
+  padding: 25px 50px;
+  border-width: 0;
+  padding: 20px 20px 20px 40px;
+  border-radius: 10px;
+}
+blockquote.info p {
+  margin-bottom: 15px;
+}
+
+blockquote.info.updates {
+  background-color: #fff3cd !important;
+}
+blockquote.info.updates h1, blockquote.info.updates h2, blockquote.info.updates h3 {
+  color: #876700;
+}
+
+blockquote.info.new {
+  background-color: rgba(218, 192, 32, 0.168627451);
+}
+blockquote.info.new h2 {
+  color: #86760d;
+}
+blockquote.info.new .badge.info {
+  background-color: #86760d;
+  color: white;
+}
+blockquote.info.new a, blockquote.info.new a:hover, blockquote.info.new a:active, blockquote.info.new a:visited, blockquote.info.new a:link {
+  border-color: #86760d;
+  background: transparent;
+}
+
+blockquote.caveat {
+  margin: 20px 0px 20px 40px;
+  background: none;
+  border-left: 0px;
+  padding: 25px;
+  padding: 0px;
+}
+
+blockquote.quote {
+  margin-left: 20px;
+  background: none;
+  border-left: 0px;
+  padding: 25px;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+blockquote.quote p:before {
+  content: "“";
+  color: #0076A5;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.1em;
+  vertical-align: -0.4em;
+  font-family: "Times New Roman", sans-serif;
+  vertical-align: text-bottom;
+}
+blockquote.quote.slim {
+  border-left: solid 10px #EEE;
+  color: #BBB;
+  margin-left: 30px;
+  background: #FCFCFC;
+  padding-left: 20px;
+  padding-bottom: 0px;
+}
+blockquote.quote.slim p {
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #aaa;
+  font-size: 20px;
+}
+blockquote.quote.slim:before {
+  font-size: 3em;
+}
+
+div.schedule-simple {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #F4F4F4;
+  column-gap: 30px;
+  padding: 10px;
+}
+div.schedule-simple .header {
+  grid-column: 1/span 2;
+}
+
+@media screen and (max-width: 1000px) {
+  div.schedule-simple {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  div.schedule-simple .header {
+    grid-column: 1/span 1;
+  }
+}
+.syllabus article .course-overview li {
+  margin-bottom: 0;
+}
+.syllabus article .course-overview ul {
+  margin-bottom: 10px;
+}
+
+.schedule-simple ul li, schedule-simple ol li, .syllabus article li {
+  margin-bottom: 5px;
+}
+.schedule-simple ul ul ul li,
+.schedule-simple ul li ul li,
+.schedule-simple ul li ul li, schedule-simple ol ul ul li,
+schedule-simple ol li ul li,
+schedule-simple ol li ul li, .syllabus article ul ul li,
+.syllabus article li ul li,
+.syllabus article li ul li {
+  margin-bottom: 0px;
+}
+
+table.schedule-simple {
+  max-width: 700px;
+  border: solid transparent 0 !important;
+}
+table.schedule-simple thead tr:first-child {
+  border-bottom: solid #CCC 0px !important;
+  background: #DDD;
+  display: none;
+}
+table.schedule-simple tr {
+  border: solid transparent 0 !important;
+}
+table.schedule-simple th, table.schedule-simple td {
+  padding: 4px 0px 4px 12px;
+  border: solid transparent 0;
+}
+
+.schedule ul, .labs ul {
+  padding-left: 20px;
+}
+
+.assignment .outline, .lecture .outline, .details .outline, .two-column article .outline, .syllabus .outline, .schedule .outline {
+  margin-top: 30px;
+}
+.assignment .summary, .lecture .summary, .details .summary, .two-column article .summary, .syllabus .summary, .schedule .summary {
+  background: #F3F3F3;
+  padding: 10px;
+}
+.assignment .summary li, .lecture .summary li, .details .summary li, .two-column article .summary li, .syllabus .summary li, .schedule .summary li {
+  margin-left: 30px;
+}
+.assignment ul, .lecture ul, .details ul, .two-column article ul, .syllabus ul, .schedule ul {
+  list-style: none;
+}
+.assignment ul > li::before, .lecture ul > li::before, .details ul > li::before, .two-column article ul > li::before, .syllabus ul > li::before, .schedule ul > li::before {
+  font-size: 20px;
+  content: "•";
+  font-weight: bold;
+  display: inline-block;
+  text-indent: -16px;
+  color: #0076A5;
+}
+.assignment h2, .lecture h2, .details h2, .two-column article h2, .syllabus h2, .schedule h2 {
+  color: #003da5;
+}
+.assignment h3, .lecture h3, .details h3, .two-column article h3, .syllabus h3, .schedule h3 {
+  color: #444;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+}
+
+.container {
+  grid-template-columns: 1fr;
+  grid-template-areas: "top" "menu" "main" "bottom";
+}
+
+.one-column nav, .one-column footer, .one-column main {
+  display: flex;
+}
+.one-column header, .one-column nav, .one-column footer {
+  justify-content: center;
+  align-items: center;
+}
+.one-column footer > div {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+.one-column main {
+  min-height: 80vh;
+  flex-direction: column;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
+.two-column {
+  padding: 0px;
+}
+.two-column footer {
+  display: none;
+}
+.two-column main {
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+.two-column main > article {
+  padding: 20px 60px;
+  margin-bottom: 100px;
+}
+.two-column main > article h1 {
+  font-size: 1.8em;
+}
+.two-column .desktop {
+  display: flex;
+}
+.two-column .mobile {
+  display: none;
+}
+.two-column header {
+  z-index: 100;
+}
+.two-column header h1 {
+  z-index: 100;
+}
+.two-column nav {
+  border-bottom: dotted 1px #CCC;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.two-column nav ul {
+  z-index: 300;
+}
+.two-column aside {
+  top: 48px;
+  position: sticky;
+  height: calc(100vh - 44px);
+  left: 0px;
+  background: #F6F6F6;
+  left: 0px;
+  width: 300px;
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+.two-column aside h3 {
+  margin-top: 0px;
+}
+.two-column aside ol {
+  padding: 0px;
+  margin: 0px;
+}
+.two-column aside .side-menu {
+  width: 100%;
+  padding: 30px 0px;
+}
+.two-column aside .side-menu a {
+  font-size: 0.9em;
+  padding-right: 20px !important;
+}
+.two-column aside .side-menu a:hover {
+  background: #EEE;
+}
+.two-column aside .side-menu > li a {
+  display: block;
+  padding-top: 3px;
+}
+.two-column aside .side-menu > li a.active {
+  background: #4298B5;
+  color: white !important;
+}
+.two-column aside .side-menu > li > a:first-child {
+  padding: 4px 0px 3px 20px;
+  font-weight: 500;
+  color: #444;
+}
+.two-column aside .side-menu > li > ol {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.two-column aside .side-menu > li > ol li a {
+  color: #444;
+  font-size: 0.85em;
+  padding-left: 20px;
+  padding: 2px 0px 2px 30px;
+}
+.two-column aside .side-menu > li > ol li ol li a {
+  color: #888;
+  font-size: 0.9em;
+  padding-left: 45px;
+}
+.two-column aside .side-menu > li > ol li ol li ol li > a {
+  padding-left: 65px;
+}
+.two-column aside .side-menu li {
+  margin-top: 0px;
+  list-style-type: none;
+  line-height: 1.2em;
+}
 
 /*! Inkpot Theme; https://github.com/uraimo/pygments-vimstyles */
 /*! Wombat VIM theme */
-.highlight, .highlight pre, .highlight table { background: #242424 !important; color: #f6f3e8 !important; border-radius: 10px; overflow-x: auto; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
-
-.highlight .hll { background-color: #ffffcc !important; }
-
-.highlight .c { color: #99968b !important; font-style: italic !important; }
-
-/* Comment */
-.highlight .err { color: #f6f3e8 !important; }
-
-/* Error */
-.highlight .g { color: #f6f3e8 !important; }
-
-/* Generic */
-.highlight .k { color: #8ac6f2 !important; }
-
-/* Keyword */
-.highlight .l { color: #f6f3e8 !important; }
-
-/* Literal */
-.highlight .n, .highlight .h { color: #f6f3e8 !important; }
-
-/* Name */
-.highlight .o { color: #f6f3e8 !important; }
-
-/* Operator */
-.highlight .x { color: #f6f3e8 !important; }
-
-/* Other */
-.highlight .p { color: #f6f3e8 !important; }
-
-/* Punctuation */
-.highlight .cm { color: #99968b !important; font-style: italic !important; }
-
-/* Comment.Multiline */
-.highlight .cp { color: #e5786d !important; }
-
-/* Comment.Preproc */
-.highlight .c1 { color: #99968b !important; font-style: italic !important; }
-
-/* Comment.Single */
-.highlight .cs { color: #99968b !important; font-style: italic !important; }
-
-/* Comment.Special */
-.highlight .gd { color: #f6f3e8 !important; }
-
-/* Generic.Deleted */
-.highlight .ge { color: #f6f3e8 !important; }
-
-/* Generic.Emph */
-.highlight .gr { color: #f6f3e8 !important; }
-
-/* Generic.Error */
-.highlight .gh { color: #f6f3e8 !important; font-weight: bold !important; }
-
-/* Generic.Heading */
-.highlight .gi { color: #f6f3e8 !important; }
-
-/* Generic.Inserted */
-.highlight .go { color: #808080 !important; background-color: #303030 !important; }
-
-/* Generic.Output */
-.highlight .gp { color: #f6f3e8 !important; }
-
-/* Generic.Prompt */
-.highlight .gs { color: #f6f3e8 !important; }
-
-/* Generic.Strong */
-.highlight .gu { color: #f6f3e8 !important; font-weight: bold !important; }
-
-/* Generic.Subheading */
-.highlight .gt { color: #f6f3e8 !important; }
-
-/* Generic.Traceback */
-.highlight .kc { color: #8ac6f2 !important; }
-
-/* Keyword.Constant */
-.highlight .kd { color: #8ac6f2 !important; }
-
-/* Keyword.Declaration */
-.highlight .kn { color: #8ac6f2 !important; }
-
-/* Keyword.Namespace */
-.highlight .kp { color: #8ac6f2 !important; }
-
-/* Keyword.Pseudo */
-.highlight .kr { color: #8ac6f2 !important; }
-
-/* Keyword.Reserved */
-.highlight .kt { color: #cae682 !important; }
-
-/* Keyword.Type */
-.highlight .ld { color: #f6f3e8 !important; }
-
-/* Literal.Date */
-.highlight .m { color: #e5786d !important; }
-
-/* Literal.Number */
-.highlight .s { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String */
-.highlight .na { color: #cae682 !important; }
-
-/* Name.Attribute */
-.highlight .nb { color: #f6f3e8 !important; }
-
-/* Name.Builtin */
-.highlight .nc { color: #f6f3e8 !important; }
-
-/* Name.Class */
-.highlight .no { color: #e5786d !important; }
-
-/* Name.Constant */
-.highlight .nd { color: #f6f3e8 !important; }
-
-/* Name.Decorator */
-.highlight .ni { color: #e7f6da !important; }
-
-/* Name.Entity */
-.highlight .ne { color: #f6f3e8 !important; }
-
-/* Name.Exception */
-.highlight .nf { color: #cae682 !important; }
-
-/* Name.Function */
-.highlight .nl { color: #f6f3e8 !important; }
-
-/* Name.Label */
-.highlight .nn { color: #f6f3e8 !important; }
-
-/* Name.Namespace */
-.highlight .nx { color: #f6f3e8 !important; }
-
-/* Name.Other */
-.highlight .py { color: #f6f3e8 !important; }
-
-/* Name.Property */
-.highlight .nt { color: #8ac6f2 !important; }
-
-/* Name.Tag */
-.highlight .nv { color: #cae682 !important; }
-
-/* Name.Variable */
-.highlight .ow { color: #f6f3e8 !important; }
-
-/* Operator.Word */
-.highlight .w { color: #f6f3e8 !important; }
-
-/* Text.Whitespace */
-.highlight .mf { color: #e5786d !important; }
-
-/* Literal.Number.Float */
-.highlight .mh { color: #e5786d !important; }
-
-/* Literal.Number.Hex */
-.highlight .mi { color: #e5786d !important; }
-
-/* Literal.Number.Integer */
-.highlight .mo { color: #e5786d !important; }
-
-/* Literal.Number.Oct */
-.highlight .sb { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Backtick */
-.highlight .sc { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Char */
-.highlight .sd { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Doc */
-.highlight .s2 { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Double */
-.highlight .se { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Escape */
-.highlight .sh { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Heredoc */
-.highlight .si { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Interpol */
-.highlight .sx { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Other */
-.highlight .sr { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Regex */
-.highlight .s1 { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Single */
-.highlight .ss { color: #95e454 !important; font-style: italic !important; }
-
-/* Literal.String.Symbol */
-.highlight .bp { color: #f6f3e8 !important; }
-
-/* Name.Builtin.Pseudo */
-.highlight .vc { color: #cae682 !important; }
-
-/* Name.Variable.Class */
-.highlight .vg { color: #cae682 !important; }
-
-/* Name.Variable.Global */
-.highlight .vi { color: #cae682 !important; }
-
-/* Name.Variable.Instance */
-.highlight .il { color: #e5786d !important; }
-
-/* Literal.Number.Integer.Long */
-.subtitle { margin: -15px 0px 35px 0px; font-size: 1.2em; font-weight: bold; color: #777; }
-
-.caption { line-height: 1.2em; font-size: 0.9em; margin-top: -8px; margin-bottom: 20px; text-align: center; font-weight: 700; }
-
-.frame { border-radius: 5px; padding: 5px; border: solid 1px #CCC; }
-
-img.xsmall { max-width: 30%; }
-
-img.small { max-width: 40%; }
-
-img.medium { max-width: 70%; }
-
-img.med-lg { max-width: 85%; }
-
-img.large { max-width: 100%; }
-
-.center { margin-right: auto; margin-left: auto; display: block; }
-
-img.creature { max-width: 20%; float: left; margin: 0px 10px 0px 0px; }
-
-.module-image { border-radius: 5px; padding: 5px; border: solid 1px #CCC; max-width: 30%; float: left; margin: 0px 10px 0px 0px; }
-
-.highlighter-rouge { margin-bottom: 20px; }
-
-.button { background: #fff; border: solid 1px #0076A5; color: #0076A5 !important; margin: 20px .5em 20px 0; padding: .8em 1em .7em 1em; align-self: flex-start; text-transform: uppercase; transition: 0.3s ease; text-decoration: none; }
-.button i { margin-left: 5px; }
-
-.nu-button, .nu-button:visited, .nu-button:active { background: #0076A5; color: #fff !important; border: none; margin: 20px .5em 20px 0; padding: .8em 1em .7em 1em; align-self: flex-start; text-transform: uppercase; transition: 0.3s ease; text-decoration: none; }
-.nu-button:hover, .nu-button:visited:hover, .nu-button:active:hover { background: #4298B5; border: none; }
-.nu-button i, .nu-button:visited i, .nu-button:active i { margin-left: 5px; }
-
-table.instructions td, table.instructions th { font-size: 1em; }
-
-ol.compact li, ul.compact li { margin: 0; line-height: 1.4em; }
-
-@media (max-width: 800px) { img.small, img.medium, img.med-lg { max-width: 100%; }
-  img.module-image, img.creature { max-width: 40%; } }
-.expandable-section { margin: 0 0 1em 0; }
-
-.toggle-button { background-color: transparent; width: 20px; text-align: center; border: none; padding: 0.5em; cursor: pointer; }
-
-.toggle-header { display: flex; gap: 10px; align-items: center; }
-
-.toggle-header h1, .toggle-header h2, .toggle-header h3, .toggle-header h4, .toggle-header h5, .toggle-header h6 { margin: 0; }
-
-.expandable-content { margin-top: 10px; margin-left: 30px; }
-
-#toggle-button { position: fixed; top: 5px; margin: 0; right: 15px; }
-
-.hide { display: none; }
-
-.show { display: block; }
-
-@media (max-width: 600px) { #toggle-button, #toggle-button.show { display: none; } }
-@media (max-width: 1200px) { .one-column main { padding-left: 10vw; padding-right: 10vw; }
-  .readings td:nth-child(4), .readings th:nth-child(4), .readings td:nth-child(3), .readings th:nth-child(3), .readings th:last-child, .readings td:last-child, .schedule td:nth-child(4), .schedule th:nth-child(4), .schedule td:nth-child(3), .schedule th:nth-child(3), .schedule th:last-child, .schedule td:last-child, .labs td:nth-child(4), .labs th:nth-child(4), .labs td:nth-child(3), .labs th:nth-child(3), .labs th:last-child, .labs td:last-child { min-width: 80px; width: auto; max-width: auto; } }
-@media (max-width: 900px) { .one-column header, .two-column header { grid-template-columns: 1fr; }
-  .one-column header img, .two-column header img { display: none; }
-  .one-column header section, .two-column header section { margin-left: 0; }
-  .one-column main { padding-left: 2vw; padding-right: 2vw; } }
-@media (max-width: 800px) { .two-column main { padding-left: 2vw; padding-right: 2vw; }
-  table td { font-family: 'Montserrat', sans-serif; }
-  .schedule table td:nth-child(1), .schedule table th:nth-child(1), .labs table td:nth-child(1), .labs table th:nth-child(1) { min-width: 72px; width: 72px; }
-  .schedule table td:nth-child(2), .schedule table th:nth-child(2), .labs table td:nth-child(2), .labs table th:nth-child(2) { min-width: 40px; width: 40px; }
-  .schedule table th:nth-child(4), .schedule table td:nth-child(4) { display: none; }
-  table.rubric td:nth-child(1), table.rubric th:nth-child(1) { min-width: auto; }
-  .two-column { margin-bottom: 0px; }
-  .two-column main { grid-template-columns: auto; }
-  .two-column main > article { margin-top: auto; width: auto; margin: 0px; padding: 0px; }
-  .two-column aside { display: none; }
-  .two-column footer { display: flex; align-items: flex-end; justify-content: center; }
-  table.medium { width: 100% !important; } }
-@media (max-width: 600px) { .one-column main, .two-column main { min-height: 82vh; padding: 80px 20px 20px 20px; }
-  .one-column .container, .two-column .container { grid-template-columns: 1fr; grid-template-rows: 65px auto auto auto; grid-template-areas: "top" "menu" "main" "bottom"; margin: 0px; grid-row-gap: 0px; grid-column-gap: 0px; overflow: auto; }
-  .one-column .desktop, .two-column .desktop { display: none; }
-  .one-column .mobile, .two-column .mobile { display: flex; }
-  .one-column footer, .one-column header, .two-column footer, .two-column header { border: none; }
-  .one-column header, .one-column nav, .two-column header, .two-column nav { top: 0px; z-index: 500; position: fixed; width: 100vw; }
-  .one-column header .fa-bars, .one-column nav .fa-bars, .two-column header .fa-bars, .two-column nav .fa-bars { color: white; }
-  .one-column header, .two-column header { padding-top: 0; height: 65px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.34); color: white; grid-template-columns: 1fr; }
-  .one-column header p.kudos, .two-column header p.kudos { left: 11px; top: 34px; }
-  .one-column header p.kudos a, .one-column header p.kudos a:hover, .one-column header p.kudos a:visited, .one-column header p.kudos a:link, .one-column header p.kudos a:active, .two-column header p.kudos a, .two-column header p.kudos a:hover, .two-column header p.kudos a:visited, .two-column header p.kudos a:link, .two-column header p.kudos a:active { padding: 0; margin: 0; }
-  .one-column header i, .two-column header i { font-size: 24px; }
-  .one-column header a, .two-column header a { padding: 10px; margin: 5px; text-decoration: none; color: white; border: solid 2px transparent; }
-  .one-column header a:hover, .one-column header a:active, .two-column header a:hover, .two-column header a:active { border: solid 2px #EEE; background: transparent; }
-  .one-column header h1, .two-column header h1 { font-size: 1.3em; }
-  .one-column header section, .two-column header section { margin-left: 0; flex-direction: row-reverse; align-items: center; justify-content: space-between; padding: 0px 10px; }
-  .one-column nav, .two-column nav { display: none; top: 65px; height: auto; background: white; }
-  .one-column nav.sticky, .two-column nav.sticky { height: auto; top: 65px; }
-  .one-column nav ul, .two-column nav ul { flex-direction: column; width: 100%; padding: 0px; margin: 0px; box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-  .one-column nav ul li, .two-column nav ul li { border-bottom: solid 1px #EEE; margin-top: 0px; }
-  .one-column nav ul li.active, .two-column nav ul li.active { border-bottom: solid 1px #EEE; background: #4298B5; }
-  .one-column nav ul li.active a, .two-column nav ul li.active a { color: white; }
-  .one-column nav ul li.active:hover, .one-column nav ul li.active:active, .two-column nav ul li.active:hover, .two-column nav ul li.active:active { background: #4298B5; }
-  .one-column nav ul li a, .two-column nav ul li a { display: flex; padding: 10px 18px; border: solid 2px transparent; }
-  .one-column nav ul li:hover, .one-column nav ul li:active, .two-column nav ul li:hover, .two-column nav ul li:active { border-bottom: solid 2px #EEE; }
-  .one-column footer, .two-column footer { height: 250px !important; text-shadow: 1px 1px 1px #333; }
-  .assignments section, .people section { width: 100%; height: 200px; }
-  .lectures td { min-width: 50px !important; }
-  .lectures th:nth-child(1) { min-width: 50px !important; width: auto; }
-  .lectures td:nth-child(3) { min-width: 200px !important; }
-  .lectures td:nth-child(4) { min-width: 50px !important; }
-  .readings tr:first-child, .readings th:first-child, .readings th:nth-child(3), .readings td:nth-child(3) { display: none; }
-  .readings td:nth-child(2) { font-weight: 500; width: 70px !important; min-width: 70px !important; } }
+.highlight, .highlight pre, .highlight table {
+  background: #242424 !important;
+  color: #f6f3e8 !important;
+  border-radius: 10px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.highlight .hll {
+  background-color: #ffffcc !important;
+}
+
+.highlight .c {
+  color: #99968b !important;
+  font-style: italic !important;
+} /* Comment */
+.highlight .err {
+  color: #f6f3e8 !important;
+} /* Error */
+.highlight .g {
+  color: #f6f3e8 !important;
+} /* Generic */
+.highlight .k {
+  color: #8ac6f2 !important;
+} /* Keyword */
+.highlight .l {
+  color: #f6f3e8 !important;
+} /* Literal */
+.highlight .n, .highlight .h {
+  color: #f6f3e8 !important;
+} /* Name */
+.highlight .o {
+  color: #f6f3e8 !important;
+} /* Operator */
+.highlight .x {
+  color: #f6f3e8 !important;
+} /* Other */
+.highlight .p {
+  color: #f6f3e8 !important;
+} /* Punctuation */
+.highlight .cm {
+  color: #99968b !important;
+  font-style: italic !important;
+} /* Comment.Multiline */
+.highlight .cp {
+  color: #e5786d !important;
+} /* Comment.Preproc */
+.highlight .c1 {
+  color: #99968b !important;
+  font-style: italic !important;
+} /* Comment.Single */
+.highlight .cs {
+  color: #99968b !important;
+  font-style: italic !important;
+} /* Comment.Special */
+.highlight .gd {
+  color: #f6f3e8 !important;
+} /* Generic.Deleted */
+.highlight .ge {
+  color: #f6f3e8 !important;
+} /* Generic.Emph */
+.highlight .gr {
+  color: #f6f3e8 !important;
+} /* Generic.Error */
+.highlight .gh {
+  color: #f6f3e8 !important;
+  font-weight: bold !important;
+} /* Generic.Heading */
+.highlight .gi {
+  color: #f6f3e8 !important;
+} /* Generic.Inserted */
+.highlight .go {
+  color: #808080 !important;
+  background-color: #303030 !important;
+} /* Generic.Output */
+.highlight .gp {
+  color: #f6f3e8 !important;
+} /* Generic.Prompt */
+.highlight .gs {
+  color: #f6f3e8 !important;
+} /* Generic.Strong */
+.highlight .gu {
+  color: #f6f3e8 !important;
+  font-weight: bold !important;
+} /* Generic.Subheading */
+.highlight .gt {
+  color: #f6f3e8 !important;
+} /* Generic.Traceback */
+.highlight .kc {
+  color: #8ac6f2 !important;
+} /* Keyword.Constant */
+.highlight .kd {
+  color: #8ac6f2 !important;
+} /* Keyword.Declaration */
+.highlight .kn {
+  color: #8ac6f2 !important;
+} /* Keyword.Namespace */
+.highlight .kp {
+  color: #8ac6f2 !important;
+} /* Keyword.Pseudo */
+.highlight .kr {
+  color: #8ac6f2 !important;
+} /* Keyword.Reserved */
+.highlight .kt {
+  color: #cae682 !important;
+} /* Keyword.Type */
+.highlight .ld {
+  color: #f6f3e8 !important;
+} /* Literal.Date */
+.highlight .m {
+  color: #e5786d !important;
+} /* Literal.Number */
+.highlight .s {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String */
+.highlight .na {
+  color: #cae682 !important;
+} /* Name.Attribute */
+.highlight .nb {
+  color: #f6f3e8 !important;
+} /* Name.Builtin */
+.highlight .nc {
+  color: #f6f3e8 !important;
+} /* Name.Class */
+.highlight .no {
+  color: #e5786d !important;
+} /* Name.Constant */
+.highlight .nd {
+  color: #f6f3e8 !important;
+} /* Name.Decorator */
+.highlight .ni {
+  color: #e7f6da !important;
+} /* Name.Entity */
+.highlight .ne {
+  color: #f6f3e8 !important;
+} /* Name.Exception */
+.highlight .nf {
+  color: #cae682 !important;
+} /* Name.Function */
+.highlight .nl {
+  color: #f6f3e8 !important;
+} /* Name.Label */
+.highlight .nn {
+  color: #f6f3e8 !important;
+} /* Name.Namespace */
+.highlight .nx {
+  color: #f6f3e8 !important;
+} /* Name.Other */
+.highlight .py {
+  color: #f6f3e8 !important;
+} /* Name.Property */
+.highlight .nt {
+  color: #8ac6f2 !important;
+} /* Name.Tag */
+.highlight .nv {
+  color: #cae682 !important;
+} /* Name.Variable */
+.highlight .ow {
+  color: #f6f3e8 !important;
+} /* Operator.Word */
+.highlight .w {
+  color: #f6f3e8 !important;
+} /* Text.Whitespace */
+.highlight .mf {
+  color: #e5786d !important;
+} /* Literal.Number.Float */
+.highlight .mh {
+  color: #e5786d !important;
+} /* Literal.Number.Hex */
+.highlight .mi {
+  color: #e5786d !important;
+} /* Literal.Number.Integer */
+.highlight .mo {
+  color: #e5786d !important;
+} /* Literal.Number.Oct */
+.highlight .sb {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Backtick */
+.highlight .sc {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Char */
+.highlight .sd {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Doc */
+.highlight .s2 {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Double */
+.highlight .se {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Escape */
+.highlight .sh {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Heredoc */
+.highlight .si {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Interpol */
+.highlight .sx {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Other */
+.highlight .sr {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Regex */
+.highlight .s1 {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Single */
+.highlight .ss {
+  color: #95e454 !important;
+  font-style: italic !important;
+} /* Literal.String.Symbol */
+.highlight .bp {
+  color: #f6f3e8 !important;
+} /* Name.Builtin.Pseudo */
+.highlight .vc {
+  color: #cae682 !important;
+} /* Name.Variable.Class */
+.highlight .vg {
+  color: #cae682 !important;
+} /* Name.Variable.Global */
+.highlight .vi {
+  color: #cae682 !important;
+} /* Name.Variable.Instance */
+.highlight .il {
+  color: #e5786d !important;
+} /* Literal.Number.Integer.Long */
+.subtitle {
+  margin: -15px 0px 35px 0px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #777;
+}
+
+.caption {
+  line-height: 1.2em;
+  font-size: 0.9em;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.frame {
+  border-radius: 5px;
+  padding: 5px;
+  border: solid 1px #CCC;
+}
+
+img.xsmall {
+  max-width: 30%;
+}
+
+img.small {
+  max-width: 40%;
+}
+
+img.medium {
+  max-width: 70%;
+}
+
+img.med-lg {
+  max-width: 85%;
+}
+
+img.large {
+  max-width: 100%;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+img.creature {
+  max-width: 20%;
+  float: left;
+  margin: 0px 10px 0px 0px;
+}
+
+.module-image {
+  border-radius: 5px;
+  padding: 5px;
+  border: solid 1px #CCC;
+  max-width: 30%;
+  float: left;
+  margin: 0px 10px 0px 0px;
+}
+
+.highlighter-rouge {
+  margin-bottom: 20px;
+}
+
+.button {
+  background: #fff;
+  border: solid 1px #0076A5;
+  color: #0076A5 !important;
+  margin: 20px 0.5em 20px 0;
+  padding: 0.8em 1em 0.7em 1em;
+  align-self: flex-start;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+.button i {
+  margin-left: 5px;
+}
+
+.nu-button, .nu-button:visited, .nu-button:active {
+  background: #0076A5;
+  color: #fff !important;
+  border: none;
+  margin: 20px 0.5em 20px 0;
+  padding: 0.8em 1em 0.7em 1em;
+  align-self: flex-start;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+.nu-button:hover, .nu-button:visited:hover, .nu-button:active:hover {
+  background: #4298B5;
+  border: none;
+}
+.nu-button i, .nu-button:visited i, .nu-button:active i {
+  margin-left: 5px;
+}
+
+table.instructions td, table.instructions th {
+  font-size: 1em;
+}
+
+ol.compact li, ul.compact li {
+  margin: 0;
+  line-height: 1.4em;
+}
+
+@media (max-width: 800px) {
+  img.small, img.medium, img.med-lg {
+    max-width: 100%;
+  }
+  img.module-image, img.creature {
+    max-width: 40%;
+  }
+}
+.expandable-section {
+  margin: 0 0 1em 0;
+}
+
+.toggle-button {
+  background-color: transparent;
+  width: 20px;
+  text-align: center;
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.toggle-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.toggle-header h1, .toggle-header h2, .toggle-header h3, .toggle-header h4, .toggle-header h5, .toggle-header h6 {
+  margin: 0;
+}
+
+.expandable-content {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+#toggle-button {
+  position: fixed;
+  top: 5px;
+  margin: 0;
+  right: 15px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  #toggle-button,
+  #toggle-button.show {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .one-column main {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  .readings td:nth-child(4), .readings th:nth-child(4), .readings td:nth-child(3), .readings th:nth-child(3), .readings th:last-child, .readings td:last-child, .schedule td:nth-child(4), .schedule th:nth-child(4), .schedule td:nth-child(3), .schedule th:nth-child(3), .schedule th:last-child, .schedule td:last-child, .labs td:nth-child(4), .labs th:nth-child(4), .labs td:nth-child(3), .labs th:nth-child(3), .labs th:last-child, .labs td:last-child {
+    min-width: 80px;
+    width: auto;
+    max-width: auto;
+  }
+}
+@media (max-width: 900px) {
+  .one-column header, .two-column header {
+    grid-template-columns: 1fr;
+  }
+  .one-column header img, .two-column header img {
+    display: none;
+  }
+  .one-column header section, .two-column header section {
+    margin-left: 0;
+  }
+  .one-column main {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+@media (max-width: 800px) {
+  .two-column main {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  table td {
+    font-family: "Montserrat", sans-serif;
+  }
+  .schedule table td:nth-child(1), .schedule table th:nth-child(1), .labs table td:nth-child(1), .labs table th:nth-child(1) {
+    min-width: 72px;
+    width: 72px;
+  }
+  .schedule table td:nth-child(2), .schedule table th:nth-child(2), .labs table td:nth-child(2), .labs table th:nth-child(2) {
+    min-width: 40px;
+    width: 40px;
+  }
+  .schedule table th:nth-child(4), .schedule table td:nth-child(4) {
+    display: none;
+  }
+  table.rubric td:nth-child(1), table.rubric th:nth-child(1) {
+    min-width: auto;
+  }
+  .two-column {
+    margin-bottom: 0px;
+  }
+  .two-column main {
+    grid-template-columns: auto;
+  }
+  .two-column main > article {
+    margin-top: auto;
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+  }
+  .two-column aside {
+    display: none;
+  }
+  .two-column footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  table.medium {
+    width: 100% !important;
+  }
+}
+@media (max-width: 600px) {
+  .one-column main, .two-column main {
+    min-height: 82vh;
+    padding: 80px 20px 20px 20px;
+  }
+  .one-column .container, .two-column .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px auto auto auto;
+    grid-template-areas: "top" "menu" "main" "bottom";
+    margin: 0px;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+    overflow: auto;
+  }
+  .one-column .desktop, .two-column .desktop {
+    display: none;
+  }
+  .one-column .mobile, .two-column .mobile {
+    display: flex;
+  }
+  .one-column footer, .one-column header, .two-column footer, .two-column header {
+    border: none;
+  }
+  .one-column header, .one-column nav, .two-column header, .two-column nav {
+    top: 0px;
+    z-index: 500;
+    position: fixed;
+    width: 100vw;
+  }
+  .one-column header .fa-bars, .one-column nav .fa-bars, .two-column header .fa-bars, .two-column nav .fa-bars {
+    color: white;
+  }
+  .one-column header, .two-column header {
+    padding-top: 0;
+    height: 65px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 2px rgba(0, 0, 0, 0.34);
+    color: white;
+    grid-template-columns: 1fr;
+  }
+  .one-column header p.kudos, .two-column header p.kudos {
+    left: 11px;
+    top: 34px;
+  }
+  .one-column header p.kudos a, .one-column header p.kudos a:hover, .one-column header p.kudos a:visited, .one-column header p.kudos a:link, .one-column header p.kudos a:active, .two-column header p.kudos a, .two-column header p.kudos a:hover, .two-column header p.kudos a:visited, .two-column header p.kudos a:link, .two-column header p.kudos a:active {
+    padding: 0;
+    margin: 0;
+  }
+  .one-column header i, .two-column header i {
+    font-size: 24px;
+  }
+  .one-column header a, .two-column header a {
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    border: solid 2px transparent;
+  }
+  .one-column header a:hover, .one-column header a:active, .two-column header a:hover, .two-column header a:active {
+    border: solid 2px #EEE;
+    background: transparent;
+  }
+  .one-column header h1, .two-column header h1 {
+    font-size: 1.3em;
+  }
+  .one-column header section, .two-column header section {
+    margin-left: 0;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+  }
+  .one-column nav, .two-column nav {
+    display: none;
+    top: 65px;
+    height: auto;
+    background: white;
+  }
+  .one-column nav.sticky, .two-column nav.sticky {
+    height: auto;
+    top: 65px;
+  }
+  .one-column nav ul, .two-column nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  .one-column nav ul li, .two-column nav ul li {
+    border-bottom: solid 1px #EEE;
+    margin-top: 0px;
+  }
+  .one-column nav ul li.active, .two-column nav ul li.active {
+    border-bottom: solid 1px #EEE;
+    background: #4298B5;
+  }
+  .one-column nav ul li.active a, .two-column nav ul li.active a {
+    color: white;
+  }
+  .one-column nav ul li.active:hover, .one-column nav ul li.active:active, .two-column nav ul li.active:hover, .two-column nav ul li.active:active {
+    background: #4298B5;
+  }
+  .one-column nav ul li a, .two-column nav ul li a {
+    display: flex;
+    padding: 10px 18px;
+    border: solid 2px transparent;
+  }
+  .one-column nav ul li:hover, .one-column nav ul li:active, .two-column nav ul li:hover, .two-column nav ul li:active {
+    border-bottom: solid 2px #EEE;
+  }
+  .one-column footer, .two-column footer {
+    height: 250px !important;
+    text-shadow: 1px 1px 1px #333;
+  }
+  .assignments section, .people section {
+    width: 100%;
+    height: 200px;
+  }
+  .lectures td {
+    min-width: 50px !important;
+  }
+  .lectures th:nth-child(1) {
+    min-width: 50px !important;
+    width: auto;
+  }
+  .lectures td:nth-child(3) {
+    min-width: 200px !important;
+  }
+  .lectures td:nth-child(4) {
+    min-width: 50px !important;
+  }
+  .readings tr:first-child, .readings th:first-child, .readings th:nth-child(3), .readings td:nth-child(3) {
+    display: none;
+  }
+  .readings td:nth-child(2) {
+    font-weight: 500;
+    width: 70px !important;
+    min-width: 70px !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

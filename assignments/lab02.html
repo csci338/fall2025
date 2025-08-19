@@ -115,9 +115,9 @@
 <p>To generate a public / private key pair (use WSL if you’re a Windows user):</p>
 
 <ul>
-  <li>Type the following command: <strong><code class="highlighter-rouge">ssh-keygen</code></strong></li>
-  <li>This will generate your private key inside the <code class="highlighter-rouge">.ssh</code> folder inside your home directory. Typically, the private key is  called <code class="highlighter-rouge">id_rsa</code> and the public key is called <code class="highlighter-rouge">id_rsa.pub</code>.</li>
-  <li>Verify that this worked by typing <code class="highlighter-rouge">ls -la ~/.ssh</code>. You should see both files (with today’s timestamp).</li>
+  <li>Type the following command: <strong><code class="language-plaintext highlighter-rouge">ssh-keygen</code></strong></li>
+  <li>This will generate your private key inside the <code class="language-plaintext highlighter-rouge">.ssh</code> folder inside your home directory. Typically, the private key is  called <code class="language-plaintext highlighter-rouge">id_rsa</code> and the public key is called <code class="language-plaintext highlighter-rouge">id_rsa.pub</code>.</li>
+  <li>Verify that this worked by typing <code class="language-plaintext highlighter-rouge">ls -la ~/.ssh</code>. You should see both files (with today’s timestamp).</li>
 </ul>
 
 <h4 id="id_22-copy-your-public-key-to-github">2.2. Copy your public key to GitHub</h4>
@@ -127,7 +127,7 @@
 </ul>
 
 <h3 id="id_3-fork-the-course-repository">3. Fork the Course Repository</h3>
-<p>In this class, we’re going to be working with various shared repositories on GitHub. For most of our labs and in-class exercises, we will be using the <strong><code class="highlighter-rouge">class-exercises-fall2025</code></strong> repository. You will “fork” your own personal copy of this repository on Github that you will periodically sync with the class repo. This will be for doing individual work and activities.</p>
+<p>In this class, we’re going to be working with various shared repositories on GitHub. For most of our labs and in-class exercises, we will be using the <strong><code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code></strong> repository. You will “fork” your own personal copy of this repository on Github that you will periodically sync with the class repo. This will be for doing individual work and activities.</p>
 
 <p>Before we get into the details of various GitHub workflows, you will create a copy of the course repo – one that <strong>you own</strong> – on GitHub. To do this:</p>
 <ol>
@@ -140,30 +140,30 @@
 <p>Now, on your laptop, make a copy of your repo locally as follows:</p>
 
 <ol>
-  <li>Navigate to your <code class="highlighter-rouge">csci338</code> directory on the command line.<br /><br /></li>
-  <li>Within your <code class="highlighter-rouge">csci338</code> directory, clone the <code class="highlighter-rouge">class-exercises-fall2025</code> repo using the <strong>ssh method</strong> using the following command:<br /><br /><code class="highlighter-rouge">git clone git@github.com:&lt;your-github-username&gt;/class-exercises-fall2025.git</code><br /><br />Please replace <code class="highlighter-rouge">&lt;your-github-username&gt;</code> with your GitHub username<br /><br /></li>
-  <li>Navigate into the <code class="highlighter-rouge">class-exercises-fall2025</code> folder (that was just created)</li>
-  <li>Look at commit history (<code class="highlighter-rouge">git log</code>)</li>
+  <li>Navigate to your <code class="language-plaintext highlighter-rouge">csci338</code> directory on the command line.<br /><br /></li>
+  <li>Within your <code class="language-plaintext highlighter-rouge">csci338</code> directory, clone the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo using the <strong>ssh method</strong> using the following command:<br /><br /><code class="language-plaintext highlighter-rouge">git clone git@github.com:&lt;your-github-username&gt;/class-exercises-fall2025.git</code><br /><br />Please replace <code class="language-plaintext highlighter-rouge">&lt;your-github-username&gt;</code> with your GitHub username<br /><br /></li>
+  <li>Navigate into the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> folder (that was just created)</li>
+  <li>Look at commit history (<code class="language-plaintext highlighter-rouge">git log</code>)</li>
 </ol>
 
 <h3 id="id_5-make-a-new-branch">5. Make a new branch</h3>
 <ol>
-  <li>Create a new branch called <code class="highlighter-rouge">lab02-b</code>
+  <li>Create a new branch called <code class="language-plaintext highlighter-rouge">lab02-b</code>
     <ul>
       <li>See the <a href="/fall2025/resources/github">git cheatsheat</a></li>
     </ul>
   </li>
   <li>Switch to the branch you just made (if you haven’t already)</li>
-  <li>Verify that you are now on the <code class="highlighter-rouge">lab02-b</code> branch (see cheatsheet)</li>
+  <li>Verify that you are now on the <code class="language-plaintext highlighter-rouge">lab02-b</code> branch (see cheatsheet)</li>
 </ol>
 
 <h3 id="id_6-write-some-code">6. Write some code</h3>
 <ol>
-  <li>Open the entire <code class="highlighter-rouge">class-exercises-fall2025</code> folder in VS Code.</li>
-  <li>Create a folder named <code class="highlighter-rouge">lab02</code></li>
-  <li>Inside of your <code class="highlighter-rouge">lab02</code> folder, create a text file called <code class="highlighter-rouge">ContainsPair.java</code></li>
+  <li>Open the entire <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> folder in VS Code.</li>
+  <li>Create a folder named <code class="language-plaintext highlighter-rouge">lab02</code></li>
+  <li>Inside of your <code class="language-plaintext highlighter-rouge">lab02</code> folder, create a text file called <code class="language-plaintext highlighter-rouge">ContainsPair.java</code></li>
   <li>
-    <p>Within the <code class="highlighter-rouge">ContainsPair.java</code> file, implement one of the “contains pair” solutions we discussed in class (ideally the fastest one). Here’s a stub to help you:</p>
+    <p>Within the <code class="language-plaintext highlighter-rouge">ContainsPair.java</code> file, implement one of the “contains pair” solutions we discussed in class (ideally the fastest one). Here’s a stub to help you:</p>
 
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
  <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
@@ -184,53 +184,53 @@
  <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
-  <li>Compile it on the command line using the <code class="highlighter-rouge">javac</code> command (e.g., <code class="highlighter-rouge">javac ContainsPair.java</code>). See the Lecture 3 slides for potential solutions. Make sure you’re in the right directory. This should generate the compiled <code class="highlighter-rouge">Java.class</code> file.
+  <li>Compile it on the command line using the <code class="language-plaintext highlighter-rouge">javac</code> command (e.g., <code class="language-plaintext highlighter-rouge">javac ContainsPair.java</code>). See the Lecture 3 slides for potential solutions. Make sure you’re in the right directory. This should generate the compiled <code class="language-plaintext highlighter-rouge">Java.class</code> file.
     <ul>
-      <li>If you’re on WSL and <code class="highlighter-rouge">javac</code> is not installed, you can install it using the apt package manager as follows:<br /><code class="highlighter-rouge">sudo apt install default-jdk</code></li>
+      <li>If you’re on WSL and <code class="language-plaintext highlighter-rouge">javac</code> is not installed, you can install it using the apt package manager as follows:<br /><code class="language-plaintext highlighter-rouge">sudo apt install default-jdk</code></li>
     </ul>
   </li>
-  <li>Run your program on the command line by typing <code class="highlighter-rouge">java ContainsPair</code></li>
+  <li>Run your program on the command line by typing <code class="language-plaintext highlighter-rouge">java ContainsPair</code></li>
 </ol>
 
-<h3 id="id_7-exclude-all-class-files">7. Exclude all <code class="highlighter-rouge">.class</code> files</h3>
-<p>When working with version control, you don’t want to commit compiled code, system files, passwords, or third-party libraries. Luckily, the <code class="highlighter-rouge">.gitignore</code> file makes this easy.</p>
+<h3 id="id_7-exclude-all-class-files">7. Exclude all <code class="language-plaintext highlighter-rouge">.class</code> files</h3>
+<p>When working with version control, you don’t want to commit compiled code, system files, passwords, or third-party libraries. Luckily, the <code class="language-plaintext highlighter-rouge">.gitignore</code> file makes this easy.</p>
 
 <p>From the command line</p>
 <ol>
-  <li>Type <code class="highlighter-rouge">git status -u</code>. What happened?
+  <li>Type <code class="language-plaintext highlighter-rouge">git status -u</code>. What happened?
     <ul>
       <li>This command should tell you all of the untracked changes you’ve made.</li>
     </ul>
   </li>
-  <li>Edit the <code class="highlighter-rouge">.gitignore</code> file by adding this line: <code class="highlighter-rouge">*.class</code></li>
-  <li>Type <code class="highlighter-rouge">git status -u</code> again. What happened?</li>
+  <li>Edit the <code class="language-plaintext highlighter-rouge">.gitignore</code> file by adding this line: <code class="language-plaintext highlighter-rouge">*.class</code></li>
+  <li>Type <code class="language-plaintext highlighter-rouge">git status -u</code> again. What happened?</li>
 </ol>
 
-<p>If you did it correctly, git is now ignoring your <code class="highlighter-rouge">*.class</code> file.</p>
+<p>If you did it correctly, git is now ignoring your <code class="language-plaintext highlighter-rouge">*.class</code> file.</p>
 
 <h3 id="id_8-stage-and-commit-your-changes">8. Stage and commit your changes</h3>
 <ol>
-  <li>Stage your changes using <code class="highlighter-rouge">git add .</code> (the dot indicates that you want to stage all of the files that have been added / deleted / edited).</li>
-  <li>Commit your changes using <code class="highlighter-rouge">git commit -m "Some descriptive commit message"</code> (e.g. “Lab 2 is completed”).</li>
+  <li>Stage your changes using <code class="language-plaintext highlighter-rouge">git add .</code> (the dot indicates that you want to stage all of the files that have been added / deleted / edited).</li>
+  <li>Commit your changes using <code class="language-plaintext highlighter-rouge">git commit -m "Some descriptive commit message"</code> (e.g. “Lab 2 is completed”).</li>
 </ol>
 
 <h3 id="id_9-push-upload-your-changes-to-github">9. Push (upload) your changes to GitHub</h3>
 <ol>
-  <li>Push your branch to GitHub using the <code class="highlighter-rouge">git push</code> command
+  <li>Push your branch to GitHub using the <code class="language-plaintext highlighter-rouge">git push</code> command
     <ul>
-      <li>This command should display an error with a suggested push command (e.g., <code class="highlighter-rouge">git push --set-upstream origin &lt;your-branch-name&gt;</code>). This is telling you that there is no branch called <code class="highlighter-rouge">lab02-b</code> in the GitHub repository.</li>
+      <li>This command should display an error with a suggested push command (e.g., <code class="language-plaintext highlighter-rouge">git push --set-upstream origin &lt;your-branch-name&gt;</code>). This is telling you that there is no branch called <code class="language-plaintext highlighter-rouge">lab02-b</code> in the GitHub repository.</li>
     </ul>
   </li>
-  <li>Try again by typing <code class="highlighter-rouge">git push --set-upstream origin lab02-b</code></li>
+  <li>Try again by typing <code class="language-plaintext highlighter-rouge">git push --set-upstream origin lab02-b</code></li>
 </ol>
 
 <h3 id="id_10-create-a-pull-request">10. Create a pull request</h3>
-<p>Now that your code is on GitHub, you’re going to make a “Pull Request” so that I can review your code. This can be done on <strong>your version</strong> of the <code class="highlighter-rouge">class-exercises-fall2025</code> on GitHub.</p>
+<p>Now that your code is on GitHub, you’re going to make a “Pull Request” so that I can review your code. This can be done on <strong>your version</strong> of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> on GitHub.</p>
 
 <h4 id="id_a-note-on-your-origin-path">A note on your origin path</h4>
-<p>Within git, your <strong><code class="highlighter-rouge">remote origin</code></strong> variable holds both the address and the protocol you will be using to interact with a remote server (like GitHub). Some of you are accessing the remote server using the <strong>https</strong> protocol while others are using the <strong>ssh</strong> protocol. For the sake of simplicity, let’s all use <strong>ssh</strong>. To check your origin, type: <code class="highlighter-rouge">git remote show origin</code>.</p>
+<p>Within git, your <strong><code class="language-plaintext highlighter-rouge">remote origin</code></strong> variable holds both the address and the protocol you will be using to interact with a remote server (like GitHub). Some of you are accessing the remote server using the <strong>https</strong> protocol while others are using the <strong>ssh</strong> protocol. For the sake of simplicity, let’s all use <strong>ssh</strong>. To check your origin, type: <code class="language-plaintext highlighter-rouge">git remote show origin</code>.</p>
 
-<p>If it prints <code class="highlighter-rouge">git@github.com:&lt;your-user-name&gt;/class-exercises-fall2025</code>, you don’t have to do anything. Otherwise, let’s switch up your origin protocol to ssh as follows:</p>
+<p>If it prints <code class="language-plaintext highlighter-rouge">git@github.com:&lt;your-user-name&gt;/class-exercises-fall2025</code>, you don’t have to do anything. Otherwise, let’s switch up your origin protocol to ssh as follows:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm </span>origin  <span class="c"># removes current references</span>
 git remote add origin git@github.com:&lt;your-user-name&gt;/class-exercises-fall2025.git  <span class="c"># adds new reference</span>
@@ -239,7 +239,7 @@ git remote show origin  <span class="c"># prints the new origin (which should be
 
 <p>If you get a “Please tell me who you are.” error message, please set the following environment variables on your machine (you will only have to do this once):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "Sarah"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "Sarah"
 git config --global user.email "my_email@gmail.com"
 </code></pre></div></div>
 
@@ -249,9 +249,9 @@ git config --global user.email "my_email@gmail.com"
 <p>Please paste a link to your pull request in the Moodle submission box. Also, please verify that…</p>
 
 <ul class="checkbox-list">
-  <li>You created a branch called <code class="highlighter-rouge">lab02-b</code></li>
-  <li>You have a working <code class="highlighter-rouge">ContainsPair.java</code> file in it</li>
-  <li>You have edited your <code class="highlighter-rouge">.gitignore</code> file so that <code class="highlighter-rouge">ContainsPair.class</code> is not checked into version control.</li>
+  <li>You created a branch called <code class="language-plaintext highlighter-rouge">lab02-b</code></li>
+  <li>You have a working <code class="language-plaintext highlighter-rouge">ContainsPair.java</code> file in it</li>
+  <li>You have edited your <code class="language-plaintext highlighter-rouge">.gitignore</code> file so that <code class="language-plaintext highlighter-rouge">ContainsPair.class</code> is not checked into version control.</li>
 </ul>
 
 
