@@ -16,7 +16,10 @@ permalink: /repos/
     }
 </style>
 
+## Course Repos
+TBD
 
+<!-- 
 
 ## Course Repos
 * Class Exercises: <a href="https://github.com/csci338/class-exercises-fall2025" target="_blank">https://github.com/csci338/class-exercises-fall2025</a>
@@ -52,4 +55,4 @@ These are all private forks of the <a href="https://github.com/csci338/class-exe
 | 23 | Tristan | DaemonTokisaki |  [https://github.com/DaemonTokisaki/class-exercises-fall2025](https://github.com/DaemonTokisaki/class-exercises-fall2025) |
 | 24 | Tyler | Swissssst |  [https://github.com/Swissssst/class-exercises-fall2025/](https://github.com/Swissssst/class-exercises-fall2025/) |
 | 25 | Vlad | vlkrvc | [https://github.com/vlkrvc/class-exercises-fall2025](https://github.com/vlkrvc/class-exercises-fall2025) |
-| 26 | Zejun | Hayden514 | [https://github.com/Hayden514/class-exercises-fall2025/](https://github.com/Hayden514/class-exercises-fall2025/)  |
+| 26 | Zejun | Hayden514 | [https://github.com/Hayden514/class-exercises-fall2025/](https://github.com/Hayden514/class-exercises-fall2025/)  | -->

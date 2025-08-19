@@ -12,14 +12,14 @@ slides:
       type: lecture
       title: Intro to the Course
       num: 1
-      draft: 1
-      url: https://docs.google.com/presentation/d/1v-rDKAHGY02AFgS4jLIjo6eLjHKXhR2N/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      draft: 0
+      url: https://docs.google.com/presentation/d/1NO-Wl5fCOtgggDkwjqFbNeFTSLmQXtPs/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-08-21"
       type: lecture
       num: 2
       draft: 1
       title: What is Software Engineering?
-      url: https://docs.google.com/presentation/d/1Xus4XHh8M_kmvUYoK5FcQOPwCd6Bv32z/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1R-kcV7qoy0EA924nqrB8W2doX5VJFHEC/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >
     Please read the following chapters before Thursday in the Software Engineering at Google book:
 readings: 
@@ -69,9 +69,9 @@ activities:
     - start_date: "2025-08-19"
       type: activity
       num: 1
-      draft: 1
+      draft: 0
       title: Warm Up
-      url: https://docs.google.com/document/d/1mfXaWNXMQriL-Gwa2P_YMp0UhoOLh7jP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/document/d/1Gtxjhx6DO9LlDaCnOieB-K6Rvv14EtPH/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 
 labs: [1]
 questions:

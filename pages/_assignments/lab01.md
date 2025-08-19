@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: Code Editors
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 1
 num: 1
@@ -26,7 +26,10 @@ Welcome to your first CSCI 338 lab! The goal of today's lab is to get you a litt
 1. **If you are a Windows user,** [follow these instructions to install WSL and a Linux distribution](/fall2025/resources/wsl) (Windows Subsystem for Linux). Once you're done, verify your installation by opening a WSL terminal and typing `pwd`.
     * Note: please read / watch the instructions for WSL carefully. If you skip steps, you will likely have to rebuild / reinstall your Linux distro, so going slower will save you time in the long run.
 1. Create a directory called `csci338`
-    * If you are a windows user, you will create that directory within your ***home directory within your WSL instance.*** (e.g., `/Users/your_username`).
+    * If you are a windows user, you will create that directory within your ***home directory within your WSL instance.*** (e.g., `/Users/your_username`). **Important**: Your WSL home directory is in a totally different place than your home directory on your host machine. To find it:
+        * Activate WSL on your command line
+        * Navigate to your Linux home directory by typing `cd` (which will automatically take you to your home directory on Linux), and 
+        * Type `pwd` to see where your home directory is. You will create your `csci338` directory here.
     * If you are a Mac user, you can create your `csci338` directory anywhere except for in your Downloads directory.
 
 
@@ -56,7 +59,7 @@ Configure "Format on Save" using Prettier by modifying `settings.json` file (a c
 }
 ```
 
-You can read more about configuring "Format on Save" using Prettier [here](https://www.robinwieruch.de/how-to-use-prettier-vscode/), but this blog has a typo (`"editor.formatOnSave": true,` should have a trailing comma).
+You can read more about configuring "Format on Save" using Prettier [here](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code#how-to-use-prettier-in-visual-studio-code).
 
 When you're done, test that the "format on save" functionality works by creating a `test.js` JavaScript file with following code:
 

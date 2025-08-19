@@ -82,10 +82,10 @@ These course materials were developed collaboratively by Sarah Van Wart and Semm
 Your course grade is calculated based on projects, labs, exams, and attendance / participation:
 
 {:.small}
-| **Labs** | 30% |
 | **Projects** | 40% |
-| **Attendance & Participation** | 10% |
+| **Labs** | 30% |
 | **Midterm Exam** | 20% |
+| **Attendance & Participation** | 10% |
 
 ### Labs
 Labs will be graded according to the following scale (from 0-3 points):
@@ -118,7 +118,7 @@ Exams will be graded according to how thoroughly you answer the questions and dr
 ### General
 * No food, no drinks, and no water inside the classroom. If you need to eat or drink, please step outside the classroom (away from the computers) to do so.
 * Be respectful of others during classroom discussions and presentations.
-* We may have the occasional remote class session.
+* Please do not be distracted on your phone or laptop during lectures, discussions, or labs
 
 ### Academic Honesty
 In the past, there have been a few unfortunate instances in which students have presented work other than their own. Here are some guidelines to help you understand what is and is not appropriate. Please do no hesitate to contact the instructors if you have any questions about these guidelines.
