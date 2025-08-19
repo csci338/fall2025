@@ -1,12 +1,13 @@
 //Import partials.
-@import "minima/base";
-@import "minima/tailwind-inspired";
-@import "minima/fonts";
-@import "minima/tables";
-@import "minima/assignments";
-@import "minima/one-column";
-@import "minima/two-column";
-@import "minima/syntax-highlight";
-@import "minima/detail";
-@import "minima/expandable-menu";
-@import "minima/mobile";
+@use "minima/variables" as *;
+@use "minima/base";
+@use "minima/tailwind-inspired";
+@use "minima/fonts";
+@use "minima/tables";
+@use "minima/assignments";
+@use "minima/one-column";
+@use "minima/two-column";
+@use "minima/syntax-highlight";
+@use "minima/detail";
+@use "minima/expandable-menu";
+@use "minima/mobile";
