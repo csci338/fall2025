@@ -1193,6 +1193,29 @@ table.schedule-simple th, table.schedule-simple td {
   word-wrap: break-word;
 }
 
+ol li pre, ul li pre {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+ol li pre code, ul li pre code {
+  text-indent: 0 !important;
+}
+
+ol li .highlight, ul li .highlight {
+  margin-left: 0 !important;
+}
+
+ol li .highlight pre, ul li .highlight pre {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+ol li .highlight pre code, ul li .highlight pre code {
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+}
+
 .highlight .hll {
   background-color: #ffffcc !important;
 }
