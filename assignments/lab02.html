@@ -63,8 +63,9 @@
       <li><a href="#id_5-make-a-new-branch">5. Make a new branch</a></li>
       <li><a href="#id_6-write-some-code">6. Write some code</a></li>
       <li><a href="#id_7-exclude-all-class-files">7. Exclude all .class files</a></li>
-      <li><a href="#id_8-stage-and-commit-your-changes">8. Stage and commit your changes</a></li>
-      <li><a href="#id_9-push-upload-your-changes-to-github">9. Push (upload) your changes to GitHub</a></li>
+      <li><a href="#id_8-write-some-code-in-python">8. Write some code in Python</a></li>
+      <li><a href="#id_9-stage-and-commit-your-changes">9. Stage and commit your changes</a></li>
+      <li><a href="#id_10-push-upload-your-changes-to-github">10. Push (upload) your changes to GitHub</a></li>
       <li><a href="#id_10-create-a-pull-request">10. Create a pull request</a></li>
     </ol>
   </li>
@@ -95,12 +96,12 @@
 <h2 id="id_introduction">Introduction</h2>
 <p>Today we will be configuring your lab repo using <strong>git</strong> and <strong>GitHub</strong>. Next week we will be working on <strong><em>collaboration workflows</em></strong>.</p>
 
-<p>Here are the <a href="https://docs.google.com/presentation/d/1XZ6uvNQbYMJVW9sg02276qEZctMQ7r7m/edit?usp=sharing&amp;ouid=113376576186080604800&amp;rtpof=true&amp;sd=true" target="_blank">Lab 2 slides</a>.</p>
+<p>Here are the <a href="https://docs.google.com/presentation/d/1iBYAdOWcRUqr_Oc0O0ss0F0PFG2ulR9g/edit?usp=sharing&amp;ouid=113376576186080604800&amp;rtpof=true&amp;sd=true" target="_blank">Lab 2 slides</a>.</p>
 
 <h2 id="id_your-tasks">Your Tasks</h2>
 
 <h3 id="id_1-add-your-github-username-to-the-spreadsheet">1. Add your GitHub username to the spreadsheet</h3>
-<p>If you haven’t already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1O56O2b-0QjdGna0dpTEcMwM_am4tS6Rei8ovTmSfSMQ/edit?usp=sharing" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.</p>
+<p>If you haven’t already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1h0mJjAiXMAxyXjmM8rLF6PU6kc_NMbF7/edit?usp=sharing&amp;ouid=113376576186080604800&amp;rtpof=true&amp;sd=true" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.</p>
 <ul>
   <li>Note that <strong>you will have to confirm this invitation</strong> via email.</li>
   <li>I recommend that you use your UNCA email account because you can get some student perks later from GitHub.</li>
@@ -208,13 +209,31 @@
 
 <p>If you did it correctly, git is now ignoring your <code class="language-plaintext highlighter-rouge">*.class</code> file.</p>
 
-<h3 id="id_8-stage-and-commit-your-changes">8. Stage and commit your changes</h3>
+<h3 id="id_8-write-some-code-in-python">8. Write some code in Python</h3>
+<ol>
+  <li>Inside of your <code class="language-plaintext highlighter-rouge">lab02</code> folder, create another text file called <code class="language-plaintext highlighter-rouge">contains_pair.py</code></li>
+  <li>
+    <p>Within the <code class="language-plaintext highlighter-rouge">contains_pair.py</code> file, implement one of the “contains pair” solutions we discussed in class (ideally the fastest one). Here’s a stub to help you:</p>
+
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+     <span class="c1"># your code goes here
+</span>     <span class="k">return</span> <span class="bp">False</span>
+
+
+ <span class="nf">print</span><span class="p">(</span><span class="nf">check</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>          <span class="c1"># should print True
+</span> <span class="nf">print</span><span class="p">(</span><span class="nf">check</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">90</span><span class="p">]))</span>   <span class="c1"># should print False
+</span></code></pre></div>    </div>
+  </li>
+  <li>Run your program on the command line by typing <code class="language-plaintext highlighter-rouge">python contains_pair.py</code></li>
+</ol>
+
+<h3 id="id_9-stage-and-commit-your-changes">9. Stage and commit your changes</h3>
 <ol>
   <li>Stage your changes using <code class="language-plaintext highlighter-rouge">git add .</code> (the dot indicates that you want to stage all of the files that have been added / deleted / edited).</li>
   <li>Commit your changes using <code class="language-plaintext highlighter-rouge">git commit -m "Some descriptive commit message"</code> (e.g. “Lab 2 is completed”).</li>
 </ol>
 
-<h3 id="id_9-push-upload-your-changes-to-github">9. Push (upload) your changes to GitHub</h3>
+<h3 id="id_10-push-upload-your-changes-to-github">10. Push (upload) your changes to GitHub</h3>
 <ol>
   <li>Push your branch to GitHub using the <code class="language-plaintext highlighter-rouge">git push</code> command
     <ul>
@@ -232,16 +251,16 @@
 
 <p>If it prints <code class="language-plaintext highlighter-rouge">git@github.com:&lt;your-user-name&gt;/class-exercises-fall2025</code>, you don’t have to do anything. Otherwise, let’s switch up your origin protocol to ssh as follows:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm </span>origin  <span class="c"># removes current references</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm </span>origin  <span class="c"># removes current references</span>
 git remote add origin git@github.com:&lt;your-user-name&gt;/class-exercises-fall2025.git  <span class="c"># adds new reference</span>
 git remote show origin  <span class="c"># prints the new origin (which should be the correct one).</span>
 </code></pre></div></div>
 
 <p>If you get a “Please tell me who you are.” error message, please set the following environment variables on your machine (you will only have to do this once):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "Sarah"
+<pre><code class="language-shg">git config --global user.name "Sarah"
 git config --global user.email "my_email@gmail.com"
-</code></pre></div></div>
+</code></pre>
 
 <p>Please use the email you used to register with GitHub</p>
 
@@ -249,9 +268,10 @@ git config --global user.email "my_email@gmail.com"
 <p>Please paste a link to your pull request in the Moodle submission box. Also, please verify that…</p>
 
 <ul class="checkbox-list">
-  <li>You created a branch called <code class="language-plaintext highlighter-rouge">lab02-b</code></li>
-  <li>You have a working <code class="language-plaintext highlighter-rouge">ContainsPair.java</code> file in it</li>
+  <li>You created a branch called <code class="language-plaintext highlighter-rouge">lab02-b</code>.</li>
+  <li>You have a working <code class="language-plaintext highlighter-rouge">ContainsPair.java</code> file in it.</li>
   <li>You have edited your <code class="language-plaintext highlighter-rouge">.gitignore</code> file so that <code class="language-plaintext highlighter-rouge">ContainsPair.class</code> is not checked into version control.</li>
+  <li>You have a working <code class="language-plaintext highlighter-rouge">contains_pair.py</code> file in it.</li>
 </ul>
 
 
