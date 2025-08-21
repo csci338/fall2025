@@ -17,7 +17,7 @@ slides:
     - start_date: "2025-08-21"
       type: lecture
       num: 2
-      draft: 1
+      draft: 0
       title: What is Software Engineering?
       url: https://docs.google.com/presentation/d/1R-kcV7qoy0EA924nqrB8W2doX5VJFHEC/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >

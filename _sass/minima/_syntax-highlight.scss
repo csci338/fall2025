@@ -13,6 +13,32 @@
     white-space: -o-pre-wrap;
     word-wrap: break-word;
 }
+
+// Fix for leading spaces in code blocks within lists
+ol li pre, ul li pre {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+ol li pre code, ul li pre code {
+    text-indent: 0 !important;
+}
+
+// Remove leading spaces from code blocks in lists
+ol li .highlight, ul li .highlight {
+    margin-left: 0 !important;
+}
+
+ol li .highlight pre, ul li .highlight pre {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+// Ensure code content starts at the left edge
+ol li .highlight pre code, ul li .highlight pre code {
+    padding-left: 0 !important;
+    text-indent: 0 !important;
+}
 .highlight .hll { background-color: #ffffcc !important; }
 .highlight .c { color: #99968b !important; font-style: italic !important; } /* Comment */
 .highlight .err { color: #f6f3e8 !important; } /* Error */

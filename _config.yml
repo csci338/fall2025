@@ -14,10 +14,7 @@ markdown: kramdown
 kramdown:
   # auto_ids: true
   auto_id_prefix: "id_"
-# kramdown:
-#   syntax_highlighter_opts:
-#     block:
-#       line_numbers: true
+  remove_block_html_tags: false
 theme: minima
 plugins:
   - jekyll-feed
