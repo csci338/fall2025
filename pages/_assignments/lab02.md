@@ -13,13 +13,13 @@ due_date: 2025-09-03
 ## Introduction
 Today we will be configuring your lab repo using **git** and **GitHub**. Next week we will be working on ***collaboration workflows***.
 
-Here are the <a href="https://docs.google.com/presentation/d/1XZ6uvNQbYMJVW9sg02276qEZctMQ7r7m/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Lab 2 slides</a>.
+Here are the <a href="https://docs.google.com/presentation/d/1iBYAdOWcRUqr_Oc0O0ss0F0PFG2ulR9g/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Lab 2 slides</a>.
 
 
 ## Your Tasks
 
 ### 1. Add your GitHub username to the spreadsheet
-If you haven't already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1O56O2b-0QjdGna0dpTEcMwM_am4tS6Rei8ovTmSfSMQ/edit?usp=sharing" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.
+If you haven't already, please register for a GitHub account, and then add your full name and your GitHub username to <a href="https://docs.google.com/spreadsheets/d/1h0mJjAiXMAxyXjmM8rLF6PU6kc_NMbF7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">this spreadsheet</a>. I will invite you to be a contributor to the relevant repos.
 * Note that **you will have to confirm this invitation** via email.
 * I recommend that you use your UNCA email account because you can get some student perks later from GitHub.
 
@@ -104,11 +104,26 @@ From the command line
 
 If you did it correctly, git is now ignoring your `*.class` file.
 
-### 8. Stage and commit your changes
+### 8. Write some code in Python
+1. Inside of your `lab02` folder, create another text file called `contains_pair.py`
+1. Within the `contains_pair.py` file, implement one of the "contains pair" solutions we discussed in class (ideally the fastest one). Here's a stub to help you:
+
+    ```py
+    def check(l: list):
+        # your code goes here
+        return False
+
+
+    print(check([1, 2, 3, 2]))          # should print True
+    print(check([5, 2, -10, 44, 90]))   # should print False
+    ```
+1. Run your program on the command line by typing `python contains_pair.py`
+
+### 9. Stage and commit your changes
 1. Stage your changes using `git add .` (the dot indicates that you want to stage all of the files that have been added / deleted / edited).
 1. Commit your changes using `git commit -m "Some descriptive commit message"` (e.g. "Lab 2 is completed").
 
-### 9. Push (upload) your changes to GitHub
+### 10. Push (upload) your changes to GitHub
 1. Push your branch to GitHub using the `git push` command
     * This command should display an error with a suggested push command (e.g., `git push --set-upstream origin <your-branch-name>`). This is telling you that there is no branch called `lab02-b` in the GitHub repository.
 1. Try again by typing `git push --set-upstream origin lab02-b`
@@ -122,7 +137,7 @@ Within git, your **`remote origin`** variable holds both the address and the pro
 
 If it prints `git@github.com:<your-user-name>/class-exercises-fall2025`, you don't have to do anything. Otherwise, let's switch up your origin protocol to ssh as follows:
 
-```bash
+```sh
 git remote rm origin  # removes current references
 git remote add origin git@github.com:<your-user-name>/class-exercises-fall2025.git  # adds new reference
 git remote show origin  # prints the new origin (which should be the correct one).
@@ -130,7 +145,7 @@ git remote show origin  # prints the new origin (which should be the correct one
 
 If you get a "Please tell me who you are." error message, please set the following environment variables on your machine (you will only have to do this once):
 
-```
+```shg
 git config --global user.name "Sarah"
 git config --global user.email "my_email@gmail.com"
 ```
@@ -141,6 +156,7 @@ Please use the email you used to register with GitHub
 Please paste a link to your pull request in the Moodle submission box. Also, please verify that...
 
 {:.checkbox-list}
-* You created a branch called `lab02-b`
-* You have a working `ContainsPair.java` file in it
+* You created a branch called `lab02-b`.
+* You have a working `ContainsPair.java` file in it.
 * You have edited your `.gitignore` file so that `ContainsPair.class` is not checked into version control.
+* You have a working `contains_pair.py` file in it.
