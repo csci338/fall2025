@@ -146,7 +146,7 @@ git remote show origin  # prints the new origin (which should be the correct one
 If you get a "Please tell me who you are." error message, please set the following environment variables on your machine (you will only have to do this once):
 
 ```shg
-git config --global user.name "Sarah"
+git config --global user.name "My Name"
 git config --global user.email "my_email@gmail.com"
 ```
 
