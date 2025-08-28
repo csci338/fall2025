@@ -138,11 +138,23 @@
 </ol>
 
 <h3 id="id_4-set-up-the-course-repo-on-your-local-computer">4. Set up the course repo on your local computer</h3>
-<p>Now, on your laptop, make a copy of your repo locally as follows:</p>
+<p>Now, on your laptop, make a copy of your repo locally (using the <strong>SSH</strong> protocol):</p>
 
 <ol>
   <li>Navigate to your <code class="language-plaintext highlighter-rouge">csci338</code> directory on the command line.<br /><br /></li>
-  <li>Within your <code class="language-plaintext highlighter-rouge">csci338</code> directory, clone the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo using the <strong>ssh method</strong> using the following command:<br /><br /><code class="language-plaintext highlighter-rouge">git clone git@github.com:&lt;your-github-username&gt;/class-exercises-fall2025.git</code><br /><br />Please replace <code class="language-plaintext highlighter-rouge">&lt;your-github-username&gt;</code> with your GitHub username<br /><br /></li>
+  <li>
+    <p>On GitHub, click the green “Code” button of the course repo that you just forked. Make sure that you copy the <strong>SSH version</strong> of the address:</p>
+
+    <p><img class="small" src="/fall2025/assets/images/labs/lab02/good.png" />
+ <img class="small" src="/fall2025/assets/images/labs/lab02/bad.png" /></p>
+  </li>
+  <li>
+    <p>Within your <code class="language-plaintext highlighter-rouge">csci338</code> directory, clone the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo using the <strong>ssh method</strong> using the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git clone ADDRESS_YOU_JUST_COPIED
+</code></pre></div>    </div>
+    <p>The address should look something like this: <code class="language-plaintext highlighter-rouge">git@github.com:walter/class-exercises-fall2025.git</code></p>
+  </li>
   <li>Navigate into the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> folder (that was just created)</li>
   <li>Look at commit history (<code class="language-plaintext highlighter-rouge">git log</code>)</li>
 </ol>
@@ -210,6 +222,15 @@
 <p>If you did it correctly, git is now ignoring your <code class="language-plaintext highlighter-rouge">*.class</code> file.</p>
 
 <h3 id="id_8-write-some-code-in-python">8. Write some code in Python</h3>
+<p>First, check if python is installed:</p>
+
+<h4 id="id_windows">Windows</h4>
+<p>If you’re using WSL, python is probably installed. Open a WSL terminal and type:<br /> <code class="language-plaintext highlighter-rouge">python --version</code> or <code class="language-plaintext highlighter-rouge">py --version</code> or <code class="language-plaintext highlighter-rouge">python3 --version</code>.<br /> If any of those commands returns a 3.x python version, then you’re good to go. Otherwise, you will need to install a new version: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></p>
+
+<h4 id="id_mac">Mac</h4>
+<p>If you’re on a Mac, check if a 3.x version of python is installed. Open a terminal and type:<br /> <code class="language-plaintext highlighter-rouge">python --version</code> or <code class="language-plaintext highlighter-rouge">python3 --version</code>.<br /> If these commands aren’t recognized, or if they show an older version of python, you will need to install a new version: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></p>
+
+<h4 id="id_write-some-code">Write some code</h4>
 <ol>
   <li>Inside of your <code class="language-plaintext highlighter-rouge">lab02</code> folder, create another text file called <code class="language-plaintext highlighter-rouge">contains_pair.py</code></li>
   <li>
@@ -223,9 +244,19 @@
  <span class="nf">print</span><span class="p">(</span><span class="nf">check</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>          <span class="c1"># should print True
 </span> <span class="nf">print</span><span class="p">(</span><span class="nf">check</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">90</span><span class="p">]))</span>   <span class="c1"># should print False
 </span></code></pre></div>    </div>
+    <p>Run / test your program on the command line by typing <code class="language-plaintext highlighter-rouge">python3 contains_pair.py</code>.</p>
   </li>
-  <li>Run your program on the command line by typing <code class="language-plaintext highlighter-rouge">python contains_pair.py</code></li>
 </ol>
+
+<p>On some systems, the python executable is invoked with a different alias (see below). So figure out which one you’ll need to use and make a note of it:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">py contains_pair.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">python contains_pair.py</code></li>
+  <li><code class="language-plaintext highlighter-rouge">py3 contains_pair.py</code></li>
+</ul>
+
+<p>New to python? Try writing the solution in Java and then asking ChatGPT to help you translate it into python. We’ll be learning more about Python in the coming weeks.</p>
 
 <h3 id="id_9-stage-and-commit-your-changes">9. Stage and commit your changes</h3>
 <ol>
