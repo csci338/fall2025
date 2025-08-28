@@ -16,7 +16,7 @@ slides:
       url: https://docs.google.com/presentation/d/1CJeCcZvtlv50V5THh3DxDZvRROZXIno9/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-08-28"
       type: lecture
-      draft: 1
+      draft: 0
       title: Introduction to Lab 2
       url: https://docs.google.com/presentation/d/1iBYAdOWcRUqr_Oc0O0ss0F0PFG2ulR9g/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-09-02"

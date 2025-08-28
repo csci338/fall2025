@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Configuring git and GitHub"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 2
 num: 2
@@ -50,10 +50,19 @@ Before we get into the details of various GitHub workflows, you will create a co
 
 
 ### 4. Set up the course repo on your local computer
-Now, on your laptop, make a copy of your repo locally as follows:
+Now, on your laptop, make a copy of your repo locally (using the **SSH** protocol):
 
 1. Navigate to your `csci338` directory on the command line.<br><br>
-1. Within your `csci338` directory, clone the `class-exercises-fall2025` repo using the **ssh method** using the following command:<br><br>`git clone git@github.com:<your-github-username>/class-exercises-fall2025.git`<br><br>Please replace `<your-github-username>` with your GitHub username<br><br>
+1. On GitHub, click the green "Code" button of the course repo that you just forked. Make sure that you copy the **SSH version** of the address:
+
+    <img class="small" src="/fall2025/assets/images/labs/lab02/good.png" />
+    <img class="small" src="/fall2025/assets/images/labs/lab02/bad.png" />
+1. Within your `csci338` directory, clone the `class-exercises-fall2025` repo using the **ssh method** using the following command:
+
+    ```bash
+    git clone ADDRESS_YOU_JUST_COPIED
+    ```
+    The address should look something like this: `git@github.com:walter/class-exercises-fall2025.git`
 1. Navigate into the `class-exercises-fall2025` folder (that was just created)
 1. Look at commit history (`git log`)
 
@@ -105,6 +114,15 @@ From the command line
 If you did it correctly, git is now ignoring your `*.class` file.
 
 ### 8. Write some code in Python
+First, check if python is installed:
+
+#### Windows
+If you're using WSL, python is probably installed. Open a WSL terminal and type:<br> `python --version` or `py --version` or `python3 --version`.<br> If any of those commands returns a 3.x python version, then you're good to go. Otherwise, you will need to install a new version: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>
+
+#### Mac
+If you're on a Mac, check if a 3.x version of python is installed. Open a terminal and type:<br> `python --version` or `python3 --version`.<br> If these commands aren't recognized, or if they show an older version of python, you will need to install a new version: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a>
+
+#### Write some code
 1. Inside of your `lab02` folder, create another text file called `contains_pair.py`
 1. Within the `contains_pair.py` file, implement one of the "contains pair" solutions we discussed in class (ideally the fastest one). Here's a stub to help you:
 
@@ -117,7 +135,15 @@ If you did it correctly, git is now ignoring your `*.class` file.
     print(check([1, 2, 3, 2]))          # should print True
     print(check([5, 2, -10, 44, 90]))   # should print False
     ```
-1. Run your program on the command line by typing `python contains_pair.py`
+Run / test your program on the command line by typing `python3 contains_pair.py`. 
+
+On some systems, the python executable is invoked with a different alias (see below). So figure out which one you'll need to use and make a note of it:
+
+* `py contains_pair.py`
+* `python contains_pair.py`
+* `py3 contains_pair.py`
+
+New to python? Try writing the solution in Java and then asking ChatGPT to help you translate it into python. We'll be learning more about Python in the coming weeks.
 
 ### 9. Stage and commit your changes
 1. Stage your changes using `git add .` (the dot indicates that you want to stage all of the files that have been added / deleted / edited).
