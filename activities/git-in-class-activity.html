@@ -153,8 +153,15 @@ repository (GitHub &gt; Settings &gt; “Collaborators and Teams”).</li>
 
 <p>This feature will be implemented on the <code class="language-plaintext highlighter-rouge">main</code> branch.</p>
 
-<p><strong>The owner of the repository</strong> should complete Feature A. Instead of always printing “hello world”, let’s make your function print out “hello &lt;name&gt;” where “&lt;name&gt;” is specified as a parameter to the
-function. In other words, when called like this:</p>
+<p><strong>The owner of the repository</strong> should complete Feature A.</p>
+
+<p>To complete feature A, you will modify the <code class="language-plaintext highlighter-rouge">say_hello</code> function definition to (a) accept a <code class="language-plaintext highlighter-rouge">name</code> parameter, and (b) output a greeting and the name.</p>
+
+<ul>
+  <li>If you don’t know how to do this (totally expected if you’re new to python), try Googling it or using an AI tool. When you’re at your first job or internship, you’re going to need to “learn how to learn” a new language, so this is good practice.</li>
+</ul>
+
+<p>When you invoke your function as follows:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Walter</span><span class="sh">"</span><span class="p">)</span>
 <span class="nf">say_hello</span><span class="p">(</span><span class="sh">"</span><span class="s">Ruth</span><span class="sh">"</span><span class="p">)</span>
@@ -174,16 +181,20 @@ Hello Helen!
 
 <h4 id="id_feature-b-collaborator">Feature B (Collaborator)</h4>
 
-<p>The collaborator will complete this feature on a different branch. First, create
-and check out a branch.</p>
+<p>The collaborator will complete a slightly different feature on a different branch. First, create and check out a branch.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">-b</span> feature-b
 </code></pre></div></div>
 
-<p>Now implement feature-b. Allow an argument to specify the number of
-times the message should be repeated. So if it’s called like this:</p>
+<p>The job of <code class="language-plaintext highlighter-rouge">feature-b</code> is to print the same “hello world!” message n times. To do this, rename <code class="language-plaintext highlighter-rouge">say_hello</code> -&gt; <code class="language-plaintext highlighter-rouge">say_hello_n</code>, and add a parameter to specify the number of times the message should be repeated. Then, use a loop in the body of the function to print the message n times.</p>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">say_hello</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<ul>
+  <li>If you don’t know how to do this (totally expected if you’re new to python), try Googling it or using an AI tool. When you’re at your first job or internship, you’re going to need to “learn how to learn” a new language, so this is good practice.</li>
+</ul>
+
+<p>When I invoke your function as follows:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">say_hello_n</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>It will print out:</p>
