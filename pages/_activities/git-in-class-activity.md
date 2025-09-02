@@ -36,11 +36,11 @@ If you are the owner, you will create a new git repository as follows:
 
     ```py
     def say_hello() -> None:
-        print("hello world!");
+        print("hello world!")
 
 
     if __name__ == "__main__":
-        say_hello();
+        say_hello()
     ```
 1. Commit it.
 1. Now create a *private* repository on GitHub (github.com) for your local git repository and push your local repository to the remote repository.
@@ -71,8 +71,13 @@ You are now going to both edit the same file on different branches and practice 
 
 This feature will be implemented on the `main` branch.
 
-**The owner of the repository** should complete Feature A. Instead of always printing "hello world", let's make your function print out "hello \<name\>" where "\<name\>" is specified as a parameter to the
-function. In other words, when called like this:
+**The owner of the repository** should complete Feature A. 
+
+To complete feature A, you will modify the `say_hello` function definition to (a) accept a `name` parameter, and (b) output a greeting and the name. 
+
+* If you don't know how to do this (totally expected if you're new to python), try Googling it or using an AI tool. When you're at your first job or internship, you're going to need to "learn how to learn" a new language, so this is good practice. 
+
+When you invoke your function as follows:
 
 ```py
 say_hello("Walter")
@@ -94,18 +99,20 @@ Once this is tested and working, commit it locally, then **push your main branch
 
 #### Feature B (Collaborator)
 
-The collaborator will complete this feature on a different branch. First, create
-and check out a branch.
+The collaborator will complete a slightly different feature on a different branch. First, create and check out a branch.
 
 ```bash
 $ git checkout -b feature-b
 ```
 
-Now implement feature-b. Allow an argument to specify the number of
-times the message should be repeated. So if it's called like this:
+The job of `feature-b` is to print the same "hello world!" message n times. To do this, rename `say_hello` -> `say_hello_n`, and add a parameter to specify the number of times the message should be repeated. Then, use a loop in the body of the function to print the message n times. 
+
+* If you don't know how to do this (totally expected if you're new to python), try Googling it or using an AI tool. When you're at your first job or internship, you're going to need to "learn how to learn" a new language, so this is good practice. 
+
+When I invoke your function as follows:
 
 ```py
-say_hello(3)
+say_hello_n(3)
 ```
 
 It will print out:

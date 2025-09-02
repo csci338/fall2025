@@ -21,15 +21,15 @@ slides:
       url: https://docs.google.com/presentation/d/1iBYAdOWcRUqr_Oc0O0ss0F0PFG2ulR9g/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-09-02"
       num: 4
-      draft: 1
+      draft: 0
       type: lecture
       title: Version Control and Collaborative Workflows
-      url: https://docs.google.com/presentation/d/1PK57O63dkB5tMsG61XVw8PcER1P9dh_O/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1-hRdUlYno040jHsVn3H1urpkMpDp58As/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-09-04"
       type: lecture
       draft: 1
       title: Intro to Lab 3
-      url: https://docs.google.com/presentation/d/1uWq_3F_qDBE-6WHXzGvH3LlM8uIieaqk/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: #
 readings: 
     - start_date: "2025-08-26"
       title: Chapter 16. Version Control and Branch Management
@@ -71,7 +71,7 @@ activities:
     - start_date: "2025-09-02"
       title: Git Collaboration Activity
       num: 2
-      draft: 1
+      draft: 0
       type: activity
       url: /activities/git-in-class-activity
 labs: [2, 3]
