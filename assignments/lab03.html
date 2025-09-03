@@ -53,6 +53,7 @@
                 
                 
                 <ol class="side-menu">
+  <li><a href="#id_learning-goals">Learning Goals</a></li>
   <li><a href="#id_1-git-basics">1. Git Basics</a>
     <ol>
       <li><a href="#id_getting-help">Getting Help</a></li>
@@ -107,46 +108,16 @@
 
 <p><strong>Credit: This activity was designed by Semmy Purewall</strong></p>
 
-<style>
-  .checkbox-list > li {
-    margin-bottom: 30px;
-  }
-</style>
+<blockquote class="info">
+  <h2 id="id_learning-goals">Learning Goals</h2>
+  <p>The goals with this lab are as follows:</p>
 
-<p>{:.info} &gt; ### Class Exercises Repo Checklist &gt; Because I didn’t make the
-&lt;a href=”https://github.com/csci338/class-exercises-fall2025” target=”_blank”</p>
-<blockquote>
-  <p>class-exercises-fall2025&lt;/a</p>
-
-  <p>private when folks forked it, we need to go back and do a little surgery to get
-things in order. This will also be good additional git / GitHub practice. &gt; &gt;
-Please verify the following: &gt; * You should be able to access the source version
-of the
-&lt;a href=”https://github.com/csci338/class-exercises-fall2025” target=”_blank”
-csci338/class-exercises-fall2025&lt;/a</p>
-
-  <p>repo, which is now private. &gt; * If you can’t, check your email and accept your
-invitation to join the repo. &gt; * A the root of your GitHub repo, your “forked
-from” source should say <strong>csci338/class-exercises-fall2025</strong>. See screenshot:<br /><br /><img src="/fall2025/assets/images/github/ss1.png" class="large" /><br />If this is not the case: &gt; 1. Delete your GitHub repo (not your local
-repo on your computer). &gt; 1. Re-fork your copy of the repo from
-&lt;a href=”https://github.com/csci338/class-exercises-fall2025” target=”_blank”
-csci338/class-exercises-fall2025&lt;/a</p>
-
-  <ol class="checkbox-list">
-    <li>Re-push the <code class="language-plaintext highlighter-rouge">lab02-b</code> branch to your remote. &gt; 1. You will not need to
-recreate a pull request for lab 2 if you already created and submitted one on
-the Moodle. &gt; * Make sure that your version of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code>
-repo is private. &gt; * Add <code class="language-plaintext highlighter-rouge">svanwart</code> as a collaborator on your private repo.</li>
+  <ol>
+    <li>Getting more familiar with git</li>
+    <li>Practicing adding and committing</li>
+    <li>Practicing with the linux command line</li>
   </ol>
 </blockquote>
-
-<p>The goals with this lab are as follows:</p>
-
-<ol>
-  <li>Let’s get more familiar with git!</li>
-  <li>Practice adding and committing.</li>
-  <li>More practice with the linux command line.</li>
-</ol>
 
 <h2 id="id_1-git-basics">1. Git Basics</h2>
 
@@ -190,11 +161,11 @@ see how to access it.</p>
 <h3 id="id_create-a-new-git-repository">Create a New Git Repository</h3>
 <p>Create a new repository for code exercises directly inside of your <code class="language-plaintext highlighter-rouge">csci338</code> directory. To do this, create a directory called <code class="language-plaintext highlighter-rouge">lab03-exercises</code> using the <code class="language-plaintext highlighter-rouge">mkdir</code> command.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir lab03-exercises
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir lab03-exercises
 </code></pre></div></div>
 
 <blockquote class="info">
-  <p><strong>Important</strong>: Make sure you don’t create the <code class="language-plaintext highlighter-rouge">lab03-exercises</code> repo inside of your <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo (no nested repos). Rather, your directory structure should look something like this:</p>
+  <p><strong>Important</strong>: Make sure you <strong>DO NOT</strong> create the <code class="language-plaintext highlighter-rouge">lab03-exercises</code> repo inside of your <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo (remember: no nested repos). Instead, <code class="language-plaintext highlighter-rouge">lab03-exercises</code> should be in a <em>sibling</em>  directory. So, your directory structure should look something like this:</p>
 
   <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>csci338
 ├── class-exercises-fall2025
@@ -208,7 +179,7 @@ see how to access it.</p>
 
 <p>Great! First let’s try to commit this.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add README.md
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
 </code></pre></div></div>
 
 <p>Oh no! Something went wrong. What error do you see?</p>
@@ -221,7 +192,7 @@ don’t remember the flag to look for hidden files, take a look at the command l
 <p>You should see a single file, the <code class="language-plaintext highlighter-rouge">README.md</code> file you made. Now let’s
 initialize the our new git repository.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div></div>
 
 <p>Git will initialize a repository for you. Now let’s list the contents of the directory again (including hidden files). Do you see anything new? Is it a directory or a file? How can you tell? List the contents of the new directory.</p>
@@ -240,7 +211,7 @@ differently depending on what state or mode it’s in. It’s a good idea
 to get in the habit of checking Git’s state prior to making any
 changes. Let’s do that now with the <code class="language-plaintext highlighter-rouge">status</code> subcommand.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git status
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 </code></pre></div></div>
 
 <blockquote class="blockquote-no-margin">
@@ -256,7 +227,7 @@ changes. Let’s do that now with the <code class="language-plaintext highlighte
 <p>Let’s add <code class="language-plaintext highlighter-rouge">README.md</code> to Git’s staging area using the <code class="language-plaintext highlighter-rouge">add</code>
 subcommand.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git add README.md
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
 </code></pre></div></div>
 
 <p>Hmmmm, there was no output from that command. What to do? Is there a
@@ -267,7 +238,7 @@ way you can check the state of git to confirm that your file was added
 now. That means this file will be included on our next commit. Let’s
 do that now.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"add README.md to the repository"</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"add README.md to the repository"</span>
 </code></pre></div></div>
 
 <p>What do you see? After you commit this, let’s check the state of the repository.</p>
@@ -279,7 +250,7 @@ do that now.</p>
 <p>Now that our repository has history, let’s explore that history. To do
 that, we use the <code class="language-plaintext highlighter-rouge">log</code> subcommand.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git log
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
 </code></pre></div></div>
 <blockquote class="blockquote-no-margin">
   <p>1.4. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
@@ -296,7 +267,7 @@ the file.</p>
 <blockquote>
   <h3 id="id_add-to-readmemd">Add to README.md</h3>
   <h4 id="id_find-all-duplicates">Find All Duplicates</h4>
-  <p>Write a function (or static method in the case of Java) that accepts a list of integers and returns a list of only those integers that appear more than once.</p>
+  <p>Write a function (in python) or method (in Java) that accepts a list of integers and returns a list of only those integers that appear more than once.</p>
 </blockquote>
 
 <p>Now that we have a change, let’s check Git’s state. What’s different
@@ -305,7 +276,7 @@ about this message than when we first added the <code class="language-plaintext 
 <p>You can see what has changed between the previous commit and now with
 the <code class="language-plaintext highlighter-rouge">diff</code> subcommand.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff
 </code></pre></div></div>
 <blockquote class="blockquote-no-margin">
   <p>1.5. What do you see? Copy the output to your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</p>
@@ -357,8 +328,8 @@ answer that first coding question in a file called <code class="language-plainte
 
 <p>You can compile and run your code using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ javac FindDuplicates.java
-$ java FindDuplicates
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac FindDuplicates.java
+java FindDuplicates
 </code></pre></div></div>
 
 <p>Once you have that working, let’s add it and commit it to the
@@ -380,7 +351,7 @@ repository from the command line.”</p>
 
 <blockquote>
   <h3 id="id_important-use-the-ssh-protocol">Important: Use the ssh protocol</h3>
-  <p>You’ll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the <strong>SSH</strong> button is selected (not HTTPS) and that your origin looks something like this: <code class="language-plaintext highlighter-rouge">git@github.com:csci338/your-repo.git</code></p>
+  <p>You’ll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the <strong>SSH</strong> button is selected (not HTTPS) and that your origin looks something like this: <code class="language-plaintext highlighter-rouge">git@github.com:your-git-handle/your-repo.git</code></p>
 </blockquote>
 
 <p>Note that the second command is redundant since we already call our
@@ -403,7 +374,7 @@ secondary, but we don’t have to.</p>
 <code class="language-plaintext highlighter-rouge">remote</code> subcommand will list all of our remotes (using the <code class="language-plaintext highlighter-rouge">-v</code> flag
 will show us ‘verbose’ details).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote -v
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote -v
 </code></pre></div></div>
 
 <p>Once we make a <em>local</em> change to our repository, we have to <em>push</em> the
@@ -438,7 +409,7 @@ can run.</p>
 
 <p>You can run it like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3 find_duplicates.py
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 find_duplicates.py
 </code></pre></div></div>
 
 <p>Go ahead and modify the <code class="language-plaintext highlighter-rouge">find_duplicates_nested_loop</code> function so it works as we
@@ -453,7 +424,7 @@ difference between your local repository and the remote repository?</p>
 
 <p>Now let’s push these changes to our remote.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin main
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin main
 </code></pre></div></div>
 
 <p>Some notes:</p>
@@ -485,20 +456,20 @@ make sure only quality, working code makes it into our <em>main</em> branch.</p>
 <p>Let’s start by listing all of our branches using the <code class="language-plaintext highlighter-rouge">branch</code>
 subcommand.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
 * main
 </code></pre></div></div>
 
 <p>You only have the main branch. Let’s create a new branch in our
 <code class="language-plaintext highlighter-rouge">exercises</code> repository.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch one-set
 </code></pre></div></div>
 
 <p>Hmmmm. No output. Let’s rerun the command from above to see our
 branches.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch
 * main
   one-set
 </code></pre></div></div>
@@ -509,7 +480,7 @@ do you see that specified?</p>
 
 <p>Let’s <code class="language-plaintext highlighter-rouge">checkout</code> the <code class="language-plaintext highlighter-rouge">one-set</code> branch.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout one-set
 </code></pre></div></div>
 
 <p>Confirm you are indeed on the <code class="language-plaintext highlighter-rouge">one-set</code>
@@ -523,8 +494,7 @@ branch (use <code class="language-plaintext highlighter-rouge">git status</code>
 
 <p>Now let’s commit this change to our <code class="language-plaintext highlighter-rouge">README.md</code> file. Note that as long as you’re on the correct branch, all git operations will happen on that branch. Maybe check you’re on the correct branch one more time? Once you’re confident, add and commit your changes.</p>
 
-<p>Now let’s look at our history again. You should have several commits now. One of those commits is the top of <code class="language-plaintext highlighter-rouge">main</code> and one of those commits is the top of <code class="language-plaintext highlighter-rouge">one-set</code>. There’s also one that’s labeled
-<code class="language-plaintext highlighter-rouge">HEAD</code>. Which one?</p>
+<p>Now let’s look at our history again. You should have several commits now. One of those commits is the top of <code class="language-plaintext highlighter-rouge">main</code> and one of those commits is the top of <code class="language-plaintext highlighter-rouge">one-set</code>. There’s also one that’s labeled <code class="language-plaintext highlighter-rouge">HEAD</code>. Which one?</p>
 
 <p>Now let’s checkout our <code class="language-plaintext highlighter-rouge">main</code> branch and check our history again. What’s different?</p>
 <ul>
@@ -553,7 +523,7 @@ check you’re on the right branch before committing.</p>
 <p>Remember the <code class="language-plaintext highlighter-rouge">diff</code> subcommand? Note that you can use the <code class="language-plaintext highlighter-rouge">diff</code>
 subcommand to compare your two branches!</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git diff main..one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff main..one-set
 </code></pre></div></div>
 
 <h3 id="id_pull-requests">Pull Requests</h3>
@@ -562,7 +532,7 @@ subcommand to compare your two branches!</p>
 remote. Previously, we pushed to <code class="language-plaintext highlighter-rouge">main</code> but we don’t want to do that
 anymore. Instead, we want to push to our new branch.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin one-set
 </code></pre></div></div>
 
 <p>What do you see? Note that there’s a URL there that will take you to a
@@ -620,7 +590,7 @@ both of your branches in your local repository.</p>
 <p>You can pull the latest updates in your remote repository without
 affecting your local repositories by using the <code class="language-plaintext highlighter-rouge">fetch</code> subcommand.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch
 </code></pre></div></div>
 
 <p>Now check the state of the two branches on your local repository. What
@@ -629,13 +599,13 @@ do you see?</p>
 <p>You can use <code class="language-plaintext highlighter-rouge">pull</code> to actually pull the latest changes into your local
 branch. In this case, on the main branch, pull the changes.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git pull
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
 </code></pre></div></div>
 
 <p>Now you can delete your local <code class="language-plaintext highlighter-rouge">one-set</code> branch since we don’t need it
 anymore.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -D one-set
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch -D one-set
 </code></pre></div></div>
 
 <h2 id="id_summary">Summary</h2>
@@ -654,6 +624,7 @@ been familiar from Lab 1 and Lab 2. You should be comfortable with the following
   <li>branch</li>
   <li>checkout</li>
   <li>fetch</li>
+  <li>pull</li>
 </ul>
 
 <p>Now that you’re finished, let’s read the the following sections in
@@ -666,8 +637,17 @@ review at this point, but there’s a few new things in there.</p>
 </ul>
 
 <h2 id="id_what-to-submit">What to Submit</h2>
+<p>Before you submit, make sure that you have completed the following:</p>
 
-<p>Commit your <code class="language-plaintext highlighter-rouge">answers.md</code> to your branch in the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repository and make a pull request. Include some markdown and a screenshot (or some other pic) in your Github description. Then paste a link to your pull request in the Moodle. Make sure that Sarah has been added as a collaborator on your version of the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repo (<code class="language-plaintext highlighter-rouge">svanwart</code>).</p>
+<ul class="checkbox-list">
+  <li>You have created and pushed a new repo called <code class="language-plaintext highlighter-rouge">lab03-exercises</code> to your GitHub account.</li>
+  <li>Within the <code class="language-plaintext highlighter-rouge">lab03-exercises</code> repo, you have two branches: <code class="language-plaintext highlighter-rouge">main</code> and <code class="language-plaintext highlighter-rouge">one-set</code></li>
+  <li>The <code class="language-plaintext highlighter-rouge">main</code> branch has nested loop implementations of a “find duplicates” function/method in both Java and Python.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">one-set</code> branch has dictionary (or hashmap) implementations of a “find duplicates” function/method in both Java and Python.</li>
+  <li>You have answered all of the questions in your <code class="language-plaintext highlighter-rouge">answers.md</code> file.</li>
+  <li>You have committed your <code class="language-plaintext highlighter-rouge">answers.md</code> to your branch in the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025</code> repository and make a pull request that points to <strong>your</strong> main branch.</li>
+  <li>Then paste a link to your pull request in the Moodle.</li>
+</ul>
 
 
 
