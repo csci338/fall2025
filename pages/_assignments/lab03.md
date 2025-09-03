@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "A Tour of git Commands"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 3
 num: 3
@@ -12,14 +12,13 @@ due_date: 2025-09-10
 
 **Credit: This activity was designed by Semmy Purewall**
 
-{% include oops.html %}
-
-
-The goals with this lab are as follows:
-
-1. Let's get more familiar with git!
-2. Practice adding and committing.
-3. More practice with the linux command line.
+{:.info}
+> ## Learning Goals
+> The goals with this lab are as follows:
+> 
+> 1. Getting more familiar with git
+> 2. Practicing adding and committing
+> 3. Practicing with the linux command line
 
 ## 1. Git Basics
 
@@ -54,11 +53,11 @@ see how to access it.
 Create a new repository for code exercises directly inside of your `csci338` directory. To do this, create a directory called `lab03-exercises` using the `mkdir` command.
 
 ```
-$ mkdir lab03-exercises
+mkdir lab03-exercises
 ```
 
 {:.info}
-> **Important**: Make sure you don't create the `lab03-exercises` repo inside of your `class-exercises-fall2025` repo (no nested repos). Rather, your directory structure should look something like this:
+> **Important**: Make sure you **DO NOT** create the `lab03-exercises` repo inside of your `class-exercises-fall2025` repo (remember: no nested repos). Instead, `lab03-exercises` should be in a *sibling*  directory. So, your directory structure should look something like this:
 >
 ```
 > csci338
@@ -73,7 +72,7 @@ Verify that you've created your new `lab03-exercises` directory directly inside 
 Great! First let's try to commit this.
 
 ```
-$ git add README.md
+git add README.md
 ```
 
 Oh no! Something went wrong. What error do you see?
@@ -87,7 +86,7 @@ You should see a single file, the `README.md` file you made. Now let's
 initialize the our new git repository.
 
 ```
-$ git init
+git init
 ```
 
 Git will initialize a repository for you. Now let's list the contents of the directory again (including hidden files). Do you see anything new? Is it a directory or a file? How can you tell? List the contents of the new directory. 
@@ -106,7 +105,7 @@ to get in the habit of checking Git's state prior to making any
 changes. Let's do that now with the `status` subcommand.
 
 ```bash
-$ git status
+git status
 ```
 
 > 1.2. What do you see? Copy the output to your `answers.md` file.
@@ -120,7 +119,7 @@ Let's add `README.md` to Git's staging area using the `add`
 subcommand.
 
 ```bash
-$ git add README.md
+git add README.md
 ```
 
 Hmmmm, there was no output from that command. What to do? Is there a
@@ -132,7 +131,7 @@ now. That means this file will be included on our next commit. Let's
 do that now.
 
 ```bash
-$ git commit -m "add README.md to the repository"
+git commit -m "add README.md to the repository"
 ```
 
 What do you see? After you commit this, let's check the state of the repository. 
@@ -144,7 +143,7 @@ Now that our repository has history, let's explore that history. To do
 that, we use the `log` subcommand.
 
 ```bash
-$ git log
+git log
 ```
 > 1.4. What do you see? Copy the output to your `answers.md` file.
 {:.blockquote-no-margin}
@@ -159,7 +158,7 @@ the file.
 
 > ### Add to README.md
 > #### Find All Duplicates
-> Write a function (or static method in the case of Java) that accepts a list of integers and returns a list of only those integers that appear more than once. 
+> Write a function (in python) or method (in Java) that accepts a list of integers and returns a list of only those integers that appear more than once. 
 
 
 Now that we have a change, let's check Git's state. What's different
@@ -169,7 +168,7 @@ You can see what has changed between the previous commit and now with
 the `diff` subcommand.
 
 ```
-$ git diff
+git diff
 ```
 > 1.5. What do you see? Copy the output to your `answers.md` file.
 {:.blockquote-no-margin}
@@ -222,8 +221,8 @@ public class FindDuplicates {
 You can compile and run your code using:
 
 ```
-$ javac FindDuplicates.java
-$ java FindDuplicates
+javac FindDuplicates.java
+java FindDuplicates
 ```
 
 Once you have that working, let's add it and commit it to the
@@ -244,7 +243,7 @@ instructions. We're going to follow the ones labeled "push an existing
 repository from the command line."
 
 > ### Important: Use the ssh protocol
-You'll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the **SSH** button is selected (not HTTPS) and that your origin looks something like this: `git@github.com:csci338/your-repo.git`
+You'll note that when you make a new repository, there are two ways to interact with GitHub: HTTPS and SSH. Please make sure that the **SSH** button is selected (not HTTPS) and that your origin looks something like this: `git@github.com:your-git-handle/your-repo.git`
 
 Note that the second command is redundant since we already call our
 default branch `main`. But let's go ahead and do it anyway.
@@ -267,7 +266,7 @@ We can even create other remotes, other than "origin" if we want. The
 will show us 'verbose' details).
 
 ```
-$ git remote -v
+git remote -v
 ```
 
 Once we make a _local_ change to our repository, we have to _push_ the
@@ -304,7 +303,7 @@ if __name__ == "__main__":
 You can run it like this:
 
 ```
-$ python3 find_duplicates.py
+python3 find_duplicates.py
 ```
 
 Go ahead and modify the `find_duplicates_nested_loop` function so it works as we
@@ -320,7 +319,7 @@ difference between your local repository and the remote repository?
 Now let's push these changes to our remote.
 
 ```
-$ git push origin main
+git push origin main
 ```
 
 Some notes:
@@ -350,7 +349,7 @@ Let's start by listing all of our branches using the `branch`
 subcommand.
 
 ```
-$ git branch
+git branch
 * main
 ```
 
@@ -358,14 +357,14 @@ You only have the main branch. Let's create a new branch in our
 `exercises` repository.
 
 ```
-$ git branch one-set
+git branch one-set
 ```
 
 Hmmmm. No output. Let's rerun the command from above to see our
 branches.
 
 ```
-$ git branch
+git branch
 * main
   one-set
 ```
@@ -377,7 +376,7 @@ do you see that specified?
 Let's `checkout` the `one-set` branch.
 
 ```
-$ git checkout one-set
+git checkout one-set
 ```
 
 Confirm you are indeed on the `one-set`
@@ -389,8 +388,7 @@ branch (use `git status`)
 
 Now let's commit this change to our `README.md` file. Note that as long as you're on the correct branch, all git operations will happen on that branch. Maybe check you're on the correct branch one more time? Once you're confident, add and commit your changes.
 
-Now let's look at our history again. You should have several commits now. One of those commits is the top of `main` and one of those commits is the top of `one-set`. There's also one that's labeled
-`HEAD`. Which one?
+Now let's look at our history again. You should have several commits now. One of those commits is the top of `main` and one of those commits is the top of `one-set`. There's also one that's labeled `HEAD`. Which one?
 
 Now let's checkout our `main` branch and check our history again. What's different? 
 * Is `HEAD` the same? 
@@ -418,7 +416,7 @@ Remember the `diff` subcommand? Note that you can use the `diff`
 subcommand to compare your two branches!
 
 ```
-$ git diff main..one-set
+git diff main..one-set
 ```
 
 ### Pull Requests
@@ -428,7 +426,7 @@ remote. Previously, we pushed to `main` but we don't want to do that
 anymore. Instead, we want to push to our new branch.
 
 ```
-$ git push origin one-set
+git push origin one-set
 ```
 
 What do you see? Note that there's a URL there that will take you to a
@@ -485,7 +483,7 @@ You can pull the latest updates in your remote repository without
 affecting your local repositories by using the `fetch` subcommand.
 
 ```
-$ git fetch
+git fetch
 ```
 
 Now check the state of the two branches on your local repository. What
@@ -495,14 +493,14 @@ You can use `pull` to actually pull the latest changes into your local
 branch. In this case, on the main branch, pull the changes.
 
 ```
-$ git pull
+git pull
 ```
 
 Now you can delete your local `one-set` branch since we don't need it
 anymore.
 
 ```
-$ git branch -D one-set
+git branch -D one-set
 ```
 
 ## Summary
@@ -520,6 +518,7 @@ been familiar from Lab 1 and Lab 2. You should be comfortable with the following
 * branch
 * checkout
 * fetch
+* pull
 
 Now that you're finished, let's read the the following sections in
 [Pro Git](https://git-scm.com/book/en/v2). They should be mostly
@@ -529,5 +528,13 @@ review at this point, but there's a few new things in there.
 * Chapter 3, sections 1, 2, 3, 6
 
 ## What to Submit
+Before you submit, make sure that you have completed the following:
 
-Commit your `answers.md` to your branch in the `class-exercises-fall2025` repository and make a pull request. Include some markdown and a screenshot (or some other pic) in your Github description. Then paste a link to your pull request in the Moodle. Make sure that Sarah has been added as a collaborator on your version of the `class-exercises-fall2025` repo (`svanwart`).
+{:.checkbox-list}
+* You have created and pushed a new repo called `lab03-exercises` to your GitHub account.
+* Within the `lab03-exercises` repo, you have two branches: `main` and `one-set`
+* The `main` branch has nested loop implementations of a "find duplicates" function/method in both Java and Python.
+* The `one-set` branch has dictionary (or hashmap) implementations of a "find duplicates" function/method in both Java and Python.
+* You have answered all of the questions in your `answers.md` file.
+* You have committed your `answers.md` to your branch in the `class-exercises-fall2025` repository and make a pull request that points to **your** main branch.
+* Then paste a link to your pull request in the Moodle.
