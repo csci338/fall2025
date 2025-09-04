@@ -288,6 +288,9 @@ def find_duplicates_nested_loop(l: list) -> list:
     # Replace "return None" with your code
     return None
 
+# In Python, if __name__ == "__main__" is a conditional check that determines whether 
+# a Python file is being run as the main program or imported as a module into another 
+# script.
 if __name__ == "__main__":
     sample1 = [3, 7, 5, 6, 7, 4, 8, 5, 7, 66]
     sample2 = [3, 5, 6, 4, 4, 5, 66, 6, 7, 6]

@@ -27,9 +27,9 @@ slides:
       url: https://docs.google.com/presentation/d/1-hRdUlYno040jHsVn3H1urpkMpDp58As/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-09-04"
       type: lecture
-      draft: 1
+      draft: 0
       title: Intro to Lab 3
-      url: #
+      url: https://docs.google.com/presentation/d/1ucN6atlHcSLyE7n6Tcdj2fo4X_8rqDig/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 readings: 
     - start_date: "2025-08-26"
       title: Chapter 16. Version Control and Branch Management
