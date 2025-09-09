@@ -64,6 +64,10 @@
     <ol>
       <li><a href="#id_what-is-a-container">What is a container?</a></li>
       <li><a href="#id_what-is-an-image">What is an image?</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_analogy">Analogy</a>
+    <ol>
       <li><a href="#id_docker-cheatsheet">Docker Cheatsheet</a></li>
     </ol>
   </li>
@@ -171,11 +175,16 @@ For more examples and ideas, visit:
 </ul>
 
 <h3 id="id_what-is-an-image">What is an image?</h3>
-<p>“A running container uses an isolated filesystem. This isolated filesystem is provided by an image, and the image must contain everything needed to run an application - all dependencies, configurations, scripts, binaries, etc. The image also contains other configurations for the container, such as environment variables, a default command to run, and other metadata.”</p>
+<p>A Docker image is a lightweight, read-only template or “blueprint” that contains everything needed to run an application. Images are used to create containers. All of the container’s dependencies, configurations, scripts, binaries, etc are stored within an image. The image also contains other configurations for the container, such as environment variables, a default command to run, and other metadata.”</p>
 
 <ul>
   <li>Source: <a href="https://docs.docker.com/get-started/" target="_blank">https://docs.docker.com/get-started/</a></li>
 </ul>
+
+<blockquote class="info">
+  <h2 id="id_analogy">Analogy</h2>
+  <p>Container : Class :: Image : Object</p>
+</blockquote>
 
 <h3 id="id_docker-cheatsheet">Docker Cheatsheet</h3>
 <p>This just lists the commands we’ll be using in today’s tutorial:</p>
@@ -276,12 +285,12 @@ For more examples and ideas, visit:
       <li>Getting Started</li>
       <li>Our Application</li>
       <li>Updating Our App</li>
-      <li><em>Sharing Our App (Optional)</em></li>
+      <li><span class="badge info">Optional</span> <em>Sharing Our App</em></li>
       <li>Persisting our DB</li>
       <li>Using Bind Mounts</li>
       <li>Multi-Container Apps</li>
       <li>Using Docker Compose</li>
-      <li><em>Image Building Best Practices (Optional)</em></li>
+      <li><span class="badge info">Optional</span> <em>Image Building Best Practices</em></li>
     </ol>
   </li>
   <li>Answer the questions in the <code class="language-plaintext highlighter-rouge">class-exercises-fall2025/lab04/answers.md</code> file.</li>
