@@ -10,10 +10,16 @@ description: >
 slides: 
     - start_date: "2025-09-09"
       num: 5
+      draft: 0
+      type: lecture
+      title: Version Control Wrap
+      url: https://docs.google.com/presentation/d/1s3y_CCh3H1InClBD659LOSIY39pFNKX_/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+    - start_date: "2025-09-11"
+      num: 6
       draft: 1
       type: lecture
       title: Everything as Code
-      url: https://docs.google.com/presentation/d/1PX4H4aqAFtf58dw3Y9gE5DkLDgHXDzYL/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1jUycpTRuO-qw-wokBCKUh3MvJQcEc0uF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 reading_instructions: >
     Readings are a bit light in this unit because I'm hoping you'll spend your outside-of-class time getting oriented with Docker:
 readings: 
@@ -41,8 +47,8 @@ activities:
       title: Coding Practice
       num: 3
       type: activity
-      draft: 1
-      url: https://docs.google.com/document/d/1ufrC5XuE2OXPkYuXoPCDfS9ndK3rCKOh/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      draft: 0
+      url: https://docs.google.com/document/d/1xio34-aAAFzljgeVkWKnbla0nyEzTXIh/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [4]
 questions:
     - What were servers "back in the day"? What are servers now?

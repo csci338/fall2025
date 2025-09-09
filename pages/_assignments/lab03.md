@@ -535,7 +535,6 @@ Before you submit, make sure that you have completed the following:
 
 {:.checkbox-list}
 * You have created and pushed a new repo called `lab03-exercises` to your GitHub account.
-* Within the `lab03-exercises` repo, you have two branches: `main` and `one-set`
 * The `main` branch has nested loop implementations of a "find duplicates" function/method in both Java and Python.
 * The `one-set` branch has dictionary (or hashmap) implementations of a "find duplicates" function/method in both Java and Python.
 * You have answered all of the questions in your `answers.md` file.

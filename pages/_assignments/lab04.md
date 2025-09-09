@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Intro to Docker"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 4
 show_schedule: 1
@@ -87,9 +87,13 @@ A container is an isolated process (process that can't interact w/any other part
 * Source: <a href="https://docs.docker.com/get-started/" target="_blank">https://docs.docker.com/get-started/</a>
 
 ### What is an image?
-"A running container uses an isolated filesystem. This isolated filesystem is provided by an image, and the image must contain everything needed to run an application - all dependencies, configurations, scripts, binaries, etc. The image also contains other configurations for the container, such as environment variables, a default command to run, and other metadata."
+A Docker image is a lightweight, read-only template or "blueprint" that contains everything needed to run an application. Images are used to create containers. All of the container's dependencies, configurations, scripts, binaries, etc are stored within an image. The image also contains other configurations for the container, such as environment variables, a default command to run, and other metadata."
 
 * Source: <a href="https://docs.docker.com/get-started/" target="_blank">https://docs.docker.com/get-started/</a>
+
+{:.info}
+> ## Analogy
+> Container : Class :: Image : Object
 
 ### Docker Cheatsheet
 This just lists the commands we'll be using in today's tutorial:
@@ -141,12 +145,12 @@ Begin the Docker tutorial as follows:
     1. Getting Started
     1. Our Application
     1. Updating Our App
-    1. *Sharing Our App (Optional)*
+    1. <span class="badge info">Optional</span> *Sharing Our App*
     1. Persisting our DB
     1. Using Bind Mounts
     1. Multi-Container Apps
     1. Using Docker Compose
-    1. *Image Building Best Practices (Optional)*
+    1. <span class="badge info">Optional</span> *Image Building Best Practices*
 1. Answer the questions in the `class-exercises-fall2025/lab04/answers.md` file.
 
 
