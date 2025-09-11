@@ -16,7 +16,7 @@ slides:
       url: https://docs.google.com/presentation/d/1s3y_CCh3H1InClBD659LOSIY39pFNKX_/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-09-11"
       num: 6
-      draft: 1
+      draft: 0
       type: lecture
       title: Everything as Code
       url: https://docs.google.com/presentation/d/1jUycpTRuO-qw-wokBCKUh3MvJQcEc0uF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
