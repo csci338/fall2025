@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Understanding Package Managers"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 5
 num: 5
@@ -139,7 +139,7 @@ If it worked, an `google.html` file should have been created to your local direc
     ```bash
     curl https://www.google.com > google.html
     ```
-4. Now reinstall `wget`:<br><br>
+4. Now reinstall `curl`:<br><br>
     ```bash
   sudo apt-get install curl
    ```
@@ -157,6 +157,13 @@ If it worked, an `google.html` file should have been created to your local direc
    ```bash
    curl -sSL https://install.python-poetry.org | python3 -
    ```
+
+   {:.info}
+    > If you get an error when running this python script (usually on a Mac), it's likely that you need to install the SSL certificates. To do this:
+    >   * In your Finder (Mac), navigate to Applications > Python
+    >   * Double-click the Certificates script to install the SSL certificates on your Mac
+    >   * Try running the curl script again
+
 4. Verify the installation:<br><br>
    ```bash
    poetry --version
@@ -215,6 +222,7 @@ if __name__ == "__main__":
     main()
 ```
 
+
 Now, run this file on the command line using the python virtual environment you just made:
 
 ```bash
@@ -249,6 +257,7 @@ https://new.cs.unca.edu/computer-systems-major/
 ```
 
 #### Hints:
+* This is a good article: <a href="https://medium.com/@spaw.co/extracting-all-links-using-beautifulsoup-in-python-a96786508659" target="_blank">https://medium.com/@spaw.co/extracting-all-links-using-beautifulsoup-in-python-a96786508659</a>
 * Make sure you import Beautiful soup at the top of your python file:<br><br>
     ```py
 from bs4 import BeautifulSoup
@@ -325,7 +334,7 @@ Source: <a href="https://dev.to/dcodeyt/the-easiest-way-to-install-nodejs-on-wsl
    npm init -y
    ```
 
-   The `npm init` command should have created two new files within `node-demo`: `package.json`. Verify this.
+   The `npm init` command should have created a new file within `node-demo` called `package.json`. Verify this.
 
 ### 9. Install the React and Vite Dependencies
 1. Install the `react`, `react-dom`, and `vite` packages through the node package manager as shown below:<br><br>
@@ -356,7 +365,7 @@ Now that you have a working react app, stop your vite process (Control + C on th
 npm install antd
 ```
 
-Now, open `src/App.js` and replace the current code with this code:
+Now, open `src/App.jsx` and replace the current code with this code:
 
 ```jsx
 import React, { useState } from "react";

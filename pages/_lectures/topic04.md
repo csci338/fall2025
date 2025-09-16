@@ -11,10 +11,10 @@ description: >
 slides: 
     - start_date: "2025-09-16"
       num: 6
-      draft: 1
+      draft: 0
       type: lecture
       title: Package & Dependency Management
-      url: https://docs.google.com/presentation/d/1hNrQ73xwDzFbMB9lK633KoodLb_FOIza/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1p3iEMGavYPvR6LiItAfsUHaiWbSnsy2s/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [5]
 readings:
     - start_date: "2025-09-16"
