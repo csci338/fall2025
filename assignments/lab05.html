@@ -259,7 +259,7 @@
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> curl https://www.google.com <span class="o">&gt;</span> google.html
 </code></pre></div>    </div>
   </li>
-  <li>Now reinstall <code class="language-plaintext highlighter-rouge">wget</code>:<br /><br />
+  <li>Now reinstall <code class="language-plaintext highlighter-rouge">curl</code>:<br /><br />
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">sudo </span>apt-get <span class="nb">install </span>curl
 </code></pre></div>    </div>
   </li>
@@ -276,6 +276,15 @@
   <li>If it’s not, install Poetry:<br /><br />
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://install.python-poetry.org | python3 -
 </code></pre></div>    </div>
+
+    <blockquote class="info">
+      <p>If you get an error when running this python script (usually on a Mac), it’s likely that you need to install the SSL certificates. To do this:</p>
+      <ul>
+        <li>In your Finder (Mac), navigate to Applications &gt; Python</li>
+        <li>Double-click the Certificates script to install the SSL certificates on your Mac</li>
+        <li>Try running the curl script again</li>
+      </ul>
+    </blockquote>
   </li>
   <li>Verify the installation:<br /><br />
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>poetry <span class="nt">--version</span>
@@ -446,7 +455,7 @@ node <span class="nt">-v</span>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init <span class="nt">-y</span>
 </code></pre></div>    </div>
 
-    <p>The <code class="language-plaintext highlighter-rouge">npm init</code> command should have created two new files within <code class="language-plaintext highlighter-rouge">node-demo</code>: <code class="language-plaintext highlighter-rouge">package.json</code>. Verify this.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">npm init</code> command should have created a new file within <code class="language-plaintext highlighter-rouge">node-demo</code> called <code class="language-plaintext highlighter-rouge">package.json</code>. Verify this.</p>
   </li>
 </ol>
 
@@ -480,7 +489,7 @@ node <span class="nt">-v</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install </span>antd
 </code></pre></div></div>
 
-<p>Now, open <code class="language-plaintext highlighter-rouge">src/App.js</code> and replace the current code with this code:</p>
+<p>Now, open <code class="language-plaintext highlighter-rouge">src/App.jsx</code> and replace the current code with this code:</p>
 
 <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">Button</span><span class="p">,</span> <span class="nx">Modal</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">antd</span><span class="dl">"</span><span class="p">;</span>
