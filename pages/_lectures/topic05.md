@@ -15,9 +15,9 @@ slides:
     - start_date: 2025-09-23
       type: lecture
       num: 7
-      draft: 1
+      draft: 0
       title: Intro to Testing
-      url: https://docs.google.com/presentation/d/1_6T3tl0-JWFTjX1rljBB1j3fO8cctj4W/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/18N6d1HKbHKsgR-maWlt2Pp2sZp7A8XTP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-09-30
       type: lecture
       draft: 1
@@ -59,11 +59,11 @@ readings:
 projects: [ 1 ]
 activities:
     - start_date: "2025-09-23"
-      title: Testing Activity
+      title: Python Practice
       num: 4
       type: activity
-      draft: 1
-      url: /activities/testing-activity
+      draft: 0
+      url: /activities/python-practice
     - start_date: "2025-09-30"
       title: Team Preferences
       type: activity

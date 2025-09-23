@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: "Testing & Static Analysis"
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 6
 num: 6
