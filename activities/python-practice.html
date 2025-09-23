@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Python Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1F04DqxzsbKMFNIsGkrv_FbglDk5WKRit?usp=sharing"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-python-basics-vs-java">1. Python Basics vs Java</a>
+    <ol>
+      <li><a href="#id_11-hello-world">1.1. Hello World</a></li>
+      <li><a href="#id_12-variables--types">1.2. Variables &amp; Types</a></li>
+      <li><a href="#id_13-exercise">1.3. Exercise</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-functions--control-flow">2. Functions &amp; Control Flow</a>
+    <ol>
+      <li><a href="#id_21-factorial">2.1. Factorial</a></li>
+      <li><a href="#id_22-fizzbuzz">2.2. FizzBuzz</a></li>
+      <li><a href="#id_23-for-each-loop">2.3. For Each Loop</a></li>
+      <li><a href="#id_24-classic-for-loop">2.4. Classic For Loop</a></li>
+      <li><a href="#id_25-exercise">2.5. Exercise</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-objects--classes">3. Objects &amp; Classes</a>
+    <ol>
+      <li><a href="#id_31-simple-class">3.1. Simple Class</a></li>
+      <li><a href="#id_32-inheritance">3.2. Inheritance</a></li>
+      <li><a href="#id_33-exercise">3.3. Exercise</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_midterm-exam-study-questions">Midterm Exam Study Questions</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>Python Practice</h1>
+    
+ 
+                <style>
+    article ol > li {
+        margin-bottom: 30px;
+    }
+</style>
+
+<p>Most of you know Java but are new to Python. Given this, we’re going to do a translation activity, so that you can think about how the languages are similar and different. You will have to solve simple problems using both Python and Java.</p>
+
+<h2 id="id_1-python-basics-vs-java">1. Python Basics vs Java</h2>
+
+<h3 id="id_11-hello-world">1.1. Hello World</h3>
+<p>Write the equivalent in Python:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, world!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Answer:</strong>
+In Python, the whole program is just:</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Hello world!</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>No class, no main, no semicolons – just one line.</p>
+
+<h3 id="id_12-variables--types">1.2. Variables &amp; Types</h3>
+<p>Write the equivalent in Python:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Alice"</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">isHappy</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="id_13-exercise">1.3. Exercise</h3>
+<p>Write a program that takes a string and counts the number of vowels in it.</p>
+
+<h2 id="id_2-functions--control-flow">2. Functions &amp; Control Flow</h2>
+
+<h3 id="id_21-factorial">2.1. Factorial</h3>
+<p>Write the equivalent in Python:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="o">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_22-fizzbuzz">2.2. FizzBuzz</h3>
+<p>Write the equivalent in Python:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"FizzBuzz"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Fizz"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Buzz"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_23-for-each-loop">2.3. For Each Loop</h3>
+<p>Translate this into Python using a for … in loop:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">fruits</span> <span class="o">=</span> <span class="o">{</span><span class="s">"apple"</span><span class="o">,</span> <span class="s">"banana"</span><span class="o">,</span> <span class="s">"cherry"</span><span class="o">};</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="nc">String</span> <span class="n">fruit</span> <span class="o">:</span> <span class="n">fruits</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fruit</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_24-classic-for-loop">2.4. Classic For Loop</h3>
+<p>Translate this into Python using a for loop with the <code class="language-plaintext highlighter-rouge">range()</code> function:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Number: "</span> <span class="o">+</span> <span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_25-exercise">2.5. Exercise</h3>
+
+<p>Write a function that takes a list of numbers and returns a list of their squares.
+(Do it once with a loop, once with a comprehension.)</p>
+
+<h2 id="id_3-objects--classes">3. Objects &amp; Classes</h2>
+<h3 id="id_31-simple-class">3.1. Simple Class</h3>
+<p>Translate this into a Python class.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">make</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">model</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Car</span><span class="o">(</span><span class="nc">String</span> <span class="n">make</span><span class="o">,</span> <span class="nc">String</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">make</span> <span class="o">=</span> <span class="n">make</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Driving "</span> <span class="o">+</span> <span class="n">make</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">model</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_32-inheritance">3.2. Inheritance</h3>
+<p>Translate into Python with inheritance:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElectricCar</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">batteryLife</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">ElectricCar</span><span class="o">(</span><span class="nc">String</span> <span class="n">make</span><span class="o">,</span> <span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="kt">int</span> <span class="n">batteryLife</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">make</span><span class="o">,</span> <span class="n">model</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">batteryLife</span> <span class="o">=</span> <span class="n">batteryLife</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">charge</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Charging the car..."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="id_33-exercise">3.3. Exercise</h3>
+<p>Create a BankAccount class with methods:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deposit</span><span class="o">(</span><span class="n">amount</span><span class="o">)</span>
+<span class="n">withdraw</span><span class="o">(</span><span class="n">amount</span><span class="o">)</span>
+<span class="n">getBalance</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h2 id="id_midterm-exam-study-questions">Midterm Exam Study Questions</h2>
+<p>Each challenge can be solved with nested loops, but a <strong>dictionary-based solution</strong> will be much more efficient. You should be able to implement the solutions to these practice problems using both the nested loop and the dictionary solution (but the latter is more efficient):</p>
+
+<ol>
+  <li><strong>Word Frequency Counter:</strong><br />Given a paragraph of text, count how many times each word appears.
+    <ul>
+      <li><strong>Naive way:</strong> For each word, loop through the list to count occurrences.</li>
+      <li><strong>Efficient way:</strong> Use a dictionary with words as keys and counts as values.</li>
+    </ul>
+  </li>
+  <li><strong>First Duplicate Finder:</strong><br />Given a list of integers, find the first number that repeats.
+    <ul>
+      <li><strong>Naive way:</strong> Nested loops checking every pair.</li>
+      <li><strong>Efficient way:</strong> Keep a dictionary of numbers seen so far.</li>
+    </ul>
+  </li>
+  <li><strong>Anagram Checker:</strong><br />Given two strings, check if they are anagrams of each other.  An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once. Examples:
+    <ul>
+      <li>“listen” → “silent”</li>
+      <li>“evil” → “vile”</li>
+      <li>“rail safety” → “fairy tales”</li>
+    </ul>
+  </li>
+  <li><strong>Student Grades:</strong><br />You are given a list of <code class="language-plaintext highlighter-rouge">(student, grade)</code> pairs. Compute the average grade for each student.
+    <ul>
+      <li><strong>Naive way:</strong> For each student, scan the entire list for all their grades.</li>
+      <li><strong>Efficient way:</strong> Use a dictionary mapping student → list (or sum/count).</li>
+    </ul>
+  </li>
+  <li><strong>Two-Sum Problem:</strong><br />Given a list of numbers and a target, find two numbers that add up to the target.
+    <ul>
+      <li><strong>Naive way:</strong> Check all pairs with nested loops.</li>
+      <li><strong>Efficient way:</strong> Use a dictionary to store numbers seen and check complements.</li>
+    </ul>
+  </li>
+  <li><strong>Inventory Management:</strong><br />You have two lists:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">items = ["apple", "banana", "apple", "orange", "banana", "apple"]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">prices = {"apple": 2, "banana": 1, "orange": 3}</code></li>
+    </ul>
+
+    <p>Compute the <strong>total cost</strong> of the shopping list.</p>
+  </li>
+  <li>
+    <p><strong>Character Frequency Histogram:</strong><br />Given a string, produce a dictionary showing how many times each character appears.</p>
+  </li>
+  <li>
+    <p><strong>Course Enrollment:</strong><br />You have a list of <code class="language-plaintext highlighter-rouge">(student, course)</code> pairs. Build a dictionary mapping each course → list of students enrolled.</p>
+  </li>
+  <li>
+    <p><strong>Common Elements in Two Lists:</strong><br />Find the elements that appear in both lists.</p>
+  </li>
+  <li><strong>Most Frequent Number:</strong><br />Given a list of integers, find the number that occurs most frequently.</li>
+</ol>
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>
