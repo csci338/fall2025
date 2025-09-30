@@ -20,10 +20,10 @@ slides:
       url: https://docs.google.com/presentation/d/18N6d1HKbHKsgR-maWlt2Pp2sZp7A8XTP/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-09-30
       type: lecture
-      draft: 1
+      draft: 0
       num: 8
       title: Static Analysis & Continuous Integration
-      url: https://docs.google.com/presentation/d/19GWQPVXcIt2LHV1nkab6TzwTG1MSbw1U/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1IUBjHLwGkYh-8xpPIC05Xahmj34cqPDd/edit?usp=sharing&rtpof=true&sd=true
 readings:
     - start_date: 2025-09-23
       type: reading
@@ -67,9 +67,9 @@ activities:
     - start_date: "2025-09-30"
       title: Team Preferences
       type: activity
-      draft: 1
+      draft: 0
       num: 5
-      url: https://docs.google.com/document/d/12IoscZkjdahbzFSMjzzvZojQ7oJyGP7uDTjMt0gQC1w/edit?tab=t.0
+      url: https://docs.google.com/document/d/1vD70DFplPXg6YxEaYDHPFGWznhVuDlgH/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: "2025-10-02"
       title: Project 1 Setup
       num: 6

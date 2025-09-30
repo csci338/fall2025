@@ -25,5 +25,5 @@ activities:
       draft: 1
       type: activity
       num: 7
-      url: https://docs.google.com/document/d/1oc4BHq304dQIrXNG184HQsgOUnlaSQQYpyMjEDYO7Ws/edit?usp=sharing
+      url: https://docs.google.com/document/d/1ndbJIzzeThLWx43AvMR9wdzi0HVCeWHQ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 ---
