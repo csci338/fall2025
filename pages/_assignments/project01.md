@@ -104,52 +104,52 @@ Your teams are listed below. Each member of your team has been assigned a task f
 {% expandable expanded="true" level=3 title="Team 1" %}
 Please see your team's <a href="https://github.com/csci338/p01-team01-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. |  |  | Implement the `Course` class |
-| 2. |  |  | Implement the `Courses` class |
-| 3. |  |  | Implement the `UserPreferences` class |
-| 4. |  |  | Implement the `CourseFilter` class |
-| 5. |  |  | Implement the `UI` functions (`ui.py`) |
-| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
-| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
+| 1. |  Course | carlos460  | Implement the `Course` class |
+| 2. |  Courses	| ajrest1103  | Implement the `Courses` class |
+| 3. |  UserPreferences | HLaiK  | Implement the `UserPreferences` class |
+| 4. |  CourseFilter | mling0502  | Implement the `CourseFilter` class |
+| 5. |  UI functions | Tangerinedream13  | Implement the `UI` functions (`ui.py`) |
+| 6. |  Schedule (except for send_email) | aqsmith02  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  send_email	jbartle1 | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 2" %}
 Please see your team's <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. |  |  | Implement the `Course` class |
-| 2. |  |  | Implement the `Courses` class |
-| 3. |  |  | Implement the `UserPreferences` class |
-| 4. |  |  | Implement the `CourseFilter` class |
-| 5. |  |  | Implement the `UI` functions (`ui.py`) |
-| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
-| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
+| 1. |  Course	dhend595  | Implement the `Course` class |
+| 2. |  Courses	ringojuic | Implement the `Courses` class |
+| 3. |  UserPreferences | jneal2003  | Implement the `UserPreferences` class |
+| 4. |  CourseFilter | JesseRayCrouse  | Implement the `CourseFilter` class |
+| 5. |  UI functions | ktaylo-funky-pants  | Implement the `UI` functions (`ui.py`) |
+| 6. |  Schedule (except for send_email) | amhpurple  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  send_email | 0re0-Speedwagon  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 3" %}
 Please see your team's <a href="https://github.com/csci338/p01-team03-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. |  |  | Implement the `Course` class |
-| 2. |  |  | Implement the `Courses` class |
-| 3. |  |  | Implement the `UserPreferences` class |
-| 4. |  |  | Implement the `CourseFilter` class |
-| 5. |  |  | Implement the `UI` functions (`ui.py`) |
-| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
-| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
+| 1. |  Course | kpr0vence  | Implement the `Course` class |
+| 2. |  Courses | Neptune-C-Providence  | Implement the `Courses` class |
+| 3. |  UserPreferences | kgary432  | Implement the `UserPreferences` class |
+| 4. |  CourseFilter | m-mazzotta  | Implement the `CourseFilter` class |
+| 5. |  UI functions | alisalofe  | Implement the `UI` functions (`ui.py`) |
+| 6. |  Schedule (except for send_email) | kikooperative  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  send_email | Hayden514 | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 4" %}
 Please see your team's <a href="https://github.com/csci338/p01-team04-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. |  |  | Implement the `Course` class |
-| 2. |  |  | Implement the `Courses` class |
-| 3. |  |  | Implement the `UserPreferences` class |
-| 4. |  |  | Implement the `CourseFilter` class |
-| 5. |  |  | Implement the `UI` functions (`ui.py`) |
-| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
-| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
+| 1. |  Course | rsciaudo  | Implement the `Course` class |
+| 2. |  Courses | KellanBrown  | Implement the `Courses` class |
+| 3. |  UserPreferences | ltripp1  | Implement the `UserPreferences` class |
+| 4. |  CourseFilter | NoahCSC  | Implement the `CourseFilter` class |
+| 5. |  UI functions | slundin24  | Implement the `UI` functions (`ui.py`) |
+| 6. |  Schedule (except for send_email) | rodrigomendes37  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  send_email | takarin13  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
