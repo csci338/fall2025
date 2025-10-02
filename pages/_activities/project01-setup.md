@@ -25,7 +25,7 @@ It will now be the case that `main` on GitHub will be one commit ahead of your l
 * Rebase their feature branch with main (`git rebase main`)
 
 ## Part 3. Discuss Team Logistics
-Your project is due on Thursday, 3/20, which is in approximately 3 weeks. You will not only have to implement your specific feature, but also ensure that your code is well-integrated with the overall project and that everything works as expected. This is something you can't leave 'til the last minute because most teams will have at least 14 code reviews (happeing over time as things are changing). Give this, you should figure out some logistics, including:
+Your project is due in approximately 3 weeks. You will not only have to implement your specific feature, but also ensure that your code is well-integrated with the overall project and that everything works as expected. This is something you can't leave 'til the last minute because most teams will have at least 14 code reviews (happeing over time as things are changing). Give this, you should figure out some logistics, including:
 
 1. When everyone's individual feature should be drafted.
 1. When everyone's individual feature should be completed.
@@ -37,5 +37,3 @@ Your project is due on Thursday, 3/20, which is in approximately 3 weeks. You wi
 
 Keep in mind that there may be a 12-24 hour delay from the time you make your PR and the time it is approved.
 
-## What to Submit
-Before you leave, please upload a screenshot of your git graph (git log --graph --all) to the Moodle under the "Attendance & Participation" section to show that you rebased the `README.md` updates into your feature branch. This is **due tonight (2/27).**

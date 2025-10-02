@@ -74,7 +74,7 @@ activities:
       title: Project 1 Setup
       num: 6
       type: activity
-      draft: 1
+      draft: 0
       url: /activities/project01-setup
 questions:
     - <span class="badge-dark">general</span> What does "shifting left" mean?
