@@ -110,7 +110,7 @@ Please see your team's <a href="https://github.com/csci338/p01-team01-fall2025" 
 | 4. |  CourseFilter | mling0502  | Implement the `CourseFilter` class |
 | 5. |  UI functions | Tangerinedream13  | Implement the `UI` functions (`ui.py`) |
 | 6. |  Schedule (except for send_email) | aqsmith02  | Implement the `Schedule` class (except for `send_email`) |
-| 7. |  send_email	jbartle1 | Implement the `send_email` method of the `Schedule` class |
+| 7. |  send_email | jbartle1 | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
