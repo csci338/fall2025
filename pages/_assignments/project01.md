@@ -117,8 +117,8 @@ Please see your team's <a href="https://github.com/csci338/p01-team01-fall2025" 
 {% expandable expanded="true" level=3 title="Team 2" %}
 Please see your team's <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. |  Course	dhend595  | Implement the `Course` class |
-| 2. |  Courses	ringojuic | Implement the `Courses` class |
+| 1. |  Course | dhend595  | Implement the `Course` class |
+| 2. |  Courses | ringojuic | Implement the `Courses` class |
 | 3. |  UserPreferences | jneal2003  | Implement the `UserPreferences` class |
 | 4. |  CourseFilter | JesseRayCrouse  | Implement the `CourseFilter` class |
 | 5. |  UI functions | ktaylo-funky-pants  | Implement the `UI` functions (`ui.py`) |
