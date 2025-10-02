@@ -2,7 +2,7 @@
 title: UNCA Course Lookup
 layout: assignment-two-column
 type: project
-draft: 1
+draft: 0
 points: 20
 abbreviation: Project 1
 num: 1
@@ -26,11 +26,6 @@ h4 {
     margin-bottom: 20px;
 }
 </style>
-
-{:.info.updates}
-> ## Deadline Updates
-> * The FINAL submission deadline for Project 1 is now on **Thursday, 3/27 at 11:59PM**
-> * Every team member must have submitted at least 1 pull request by **Thursday, 3/20 at 11:59PM**
 
 {% include toggle-button.html %}
 
@@ -107,53 +102,54 @@ During class on Tuesday (9/24), we discussed how to organize our system, and we 
 Your teams are listed below. Each member of your team has been assigned a task from the GitHub Issue Tracker. Some of you will be working on the same Python class, so make sure you only work on the tasks to which you were assigned:
 
 {% expandable expanded="true" level=3 title="Team 1" %}
-Please see your team's <a href="https://github.com/csci338/p01-team01-fall2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team01-fall2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team01-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. | Anis | agolriz714 | Implement the `Course` class |
-| 2. | Simon | sstout660 | Implement the `Courses` class |
-| 3. | Ethan | EPC233 | Implement the `UserPreferences` class |
-| 4. | Tristan | DaemonTokisaki | Implement the `CourseFilter` class |
-| 5. | Ben | blynch87 | Implement the `UI` functions (`ui.py`) |
-| 6. | Dawson | Dawsonmaz13 | Implement the `Schedule` class (except for `send_email`) |
-| 7. | Vlad | vlkrvc | Implement the `send_email` method of the `Schedule` class |
+| 1. |  |  | Implement the `Course` class |
+| 2. |  |  | Implement the `Courses` class |
+| 3. |  |  | Implement the `UserPreferences` class |
+| 4. |  |  | Implement the `CourseFilter` class |
+| 5. |  |  | Implement the `UI` functions (`ui.py`) |
+| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 2" %}
-Please see your team's <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team02-fall2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. | Ellie | KailaBtw | Implement the `Course` class |
-| 2. | Nathan | nhouston125 | Implement the `Courses` class |
-| 3. | Robin | RobinPhillips98 | Implement the `UserPreferences` class |
-| 4. | Darby | dsims2888 | Implement the `CourseFilter` class |
-| 5. | Matias | MHWunca | Implement the `UI` functions (`ui.py`) |
-| 6. | Ryan | reneuherz064 | Implement the `Schedule` class (except for `send_email`) |
-| 7. | Jared |  | Implement the `send_email` method of the `Schedule` class |
+| 1. |  |  | Implement the `Course` class |
+| 2. |  |  | Implement the `Courses` class |
+| 3. |  |  | Implement the `UserPreferences` class |
+| 4. |  |  | Implement the `CourseFilter` class |
+| 5. |  |  | Implement the `UI` functions (`ui.py`) |
+| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 3" %}
-Please see your team's <a href="https://github.com/csci338/p01-team03-fall2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team03-fall2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team03-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. | Connor | PhoenixUltra | Implement the `Course` class |
-| 2. | Olle | OlleSL | Implement the `Courses` class |"
-| 3. | Nikko | NikkoCC | Implement the `UserPreferences` class |
-| 4. | Henry | wshaw1 | Implement the `CourseFilter` class |
-| 5. | Lucas | lucas-simmons | Implement the `UI` functions (`ui.py`) |"
-| 6. | Max | GiggleMonster | Implement the `Schedule` class (except for `send_email`) |
-| 7. | Zejun | Hayden514 | Implement the `send_email` method of the Schedule class |
+| 1. |  |  | Implement the `Course` class |
+| 2. |  |  | Implement the `Courses` class |
+| 3. |  |  | Implement the `UserPreferences` class |
+| 4. |  |  | Implement the `CourseFilter` class |
+| 5. |  |  | Implement the `UI` functions (`ui.py`) |
+| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
 {% expandable expanded="true" level=3 title="Team 4" %}
-Please see your team's <a href="https://github.com/csci338/p01-team04-fall2025" target="_blank">repo</a> and <a href="https://github.com/csci338/p01-team04-fall2025/issues" target="_blank">issue tracker</a> for more information. Members of your team are:
+Please see your team's <a href="https://github.com/csci338/p01-team04-fall2025" target="_blank">repo</a> for more information. Members of your team are:
 
-| 1. | Given | givensuman | Implement the `Course` class |
-| 2. | Tyler | Swissssst | Implement the `Courses` class |
-| 3. | Caleb | TerminalCalamitas | Implement the `UserPreferences` class |
-| 4. | Bryan | bmartin19 | Implement the `CourseFilter` class |
-| 5. | Chris | ChrisB220 | Implement the `UI` functions (`ui.py`) |
-| 6. | Anthony | Aindelic | Implement the `Schedule` class (except for `send_email`) |
+| 1. |  |  | Implement the `Course` class |
+| 2. |  |  | Implement the `Courses` class |
+| 3. |  |  | Implement the `UserPreferences` class |
+| 4. |  |  | Implement the `CourseFilter` class |
+| 5. |  |  | Implement the `UI` functions (`ui.py`) |
+| 6. |  |  | Implement the `Schedule` class (except for `send_email`) |
+| 7. |  |  | Implement the `send_email` method of the `Schedule` class |
 
 {% endexpandable %}
 
@@ -395,39 +391,32 @@ git checkout -b yourname-feature
 1. Make sure that Docker is running
 1. Then, from within the `project01` directory on your command line, issue the following Docker command:
    ```bash
-   docker compose up
+   docker compose up -d
    ```
-   This command will build your image and your container. Once the container has built, you should see some output like this:
+   This command will build your image and your container in "detached mode," meaning that the build takes place in a background process. Once the container has built, you should see some output like this:
    ```bash
-   Running 2/1
-     ✔ Network project01_default Created                                                                                                                                      
-     ✔ Container project01-app-1  Created                                                                                                                                       
-     Attaching to project01-app-1
-    project01-app-1  | root@d863cf880897:/project01# 
+   [+] Running 2/2
+    ✔ Network project01_default  Created                                      0.0s 
+    ✔ Container project01-app-1  Started      
    ```
-   Keep this terminal open and then open a new shell (for the remaining commands). In other words, you will have two terminals open: one that's running your Docker container, and one for issuing other system commands (listed below).
 
-1. In your new terminal shell (with the other shell running), find your container pid by listing all of your containers as follows:
+1. Now, find the process id of the container you just made by listing all of your containers as follows:
    ```bash
    docker ps -a
    ```
-1. Open the terminal shell on the Docker container you just made:
+1. Install the poetry dependencies on your Docker container:
    ```bash
-   docker exec -it <pid> bash # note that this command will put you onto Docker's bash
-   ```
-1. Install the poetry dependencies from within your Docker container:
-   ```bash
-   poetry install
+   docker exec -it <pid> poetry install
    ```
 1. Run the tests:
    ```bash
-   poetry run pytest -v
+   docker exec -it <pid> poetry run pytest -v
    ```
 1. Run the app:
    ```bash
-   poetry run python course_lookup/ui.py
+   docker exec -it <pid> poetry run python course_lookup/ui.py
    ```
-1. Now you're ready to start coding in VS Code.
+1. Now you're ready to start coding in VS Code. Open the entire project in VS Code by typing: `code .`
 
 
 #### 1. Returning to Docker later
@@ -454,7 +443,7 @@ You could also go to the Docker Dashboard and start your container from the Dash
 | `docker stop <pid>` | List all of the containers (including stopped containers) |
 | `docker start <pid>` | List all of the containers (including stopped containers) |
 | `docker exec -it <pid> bash` | Runs terminal on the container |
-| `docker exec -it <pid> poetry run python course_lookup/driver.py` | Runs the `driver.py` using poetry. |
+| `docker exec -it <pid> poetry run python course_lookup/ui.py` | Runs the `ui.py` using poetry. |
 | `docker exec -it <pid> poetry run pytest -v ` | Runs tests |
 | `docker exec -it <pid> bash scripts/check.sh` | Runs check script |
 | `docker exec -it <pid> bash scripts/fix.sh` | Runs fix script |
@@ -482,9 +471,14 @@ Before you begin working on this project, please read the guidelines **VERY CARE
 Run the tests using the pytest library (installed via poetry). Some sample commands:
 
 ```bash
-poetry run pytest -v                        # runs all the tests
-poetry run pytest tests/test_courses.py -v  # runs all the tests in a single file
-poetry run pytest test_courses.py::TestCourses::test_one -v  # runs a single test (e.g., test_one)
+# runs all the tests
+poetry run pytest -v 
+
+# runs all the tests in a single file
+poetry run pytest tests/test_courses.py -v  
+
+# runs a single test (e.g., test_one)
+poetry run pytest tests/test_courses.py::TestCourses::test_check_num_courses -v  
 ```
 {% endexpandable %}
 
@@ -498,9 +492,14 @@ We are using `black` to format our code, `isort` to sort our import statements, 
 The following commands will be run on every push to make sure that the code styling rules have been followed:
 
 ```bash
-poetry run black . --check        # runs the Python formatter
-poetry run isort . --check-only   # run the Python import sorter
-poetry run flake8                 # flake8 just checks things -- you have to fix them manually
+# runs the Python formatter
+poetry run black . --check     
+
+# run the Python import sorter
+poetry run isort . --check-only  
+
+# flake8 just checks things -- you have to fix them manually
+poetry run flake8                 
 ```
 
 You can also use the `bash/check.sh` script (for convenience):
@@ -512,8 +511,11 @@ bash scripts/check.sh
 To actually APPLY the formatting (which will make changes to your files), make sure you run these two commands before pushing your branch to GitHub:
 
 ```bash
-poetry run black .      # runs the Python formatter
-poetry run isort .      # run the Python import sorter
+# runs the Python formatter
+poetry run black .   
+
+# run the Python import sorter
+poetry run isort .      
 ```
 You can also use the bash/fix.sh script (for convenience):
 
