@@ -16,13 +16,13 @@ slides:
     - start_date: 2025-10-09
       type: lecture
       num: 9
-      draft: 1
-      url: https://docs.google.com/presentation/d/1B5KUSA1z_SMCFB5dgo6fSU6YZhDr1MTP615czZ1Qcsc/edit?usp=sharing
+      draft: 0
+      url: https://docs.google.com/presentation/d/1gpnnmQMhnbPIN9LNTKmgwA9xCRFfC3cA/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
       title: Mid-Semester Review
 activities:
     - start_date: 2025-10-09
       title: Mid Semester Review Cheat Sheet
-      draft: 1
+      draft: 0
       type: activity
       num: 7
       url: https://docs.google.com/document/d/1ndbJIzzeThLWx43AvMR9wdzi0HVCeWHQ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
