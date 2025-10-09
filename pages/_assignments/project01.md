@@ -27,6 +27,14 @@ h4 {
 }
 </style>
 
+{:.new.info}
+> ## Deadlines
+> 1. Every member of your team **is required** submit a draft pull request by **Friday, 10/17 at 11:59PM**
+> 2. It is **recommended** that all of the basic components are integrated by the following **Friday, 10/24 at 11:59PM**
+> 3. The final, **HARD DEADLINE** (no submissions accepted beyond this date) is **Thursday, 10/30 at 11:59PM.**
+> 
+> Keep in mind that there is a lot of coordination and testing involved with this assignment, so don't leave it 'til the last minute!
+
 {% include toggle-button.html %}
 
 <div class="info">
@@ -360,7 +368,37 @@ It should allow setting and getting of the following properties:
 * An `add_courses` method, which takes a list of Course objects (list[Course]) as an argument. The function's job is to display the courses, and ask the user which courses they'd like to append to their schedule. After the user makes their selection, the method will append the selected courses to `_courseList`.
 * A `remove_courses` method (no required parameters). This function's job is to display the user's current schedule of classes, and ask the user which courses they'd like to remove. The corresponding courses are then removed from `_courseList`.
 * A `save_schedule` method that saves the current schedule as a CSV file (text file).
-* An `send_email`, which will email the schedule to a selected recipient.
+* An `send_email`, which will email the schedule to a selected recipient (see details below).
+{% endexpandable %}
+
+
+{% expandable level=3 title="6a. Sending Emails" id="email" expanded="true" %}
+Here is a <a href="https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-python" target="_blank">tutorial</a> that provides some instructions for how to get started with SendGrid, and here's a <a href="https://www.youtube.com/watch?v=1klvWUnEjfc" target="_blank">YouTube video</a>.
+
+A few tips:
+* Install the `sendgrid` and `dotenv` modules via poetry on your Docker container:<br>
+    ```sh
+    docker exec -it <pid> poetry add sendgrid
+    docker exec -it <pid> poetry add python-dotenv
+    ```
+* Add the API key environment variable inside a new `.env` file, saved directly inside the `course_lookup` directory (replace 12345678ABCDEFG with the API you got from the SendGrid website):
+    ```sh
+    SENDGRID_API_KEY=12345678ABCDEFG
+    ```
+* Then, you can create the environment variables by applying the `.env` file via python as follows:
+    ```py
+    import os
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    print(os.getenv("SENDGRID_API_KEY"))
+    ```
+* Exclude your `.env` file (with your API key) from the repository (`.gitignore`)
+* After your pull request is merged, don't forget to tell everyone on your team that they also need to make a `.env` file with the API key, and that they need to install the new poetry dependencies (which are already in the `pyproject.toml` file) as follows:
+    ```sh
+    docker exec -it <pid> poetry install
+    ```
 {% endexpandable %}
 
 
