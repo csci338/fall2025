@@ -53,20 +53,21 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#heading_xkSxs2bz">How do I rebase main against my current working branch? </a></li>
+  <li><a href="#id_deadlines">Deadlines</a></li>
+  <li><a href="#heading_XhzIz9xR">How do I rebase main against my current working branch? </a></li>
   <li><a href="#id_introduction">Introduction</a>
     <ol>
-      <li><a href="#heading_1SOyqcgW">Learning Goals</a></li>
-      <li><a href="#heading_mBakOLLv">Product Requirements</a></li>
-      <li><a href="#heading_XqwXyrtt">System Architecture (Done as a Class)</a></li>
+      <li><a href="#heading_5tpEkSnQ">Learning Goals</a></li>
+      <li><a href="#heading_fqpUshdQ">Product Requirements</a></li>
+      <li><a href="#heading_nnQE1nve">System Architecture (Done as a Class)</a></li>
     </ol>
   </li>
   <li><a href="#id_team-assignments">Team Assignments</a>
     <ol>
-      <li><a href="#heading_yiOyfApT">Team 1</a></li>
-      <li><a href="#heading_ZNs7S2G5">Team 2</a></li>
-      <li><a href="#heading_DEHW0GcW">Team 3</a></li>
-      <li><a href="#heading_AGDCVC13">Team 4</a></li>
+      <li><a href="#heading_FmIe85GN">Team 1</a></li>
+      <li><a href="#heading_t2DROhSB">Team 2</a></li>
+      <li><a href="#heading_2rhK7SqQ">Team 3</a></li>
+      <li><a href="#heading_m3AbovqL">Team 4</a></li>
     </ol>
   </li>
   <li><a href="#id_tasks">Tasks</a>
@@ -77,26 +78,27 @@
       <li><a href="#course_filter">4. Course Filter</a></li>
       <li><a href="#ui">5. User Interface (UI)</a></li>
       <li><a href="#schedule">6. Schedule</a></li>
+      <li><a href="#email">6a. Sending Emails</a></li>
     </ol>
   </li>
   <li><a href="#id_set-up">Set Up</a>
     <ol>
-      <li><a href="#heading_x30ubphf">1. Set up your repository</a></li>
-      <li><a href="#heading_O7XeIE78">2. Building Your Docker Container</a></li>
+      <li><a href="#heading_ozwSjFvY">1. Set up your repository</a></li>
+      <li><a href="#heading_DMiYBrp7">2. Building Your Docker Container</a></li>
     </ol>
   </li>
   <li><a href="#id_logistics">Logistics</a>
     <ol>
-      <li><a href="#heading_Vb8WO9sW">1. Working with Feature Branches</a></li>
-      <li><a href="#heading_WXLtM5FH">2. Testing Tips</a></li>
-      <li><a href="#heading_fp2PLYgQ">3. Formatting Tips</a></li>
-      <li><a href="#heading_jRPXrxgj">4. GitHub Workflows &amp; Continuous Integration Notes</a></li>
+      <li><a href="#heading_ykpgtlCs">1. Working with Feature Branches</a></li>
+      <li><a href="#heading_62CXsdWX">2. Testing Tips</a></li>
+      <li><a href="#heading_uZj2TlDS">3. Formatting Tips</a></li>
+      <li><a href="#heading_yppTWISF">4. GitHub Workflows &amp; Continuous Integration Notes</a></li>
     </ol>
   </li>
   <li><a href="#id_grading-and-assessment">Grading and Assessment</a>
     <ol>
       <li><a href="#submissions">1. How to submit work for review</a></li>
-      <li><a href="#heading_CEcyHgAE">2. Rubric</a></li>
+      <li><a href="#heading_dHhZOxEj">2. Rubric</a></li>
     </ol>
   </li>
 </ol>
@@ -138,15 +140,26 @@ h4 {
 }
 </style>
 
+<blockquote class="new info">
+  <h2 id="id_deadlines">Deadlines</h2>
+  <ol>
+    <li>Every member of your team <strong>is required</strong> submit a draft pull request by <strong>Friday, 10/17 at 11:59PM</strong></li>
+    <li>It is <strong>recommended</strong> that all of the basic components are integrated by the following <strong>Friday, 10/24 at 11:59PM</strong></li>
+    <li>The final, <strong>HARD DEADLINE</strong> (no submissions accepted beyond this date) is <strong>Thursday, 10/30 at 11:59PM.</strong></li>
+  </ol>
+
+  <p>Keep in mind that there is a lot of coordination and testing involved with this assignment, so don’t leave it ‘til the last minute!</p>
+</blockquote>
+
 <p><button id="toggle-button" class="nu-button" onclick="toggleAll()">Collapse All</button></p>
 
 <div class="info">
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_04MFTPSc" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h2 id="heading_xkSxs2bz" target-panel="#panel_04MFTPSc" onclick="toggleExpandable(this)" style="cursor: pointer;">How do I rebase main against my current working branch? </h2>
+                <button class="toggle-button" target-panel="#panel_SFxh3Wn5" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h2 id="heading_XhzIz9xR" target-panel="#panel_SFxh3Wn5" onclick="toggleExpandable(this)" style="cursor: pointer;">How do I rebase main against my current working branch? </h2>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_04MFTPSc"><ol>
+            <div class="expandable-content" style="display: block;" id="panel_SFxh3Wn5"><ol>
   <li>Stage and commit all of the changes on the branch you’re currently on.</li>
   <li>Checkout main and pull down changes:<br /><br />
     <div class="language-bash highlighter-rouge">
@@ -196,10 +209,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_tR1DaA0E" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_1SOyqcgW" target-panel="#panel_tR1DaA0E" onclick="toggleExpandable(this)" style="cursor: pointer;">Learning Goals</h3>
+                <button class="toggle-button" target-panel="#panel_ZmWQIKtQ" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_5tpEkSnQ" target-panel="#panel_ZmWQIKtQ" onclick="toggleExpandable(this)" style="cursor: pointer;">Learning Goals</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_tR1DaA0E"><p>This project will help you practice the concepts we have been covering so far, including:</p>
+            <div class="expandable-content" style="display: block;" id="panel_ZmWQIKtQ"><p>This project will help you practice the concepts we have been covering so far, including:</p>
 
 <ol>
   <li>Breaking requirements up into logical units that can be worked on in parallel (i.e., minimizing the dependencies between components).</li>
@@ -215,10 +228,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_yqLHZo86" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_mBakOLLv" target-panel="#panel_yqLHZo86" onclick="toggleExpandable(this)" style="cursor: pointer;">Product Requirements</h3>
+                <button class="toggle-button" target-panel="#panel_Ba0ghT3X" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_fqpUshdQ" target-panel="#panel_Ba0ghT3X" onclick="toggleExpandable(this)" style="cursor: pointer;">Product Requirements</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_yqLHZo86"><p>You and your team will create an app that implements the following features:</p>
+            <div class="expandable-content" style="display: block;" id="panel_Ba0ghT3X"><p>You and your team will create an app that implements the following features:</p>
 
 <ol>
   <li>A way to download the UNCA data file from the Internet (JSON)</li>
@@ -236,10 +249,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_KTk2Xddv" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_XqwXyrtt" target-panel="#panel_KTk2Xddv" onclick="toggleExpandable(this)" style="cursor: pointer;">System Architecture (Done as a Class)</h3>
+                <button class="toggle-button" target-panel="#panel_Itefo2cG" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_nnQE1nve" target-panel="#panel_Itefo2cG" onclick="toggleExpandable(this)" style="cursor: pointer;">System Architecture (Done as a Class)</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_KTk2Xddv"><p>During class on Tuesday (9/24), we discussed how to organize our system, and we collectively created the following diagram:</p>
+            <div class="expandable-content" style="display: block;" id="panel_Itefo2cG"><p>During class on Tuesday (9/24), we discussed how to organize our system, and we collectively created the following diagram:</p>
 
 <p><img class="large" src="/fall2025/assets/images/projects/project-1-diagram.png" /></p>
 </div>
@@ -250,10 +263,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_udgVNpEw" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_yiOyfApT" target-panel="#panel_udgVNpEw" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 1</h3>
+                <button class="toggle-button" target-panel="#panel_7Ou7ilTM" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_FmIe85GN" target-panel="#panel_7Ou7ilTM" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 1</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_udgVNpEw"><p>Please see your team’s <a href="https://github.com/csci338/p01-team01-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
+            <div class="expandable-content" style="display: block;" id="panel_7Ou7ilTM"><p>Please see your team’s <a href="https://github.com/csci338/p01-team01-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
 
 <table>
   <tbody>
@@ -306,10 +319,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_eipJLMkg" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_ZNs7S2G5" target-panel="#panel_eipJLMkg" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 2</h3>
+                <button class="toggle-button" target-panel="#panel_2ceGr9eR" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_t2DROhSB" target-panel="#panel_2ceGr9eR" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 2</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_eipJLMkg"><p>Please see your team’s <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
+            <div class="expandable-content" style="display: block;" id="panel_2ceGr9eR"><p>Please see your team’s <a href="https://github.com/csci338/p01-team02-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
 
 <table>
   <tbody>
@@ -362,10 +375,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_KKckVmpl" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_DEHW0GcW" target-panel="#panel_KKckVmpl" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 3</h3>
+                <button class="toggle-button" target-panel="#panel_v9mxbrYg" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_2rhK7SqQ" target-panel="#panel_v9mxbrYg" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 3</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_KKckVmpl"><p>Please see your team’s <a href="https://github.com/csci338/p01-team03-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
+            <div class="expandable-content" style="display: block;" id="panel_v9mxbrYg"><p>Please see your team’s <a href="https://github.com/csci338/p01-team03-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
 
 <table>
   <tbody>
@@ -418,10 +431,10 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_QSslWiju" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_AGDCVC13" target-panel="#panel_QSslWiju" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 4</h3>
+                <button class="toggle-button" target-panel="#panel_KLsK6Nbx" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_m3AbovqL" target-panel="#panel_KLsK6Nbx" onclick="toggleExpandable(this)" style="cursor: pointer;">Team 4</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_QSslWiju"><p>Please see your team’s <a href="https://github.com/csci338/p01-team04-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
+            <div class="expandable-content" style="display: block;" id="panel_KLsK6Nbx"><p>Please see your team’s <a href="https://github.com/csci338/p01-team04-fall2025" target="_blank">repo</a> for more information. Members of your team are:</p>
 
 <table>
   <tbody>
@@ -477,12 +490,12 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_X2lInThZ" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="course" target-panel="#panel_X2lInThZ" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Course</h3>
+                <button class="toggle-button" target-panel="#panel_Sc45A4yk" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="course" target-panel="#panel_Sc45A4yk" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Course</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_X2lInThZ"><p>The job of the Course class (<code class="language-plaintext highlighter-rouge">course.py</code>) is to parse the incoming dictionary into a more useable form. If you have been assigned this issue, please note that the rest of the app is highly dependent on this class, so the earlier you complete this task, the easier it will be for your teammates.</p>
+            <div class="expandable-content" style="display: block;" id="panel_Sc45A4yk"><p>The job of the Course class (<code class="language-plaintext highlighter-rouge">course.py</code>) is to parse the incoming dictionary into a more useable form. If you have been assigned this issue, please note that the rest of the app is highly dependent on this class, so the earlier you complete this task, the easier it will be for your teammates.</p>
 
-<h4 id="sample-dictionary-item-to-be-parsed_XtlFXaPH">Sample dictionary item to be parsed</h4>
+<h4 id="sample-dictionary-item-to-be-parsed_owQ37gIj">Sample dictionary item to be parsed</h4>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
     <span class="sh">"</span><span class="s">CRN</span><span class="sh">"</span><span class="p">:</span> <span class="mi">60002</span><span class="p">,</span>
@@ -519,7 +532,7 @@ h4 {
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="properties_XQgBlxGk">Properties</h4>
+<h4 id="properties_4sMWUnSq">Properties</h4>
 <p>It should allow setting and getting of the following properties:</p>
 <ul>
   <li>
@@ -561,7 +574,7 @@ h4 {
 </span><span class="o">*</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 </code></pre></div></div>
 
-<h4 id="methods_O9xser2x">Methods</h4>
+<h4 id="methods_4KoqtmO8">Methods</h4>
 <p>Your class should also have the following methods:</p>
 <ul>
   <li>A <code class="language-plaintext highlighter-rouge">constructor</code> method, which takes a dictionary as an argument and sets the properties right away. A stub has been implemented for you.</li>
@@ -577,19 +590,19 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_sfY4KN7M" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="courses" target-panel="#panel_sfY4KN7M" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Courses</h3>
+                <button class="toggle-button" target-panel="#panel_vZnwoMrk" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="courses" target-panel="#panel_vZnwoMrk" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Courses</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_sfY4KN7M"><p>The job of the Courses class (<code class="language-plaintext highlighter-rouge">courses.py</code>) is to make it convenient to print, filter, and download a list of Course objects.</p>
+            <div class="expandable-content" style="display: block;" id="panel_vZnwoMrk"><p>The job of the Courses class (<code class="language-plaintext highlighter-rouge">courses.py</code>) is to make it convenient to print, filter, and download a list of Course objects.</p>
 
-<h4 id="properties_cHKFhhnY">Properties</h4>
+<h4 id="properties_1qpVkEbI">Properties</h4>
 <p>Your class should have the following properties:</p>
 <ul>
   <li>
 <code class="language-plaintext highlighter-rouge">_courseList</code>: a (private) list of <code class="language-plaintext highlighter-rouge">Course</code> objects</li>
 </ul>
 
-<h4 id="methods_iuako03o">Methods</h4>
+<h4 id="methods_KE0jKWct">Methods</h4>
 <p>Your class should also have the following methods:</p>
 
 <ul>
@@ -616,12 +629,12 @@ h4 {
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_bYsj2TXE" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="user_prefs" target-panel="#panel_bYsj2TXE" onclick="toggleExpandable(this)" style="cursor: pointer;">3. UserPreferences</h3>
+                <button class="toggle-button" target-panel="#panel_56wvJsp7" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="user_prefs" target-panel="#panel_56wvJsp7" onclick="toggleExpandable(this)" style="cursor: pointer;">3. UserPreferences</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_bYsj2TXE"><p>The job of the UserPreferences class (<code class="language-plaintext highlighter-rouge">user_preferences.py</code>) is store the user’s search preference information, and to provide methods for modifying the user’s preferences as they browse courses of interest. If you have been assigned this issue, please note that the rest of the app is highly dependent on this class, so the earlier you complete this task, the easier it will be for your teammates.</p>
+            <div class="expandable-content" style="display: block;" id="panel_56wvJsp7"><p>The job of the UserPreferences class (<code class="language-plaintext highlighter-rouge">user_preferences.py</code>) is store the user’s search preference information, and to provide methods for modifying the user’s preferences as they browse courses of interest. If you have been assigned this issue, please note that the rest of the app is highly dependent on this class, so the earlier you complete this task, the easier it will be for your teammates.</p>
 
-<h4 id="properties_7YubkiNg">Properties</h4>
+<h4 id="properties_NwkaJf2s">Properties</h4>
 <p>It should allow setting and getting of the following properties.</p>
 <ul>
   <li>
@@ -652,7 +665,7 @@ list = []
 bool = False
 </code></pre></div></div>
 
-<h4 id="methods_Ggz1IMQ7">Methods</h4>
+<h4 id="methods_k6quTOi7">Methods</h4>
 <p>Your class should also have the following methods:</p>
 
 <ul>
@@ -669,7 +682,7 @@ bool = False
   <li>An <code class="language-plaintext highlighter-rouge">update_time_of_day</code> method that asks the user whether they want to specify morning, afternoon or evening classes. This will set the <code class="language-plaintext highlighter-rouge">time_of_day</code> property.</li>
 </ul>
 
-<h5 id="a-note-on-the-methods_tkyQib6A">A note on the methods</h5>
+<h5 id="a-note-on-the-methods_0IQA6e31">A note on the methods</h5>
 <ul>
   <li>All of the update methods must validate the user’s input and re-prompt them if they enter an incorrect value (and explain why the value is incorrect).</li>
   <li>All of the input methods should also be able to clear out the properties (unset them to empty).</li>
@@ -680,19 +693,19 @@ bool = False
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_HaXWZ2Vb" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="course_filter" target-panel="#panel_HaXWZ2Vb" onclick="toggleExpandable(this)" style="cursor: pointer;">4. Course Filter</h3>
+                <button class="toggle-button" target-panel="#panel_xvCoEJoE" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="course_filter" target-panel="#panel_xvCoEJoE" onclick="toggleExpandable(this)" style="cursor: pointer;">4. Course Filter</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_HaXWZ2Vb"><p>The job of the CourseFilter class (<code class="language-plaintext highlighter-rouge">course_filter.py</code>) is to determine whether a course matches a given set of criteria.</p>
+            <div class="expandable-content" style="display: block;" id="panel_xvCoEJoE"><p>The job of the CourseFilter class (<code class="language-plaintext highlighter-rouge">course_filter.py</code>) is to determine whether a course matches a given set of criteria.</p>
 
-<h4 id="properties_RECiXGIe">Properties</h4>
+<h4 id="properties_sNWFWTHA">Properties</h4>
 <p>It should allow setting and getting of the following properties:</p>
 <ul>
   <li>
 <code class="language-plaintext highlighter-rouge">user_prefs</code>: UserPreferences</li>
 </ul>
 
-<h4 id="methods_tM1v9UBg">Methods</h4>
+<h4 id="methods_S6aHIAh3">Methods</h4>
 <ul>
   <li>A <code class="language-plaintext highlighter-rouge">constructor</code> method, which takes a UserPreferences object as an argument and sets the <code class="language-plaintext highlighter-rouge">user_prefs</code> property right away. A stub has been implemented for you.</li>
   <li>
@@ -719,15 +732,15 @@ bool = False
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_nb3FdkbK" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="ui" target-panel="#panel_nb3FdkbK" onclick="toggleExpandable(this)" style="cursor: pointer;">5. User Interface (UI)</h3>
+                <button class="toggle-button" target-panel="#panel_qNQyfxX7" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="ui" target-panel="#panel_qNQyfxX7" onclick="toggleExpandable(this)" style="cursor: pointer;">5. User Interface (UI)</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_nb3FdkbK"><p>The job of the User Interface file (<code class="language-plaintext highlighter-rouge">ui.py</code>) is to allow people to make choices about what they want to do in the app and receive the appropriate response. This is the main driver of the app and is just a series of function and method calls.</p>
+            <div class="expandable-content" style="display: block;" id="panel_qNQyfxX7"><p>The job of the User Interface file (<code class="language-plaintext highlighter-rouge">ui.py</code>) is to allow people to make choices about what they want to do in the app and receive the appropriate response. This is the main driver of the app and is just a series of function and method calls.</p>
 
-<h4 id="helper-objects_GsysypS0">Helper Objects</h4>
+<h4 id="helper-objects_gmzkqctq">Helper Objects</h4>
 <p>Because <code class="language-plaintext highlighter-rouge">ui.py</code> is the primary way in which users will interact with the app’s functionality, this file will initialize <code class="language-plaintext highlighter-rouge">UserPreferences</code>, <code class="language-plaintext highlighter-rouge">Courses</code>, and <code class="language-plaintext highlighter-rouge">Schedule</code> objects and make use of their public methods. A small portion of this has already been done for you, but you will continue to use methods from these objects based on user input.</p>
 
-<h4 id="functions_cgas4QaH">Functions</h4>
+<h4 id="functions_tMiNybZE">Functions</h4>
 <ul>
   <li>A <code class="language-plaintext highlighter-rouge">fetch_courses</code> method that queries for the course data from the following url: <a href="https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/2025/spring" target="_blank">https://meteor.unca.edu/registrar/class-schedules/api/v1/courses/2025/spring</a>, converts each result into a <code class="language-plaintext highlighter-rouge">Course</code> object, and returns a <code class="language-plaintext highlighter-rouge">Courses</code> object (read more about these objects above).</li>
   <li>A <code class="language-plaintext highlighter-rouge">generate_menu</code> method that returns a string representation of all of the menu choices in the system (watch the demo video to get ideas). This menu should also indicate to the user which preferences they have selected.</li>
@@ -740,19 +753,19 @@ bool = False
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_4D1tLcyh" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="schedule" target-panel="#panel_4D1tLcyh" onclick="toggleExpandable(this)" style="cursor: pointer;">6. Schedule</h3>
+                <button class="toggle-button" target-panel="#panel_6VEWVBNJ" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="schedule" target-panel="#panel_6VEWVBNJ" onclick="toggleExpandable(this)" style="cursor: pointer;">6. Schedule</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_4D1tLcyh"><p>The job of the Schedule class (<code class="language-plaintext highlighter-rouge">schedule.py</code>) is to allow the user to build a schedule based on the courses the user finds interesting. Eventually, you may want this class to extend the <code class="language-plaintext highlighter-rouge">Courses</code> class (optional) if it makes sense.</p>
+            <div class="expandable-content" style="display: block;" id="panel_6VEWVBNJ"><p>The job of the Schedule class (<code class="language-plaintext highlighter-rouge">schedule.py</code>) is to allow the user to build a schedule based on the courses the user finds interesting. Eventually, you may want this class to extend the <code class="language-plaintext highlighter-rouge">Courses</code> class (optional) if it makes sense.</p>
 
-<h4 id="properties_HBHtjims">Properties</h4>
+<h4 id="properties_E5qGHoHA">Properties</h4>
 <p>It should allow setting and getting of the following properties:</p>
 <ul>
   <li>
 <code class="language-plaintext highlighter-rouge">_courseList</code>: a list of <code class="language-plaintext highlighter-rouge">Course</code> objects (set by the constructor)</li>
 </ul>
 
-<h4 id="methods_gjvUYRHt">Methods</h4>
+<h4 id="methods_yjhqN1BD">Methods</h4>
 <ul>
   <li>A <code class="language-plaintext highlighter-rouge">to_list</code> method (no required parameters) which returns the <code class="language-plaintext highlighter-rouge">_courseList</code> property</li>
   <li>A <code class="language-plaintext highlighter-rouge">size</code> method  (no required parameters) which returns the length of the <code class="language-plaintext highlighter-rouge">_courseList</code> list</li>
@@ -760,7 +773,47 @@ bool = False
   <li>An <code class="language-plaintext highlighter-rouge">add_courses</code> method, which takes a list of Course objects (list[Course]) as an argument. The function’s job is to display the courses, and ask the user which courses they’d like to append to their schedule. After the user makes their selection, the method will append the selected courses to <code class="language-plaintext highlighter-rouge">_courseList</code>.</li>
   <li>A <code class="language-plaintext highlighter-rouge">remove_courses</code> method (no required parameters). This function’s job is to display the user’s current schedule of classes, and ask the user which courses they’d like to remove. The corresponding courses are then removed from <code class="language-plaintext highlighter-rouge">_courseList</code>.</li>
   <li>A <code class="language-plaintext highlighter-rouge">save_schedule</code> method that saves the current schedule as a CSV file (text file).</li>
-  <li>An <code class="language-plaintext highlighter-rouge">send_email</code>, which will email the schedule to a selected recipient.</li>
+  <li>An <code class="language-plaintext highlighter-rouge">send_email</code>, which will email the schedule to a selected recipient (see details below).</li>
+</ul>
+</div>
+        </div>
+
+<div class="expandable-section">
+            <div class="toggle-header">
+                <button class="toggle-button" target-panel="#panel_X7EJSVzm" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="email" target-panel="#panel_X7EJSVzm" onclick="toggleExpandable(this)" style="cursor: pointer;">6a. Sending Emails</h3>
+            </div>
+            <div class="expandable-content" style="display: block;" id="panel_X7EJSVzm"><p>Here is a <a href="https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-python" target="_blank">tutorial</a> that provides some instructions for how to get started with SendGrid, and here’s a <a href="https://www.youtube.com/watch?v=1klvWUnEjfc" target="_blank">YouTube video</a>.</p>
+
+<p>A few tips:</p>
+<ul>
+  <li>Install the <code class="language-plaintext highlighter-rouge">sendgrid</code> and <code class="language-plaintext highlighter-rouge">dotenv</code> modules via poetry on your Docker container:<br />
+    <div class="language-sh highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; poetry add sendgrid
+  docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; poetry add python-dotenv
+</code></pre></div>    </div>
+  </li>
+  <li>Add the API key environment variable inside a new <code class="language-plaintext highlighter-rouge">.env</code> file, saved directly inside the <code class="language-plaintext highlighter-rouge">course_lookup</code> directory (replace 12345678ABCDEFG with the API you got from the SendGrid website):
+    <div class="language-sh highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="nv">SENDGRID_API_KEY</span><span class="o">=</span>12345678ABCDEFG
+</code></pre></div>    </div>
+  </li>
+  <li>Then, you can create the environment variables by applying the <code class="language-plaintext highlighter-rouge">.env</code> file via python as follows:
+    <div class="language-py highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="n">os</span>
+  <span class="kn">from</span> <span class="n">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
+  <span class="nf">load_dotenv</span><span class="p">()</span>
+
+  <span class="nf">print</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="nf">getenv</span><span class="p">(</span><span class="sh">"</span><span class="s">SENDGRID_API_KEY</span><span class="sh">"</span><span class="p">))</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Exclude your <code class="language-plaintext highlighter-rouge">.env</code> file (with your API key) from the repository (<code class="language-plaintext highlighter-rouge">.gitignore</code>)</li>
+  <li>After your pull request is merged, don’t forget to tell everyone on your team that they also need to make a <code class="language-plaintext highlighter-rouge">.env</code> file with the API key, and that they need to install the new poetry dependencies (which are already in the <code class="language-plaintext highlighter-rouge">pyproject.toml</code> file) as follows:
+    <div class="language-sh highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>  docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;pid&gt; poetry <span class="nb">install</span>
+</code></pre></div>    </div>
+  </li>
 </ul>
 </div>
         </div>
@@ -773,10 +826,10 @@ bool = False
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_RyVKrCzl" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_x30ubphf" target-panel="#panel_RyVKrCzl" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Set up your repository</h3>
+                <button class="toggle-button" target-panel="#panel_dFgXHgeV" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_ozwSjFvY" target-panel="#panel_dFgXHgeV" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Set up your repository</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_RyVKrCzl"><p>Once your team lead has added you to their repo, you will set up the code locally as follows:</p>
+            <div class="expandable-content" style="display: block;" id="panel_dFgXHgeV"><p>Once your team lead has added you to their repo, you will set up the code locally as follows:</p>
 <ol>
   <li>Open the terminal.</li>
   <li>Clone your team’s version of the repository:
@@ -802,10 +855,10 @@ git checkout -b yourname-feature
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_EA6XV6Fj" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_O7XeIE78" target-panel="#panel_EA6XV6Fj" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Building Your Docker Container</h3>
+                <button class="toggle-button" target-panel="#panel_OCeWu1lO" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_DMiYBrp7" target-panel="#panel_OCeWu1lO" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Building Your Docker Container</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_EA6XV6Fj"><ol>
+            <div class="expandable-content" style="display: block;" id="panel_OCeWu1lO"><ol>
   <li>Make sure that Docker is running</li>
   <li>Then, from within the <code class="language-plaintext highlighter-rouge">project01</code> directory on your command line, issue the following Docker command:
     <div class="language-bash highlighter-rouge">
@@ -842,7 +895,7 @@ git checkout -b yourname-feature
 </li>
 </ol>
 
-<h4 id="1-returning-to-docker-later_o80BNMjc">1. Returning to Docker later</h4>
+<h4 id="1-returning-to-docker-later_Iz0RcTmp">1. Returning to Docker later</h4>
 <p>Once you’ve built your container, it should be available to you in the future, even if you close out of Docker or stop the container. To get back to your container:</p>
 
 <ol>
@@ -862,7 +915,7 @@ git checkout -b yourname-feature
 
 <p>You could also go to the Docker Dashboard and start your container from the Dashboard.</p>
 
-<h4 id="2-some-useful-commands_TuijNzmb">2 Some useful commands</h4>
+<h4 id="2-some-useful-commands_FiMcSO30">2 Some useful commands</h4>
 
 <table>
   <thead>
@@ -914,10 +967,10 @@ git checkout -b yourname-feature
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_2GM546sY" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_Vb8WO9sW" target-panel="#panel_2GM546sY" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Working with Feature Branches</h3>
+                <button class="toggle-button" target-panel="#panel_mYeJT6AM" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_ykpgtlCs" target-panel="#panel_mYeJT6AM" onclick="toggleExpandable(this)" style="cursor: pointer;">1. Working with Feature Branches</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_2GM546sY"><ol>
+            <div class="expandable-content" style="display: block;" id="panel_mYeJT6AM"><ol>
   <li>You will <strong>never edit the <code class="language-plaintext highlighter-rouge">main</code> branch directly</strong>. Consider <code class="language-plaintext highlighter-rouge">main</code> to be the “source of truth” for the app.</li>
   <li>All of your work will be committed to your feature branch (which you will create from the <code class="language-plaintext highlighter-rouge">main</code> branch).</li>
   <li>
@@ -936,10 +989,10 @@ git checkout -b yourname-feature
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_uCiAOApM" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_WXLtM5FH" target-panel="#panel_uCiAOApM" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Testing Tips</h3>
+                <button class="toggle-button" target-panel="#panel_rWKIHvLC" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_62CXsdWX" target-panel="#panel_rWKIHvLC" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Testing Tips</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_uCiAOApM"><p>Run the tests using the pytest library (installed via poetry). Some sample commands:</p>
+            <div class="expandable-content" style="display: block;" id="panel_rWKIHvLC"><p>Run the tests using the pytest library (installed via poetry). Some sample commands:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># runs all the tests</span>
 poetry run pytest <span class="nt">-v</span> 
@@ -955,10 +1008,10 @@ poetry run pytest tests/test_courses.py::TestCourses::test_check_num_courses <sp
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_LessRFVO" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_fp2PLYgQ" target-panel="#panel_LessRFVO" onclick="toggleExpandable(this)" style="cursor: pointer;">3. Formatting Tips</h3>
+                <button class="toggle-button" target-panel="#panel_9uf6zlna" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_uZj2TlDS" target-panel="#panel_9uf6zlna" onclick="toggleExpandable(this)" style="cursor: pointer;">3. Formatting Tips</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_LessRFVO"><p>We are using <code class="language-plaintext highlighter-rouge">black</code> to format our code, <code class="language-plaintext highlighter-rouge">isort</code> to sort our import statements, and <code class="language-plaintext highlighter-rouge">flake8</code> to validate the Python code.</p>
+            <div class="expandable-content" style="display: block;" id="panel_9uf6zlna"><p>We are using <code class="language-plaintext highlighter-rouge">black</code> to format our code, <code class="language-plaintext highlighter-rouge">isort</code> to sort our import statements, and <code class="language-plaintext highlighter-rouge">flake8</code> to validate the Python code.</p>
 <ul>
   <li><a href="https://black.readthedocs.io/en/stable/usage_and_configuration/index.html">https://black.readthedocs.io/en/stable/usage_and_configuration/index.html</a></li>
   <li><a href="https://pypi.org/project/isort/">https://pypi.org/project/isort/</a></li>
@@ -1001,10 +1054,10 @@ poetry run isort <span class="nb">.</span>
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_qhFpbrUO" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_jRPXrxgj" target-panel="#panel_qhFpbrUO" onclick="toggleExpandable(this)" style="cursor: pointer;">4. GitHub Workflows &amp; Continuous Integration Notes</h3>
+                <button class="toggle-button" target-panel="#panel_GWsW3VFf" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_yppTWISF" target-panel="#panel_GWsW3VFf" onclick="toggleExpandable(this)" style="cursor: pointer;">4. GitHub Workflows &amp; Continuous Integration Notes</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_qhFpbrUO"><p>The <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> is a configuration file that GitHub reads in order to run a series of checks everytime you push your branch to GitHub. Before you make a pull request, make sure that you run the <code class="language-plaintext highlighter-rouge">bash scripts/run_pr_checks.sh</code> script. If everything passes locally, it should also pass on GitHub.</p>
+            <div class="expandable-content" style="display: block;" id="panel_GWsW3VFf"><p>The <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> is a configuration file that GitHub reads in order to run a series of checks everytime you push your branch to GitHub. Before you make a pull request, make sure that you run the <code class="language-plaintext highlighter-rouge">bash scripts/run_pr_checks.sh</code> script. If everything passes locally, it should also pass on GitHub.</p>
 </div>
         </div>
 
@@ -1012,10 +1065,10 @@ poetry run isort <span class="nb">.</span>
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_qzUZfi4y" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="submissions" target-panel="#panel_qzUZfi4y" onclick="toggleExpandable(this)" style="cursor: pointer;">1. How to submit work for review</h3>
+                <button class="toggle-button" target-panel="#panel_qmTtPGpy" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="submissions" target-panel="#panel_qmTtPGpy" onclick="toggleExpandable(this)" style="cursor: pointer;">1. How to submit work for review</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_qzUZfi4y"><h4 id="submissions_7Lw7b29O">Submissions</h4>
+            <div class="expandable-content" style="display: block;" id="panel_qmTtPGpy"><h4 id="submissions_YHSzvnFo">Submissions</h4>
 <p>You will submit your work by making a pull request (PR) and tagging <code class="language-plaintext highlighter-rouge">svanwart</code> as a reviewer. Before making your PR, make sure that you have:</p>
 
 <ul class="checkbox-list">
@@ -1024,7 +1077,7 @@ poetry run isort <span class="nb">.</span>
   <li>Ensured all of the formatter and linter checks pass before making a pull request.</li>
 </ul>
 
-<h4 id="please-read-very-carefully-pull-request-details_RhxyHuc2">[PLEASE READ VERY CAREFULLY] Pull Request Details</h4>
+<h4 id="please-read-very-carefully-pull-request-details_cBFwIjUS">[PLEASE READ VERY CAREFULLY] Pull Request Details</h4>
 <p>In your pull request, make sure that:</p>
 
 <ul class="checkbox-list">
@@ -1046,7 +1099,7 @@ poetry run isort <span class="nb">.</span>
   <li>Once I approve your pull request, <strong>you will be responsible for merging your branch into <code class="language-plaintext highlighter-rouge">main</code> via GitHub</strong>. I recommend doing this as soon as your PR has been approved so that your teammates have the benefit of your updated code.</li>
 </ul>
 
-<h4 id="revisions_wgWoiM2j">Revisions</h4>
+<h4 id="revisions_QElRF15K">Revisions</h4>
 <p>I may ask you for revisions on your code, which is a normal, expected part of the development process. If this happens:</p>
 <ul>
   <li>Please make the requested changes on your feature branch</li>
@@ -1059,10 +1112,10 @@ poetry run isort <span class="nb">.</span>
 
 <div class="expandable-section">
             <div class="toggle-header">
-                <button class="toggle-button" target-panel="#panel_6heBwdJe" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
-                <h3 id="heading_CEcyHgAE" target-panel="#panel_6heBwdJe" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Rubric</h3>
+                <button class="toggle-button" target-panel="#panel_BetUps0c" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h3 id="heading_dHhZOxEj" target-panel="#panel_BetUps0c" onclick="toggleExpandable(this)" style="cursor: pointer;">2. Rubric</h3>
             </div>
-            <div class="expandable-content" style="display: block;" id="panel_6heBwdJe"><table>
+            <div class="expandable-content" style="display: block;" id="panel_BetUps0c"><table>
   <tbody>
     <tr>
       <td>20%</td>
