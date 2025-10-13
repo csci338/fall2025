@@ -63,6 +63,7 @@
     .required, a.required, 
     .skim, a.skim
     .quiz, a.quiz, 
+    .exam, a.exam, 
     .live, .recorded, 
     .ec, a.ec {
         display: inline-block;
@@ -86,7 +87,7 @@
     .hw, .hw:hover, .homework, .hw:hover {
         background: $river;
     }
-    .quiz, .quiz:hover {
+    .quiz, .quiz:hover, .exam, .exam:hover {
         background: $mapleRed;
     }
     .pj, .pj:hover, .project, .project:hover {
