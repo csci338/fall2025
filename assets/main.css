@@ -556,6 +556,7 @@ table.medium.module td:nth-child(2) {
 .assignments .required, .assignments a.required,
 .assignments .skim, .assignments a.skim .quiz,
 .assignments a.quiz,
+.assignments .exam, .assignments a.exam,
 .assignments .live, .assignments .recorded,
 .assignments .ec, .assignments a.ec, .lectures .badge, .lectures a.badge,
 .lectures .badge-dark, .lectures a.badge-dark,
@@ -574,6 +575,7 @@ table.medium.module td:nth-child(2) {
 .lectures .required, .lectures a.required,
 .lectures .skim, .lectures a.skim .quiz,
 .lectures a.quiz,
+.lectures .exam, .lectures a.exam,
 .lectures .live, .lectures .recorded,
 .lectures .ec, .lectures a.ec, .assignment .badge, .assignment a.badge,
 .assignment .badge-dark, .assignment a.badge-dark,
@@ -592,6 +594,7 @@ table.medium.module td:nth-child(2) {
 .assignment .required, .assignment a.required,
 .assignment .skim, .assignment a.skim .quiz,
 .assignment a.quiz,
+.assignment .exam, .assignment a.exam,
 .assignment .live, .assignment .recorded,
 .assignment .ec, .assignment a.ec, .reference .badge, .reference a.badge,
 .reference .badge-dark, .reference a.badge-dark,
@@ -610,6 +613,7 @@ table.medium.module td:nth-child(2) {
 .reference .required, .reference a.required,
 .reference .skim, .reference a.skim .quiz,
 .reference a.quiz,
+.reference .exam, .reference a.exam,
 .reference .live, .reference .recorded,
 .reference .ec, .reference a.ec, .lecture .badge, .lecture a.badge,
 .lecture .badge-dark, .lecture a.badge-dark,
@@ -628,6 +632,7 @@ table.medium.module td:nth-child(2) {
 .lecture .required, .lecture a.required,
 .lecture .skim, .lecture a.skim .quiz,
 .lecture a.quiz,
+.lecture .exam, .lecture a.exam,
 .lecture .live, .lecture .recorded,
 .lecture .ec, .lecture a.ec, .readings .badge, .readings a.badge,
 .readings .badge-dark, .readings a.badge-dark,
@@ -646,6 +651,7 @@ table.medium.module td:nth-child(2) {
 .readings .required, .readings a.required,
 .readings .skim, .readings a.skim .quiz,
 .readings a.quiz,
+.readings .exam, .readings a.exam,
 .readings .live, .readings .recorded,
 .readings .ec, .readings a.ec, .link-menu .badge, .link-menu a.badge,
 .link-menu .badge-dark, .link-menu a.badge-dark,
@@ -664,6 +670,7 @@ table.medium.module td:nth-child(2) {
 .link-menu .required, .link-menu a.required,
 .link-menu .skim, .link-menu a.skim .quiz,
 .link-menu a.quiz,
+.link-menu .exam, .link-menu a.exam,
 .link-menu .live, .link-menu .recorded,
 .link-menu .ec, .link-menu a.ec, .two-column article .badge, .two-column article a.badge,
 .two-column article .badge-dark, .two-column article a.badge-dark,
@@ -682,6 +689,7 @@ table.medium.module td:nth-child(2) {
 .two-column article .required, .two-column article a.required,
 .two-column article .skim, .two-column article a.skim .quiz,
 .two-column article a.quiz,
+.two-column article .exam, .two-column article a.exam,
 .two-column article .live, .two-column article .recorded,
 .two-column article .ec, .two-column article a.ec, .syllabus .badge, .syllabus a.badge,
 .syllabus .badge-dark, .syllabus a.badge-dark,
@@ -700,6 +708,7 @@ table.medium.module td:nth-child(2) {
 .syllabus .required, .syllabus a.required,
 .syllabus .skim, .syllabus a.skim .quiz,
 .syllabus a.quiz,
+.syllabus .exam, .syllabus a.exam,
 .syllabus .live, .syllabus .recorded,
 .syllabus .ec, .syllabus a.ec, .schedule .badge, .schedule a.badge,
 .schedule .badge-dark, .schedule a.badge-dark,
@@ -718,6 +727,7 @@ table.medium.module td:nth-child(2) {
 .schedule .required, .schedule a.required,
 .schedule .skim, .schedule a.skim .quiz,
 .schedule a.quiz,
+.schedule .exam, .schedule a.exam,
 .schedule .live, .schedule .recorded,
 .schedule .ec, .schedule a.ec {
   display: inline-block;
@@ -739,7 +749,7 @@ table.medium.module td:nth-child(2) {
 .assignments .hw, .assignments .hw:hover, .assignments .homework, .assignments .hw:hover, .lectures .hw, .lectures .hw:hover, .lectures .homework, .lectures .hw:hover, .assignment .hw, .assignment .hw:hover, .assignment .homework, .assignment .hw:hover, .reference .hw, .reference .hw:hover, .reference .homework, .reference .hw:hover, .lecture .hw, .lecture .hw:hover, .lecture .homework, .lecture .hw:hover, .readings .hw, .readings .hw:hover, .readings .homework, .readings .hw:hover, .link-menu .hw, .link-menu .hw:hover, .link-menu .homework, .link-menu .hw:hover, .two-column article .hw, .two-column article .hw:hover, .two-column article .homework, .two-column article .hw:hover, .syllabus .hw, .syllabus .hw:hover, .syllabus .homework, .syllabus .hw:hover, .schedule .hw, .schedule .hw:hover, .schedule .homework, .schedule .hw:hover {
   background: #3F6C7D;
 }
-.assignments .quiz, .assignments .quiz:hover, .lectures .quiz, .lectures .quiz:hover, .assignment .quiz, .assignment .quiz:hover, .reference .quiz, .reference .quiz:hover, .lecture .quiz, .lecture .quiz:hover, .readings .quiz, .readings .quiz:hover, .link-menu .quiz, .link-menu .quiz:hover, .two-column article .quiz, .two-column article .quiz:hover, .syllabus .quiz, .syllabus .quiz:hover, .schedule .quiz, .schedule .quiz:hover {
+.assignments .quiz, .assignments .quiz:hover, .assignments .exam, .assignments .exam:hover, .lectures .quiz, .lectures .quiz:hover, .lectures .exam, .lectures .exam:hover, .assignment .quiz, .assignment .quiz:hover, .assignment .exam, .assignment .exam:hover, .reference .quiz, .reference .quiz:hover, .reference .exam, .reference .exam:hover, .lecture .quiz, .lecture .quiz:hover, .lecture .exam, .lecture .exam:hover, .readings .quiz, .readings .quiz:hover, .readings .exam, .readings .exam:hover, .link-menu .quiz, .link-menu .quiz:hover, .link-menu .exam, .link-menu .exam:hover, .two-column article .quiz, .two-column article .quiz:hover, .two-column article .exam, .two-column article .exam:hover, .syllabus .quiz, .syllabus .quiz:hover, .syllabus .exam, .syllabus .exam:hover, .schedule .quiz, .schedule .quiz:hover, .schedule .exam, .schedule .exam:hover {
   background: #A6192E;
 }
 .assignments .pj, .assignments .pj:hover, .assignments .project, .assignments .project:hover, .lectures .pj, .lectures .pj:hover, .lectures .project, .lectures .project:hover, .assignment .pj, .assignment .pj:hover, .assignment .project, .assignment .project:hover, .reference .pj, .reference .pj:hover, .reference .project, .reference .project:hover, .lecture .pj, .lecture .pj:hover, .lecture .project, .lecture .project:hover, .readings .pj, .readings .pj:hover, .readings .project, .readings .project:hover, .link-menu .pj, .link-menu .pj:hover, .link-menu .project, .link-menu .project:hover, .two-column article .pj, .two-column article .pj:hover, .two-column article .project, .two-column article .project:hover, .syllabus .pj, .syllabus .pj:hover, .syllabus .project, .syllabus .project:hover, .schedule .pj, .schedule .pj:hover, .schedule .project, .schedule .project:hover {
