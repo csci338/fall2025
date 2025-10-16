@@ -119,12 +119,16 @@
     <span class="n">customers</span> <span class="o">=</span> <span class="p">[(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Latte</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Espresso</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Charlie</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cappuccino</span><span class="sh">"</span><span class="p">)]</span>
     
     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Starting orders...</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
-    <span class="c1"># Invoke the "prepare_drink" function for each task:
+    
+    <span class="c1"># The for loop creates an array of coroutines – but does not invoke the functions yet:
+</span>    <span class="c1"># After the for loop runs, the array looks something like this:
+</span>    <span class="c1"># [&lt;coroutine object prepare_drink(...)&gt;, &lt;coroutine object prepare_drink(...)&gt;, ...]
 </span>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">customer</span><span class="p">,</span> <span class="n">drink</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">:</span>
         <span class="n">tasks</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">))</span>
     
-    <span class="c1"># Then, wait for all tasks to complete
+    <span class="c1"># This line tells asyncio to schedule all those coroutines to run concurrently, 
+</span>    <span class="c1"># and then wait until all of them complete.
 </span>    <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
 
     <span class="c1"># When this line is hit, all drink preparations are completed
