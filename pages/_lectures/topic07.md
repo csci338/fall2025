@@ -18,7 +18,7 @@ readings:
 activities:
     - start_date: 2025-10-16
       title: AsyncIO
-      draft: 1
+      draft: 0
       type: activity
       num: 8
       url: /activities/asyncio  
@@ -26,9 +26,9 @@ slides:
     - start_date: 2025-10-16
       type: lecture
       num: 10
-      draft: 1
+      draft: 0
       title: AsyncIO + MVC
-      url: https://docs.google.com/presentation/d/1OH4LoaVr13znEg-v3W8NGzI_8xAph2cy/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1dB3iqBd20_sxRJStpBi9uSMdzA80xZdX/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [7]
 ---
  
