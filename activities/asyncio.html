@@ -107,24 +107,31 @@
 
 <p>Paste in the following code:</p>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">time</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># paste code here
+</span><span class="kn">import</span> <span class="n">asyncio</span>
 
-<span class="k">def</span> <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">):</span>
     <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="s"> ordered a </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
-    <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Simulates time to make the drink
+    <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Simulates time to make the drink
 </span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="sh">'</span><span class="s">s </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s"> is ready!</span><span class="sh">"</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">customers</span> <span class="o">=</span> <span class="p">[(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Latte</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Espresso</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Charlie</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cappuccino</span><span class="sh">"</span><span class="p">)]</span>
     
     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Starting orders...</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+    <span class="c1"># Invoke the "prepare_drink" function for each task:
+</span>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">customer</span><span class="p">,</span> <span class="n">drink</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">:</span>
-        <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">)</span>
+        <span class="n">tasks</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">))</span>
+    
+    <span class="c1"># Then, wait for all tasks to complete
+</span>    <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
 
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">All orders completed!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="c1"># When this line is hit, all drink preparations are completed
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">All orders completed!</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
-    <span class="nf">main</span><span class="p">()</span>
+    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
 </code></pre></div></div>
 
 <p>Then run it. Note that each drink takes 2 seconds. Hence, the total time is ~6 seconds (3 drinks × 2 seconds)</p>
