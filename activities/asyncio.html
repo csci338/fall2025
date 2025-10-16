@@ -53,12 +53,25 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_objective">Objective</a></li>
-  <li><a href="#id_scenario">Scenario</a></li>
-  <li><a href="#id_get-situated--pull-down-the-files">Get Situated / Pull Down the Files</a></li>
-  <li><a href="#id_synchronous-version-no-asyncio">Synchronous Version (no asyncio)</a></li>
-  <li><a href="#id_synchronous-version-with-asyncio">Synchronous Version (with asyncio)</a></li>
-  <li><a href="#id_answer-the-following-questions-in-answersmd">Answer the following questions in answers.md</a></li>
+  <li><a href="#id_objective">Objective</a>
+    <ol>
+      <li><a href="#id_scenario">Scenario</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_1-get-situated--pull-down-the-files">1. Get Situated / Pull Down the Files</a></li>
+  <li><a href="#id_2-run-processes-demos">2. Run Processes Demos</a>
+    <ol>
+      <li><a href="#id_race-condition-script">Race Condition Script</a></li>
+      <li><a href="#id_synchronized-script">Synchronized Script</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-asyncio-and-coroutines">3. Asyncio and Coroutines</a>
+    <ol>
+      <li><a href="#id_synchronous-version-no-asyncio">Synchronous Version (no asyncio)</a></li>
+      <li><a href="#id_synchronous-version-with-asyncio">Synchronous Version (with asyncio)</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-answer-the-following-questions">4. Answer the following questions</a></li>
 </ol>
 
             </aside>
@@ -73,7 +86,7 @@
 <p>Python’s asyncio library enables concurrent execution, which is important when you’re waiting around for things to finish. To explore this idea, let’s simulate a café where multiple customers place orders, and the barista prepares drinks concurrently.</p>
 
 <blockquote class="info">
-  <h2 id="id_scenario">Scenario</h2>
+  <h3 id="id_scenario">Scenario</h3>
   <p>The café has one barista who prepares drinks. Without asyncio, the barista can only handle one order at a time:</p>
   <ul>
     <li>Takes Alice’s order → Makes Alice’s Latte → Hands it to Alice.</li>
@@ -84,7 +97,7 @@
   <p>In other words, they can only start making the next drink after finishing the current one. However, with asyncio, the barista can start preparing drinks as soon as the order is placed.</p>
 </blockquote>
 
-<h2 id="id_get-situated--pull-down-the-files">Get Situated / Pull Down the Files</h2>
+<h2 id="id_1-get-situated--pull-down-the-files">1. Get Situated / Pull Down the Files</h2>
 <p><strong>On GitHub:</strong> sync your fork of the <strong>class-exercises-fall2025</strong> repo on GitHub.</p>
 
 <p><strong>On your local machine:</strong></p>
@@ -102,13 +115,70 @@
   <li>Create a new branch from main called <strong>asyncio-activity-b</strong>: <code class="language-plaintext highlighter-rouge">git checkout -b asyncio-activity-b</code></li>
 </ul>
 
-<h2 id="id_synchronous-version-no-asyncio">Synchronous Version (no asyncio)</h2>
+<h2 id="id_2-run-processes-demos">2. Run Processes Demos</h2>
+
+<h3 id="id_race-condition-script">Race Condition Script</h3>
+<p>First, run the <code class="language-plaintext highlighter-rouge">processes_race_condition.py</code> script on your computer using python (make sure you’re in the right directory).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; The counter should have been 2,000, but it wasn't! Why?!
+&gt;
+&gt; When multiple processes or threads access shared data simultaneously without proper synchronization, they can interfere with each other in unexpected ways. This is called a race condition:
+&gt; * Process A reads the current value (e.g., counter = 5)
+&gt; * Process B reads the same value (counter = 5)
+&gt; * Process A increments and writes back (counter = 6)
+&gt; * Process B increments and writes back (counter = 6) ❌
+&gt;
+&gt; Result: Both processes thought they incremented the counter, but it only increased by 1 instead of 2!
+{:.info}
+</code></pre></div></div>
+
+<h3 id="id_synchronized-script">Synchronized Script</h3>
+<ol>
+  <li>Next, run the <code class="language-plaintext highlighter-rouge">processes_without_race_condition.py</code> script on your computer using python (make sure you’re in the right directory).
+    <ul>
+      <li>The counter should actually be 2,000 now. Why? Note the use of locks.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="id_3-asyncio-and-coroutines">3. Asyncio and Coroutines</h2>
+
+<h3 id="id_synchronous-version-no-asyncio">Synchronous Version (no asyncio)</h3>
 <p>Within the <code class="language-plaintext highlighter-rouge">asyncio-activity</code> directory you just made, add the following code to the <code class="language-plaintext highlighter-rouge">cafe_sync.py</code> file (I recommend that you do this within VS code, but it’s up to you):</p>
 
 <p>Paste in the following code:</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># paste code here
-</span><span class="kn">import</span> <span class="n">asyncio</span>
+</span><span class="kn">import</span> <span class="n">time</span>
+
+<span class="k">def</span> <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="s"> ordered a </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">time</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Simulates time to make the drink
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="sh">'</span><span class="s">s </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s"> is ready!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">customers</span> <span class="o">=</span> <span class="p">[(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Latte</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Espresso</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Charlie</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cappuccino</span><span class="sh">"</span><span class="p">)]</span>
+    
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Starting orders...</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+    
+    <span class="c1"># The for loop creates an array of coroutines – but does not invoke the functions yet:
+</span>    <span class="c1"># After the for loop runs, the array looks something like this:
+</span>    <span class="k">for</span> <span class="n">customer</span><span class="p">,</span> <span class="n">drink</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">:</span>
+        <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">)</span>
+
+    <span class="c1"># When this line is hit, all drink preparations are completed
+</span>    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">All orders completed!</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Then run it. Note that each drink takes 2 seconds. Hence, the total time is ~6 seconds (3 drinks × 2 seconds)</p>
+
+<h3 id="id_synchronous-version-with-asyncio">Synchronous Version (with asyncio)</h3>
+<p>Now add the following code into <code class="language-plaintext highlighter-rouge">cafe_async.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">asyncio</span>
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">):</span>
     <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="s"> ordered a </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
@@ -138,31 +208,6 @@
     <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
 </code></pre></div></div>
 
-<p>Then run it. Note that each drink takes 2 seconds. Hence, the total time is ~6 seconds (3 drinks × 2 seconds)</p>
-
-<h2 id="id_synchronous-version-with-asyncio">Synchronous Version (with asyncio)</h2>
-<p>Now add the following code into <code class="language-plaintext highlighter-rouge">cafe_async.py</code>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">asyncio</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">):</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="s"> ordered a </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Simulates time to make the drink
-</span>    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="si">{</span><span class="n">customer</span><span class="si">}</span><span class="sh">'</span><span class="s">s </span><span class="si">{</span><span class="n">drink</span><span class="si">}</span><span class="s"> is ready!</span><span class="sh">"</span><span class="p">)</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">customers</span> <span class="o">=</span> <span class="p">[(</span><span class="sh">"</span><span class="s">Alice</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Latte</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Bob</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Espresso</span><span class="sh">"</span><span class="p">),</span> <span class="p">(</span><span class="sh">"</span><span class="s">Charlie</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cappuccino</span><span class="sh">"</span><span class="p">)]</span>
-    
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Starting orders...</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
-    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="nf">prepare_drink</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">drink</span><span class="p">)</span> <span class="k">for</span> <span class="n">customer</span><span class="p">,</span> <span class="n">drink</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">]</span>
-    <span class="k">await</span> <span class="n">asyncio</span><span class="p">.</span><span class="nf">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
-    
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">All orders completed!</span><span class="sh">"</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
-    <span class="n">asyncio</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nf">main</span><span class="p">())</span>
-</code></pre></div></div>
-
 <p>Run this file, and note:</p>
 
 <ul>
@@ -170,8 +215,8 @@
   <li>The total time = ~2 seconds (instead of ~6).</li>
 </ul>
 
-<h2 id="id_answer-the-following-questions-in-answersmd">Answer the following questions in answers.md</h2>
-
+<h2 id="id_4-answer-the-following-questions">4. Answer the following questions</h2>
+<p>Optional - Can do for extra credit. Answer the questions in <code class="language-plaintext highlighter-rouge">answers.md</code> and make a pull request.</p>
 <ul>
   <li>What was the key difference between the two versions?</li>
   <li>When would you want to use something like this?</li>
