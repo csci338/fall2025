@@ -29,6 +29,11 @@ slides:
       draft: 0
       title: AsyncIO + MVC
       url: https://docs.google.com/presentation/d/1dB3iqBd20_sxRJStpBi9uSMdzA80xZdX/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+    - start_date: 2025-10-21
+      draft: 0
+      type: lecture
+      title: MVC Lab Slides
+      url: https://docs.google.com/presentation/d/1Phlll9bNNabM4nyGMQGWq4sEAW8w4Ncq/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [7]
 ---
  

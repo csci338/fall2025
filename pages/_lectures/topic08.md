@@ -2,7 +2,7 @@
 layout: module
 title: "Back-End: Databases & ORMs"
 type: topic
-draft: 1
+draft: 0
 num: 8
 start_date: 2025-10-23
 labs: [8]
@@ -37,12 +37,12 @@ slides:
       num: 11
       title: Intro to Databases & Object-Relational Mappings
       url: https://docs.google.com/presentation/d/1ND9V2eVBVDEoaF_T-XvMeyjM73l9NqBD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
-activities:
-    - start_date: 2025-10-23
-      title: Team Formation Questionnaire
-      draft: 1
-      type: activity
-      num: 9
-      url: https://forms.gle/xpSszwCG1uFDwvQe8
+# activities:
+#     - start_date: 2025-10-23
+#       title: Team Formation Questionnaire
+#       draft: 1
+#       type: activity
+#       num: 9
+#       url: https://forms.gle/xpSszwCG1uFDwvQe8
 ---
  

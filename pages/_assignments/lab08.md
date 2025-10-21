@@ -166,14 +166,13 @@ Now that you're all set up, please answer the 10 SQL questions (listed below) in
 > ### SQL Questions
 > 1. **SELECT - Retrieving Data.** Write a query to list the titles and release years of all movies in the film table.
 > 2. **WHERE - Filtering Data.** Write a query to find all customers whose last name starts with the letter 'S'.
-> 3. **ORDER BY - Sorting Results.** List all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.
+> 3. **ORDER BY - Sorting Results.** List all film titles and their rental durations, sorted by rental duration in descending order.
 > 4. **JOIN - Combining Tables.** Write a query to list all films along with their categories. Show the film title and category name.
-> 5. **AGGREGATE FUNCTIONS - Summarizing Data.** Write a query to find the average rental duration for movies in each category.
-> 6. **COUNT - Counting Rows.** Write a query to count how many films are in the Action category.
+> 5. **AGGREGATE FUNCTIONS - Counting and Grouping Rows.** Write a query to count how many films there are for each rating (G, PG, PG-13, R, NC-17). Show the count and the rating.
+> 6. **AGGREGATE FUNCTIONS - Counting and Grouping Rows.** Write a query to count how many films are in the Action category.
 > 7. **INSERT - Adding Data.** Insert a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.
 > 8. **UPDATE - Modifying Data.** Update the rental rate of all films in the Comedy category, increasing it by 10%.
-> 9. **DELETE - Removing Data.** Write a query to delete all films that have never been rented. Make sure to use a subquery to identify the films that haven't been rented.
-
+> 9. **DELETE - Removing Data.** Write a query to delete a rental from the `rental` table.
 
 ## 4. SQL Alchemy / Python Exercises
 Now, you're going to try connecting to your postgres database using python on your local computer.
@@ -216,9 +215,3 @@ Before you submit, make sure you've completed the two sets of tasks:
 {:.checkbox-list}
 
 When you're done, please push your `lab08-b` branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the `main` branch of **your repo** and the source (right-hand side) is pointing to the `lab08-b` branch of **your repo**. Then, please paste a link to your PR in the Moodle.
-
-
-{:.updates}
-> ## Extra Credit Opportunity
-> If you need extra credit, complete the following tasks:
-> 1. Create a SQL statement new table called `movie_reviews` with columns for `review_id`, `film_id`, `reviewer_name`, `rating`, and `comments`. Then, add a foreign key constraint linking `film_id` to the `film` table's `film_id`.
