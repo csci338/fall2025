@@ -74,7 +74,6 @@
     </ol>
   </li>
   <li><a href="#id_what-to-submit">What to Submit</a></li>
-  <li><a href="#id_extra-credit-opportunity">Extra Credit Opportunity</a></li>
 </ol>
 
             </aside>
@@ -261,13 +260,13 @@ dvdrental=# select first_name from customer;
   <ol>
     <li><strong>SELECT - Retrieving Data.</strong> Write a query to list the titles and release years of all movies in the film table.</li>
     <li><strong>WHERE - Filtering Data.</strong> Write a query to find all customers whose last name starts with the letter ‘S’.</li>
-    <li><strong>ORDER BY - Sorting Results.</strong> List all films titles and their durations, sorted by their rental duration in descending order. If two films have the same rental duration, sort them alphabetically by title.</li>
+    <li><strong>ORDER BY - Sorting Results.</strong> List all film titles and their rental durations, sorted by rental duration in descending order.</li>
     <li><strong>JOIN - Combining Tables.</strong> Write a query to list all films along with their categories. Show the film title and category name.</li>
-    <li><strong>AGGREGATE FUNCTIONS - Summarizing Data.</strong> Write a query to find the average rental duration for movies in each category.</li>
-    <li><strong>COUNT - Counting Rows.</strong> Write a query to count how many films are in the Action category.</li>
+    <li><strong>AGGREGATE FUNCTIONS - Counting and Grouping Rows.</strong> Write a query to count how many films there are for each rating (G, PG, PG-13, R, NC-17). Show the count and the rating.</li>
+    <li><strong>AGGREGATE FUNCTIONS - Counting and Grouping Rows.</strong> Write a query to count how many films are in the Action category.</li>
     <li><strong>INSERT - Adding Data.</strong> Insert a new customer into the customer table. The new customer should have a first name, last name, email, and be linked to an existing store.</li>
     <li><strong>UPDATE - Modifying Data.</strong> Update the rental rate of all films in the Comedy category, increasing it by 10%.</li>
-    <li><strong>DELETE - Removing Data.</strong> Write a query to delete all films that have never been rented. Make sure to use a subquery to identify the films that haven’t been rented.</li>
+    <li><strong>DELETE - Removing Data.</strong> Write a query to delete a rental from the <code class="language-plaintext highlighter-rouge">rental</code> table.</li>
   </ol>
 </blockquote>
 
@@ -317,14 +316,6 @@ Note that the first exercise has already been completed for you.</p>
 </ul>
 
 <p>When you’re done, please push your <code class="language-plaintext highlighter-rouge">lab08-b</code> branch to GitHub and make a pull request. Please ensure that the destination (left-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">main</code> branch of <strong>your repo</strong> and the source (right-hand side) is pointing to the <code class="language-plaintext highlighter-rouge">lab08-b</code> branch of <strong>your repo</strong>. Then, please paste a link to your PR in the Moodle.</p>
-
-<blockquote class="updates">
-  <h2 id="id_extra-credit-opportunity">Extra Credit Opportunity</h2>
-  <p>If you need extra credit, complete the following tasks:</p>
-  <ol>
-    <li>Create a SQL statement new table called <code class="language-plaintext highlighter-rouge">movie_reviews</code> with columns for <code class="language-plaintext highlighter-rouge">review_id</code>, <code class="language-plaintext highlighter-rouge">film_id</code>, <code class="language-plaintext highlighter-rouge">reviewer_name</code>, <code class="language-plaintext highlighter-rouge">rating</code>, and <code class="language-plaintext highlighter-rouge">comments</code>. Then, add a foreign key constraint linking <code class="language-plaintext highlighter-rouge">film_id</code> to the <code class="language-plaintext highlighter-rouge">film</code> table’s <code class="language-plaintext highlighter-rouge">film_id</code>.</li>
-  </ol>
-</blockquote>
 
 
 
