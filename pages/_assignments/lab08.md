@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Database + ORM Lab
 type: lab
 abbreviation: Lab 8
-draft: 1
+draft: 0
 points: 6
 num: 8
 start_date: 2025-10-28
