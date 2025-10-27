@@ -7,7 +7,7 @@ num: 8
 start_date: 2025-10-23
 labs: [8]
 readings: 
-    - start_date: 2025-10-23
+    - start_date: 2025-10-28
       type: reading
       citation: >
         <strong>SQL Readings</strong>: Please review the reference materials on SQL:
@@ -21,7 +21,7 @@ readings:
             <li><a href="https://www.postgresql.org/docs/current/tutorial-delete.html" target="_blank">Deletions</a></li>
         </ul>
       required: 1
-    - start_date: 2025-10-23
+    - start_date: 2025-10-28
       type: reading
       citation: >
         <strong>Object-Relational Mapping Readings</strong>:
@@ -31,7 +31,7 @@ readings:
         </ul>
       required: 1
 slides: 
-    - start_date: 2025-10-23
+    - start_date: 2025-10-28
       type: lecture
       draft: 0
       num: 11

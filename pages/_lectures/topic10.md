@@ -6,15 +6,16 @@ num: 10
 draft: 1
 start_date: 2025-11-27
 slides:
-    - start_date: 2025-11-25
+    - start_date: 2025-11-20
       num: 16
       type: lecture
-      title: Scaling an App
+      title: Introduction to Project 2
       draft: 1
-      url: https://docs.google.com/presentation/d/1cyXi_ZKqdMzDDWBOerW02yPTl2K8chkoNI5htzjkciE/edit#slide=id.g29c926bd7b1_0_477
-readings:
+      url: #
     - start_date: 2025-11-25
-      type: reading
-      title: Kubernetes Basics (Tutorial)
-      url: https://kubernetes.io/docs/tutorials/kubernetes-basics/
+      num: 17
+      type: lecture
+      title: "Tutorial: Creating a vertical feature"
+      draft: 1
+      url: #
 ---
