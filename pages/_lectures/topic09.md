@@ -3,7 +3,7 @@ layout: module
 title: Challenges in Client-Side Engineering
 type: topic
 num: 9
-draft: 1
+draft: 0
 start_date: 2025-11-04
 description: > 
     In this unit, we will explore some software engineering ideas that are specific to client-side engineering. To do this, we're going to learn some HTML, CSS, JavaScript, and React concepts <em>as a means of learning</em> various client-side software engineering principles
@@ -44,9 +44,9 @@ slides:
     - start_date: 2025-11-04
       num: 13
       type: lecture
-      draft: 1
+      draft: 0
       title: Client-Side Engineering (Part I)
-      url: https://docs.google.com/presentation/d/1r_wR-80DVhh68gAhsQOBjmmTvWJSHbkf/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1l8UaFjXBidZNg-s3j-mYWcce-4iWU2nQ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-11-06
       num: 14
       type: lecture
