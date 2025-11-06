@@ -2,7 +2,7 @@
 layout: assignment-two-column
 title: Intro to client-side programming with React
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 9
 num: 9
@@ -186,6 +186,7 @@ You have now successfully configured your computer to run React applications. A 
 
 1. The `main.jsx` script essentially injects our first component, `App`, into the DOM.
 1. Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
+1. **What is `<>...</>`?** This is called a "React Fragment". It lets you return multiple elements without wrapping them in a `<div>`. It's cleaner HTML and doesn't add extra elements to the page. Without it, you'd need to wrap everything in a `<div>`, but fragments keep your HTML cleaner.
 1. Currently, the App component doesn't do much, but in the subsequent steps, we're going to make it more interesting.
 
 ## 5. Create your first component
@@ -224,6 +225,36 @@ Say we want to make a card for each student in this class with their name, major
     ```
 
 1. Preview your website in your web browser: [http://localhost:**5173**/](http://localhost:5173/). If you did it correctly, you should see the sentence "Profile Goes here!" 4 times.
+
+{:.info}
+> ### JavaScript Basics for This Lab
+>
+> Before we continue, here are some JavaScript concepts you'll need:
+>
+> - **Objects and Arrays**: JavaScript objects use curly braces `{}` and arrays use square brackets `[]`
+>   ```jsx
+>   const person = { name: "Alice", age: 20 };  // object
+>   const numbers = [1, 2, 3];                  // array
+>   ```
+>
+> - **Destructuring**: This syntax `{ name }` extracts the `name` property from an object:
+>   ```jsx
+>   function Profile({ name }) { ... }  // extracts 'name' from props object
+>   ```
+>
+> - **Arrow Functions**: `(person) => { ... }` is a shorter way to write functions
+>   ```jsx
+>   // Traditional function:
+>   function add(a, b) { return a + b; }
+>   
+>   // Arrow function (same thing):
+>   const add = (a, b) => { return a + b; }
+>   ```
+>
+> - **JSX Curly Braces**: In JSX, `{}` lets you embed JavaScript expressions:
+>   ```jsx
+>   <h3>{name}</h3>  // displays the value of the 'name' variable
+>   ```
 
 ### Challenge 1
 Can you get your `Profile.jsx` component to display the “name” attribute? In other words, if I make different profile tags that look like this, 
@@ -268,6 +299,12 @@ the component should output each of their names to the screen.
     ```jsx
     <h3>{name}</h3>
     ```
+
+{:.info}
+> **Breaking this down:**
+> - `{ name }` in the function parameters is **destructuring** - it extracts the `name` property from the props object that React passes to the component
+> - `{name}` in the JSX template uses curly braces to display the value of the `name` variable
+> - These are two different uses of curly braces - one for destructuring, one for JSX expressions
 
 ### Challenge 2
 See if you can figure out how to get different people’s profile pics to show up: for instance, if I make different profile tags that look like this…
@@ -318,6 +355,14 @@ See if you can figure out how to get different people’s profile pics to show u
 ## 6. Working with Data
 Components are often rendered "on-the-fly," in response to a user event or server request. 
 
+{:.info}
+> **Understanding the data structure:**
+> The `people` variable below is an **array** (a list) of **objects** (each object holds multiple pieces of information). Each person object has:
+> - A `name` property (like "Anita")
+> - An `image_url` property (the URL to their picture)
+>
+> To access a property from an object, you use dot notation: `person.name` gets the name, `person.image_url` gets the image URL.
+
 ### Challenge 1
 See if you can modify your `App.jsx` file to iterate through the following array of classmates and generate a Profile component for each one.
 
@@ -344,6 +389,41 @@ See if you can modify your `App.jsx` file to iterate through the following array
     ```
 1. Modify the JSX that's returned
     * Hint: use the array's `map` function.
+
+{:.info}
+> ### Understanding the `map()` Function
+>
+> The `map()` function is a JavaScript array method that transforms each element in an array into something else. It's like a factory assembly line:
+>
+> 1. **Input**: An array of items
+> 2. **Process**: A function that transforms each item
+> 3. **Output**: A new array with transformed items
+>
+> **Simple Example:**
+> ```jsx
+> const numbers = [1, 2, 3, 4];
+> const doubled = numbers.map((num) => {
+>     return num * 2;
+> });
+> // Result: [2, 4, 6, 8]
+> ```
+>
+> **In our React code:**
+> - `people` is our array of person objects
+> - `people.map((person) => { ... })` goes through each person in the array
+> - For each person, it creates and returns a `<Profile />` component
+> - The result is an array of `<Profile />` components that React renders
+>
+> **Breaking down the syntax:**
+> ```jsx
+> people.map((person) => {
+>     // 'person' is the current item from the array
+>     // This function runs once for each item in 'people'
+>     return <Profile name={person.name} picture={person.image_url} />;
+> })
+> ```
+>
+> Think of it like this: If you have 4 people in your array, `map()` will run 4 times, creating 4 Profile components.
 
 #### Answer (don't look until you've tried it!)
 1. One way to generate components from an array is by using an embedded expression in the JSX return value:
@@ -480,10 +560,28 @@ Let's talk through state concretely by looking at an example:
     ```
 1. When you preview your code in the browser, you will see a bunch of buttons. Try clicking the buttons. Notice that each component is independent of the others.
 
-Some things to notice:
-
-1. In the example above that the `addOne()` and `reset()` functions -- which are invoked by button clicks -- both invoke the `setCounter()` function.
-1. The `setCounter()` function, which was generated from React's `useState` function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.
+{:.info}
+> Some things to notice:
+>
+> 1. **Understanding `const [count, setCount] = useState(0)`:**
+>    - `useState(0)` returns an array with two things: the current value and a function to change it
+>    - The square brackets `[count, setCount]` is JavaScript "array destructuring" - it's a shortcut to get both values at once
+>    - It's equivalent to writing:
+>      ```jsx
+>      const stateArray = useState(0);
+>      const count = stateArray[0];      // the current value
+>      const setCount = stateArray[1];   // the function to update it
+>      ```
+>    - We use `count` to read the value, and `setCount` to change it
+>
+> 1. **Understanding `onClick={addOne}`:**
+>    - In HTML, you'd write `onclick="addOne()"` (with quotes)
+>    - In JSX, you write `onClick={addOne}` (with curly braces, no parentheses)
+>    - The curly braces `{}` tell React this is JavaScript, not a string
+>    - React will call the `addOne` function when the button is clicked
+>
+> 1. In the example above, the `addOne()` and `resetCounter()` functions -- which are invoked by button clicks -- both invoke the `setCount()` function.
+> 1. The `setCount()` function, which was generated from React's `useState` function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.
 
 
 ### Challenge

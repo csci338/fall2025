@@ -50,9 +50,9 @@ slides:
     - start_date: 2025-11-06
       num: 14
       type: lecture
-      draft: 1
+      draft: 0
       title: React
-      url: https://docs.google.com/presentation/d/1TVobvJhxr7khpRmUdWu4MWPGvvOssP4l/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1hpqJ1g0SB3JeD8rqU8u82rf9wvX-uLXW/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
     - start_date: 2025-11-11
       num: 15
       type: lecture
