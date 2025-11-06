@@ -72,6 +72,7 @@
   </li>
   <li><a href="#id_5-create-your-first-component">5. Create your first component</a>
     <ol>
+      <li><a href="#id_javascript-basics-for-this-lab">JavaScript Basics for This Lab</a></li>
       <li><a href="#id_challenge-1">Challenge 1</a></li>
       <li><a href="#id_challenge-2">Challenge 2</a></li>
     </ol>
@@ -79,6 +80,7 @@
   <li><a href="#id_6-working-with-data">6. Working with Data</a>
     <ol>
       <li><a href="#id_challenge-1-1">Challenge 1</a></li>
+      <li><a href="#id_understanding-the-map-function">Understanding the map() Function</a></li>
     </ol>
   </li>
   <li><a href="#id_7-working-with-state">7. Working with State</a>
@@ -244,21 +246,23 @@
   <li>Finally, navigate to <a href="http://localhost:5173/">http://localhost:<strong>5173</strong>/</a> in your web browser. You should see a web page. If you open the browser console, you should see “hello world!”</li>
 </ol>
 
-<h3 id="id_q-what-just-happened">Q: What just happened?</h3>
+<blockquote class="info">
+  <h3 id="id_q-what-just-happened">Q: What just happened?</h3>
 
-<p>A few things just happened:</p>
+  <p>A few things just happened:</p>
 
-<ol>
-  <li><strong>npm init</strong> created a package.json file, which has some instructions for running our react app, as well as the dependencies that need to be installed.</li>
-  <li>The <strong>npm install</strong> commands downloaded some JavaScript libraries from the Internet, including vite and react.</li>
-  <li>Adding the <strong>“dev”: “vite dev”</strong> line to package.json created a node instruction that means:
-    <ul>
-      <li>“Whenever we type “<strong>npm run dev”</strong> in the command line, run a local server with “hot reload” and “bundling” enabled.</li>
-    </ul>
-  </li>
-</ol>
+  <ol>
+    <li><strong>npm init</strong> created a package.json file, which has some instructions for running our react app, as well as the dependencies that need to be installed.</li>
+    <li>The <strong>npm install</strong> commands downloaded some JavaScript libraries from the Internet, including vite and react.</li>
+    <li>Adding the <strong>“dev”: “vite dev”</strong> line to package.json created a node instruction that means:
+      <ul>
+        <li>“Whenever we type “<strong>npm run dev”</strong> in the command line, run a local server with “hot reload” and “bundling” enabled.</li>
+      </ul>
+    </li>
+  </ol>
 
-<p>We’ll talk more about what each of these terms mean in future lessons.</p>
+  <p>We’ll talk more about what each of these terms mean in future lessons.</p>
+</blockquote>
 
 <h2 id="id_4-modify-your-html--javascript">4. Modify Your HTML &amp; JavaScript</h2>
 
@@ -333,14 +337,17 @@
 
 <p>Now, go and check <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a> in your web browser, and you should see a new element in your web browser.</p>
 
-<h3 id="id_q-what-just-happened-1">Q: What just happened?</h3>
-<p>You have now successfully configured your computer to run React applications. A few notes:</p>
+<blockquote class="info">
+  <h3 id="id_q-what-just-happened-1">Q: What just happened?</h3>
+  <p>You have now successfully configured your computer to run React applications. A few notes:</p>
 
-<ol>
-  <li>The <code class="language-plaintext highlighter-rouge">main.jsx</code> script essentially injects our first component, <code class="language-plaintext highlighter-rouge">App</code>, into the DOM.</li>
-  <li>Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.</li>
-  <li>Currently, the App component doesn’t do much, but in the subsequent steps, we’re going to make it more interesting.</li>
-</ol>
+  <ol>
+    <li>The <code class="language-plaintext highlighter-rouge">main.jsx</code> script essentially injects our first component, <code class="language-plaintext highlighter-rouge">App</code>, into the DOM.</li>
+    <li>Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.</li>
+    <li><strong>What is <code class="language-plaintext highlighter-rouge">&lt;&gt;...&lt;/&gt;</code>?</strong> This is called a “React Fragment”. It lets you return multiple elements without wrapping them in a <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>. It’s cleaner HTML and doesn’t add extra elements to the page. Without it, you’d need to wrap everything in a <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>, but fragments keep your HTML cleaner.</li>
+    <li>Currently, the App component doesn’t do much, but in the subsequent steps, we’re going to make it more interesting.</li>
+  </ol>
+</blockquote>
 
 <h2 id="id_5-create-your-first-component">5. Create your first component</h2>
 <p>Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let’s try making one inside of your <code class="language-plaintext highlighter-rouge">src</code> folder:</p>
@@ -380,6 +387,36 @@
   </li>
   <li>Preview your website in your web browser: <a href="http://localhost:5173/">http://localhost:<strong>5173</strong>/</a>. If you did it correctly, you should see the sentence “Profile Goes here!” 4 times.</li>
 </ol>
+
+<blockquote class="info">
+  <h3 id="id_javascript-basics-for-this-lab">JavaScript Basics for This Lab</h3>
+
+  <p>Before we continue, here are some JavaScript concepts you’ll need:</p>
+
+  <ul>
+    <li><strong>Objects and Arrays</strong>: JavaScript objects use curly braces <code class="language-plaintext highlighter-rouge">{}</code> and arrays use square brackets <code class="language-plaintext highlighter-rouge">[]</code>
+      <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Alice</span><span class="dl">"</span><span class="p">,</span> <span class="na">age</span><span class="p">:</span> <span class="mi">20</span> <span class="p">};</span>  <span class="c1">// object</span>
+<span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>                  <span class="c1">// array</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Destructuring</strong>: This syntax <code class="language-plaintext highlighter-rouge">{ name }</code> extracts the <code class="language-plaintext highlighter-rouge">name</code> property from an object:
+      <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Profile</span><span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>  <span class="c1">// extracts 'name' from props object</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>Arrow Functions</strong>: <code class="language-plaintext highlighter-rouge">(person) =&gt; { ... }</code> is a shorter way to write functions
+      <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Traditional function:</span>
+<span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+  
+<span class="c1">// Arrow function (same thing):</span>
+<span class="kd">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>      </div>
+    </li>
+    <li><strong>JSX Curly Braces</strong>: In JSX, <code class="language-plaintext highlighter-rouge">{}</code> lets you embed JavaScript expressions:
+      <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span><span class="si">{</span><span class="nx">name</span><span class="si">}</span><span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>  <span class="c1">// displays the value of the 'name' variable</span>
+</code></pre></div>      </div>
+    </li>
+  </ul>
+</blockquote>
 
 <h3 id="id_challenge-1">Challenge 1</h3>
 <p>Can you get your <code class="language-plaintext highlighter-rouge">Profile.jsx</code> component to display the “name” attribute? In other words, if I make different profile tags that look like this, 
@@ -425,6 +462,15 @@ the component should output each of their names to the screen.</p>
 </code></pre></div>    </div>
   </li>
 </ol>
+
+<blockquote class="info">
+  <p><strong>Breaking this down:</strong></p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">{ name }</code> in the function parameters is <strong>destructuring</strong> - it extracts the <code class="language-plaintext highlighter-rouge">name</code> property from the props object that React passes to the component</li>
+    <li><code class="language-plaintext highlighter-rouge">{name}</code> in the JSX template uses curly braces to display the value of the <code class="language-plaintext highlighter-rouge">name</code> variable</li>
+    <li>These are two different uses of curly braces - one for destructuring, one for JSX expressions</li>
+  </ul>
+</blockquote>
 
 <h3 id="id_challenge-2">Challenge 2</h3>
 <p>See if you can figure out how to get different people’s profile pics to show up: for instance, if I make different profile tags that look like this…</p>
@@ -475,6 +521,17 @@ the component should output each of their names to the screen.</p>
 <h2 id="id_6-working-with-data">6. Working with Data</h2>
 <p>Components are often rendered “on-the-fly,” in response to a user event or server request.</p>
 
+<blockquote class="info">
+  <p><strong>Understanding the data structure:</strong>
+The <code class="language-plaintext highlighter-rouge">people</code> variable below is an <strong>array</strong> (a list) of <strong>objects</strong> (each object holds multiple pieces of information). Each person object has:</p>
+  <ul>
+    <li>A <code class="language-plaintext highlighter-rouge">name</code> property (like “Anita”)</li>
+    <li>An <code class="language-plaintext highlighter-rouge">image_url</code> property (the URL to their picture)</li>
+  </ul>
+
+  <p>To access a property from an object, you use dot notation: <code class="language-plaintext highlighter-rouge">person.name</code> gets the name, <code class="language-plaintext highlighter-rouge">person.image_url</code> gets the image URL.</p>
+</blockquote>
+
 <h3 id="id_challenge-1-1">Challenge 1</h3>
 <p>See if you can modify your <code class="language-plaintext highlighter-rouge">App.jsx</code> file to iterate through the following array of classmates and generate a Profile component for each one.</p>
 
@@ -506,6 +563,44 @@ the component should output each of their names to the screen.</p>
     </ul>
   </li>
 </ol>
+
+<blockquote class="info">
+  <h3 id="id_understanding-the-map-function">Understanding the <code class="language-plaintext highlighter-rouge">map()</code> Function</h3>
+
+  <p>The <code class="language-plaintext highlighter-rouge">map()</code> function is a JavaScript array method that transforms each element in an array into something else. It’s like a factory assembly line:</p>
+
+  <ol>
+    <li><strong>Input</strong>: An array of items</li>
+    <li><strong>Process</strong>: A function that transforms each item</li>
+    <li><strong>Output</strong>: A new array with transformed items</li>
+  </ol>
+
+  <p><strong>Simple Example:</strong></p>
+  <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">doubled</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="c1">// Result: [2, 4, 6, 8]</span>
+</code></pre></div>  </div>
+
+  <p><strong>In our React code:</strong></p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">people</code> is our array of person objects</li>
+    <li><code class="language-plaintext highlighter-rouge">people.map((person) =&gt; { ... })</code> goes through each person in the array</li>
+    <li>For each person, it creates and returns a <code class="language-plaintext highlighter-rouge">&lt;Profile /&gt;</code> component</li>
+    <li>The result is an array of <code class="language-plaintext highlighter-rouge">&lt;Profile /&gt;</code> components that React renders</li>
+  </ul>
+
+  <p><strong>Breaking down the syntax:</strong></p>
+  <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">people</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">person</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// 'person' is the current item from the array</span>
+    <span class="c1">// This function runs once for each item in 'people'</span>
+    <span class="k">return</span> <span class="p">&lt;</span><span class="nc">Profile</span> <span class="na">name</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span> <span class="na">picture</span><span class="p">=</span><span class="si">{</span><span class="nx">person</span><span class="p">.</span><span class="nx">image_url</span><span class="si">}</span> <span class="p">/&gt;;</span>
+<span class="p">})</span>
+</code></pre></div>  </div>
+
+  <p>Think of it like this: If you have 4 people in your array, <code class="language-plaintext highlighter-rouge">map()</code> will run 4 times, creating 4 Profile components.</p>
+</blockquote>
 
 <h4 id="id_answer-dont-look-until-youve-tried-it-2">Answer (don’t look until you’ve tried it!)</h4>
 <ol>
@@ -649,12 +744,35 @@ the component should output each of their names to the screen.</p>
   <li>When you preview your code in the browser, you will see a bunch of buttons. Try clicking the buttons. Notice that each component is independent of the others.</li>
 </ol>
 
-<p>Some things to notice:</p>
+<blockquote class="info">
+  <p>Some things to notice:</p>
 
-<ol>
-  <li>In the example above that the <code class="language-plaintext highlighter-rouge">addOne()</code> and <code class="language-plaintext highlighter-rouge">reset()</code> functions – which are invoked by button clicks – both invoke the <code class="language-plaintext highlighter-rouge">setCounter()</code> function.</li>
-  <li>The <code class="language-plaintext highlighter-rouge">setCounter()</code> function, which was generated from React’s <code class="language-plaintext highlighter-rouge">useState</code> function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.</li>
-</ol>
+  <ol>
+    <li><strong>Understanding <code class="language-plaintext highlighter-rouge">const [count, setCount] = useState(0)</code>:</strong>
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">useState(0)</code> returns an array with two things: the current value and a function to change it</li>
+        <li>The square brackets <code class="language-plaintext highlighter-rouge">[count, setCount]</code> is JavaScript “array destructuring” - it’s a shortcut to get both values at once</li>
+        <li>It’s equivalent to writing:
+          <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">stateArray</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">stateArray</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>      <span class="c1">// the current value</span>
+<span class="kd">const</span> <span class="nx">setCount</span> <span class="o">=</span> <span class="nx">stateArray</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>   <span class="c1">// the function to update it</span>
+</code></pre></div>          </div>
+        </li>
+        <li>We use <code class="language-plaintext highlighter-rouge">count</code> to read the value, and <code class="language-plaintext highlighter-rouge">setCount</code> to change it</li>
+      </ul>
+    </li>
+    <li><strong>Understanding <code class="language-plaintext highlighter-rouge">onClick={addOne}</code>:</strong>
+      <ul>
+        <li>In HTML, you’d write <code class="language-plaintext highlighter-rouge">onclick="addOne()"</code> (with quotes)</li>
+        <li>In JSX, you write <code class="language-plaintext highlighter-rouge">onClick={addOne}</code> (with curly braces, no parentheses)</li>
+        <li>The curly braces <code class="language-plaintext highlighter-rouge">{}</code> tell React this is JavaScript, not a string</li>
+        <li>React will call the <code class="language-plaintext highlighter-rouge">addOne</code> function when the button is clicked</li>
+      </ul>
+    </li>
+    <li>In the example above, the <code class="language-plaintext highlighter-rouge">addOne()</code> and <code class="language-plaintext highlighter-rouge">resetCounter()</code> functions – which are invoked by button clicks – both invoke the <code class="language-plaintext highlighter-rouge">setCount()</code> function.</li>
+    <li>The <code class="language-plaintext highlighter-rouge">setCount()</code> function, which was generated from React’s <code class="language-plaintext highlighter-rouge">useState</code> function, is a special function that will (a) set the counter variable to the new value and (b) redraw the screen.</li>
+  </ol>
+</blockquote>
 
 <h3 id="id_challenge">Challenge</h3>
 <p>Can you figure out how to modify the <code class="language-plaintext highlighter-rouge">ButtonCount</code> component so that it initializes to any value (which is specified in the component tag)?</p>
