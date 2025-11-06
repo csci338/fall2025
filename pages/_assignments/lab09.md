@@ -105,16 +105,17 @@ Now that you’ve created your starter files, you’re going to convert our app 
 
 1. Finally, navigate to [http://localhost:**5173**/](http://localhost:5173/) in your web browser. You should see a web page. If you open the browser console, you should see “hello world!”
 
-### Q: What just happened?
-
-A few things just happened:
-
-1. **npm init** created a package.json file, which has some instructions for running our react app, as well as the dependencies that need to be installed.
-2. The **npm install** commands downloaded some JavaScript libraries from the Internet, including vite and react.
-3. Adding the **"dev": "vite dev"** line to package.json created a node instruction that means:
-    - “Whenever we type “**npm run dev”** in the command line, run a local server with “hot reload” and “bundling” enabled.
-
-We’ll talk more about what each of these terms mean in future lessons.
+{:.info}
+> ### Q: What just happened?
+> 
+> A few things just happened:
+>
+> 1. **npm init** created a package.json file, which has some instructions for running our react app, as well as the dependencies that need to be installed.
+> 2. The **npm install** commands downloaded some JavaScript libraries from the Internet, including vite and react.
+> 3. Adding the **"dev": "vite dev"** line to package.json created a node instruction that means:
+>     - "Whenever we type "**npm run dev"** in the command line, run a local server with "hot reload" and "bundling" enabled.
+>
+> We'll talk more about what each of these terms mean in future lessons.
 
 ## 4. Modify Your HTML & JavaScript
 
@@ -181,13 +182,14 @@ Now, we’re going to make a few changes to our HTML and JavaScript to make it a
 
 Now, go and check <a href="http://localhost:5173/" target="_blank">http://localhost:5173/</a> in your web browser, and you should see a new element in your web browser.
 
-### Q: What just happened?
-You have now successfully configured your computer to run React applications. A few notes:
-
-1. The `main.jsx` script essentially injects our first component, `App`, into the DOM.
-1. Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
-1. **What is `<>...</>`?** This is called a "React Fragment". It lets you return multiple elements without wrapping them in a `<div>`. It's cleaner HTML and doesn't add extra elements to the page. Without it, you'd need to wrap everything in a `<div>`, but fragments keep your HTML cleaner.
-1. Currently, the App component doesn't do much, but in the subsequent steps, we're going to make it more interesting.
+{:.info}
+> ### Q: What just happened?
+> You have now successfully configured your computer to run React applications. A few notes:
+>
+> 1. The `main.jsx` script essentially injects our first component, `App`, into the DOM.
+> 1. Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
+> 1. **What is `<>...</>`?** This is called a "React Fragment". It lets you return multiple elements without wrapping them in a `<div>`. It's cleaner HTML and doesn't add extra elements to the page. Without it, you'd need to wrap everything in a `<div>`, but fragments keep your HTML cleaner.
+> 1. Currently, the App component doesn't do much, but in the subsequent steps, we're going to make it more interesting.
 
 ## 5. Create your first component
 Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let's try making one inside of your `src` folder:
