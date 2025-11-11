@@ -56,9 +56,9 @@ slides:
     - start_date: 2025-11-11
       num: 15
       type: lecture
-      draft: 1
+      draft: 0
       title: Communicating over HTTP
-      url: https://docs.google.com/presentation/d/1qyhYGZEDFGqEDapV_lnuVcNUmYNRGEo5/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
+      url: https://docs.google.com/presentation/d/1RaREuV6tA5Q1enX4qUxoCMzUIgAwEdgn/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true
 labs: [9, 10]
 # projects: [2]
 questions:

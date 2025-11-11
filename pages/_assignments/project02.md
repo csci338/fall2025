@@ -443,3 +443,99 @@ Now, figure out how to utilize this component within `App.jsx` based on what you
 Congratulations! You've are well on your way to making a fabulous full-stack application. Now, your job is to enhance this application to meet the requirements. Please read on...
 
 ## Your Tasks
+
+### 1. Search Functionality
+Implement endpoints and UI components that allow users to search films by:
+- **Genre**: Filter films by category (e.g., Action, Comedy, Drama)
+- **Release Year**: Filter films by year (e.g., all films from 2005)
+- **Keyword**: Search film titles and descriptions for specific words
+
+**Backend Requirements:**
+- Create a `/films/search` endpoint that accepts query parameters for genre, year, and keyword
+- Use SQLAlchemy queries to filter the `Film` table based on these criteria
+- Return results in the same format as your existing `/films` endpoint
+
+**Frontend Requirements:**
+- Create a search form component with inputs for genre, year, and keyword
+- Display search results using your existing film display components
+- Handle empty search results gracefully
+
+### 2. Bookmark Management
+Implement a complete bookmarking system where users can save films with comments.
+
+**Backend Requirements:**
+- Create a new `Bookmark` model with the following fields:
+  - `bookmark_id` (primary key)
+  - `film_id` (foreign key to `Film`)
+  - `comment` (text field, optional)
+  - `created_at` (timestamp)
+- Create the following API endpoints:
+  - `POST /bookmarks` - Create a new bookmark (requires `film_id` and optional `comment`)
+  - `GET /bookmarks` - Get all bookmarks (include film information)
+  - `GET /bookmarks/{bookmark_id}` - Get a specific bookmark
+  - `PUT /bookmarks/{bookmark_id}` - Update a bookmark's comment
+  - `DELETE /bookmarks/{bookmark_id}` - Delete a bookmark
+
+**Frontend Requirements:**
+- Add a "Bookmark" button to each film in your display
+- Create a bookmarks page that lists all saved bookmarks
+- Allow users to add/edit comments when creating or updating bookmarks
+- Allow users to delete bookmarks with confirmation
+
+### 3. Testing
+Write comprehensive tests for all your API endpoints.
+
+**Requirements:**
+- Create a `tests/` directory in your `backend` folder
+- Use `pytest` and `pytest-asyncio` for testing
+- Write tests for:
+  - All GET endpoints (test successful responses and error cases)
+  - All POST endpoints (test successful creation and validation errors)
+  - All PUT endpoints (test successful updates and error cases)
+  - All DELETE endpoints (test successful deletion and error cases)
+- Test at least 3-5 endpoints with multiple test cases each
+- Run tests with: `poetry run pytest`
+
+### 4. Code Quality
+Ensure your Python code follows best practices.
+
+**Requirements:**
+- Install and configure:
+  - `black` - for code formatting
+  - `isort` - for import sorting
+  - `flake8` or `ruff` - for linting
+- Format your code: `poetry run black .`
+- Sort imports: `poetry run isort .`
+- Fix any linting errors: `poetry run flake8 .` (or `ruff check .`)
+- Add these tools to your `pyproject.toml` as dev dependencies
+
+### 5. CI/CD Pipeline
+Set up GitHub Actions to automatically test and deploy your application.
+
+**Requirements:**
+- Create a `.github/workflows/ci.yml` file that:
+  - Runs on every push and pull request
+  - Sets up Python and installs dependencies
+  - Runs your test suite
+  - Runs code formatting/linting checks
+  - (Optional) Builds and deploys your application to a server
+
+**Deployment:**
+- Deploy your application to a cloud service (e.g., Render, Railway, Fly.io, or a VPS)
+- Ensure both your backend API and frontend are accessible
+- Update your frontend to use the deployed API URL instead of `localhost:8000`
+- Document your deployment process in a `DEPLOYMENT.md` file
+
+### Submission Checklist
+
+Before submitting, ensure you have:
+
+{:.checkbox-list}
+* Search functionality working (genre, year, keyword)
+* All bookmark CRUD operations working (create, read, update, delete)
+* Tests written and passing for at least 3-5 endpoints
+* Code formatted with `black` and imports sorted with `isort`
+* Linting errors fixed
+* GitHub Actions CI pipeline set up and passing
+* Application deployed and accessible online
+* `DEPLOYMENT.md` file documenting your deployment process
