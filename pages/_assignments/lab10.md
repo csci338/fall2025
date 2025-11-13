@@ -2,7 +2,7 @@
 title: Design Systems & External Data
 layout: assignment-two-column
 type: lab
-draft: 1
+draft: 0
 points: 6
 abbreviation: Lab 10
 num: 10
@@ -37,8 +37,10 @@ Try it out to get a feel of how it should work. The goals with this lab are as f
 
 ## 1. Getting Started
 
-For this lab, there is no starter code. You will create everything yourself. Begin by navigating to your `class-exercises-fall2025` directory on your local machine and creating a new branch: 
-* `git checkout -b lab10-b`
+For this lab, there is **no starter code**. You will create everything yourself. Begin by navigating to your `class-exercises-fall2025` directory on your local machine: 
+* Stage and commit any old work 
+* Checkout your `main` branch
+* Create a new branch from `main`: `git checkout -b lab10-b`
 * Verify that you're on your new branch: `git branch`
 
 Now, create a brand new folder called `lab10`. 
