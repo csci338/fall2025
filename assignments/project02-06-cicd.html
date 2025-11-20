@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>CI/CD Pipeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_6-cicd-pipeline">6. CI/CD Pipeline</a>
+    <ol>
+      <li><a href="#id_step-61-create-github-actions-workflow">Step 6.1: Create GitHub Actions Workflow</a></li>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+      <li><a href="#id_step-62-test-github-actions">Step 6.2: Test GitHub Actions</a></li>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+      <li><a href="#id_step-63-understanding-workflow-results">Step 6.3: Understanding Workflow Results</a></li>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        CI/CD Pipeline
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_6-cicd-pipeline">6. CI/CD Pipeline</h2>
+
+<h3 id="id_step-61-create-github-actions-workflow">Step 6.1: Create GitHub Actions Workflow</h3>
+
+<p>GitHub Actions will automatically check your code quality when you push changes. This helps catch issues early.</p>
+
+<h4 id="id_step-611-create-workflow-directory">Step 6.1.1: Create Workflow Directory</h4>
+
+<p>Create the necessary directory structure:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> .github/workflows
+</code></pre></div></div>
+
+<h4 id="id_step-612-create-workflow-file">Step 6.1.2: Create Workflow File</h4>
+
+<p>Create <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> with the following content:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Pull Request Check</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">*"</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">backend-check</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Backend Code Quality</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">defaults</span><span class="pi">:</span>
+      <span class="na">run</span><span class="pi">:</span>
+        <span class="na">working-directory</span><span class="pi">:</span> <span class="s">./backend</span>
+
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Python</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-python@v5</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">python-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.11'</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install poetry</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">pip install poetry</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install python dependencies (in pyproject.toml)</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">poetry install</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Check code quality using black, isort, and flake8</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">echo 'Running flake8...'</span>
+          <span class="s">poetry run flake8</span>
+
+          <span class="s">echo 'Running isort...'</span>
+          <span class="s">poetry run isort . --check-only   # run the Python import sorter</span>
+
+          <span class="s">echo 'Running black...'</span>
+          <span class="s">poetry run black . --check        # runs the Python formatter</span>
+
+          <span class="s">echo '✨✨✨✨✨ Backend checks completed ✨✨✨✨✨'</span>
+
+  <span class="na">frontend-check</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Frontend Code Quality</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">defaults</span><span class="pi">:</span>
+      <span class="na">run</span><span class="pi">:</span>
+        <span class="na">working-directory</span><span class="pi">:</span> <span class="s">./ui</span>
+
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout code</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Node.js</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v4</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">20'</span>
+          <span class="na">cache</span><span class="pi">:</span> <span class="s1">'</span><span class="s">npm'</span>
+          <span class="na">cache-dependency-path</span><span class="pi">:</span> <span class="s">ui/package-lock.json</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install npm dependencies</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">npm ci</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run format and lint checks</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">npm run check</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Completed checks</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">echo '✨✨✨✨✨ Frontend checks completed ✨✨✨✨✨'</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Runs automatically on every push to any branch</li>
+  <li>Checks backend code quality (flake8, isort, black)</li>
+  <li>Checks frontend code quality (Prettier, ESLint)</li>
+  <li>Fails if code doesn’t meet quality standards</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> file exists.</p>
+</blockquote>
+
+<h3 id="id_step-62-test-github-actions">Step 6.2: Test GitHub Actions</h3>
+
+<ol>
+  <li><strong>Commit and push the workflow:</strong></li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .github/
+git commit <span class="nt">-m</span> <span class="s2">"Add GitHub Actions workflow for code quality checks"</span>
+git push
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Verify it runs:</strong>
+    <ul>
+      <li>Go to your GitHub repository</li>
+      <li>Click on the “Actions” tab</li>
+      <li>You should see a workflow run in progress</li>
+      <li>Wait for it to complete (should show green checkmarks if everything passes)</li>
+    </ul>
+  </li>
+  <li><strong>If it fails:</strong>
+    <ul>
+      <li>Click on the failed workflow</li>
+      <li>Review the error messages</li>
+      <li>Fix the issues locally</li>
+      <li>Commit and push again</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your GitHub Actions workflow runs successfully on push.</p>
+</blockquote>
+
+<h3 id="id_step-63-understanding-workflow-results">Step 6.3: Understanding Workflow Results</h3>
+
+<p><strong>Green checkmark (✓):</strong> All checks passed! Your code meets quality standards.</p>
+
+<p><strong>Red X (✗):</strong> Some checks failed. Common reasons:</p>
+<ul>
+  <li>Code formatting issues (run <code class="language-plaintext highlighter-rouge">black .</code> and <code class="language-plaintext highlighter-rouge">isort .</code> in backend)</li>
+  <li>Linting errors (fix ESLint errors in frontend)</li>
+  <li>Missing dependencies (verify <code class="language-plaintext highlighter-rouge">pyproject.toml</code> and <code class="language-plaintext highlighter-rouge">package.json</code>)</li>
+</ul>
+
+<p><strong>How to fix failures:</strong></p>
+<ol>
+  <li>Read the error message in the Actions tab</li>
+  <li>Fix the issue locally</li>
+  <li>Test locally (run the same commands that failed)</li>
+  <li>Commit and push again</li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Make sure you understand how to read and fix workflow results.</p>
+</blockquote>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

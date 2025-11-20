@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Docker Configuration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_5-docker-configuration">5. Docker Configuration</a>
+    <ol>
+      <li><a href="#id_step-51-create-docker-composeyaml">Step 5.1: Create docker-compose.yaml</a></li>
+      <li><a href="#id_step-52-create-env-file-optional">Step 5.2: Create .env File (Optional)</a></li>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+      <li><a href="#id_step-53-create-production-dockerfile">Step 5.3: Create Production Dockerfile</a></li>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Docker Configuration
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_5-docker-configuration">5. Docker Configuration</h2>
+
+<p>This section covers both development and production Docker configurations.</p>
+
+<h3 id="id_step-51-create-docker-composeyaml">Step 5.1: Create docker-compose.yaml</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> in the root directory:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="c1"># PostgreSQL Database Service</span>
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">./database</span>
+      <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">Dockerfile</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">todo_db</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">POSTGRES_USER</span><span class="pi">:</span> <span class="s">postgres</span>
+      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">postgres</span>
+      <span class="na">POSTGRES_DB</span><span class="pi">:</span> <span class="s">todo_db</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">5433:5432"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">postgres_data:/var/lib/postgresql/data</span>
+    <span class="na">healthcheck</span><span class="pi">:</span>
+      <span class="na">test</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">CMD-SHELL"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">postgres</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">todo_db"</span><span class="pi">]</span>
+      <span class="na">interval</span><span class="pi">:</span> <span class="s">2s</span>
+      <span class="na">timeout</span><span class="pi">:</span> <span class="s">3s</span>
+      <span class="na">retries</span><span class="pi">:</span> <span class="m">10</span>
+      <span class="na">start_period</span><span class="pi">:</span> <span class="s">10s</span>
+
+  <span class="c1"># FastAPI Backend Service</span>
+  <span class="na">backend</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">./backend</span>
+      <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">Dockerfile</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">todo_backend</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">DATABASE_URL</span><span class="pi">:</span> <span class="s">${DATABASE_URL:-postgresql+asyncpg://postgres:postgres@db:5432/todo_db}</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8000:8000"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="na">db</span><span class="pi">:</span>
+        <span class="na">condition</span><span class="pi">:</span> <span class="s">service_healthy</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./backend:/app</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">poetry run uvicorn server:app --host 0.0.0.0 --port 8000 --reload</span>
+
+  <span class="c1"># React Frontend Service</span>
+  <span class="na">frontend</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">./ui</span>
+      <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">Dockerfile</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">todo_frontend</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">5173:5173"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./ui:/app</span>
+      <span class="pi">-</span> <span class="s">/app/node_modules</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">VITE_API_URL=http://localhost:8000</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">backend</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">npm run dev -- --host 0.0.0.0</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">postgres_data</span><span class="pi">:</span>
+</code></pre></div></div>
+
+<h3 id="id_step-52-create-env-file-optional">Step 5.2: Create .env File (Optional)</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">.env</code> in the root directory (optional, for local development):</p>
+
+<pre><code class="language-env"># Optional: Override DATABASE_URL to use external database
+# DATABASE_URL=postgresql+asyncpg://user:password@host:port/database
+</code></pre>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Test your Docker setup:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">--build</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<p>You should be able to access:</p>
+<ul>
+  <li>Frontend: http://localhost:5173</li>
+  <li>Backend API: http://localhost:8000</li>
+  <li>API Docs: http://localhost:8000/docs</li>
+</ul>
+
+<h3 id="id_step-53-create-production-dockerfile">Step 5.3: Create Production Dockerfile</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> in the root directory:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Combined Production Dockerfile for Railway</span>
+<span class="c"># Builds both frontend and backend, serves them together</span>
+
+<span class="c"># Stage 1: Build Frontend</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:20-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">frontend-builder</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app/frontend</span>
+
+<span class="c"># Copy frontend package files</span>
+<span class="k">COPY</span><span class="s"> ui/package.json ./</span>
+
+<span class="c"># Install dependencies</span>
+<span class="k">RUN </span>npm <span class="nb">install</span> <span class="nt">--production</span><span class="o">=</span><span class="nb">false</span> <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    npm <span class="nb">install</span> @rollup/rollup-linux-x64-gnu <span class="nt">--save-optional</span> <span class="o">||</span> <span class="nb">true</span>
+
+<span class="c"># Copy frontend source code</span>
+<span class="k">COPY</span><span class="s"> ui/ ./</span>
+
+<span class="c"># Build the React app</span>
+<span class="k">RUN </span>npm run build
+
+<span class="c"># Stage 2: Build Backend Dependencies</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">backend-builder</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Install Poetry</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> poetry
+
+<span class="c"># Configure Poetry</span>
+<span class="k">RUN </span>poetry config virtualenvs.create <span class="nb">false</span>
+
+<span class="c"># Copy backend dependency files</span>
+<span class="k">COPY</span><span class="s"> backend/pyproject.toml backend/poetry.lock* ./</span>
+
+<span class="c"># Install dependencies (production only)</span>
+<span class="k">RUN </span>poetry <span class="nb">install</span> <span class="nt">--no-interaction</span> <span class="nt">--no-ansi</span> <span class="nt">--only</span><span class="o">=</span>main <span class="nt">--no-root</span>
+
+<span class="c"># Stage 3: Final Runtime Image</span>
+<span class="k">FROM</span><span class="s"> python:3.11-slim</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Copy installed Python packages and binaries from builder</span>
+<span class="k">COPY</span><span class="s"> --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages</span>
+<span class="k">COPY</span><span class="s"> --from=backend-builder /usr/local/bin /usr/local/bin</span>
+
+<span class="c"># Copy backend application code</span>
+<span class="k">COPY</span><span class="s"> backend/ ./backend/</span>
+
+<span class="c"># Copy built frontend from frontend-builder to /app/static</span>
+<span class="k">COPY</span><span class="s"> --from=frontend-builder /app/frontend/dist ./static</span>
+
+<span class="c"># Create non-root user for security</span>
+<span class="k">RUN </span>useradd <span class="nt">-m</span> <span class="nt">-u</span> 1000 appuser <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">chown</span> <span class="nt">-R</span> appuser:appuser /app
+
+<span class="k">USER</span><span class="s"> appuser</span>
+
+<span class="c"># Expose port (Railway sets PORT automatically)</span>
+<span class="k">EXPOSE</span><span class="s"> 8000</span>
+
+<span class="c"># Use PORT environment variable if set, otherwise default to 8000</span>
+<span class="k">ENV</span><span class="s"> PORT=8000</span>
+
+<span class="c"># Change to backend directory and run server</span>
+<span class="k">WORKDIR</span><span class="s"> /app/backend</span>
+<span class="k">CMD</span><span class="s"> sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"</span>
+</code></pre></div></div>
+
+<p><strong>Important Notes:</strong></p>
+<ul>
+  <li>This is a multi-stage build that combines frontend and backend</li>
+  <li>The frontend is built and served as static files by the backend</li>
+  <li>Make sure your <code class="language-plaintext highlighter-rouge">server.py</code> has code to serve static files in production</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your production Dockerfile is in the root directory.</p>
+</blockquote>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

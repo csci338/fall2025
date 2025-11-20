@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Cloud Deployment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_7-railway-deployment">7. Railway Deployment</a>
+    <ol>
+      <li><a href="#id_step-71-create-railway-account-and-project">Step 7.1: Create Railway Account and Project</a></li>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+      <li><a href="#id_step-72-create-postgresql-database">Step 7.2: Create PostgreSQL Database</a></li>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+      <li><a href="#id_step-73-deploy-your-application">Step 7.3: Deploy Your Application</a></li>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+      <li><a href="#id_step-74-update-frontend-api-url-if-needed">Step 7.4: Update Frontend API URL (If Needed)</a></li>
+      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
+      <li><a href="#id_step-75-verify-deployment">Step 7.5: Verify Deployment</a></li>
+      <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Cloud Deployment
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_7-railway-deployment">7. Railway Deployment</h2>
+
+<h3 id="id_step-71-create-railway-account-and-project">Step 7.1: Create Railway Account and Project</h3>
+
+<ol>
+  <li><strong>Sign up for Railway:</strong>
+    <ul>
+      <li>Go to https://railway.app</li>
+      <li>Sign up with your GitHub account (recommended) or email</li>
+      <li>Railway offers a free tier with $5/month credit</li>
+    </ul>
+  </li>
+  <li><strong>Create a new project:</strong>
+    <ul>
+      <li>Click “New Project” in the Railway dashboard</li>
+      <li>Select “Deploy from GitHub repo”</li>
+      <li>Choose your <code class="language-plaintext highlighter-rouge">project02-fall2025</code> repository</li>
+      <li>Railway will create a new project for you</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify you have a Railway account and project connected to your GitHub repository.</p>
+</blockquote>
+
+<h3 id="id_step-72-create-postgresql-database">Step 7.2: Create PostgreSQL Database</h3>
+
+<ol>
+  <li><strong>Add a PostgreSQL service:</strong>
+    <ul>
+      <li>In your Railway project dashboard, click “+ New”</li>
+      <li>Select “Database” → “Add PostgreSQL”</li>
+      <li>Railway will automatically create a PostgreSQL database</li>
+    </ul>
+  </li>
+  <li><strong>Get the database connection string:</strong>
+    <ul>
+      <li>Click on the PostgreSQL service you just created</li>
+      <li>Go to the “Variables” tab</li>
+      <li>Find the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> variable (Railway creates this automatically)</li>
+      <li>Copy the connection string - it will look like:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgresql://postgres:password@hostname.railway.app:5432/railway
+</code></pre></div>        </div>
+      </li>
+      <li><strong>Important:</strong> Note that Railway uses <code class="language-plaintext highlighter-rouge">postgresql://</code> (not <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code>). You’ll need to modify this for SQLAlchemy.</li>
+    </ul>
+  </li>
+  <li><strong>Convert the connection string for SQLAlchemy:</strong>
+    <ul>
+      <li>Railway’s <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> uses the format: <code class="language-plaintext highlighter-rouge">postgresql://...</code></li>
+      <li>SQLAlchemy with asyncpg needs: <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://...</code></li>
+      <li>Replace <code class="language-plaintext highlighter-rouge">postgresql://</code> with <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code> in your connection string</li>
+      <li>Example:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Original: postgresql://postgres:password@hostname.railway.app:5432/railway
+Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railway
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify you have:</p>
+  <ul>
+    <li>A PostgreSQL database created in Railway</li>
+    <li>The <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> connection string copied</li>
+    <li>The connection string modified to use <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code></li>
+  </ul>
+</blockquote>
+
+<h3 id="id_step-73-deploy-your-application">Step 7.3: Deploy Your Application</h3>
+
+<ol>
+  <li><strong>Add your application service:</strong>
+    <ul>
+      <li>In your Railway project dashboard, click “+ New”</li>
+      <li>Select “GitHub Repo” → choose your repository</li>
+      <li>Railway will detect your <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> automatically</li>
+    </ul>
+  </li>
+  <li><strong>Configure the service:</strong>
+    <ul>
+      <li>Railway should automatically detect <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> in the root directory</li>
+      <li>If not, go to Settings → General → Root Directory (leave blank if Dockerfile is in root)</li>
+      <li>Go to Settings → Deploy → Dockerfile Path: <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code></li>
+    </ul>
+  </li>
+  <li><strong>Set environment variables:</strong>
+    <ul>
+      <li>Go to the “Variables” tab in your application service</li>
+      <li>Add the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> variable:
+        <ul>
+          <li>Click “+ New Variable”</li>
+          <li>Name: <code class="language-plaintext highlighter-rouge">DATABASE_URL</code></li>
+          <li>Value: Your modified connection string (with <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code>)</li>
+          <li>Click “Add”</li>
+        </ul>
+      </li>
+      <li><strong>Important:</strong> Use the modified connection string (with <code class="language-plaintext highlighter-rouge">+asyncpg</code>) here</li>
+    </ul>
+  </li>
+  <li><strong>Link the database:</strong>
+    <ul>
+      <li>Railway can automatically link services</li>
+      <li>In your application service, go to the “Variables” tab</li>
+      <li>You should see a “Reference Variable” option</li>
+      <li>Reference the PostgreSQL service’s <code class="language-plaintext highlighter-rouge">DATABASE_URL</code></li>
+      <li><strong>But remember:</strong> You still need to modify it to use <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code></li>
+    </ul>
+  </li>
+  <li><strong>Deploy:</strong>
+    <ul>
+      <li>Railway will automatically deploy when you push to your main branch</li>
+      <li>Or click “Deploy” in the dashboard to trigger a manual deployment</li>
+      <li>Watch the build logs to see the deployment progress</li>
+    </ul>
+  </li>
+  <li><strong>Get your application URL:</strong>
+    <ul>
+      <li>Once deployed, Railway will provide a public URL</li>
+      <li>Go to Settings → Networking → Generate Domain</li>
+      <li>Your app will be available at: <code class="language-plaintext highlighter-rouge">https://your-app-name.up.railway.app</code></li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your application is:</p>
+  <ul>
+    <li>Deployed on Railway</li>
+    <li>Connected to the PostgreSQL database</li>
+    <li>Accessible via a public URL</li>
+    <li>Test it by visiting your Railway URL</li>
+  </ul>
+</blockquote>
+
+<h3 id="id_step-74-update-frontend-api-url-if-needed">Step 7.4: Update Frontend API URL (If Needed)</h3>
+
+<p>If your frontend needs to connect to the deployed backend:</p>
+
+<ol>
+  <li><strong>Set the API URL:</strong>
+    <ul>
+      <li>In your Railway application service, go to Variables</li>
+      <li>Add: <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> = <code class="language-plaintext highlighter-rouge">https://your-app-name.up.railway.app</code></li>
+      <li>Or update your frontend code to use the Railway URL instead of <code class="language-plaintext highlighter-rouge">localhost:8000</code></li>
+    </ul>
+  </li>
+  <li><strong>Rebuild and redeploy:</strong>
+    <ul>
+      <li>Railway will automatically rebuild when you push changes</li>
+      <li>Or trigger a manual redeploy from the dashboard</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your full-stack application is:</p>
+  <ul>
+    <li>Fully deployed and accessible online</li>
+    <li>Frontend connecting to the deployed backend</li>
+    <li>Database operations working correctly</li>
+  </ul>
+</blockquote>
+
+<h3 id="id_step-75-verify-deployment">Step 7.5: Verify Deployment</h3>
+
+<p>Test your deployed application:</p>
+
+<ol>
+  <li><strong>Visit your Railway URL:</strong>
+    <ul>
+      <li>Open <code class="language-plaintext highlighter-rouge">https://your-app-name.up.railway.app</code> in your browser</li>
+      <li>Your application should load</li>
+    </ul>
+  </li>
+  <li><strong>Test API endpoints:</strong>
+    <ul>
+      <li>Visit <code class="language-plaintext highlighter-rouge">https://your-app-name.up.railway.app/docs</code> to see the FastAPI documentation</li>
+      <li>Test the <code class="language-plaintext highlighter-rouge">/todos</code> endpoint to verify database connectivity</li>
+    </ul>
+  </li>
+  <li><strong>Test CRUD operations:</strong>
+    <ul>
+      <li>Create a new todo</li>
+      <li>Read todos</li>
+      <li>Update a todo</li>
+      <li>Delete a todo</li>
+      <li>Verify all operations work correctly</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your deployed application:</p>
+  <ul>
+    <li>Loads correctly in the browser</li>
+    <li>Has working API endpoints</li>
+    <li>Successfully performs all CRUD operations</li>
+    <li>Is accessible from any device with internet access</li>
+  </ul>
+</blockquote>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

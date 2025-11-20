@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Setup & Git</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-create-project-structure">1. Create Project Structure</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Setup & Git
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_1-create-project-structure">1. Create Project Structure</h2>
+
+<p>Create the following folder structure:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+├── backend/
+│   └── models/
+└── ui/
+    └── src/
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your folder structure matches the above.</p>
+</blockquote>
+
+<h3 id="id_11-initialize-git-repository">1.1. Initialize Git Repository</h3>
+<p>Initialize a git repo at the root of your <code class="language-plaintext highlighter-rouge">project02-fall2025</code> folder:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">.gitignore</code> file in the root directory with the following content:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Python</span>
+__pycache__/
+
+.Python
+.env
+.venv
+venv/
+ENV/
+<span class="nb">env</span>/
+
+<span class="c"># Node</span>
+node_modules/
+dist/
+build/
+
+
+<span class="c"># OS</span>
+.DS_Store
+Thumbs.db
+
+<span class="c"># Docker</span>
+<span class="k">*</span>.log
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your <code class="language-plaintext highlighter-rouge">.gitignore</code> file exists and contains the above patterns.</p>
+</blockquote>
+
+<h3 id="id_13-set-up-github-repository">1.3. Set Up GitHub Repository</h3>
+
+<p>If you’re using GitHub (recommended), set it up now so you can push your code as you work:</p>
+
+<ol>
+  <li><strong>Create a new repository on GitHub:</strong>
+    <ul>
+      <li>Go to https://github.com/new</li>
+      <li>Choose a repository name (e.g., <code class="language-plaintext highlighter-rouge">project02-fall2025</code>)</li>
+      <li><strong>Important:</strong> Do NOT initialize with a README, .gitignore, or license</li>
+      <li>Click “Create repository”</li>
+    </ul>
+  </li>
+  <li><strong>Connect your local repository to GitHub:</strong></li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make your initial commit first</span>
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Initial project setup with folder structure and .gitignore"</span>
+
+<span class="c"># Connect to GitHub using SSH (replace with your actual repository URL)</span>
+<span class="c"># On GitHub, click the green "Code" button and copy the SSH URL (starts with git@github.com)</span>
+git remote add origin git@github.com:yourusername/your-repo-name.git
+git branch <span class="nt">-M</span> main
+git push <span class="nt">-u</span> origin main
+</code></pre></div></div>
+
+<p><strong>Note:</strong> Make sure you have SSH keys set up with GitHub. If you haven’t done this yet, follow the instructions from Lab 2 to set up SSH key authentication.</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your local repository is connected to GitHub and your initial commit is pushed.</p>
+</blockquote>
+
+<h3 id="id_14-git-workflow-basics">1.4. Git Workflow Basics</h3>
+
+<p>Throughout development, you should commit your code regularly. Use this workflow for regular commits:</p>
+
+<h4 id="id_regular-commits">Regular Commits</h4>
+
+<p>Commit after completing each major section:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Meaningful message"</span>
+git push
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Make sure you understand the Git workflow for committing and pushing code regularly throughout development.</p>
+</blockquote>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script>
+            window.h_max = "2";
+        </script>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

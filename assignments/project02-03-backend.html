@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Backend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-create-poetry-configuration">1. Create Poetry Configuration</a>
+    <ol>
+      <li><a href="#id_notes">Notes</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-create-the-database-models">2. Create the Database Models</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-create-fastapi-server">3. Create FastAPI Server</a>
+    <ol>
+      <li><a href="#id_31-add-file-header-and-imports">3.1. Add File Header and Imports</a></li>
+      <li><a href="#id_32-load-environment-variables">3.2. Load Environment Variables</a></li>
+      <li><a href="#id_33-set-up-database-connection">3.3. Set Up Database Connection</a></li>
+      <li><a href="#id_34-create-database-session-dependency">3.4. Create Database Session Dependency</a></li>
+      <li><a href="#id_35-create-pydantic-schemas">3.5. Create Pydantic Schemas</a></li>
+      <li><a href="#id_36-create-fastapi-app">3.6. Create FastAPI App</a></li>
+      <li><a href="#id_37-create-tables-on-startup">3.7. Create Tables on Startup</a></li>
+      <li><a href="#id_38-add-cors-middleware">3.8. Add CORS Middleware</a></li>
+      <li><a href="#id_39-create-get-endpoints">3.9. Create GET Endpoints</a></li>
+      <li><a href="#id_310-create-post-endpoint">3.10. Create POST Endpoint</a></li>
+      <li><a href="#id_311-create-patch-endpoint">3.11. Create PATCH Endpoint</a></li>
+      <li><a href="#id_312-create-delete-endpoint">3.12. Create DELETE Endpoint</a></li>
+      <li><a href="#id_313-add-production-static-file-serving">3.13. Add Production Static File Serving</a></li>
+      <li><a href="#id_314-add-main-block">3.14. Add Main Block</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-create-backend-dockerfile">4. Create Backend Dockerfile</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_5-configuring-linters-and-formatters">5. Configuring Linters and Formatters</a>
+    <ol>
+      <li><a href="#id_51-configure-black-and-isort-in-pyprojecttoml">5.1. Configure Black and isort in pyproject.toml</a></li>
+      <li><a href="#id_52-configure-flake8">5.2. Configure flake8</a></li>
+      <li><a href="#id_53-create-helper-scripts">5.3. Create Helper Scripts</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_6-final-testing-after-docker-container-is-built">6. Final Testing (After Docker Container Is Built)</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Backend
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_1-create-poetry-configuration">1. Create Poetry Configuration</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/pyproject.toml</code> with the following <strong>exact</strong> dependencies:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[tool.poetry]</span>
+<span class="py">name</span> <span class="p">=</span> <span class="s">"final-project"</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
+<span class="py">description</span> <span class="p">=</span> <span class="s">""</span>
+<span class="py">authors</span> <span class="p">=</span> <span class="p">[</span><span class="s">"Your Name &lt;you@example.com&gt;"</span><span class="p">]</span>
+<span class="py">readme</span> <span class="p">=</span> <span class="s">"README.md"</span>
+<span class="py">package-mode</span> <span class="p">=</span> <span class="kc">false</span>
+
+<span class="nn">[tool.poetry.dependencies]</span>
+<span class="py">python</span> <span class="p">=</span> <span class="s">"^3.11"</span>
+<span class="py">sqlalchemy</span> <span class="o">=</span> <span class="p">{</span><span class="py">extras</span> <span class="p">=</span> <span class="p">[</span><span class="s">"asyncio"</span><span class="p">],</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"^2.0.29"</span><span class="p">}</span>
+<span class="py">asyncpg</span> <span class="p">=</span> <span class="s">"*"</span>
+<span class="py">fastapi</span> <span class="p">=</span> <span class="s">"*"</span>
+<span class="py">uvicorn</span> <span class="o">=</span> <span class="p">{</span><span class="py">extras</span> <span class="p">=</span> <span class="p">[</span><span class="s">"standard"</span><span class="p">],</span> <span class="py">version</span> <span class="p">=</span> <span class="s">"*"</span><span class="p">}</span>
+<span class="py">pydantic</span> <span class="p">=</span> <span class="s">"^2.0"</span>
+<span class="py">python-dotenv</span> <span class="p">=</span> <span class="s">"*"</span>
+<span class="py">black</span> <span class="p">=</span> <span class="s">"^25.11.0"</span>
+<span class="py">isort</span> <span class="p">=</span> <span class="s">"^7.0.0"</span>
+<span class="py">flake8</span> <span class="p">=</span> <span class="s">"^7.3.0"</span>
+
+<span class="nn">[build-system]</span>
+<span class="py">requires</span> <span class="p">=</span> <span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
+<span class="py">build-backend</span> <span class="p">=</span> <span class="s">"poetry.core.masonry.api"</span>
+</code></pre></div></div>
+
+<h3 id="id_notes">Notes</h3>
+<ul>
+  <li>Copy these package versions exactly. Different versions may cause compatibility issues.</li>
+  <li><strong>Important:</strong> You don’t need to install dependencies locally! The Docker container will install them automatically when you build it (in the final step).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">docker_compose.yaml</code> that you will be making will automatically run <code class="language-plaintext highlighter-rouge">poetry install</code> during the build process</li>
+</ul>
+
+<h2 id="id_2-create-the-database-models">2. Create the Database Models</h2>
+
+<p>Before we create our models, let’s understand what <code class="language-plaintext highlighter-rouge">declarative_base</code> is:</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">declarative_base</code></strong> is a function from SQLAlchemy that creates a base class for your database models. Think of it as a “template” that all your model classes will inherit from.</p>
+
+<p><strong>How it works:</strong>
+When you create a class that inherits from <code class="language-plaintext highlighter-rouge">Base</code> (the result of <code class="language-plaintext highlighter-rouge">declarative_base()</code>), SQLAlchemy automatically:</p>
+<ul>
+  <li>Creates a database table based on your class definition</li>
+  <li>Maps class attributes to table columns</li>
+  <li>Provides methods to query and manipulate your data</li>
+</ul>
+
+<p>Now let’s create the model files:</p>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/models/__init__.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="n">.todo</span> <span class="kn">import</span> <span class="n">Todo</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="sh">"</span><span class="s">Base</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Todo</span><span class="sh">"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/models/base.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+
+<span class="c1"># Base is created from declarative_base()
+</span><span class="n">Base</span> <span class="o">=</span> <span class="nf">declarative_base</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/models/todo.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="n">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">DateTime</span>
+<span class="kn">from</span> <span class="n">.base</span> <span class="kn">import</span> <span class="n">Base</span>
+
+<span class="c1"># Your model inherits from Base
+</span><span class="k">class</span> <span class="nc">Todo</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="sh">"</span><span class="s">todos</span><span class="sh">"</span>  <span class="c1"># This becomes the table name
+</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># This becomes a column
+</span>    <span class="n">title</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">completed</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">utcnow</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="nc">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">utcnow</span><span class="p">,</span> <span class="n">onupdate</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">utcnow</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your model files exist and match the code above.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── Dockerfile
+├── backend/
+│   ├── models/
+│   │   ├── __init__.py  <span class="c"># new</span>
+│   │   ├── base.py      <span class="c"># new</span>
+│   │   └── todo.py      <span class="c"># new</span>
+│   └── pyproject.toml
+├── ui/
+│   └── src/
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_3-create-fastapi-server">3. Create FastAPI Server</h2>
+
+<p>Within the <code class="language-plaintext highlighter-rouge">backend</code> directory, create a file called <code class="language-plaintext highlighter-rouge">server.py</code>. This file will be responsible for creating your REST API and communicating with your database models.</p>
+
+<h3 id="id_31-add-file-header-and-imports">3.1. Add File Header and Imports</h3>
+<p>Begin by pasting in a docstring and all necessary imports into <code class="language-plaintext highlighter-rouge">server.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">
+Simple FastAPI Starter - TODO API
+==================================
+
+This is a minimal FastAPI example, designed for beginners.
+It shows the basic structure of a REST API with database access.
+
+HOW IT WORKS:
+1. Client (your React app) makes a request to a URL (e.g., /todos)
+2. FastAPI finds the function decorated with @app.get(</span><span class="sh">"</span><span class="s">/todos</span><span class="sh">"</span><span class="s">)
+3. That function uses the database connection to query data
+4. The function returns data, which FastAPI converts to JSON
+5. The JSON is sent back to the client
+</span><span class="sh">"""</span>
+
+<span class="c1"># Step 1: Import what we need
+</span><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="n">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="n">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">from</span> <span class="n">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
+<span class="kn">from</span> <span class="n">fastapi.middleware.cors</span> <span class="kn">import</span> <span class="n">CORSMiddleware</span>
+<span class="kn">from</span> <span class="n">fastapi.responses</span> <span class="kn">import</span> <span class="n">FileResponse</span>
+<span class="kn">from</span> <span class="n">fastapi.staticfiles</span> <span class="kn">import</span> <span class="n">StaticFiles</span>
+<span class="kn">from</span> <span class="n">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="n">sqlalchemy.ext.asyncio</span> <span class="kn">import</span> <span class="n">AsyncSession</span><span class="p">,</span> <span class="n">create_async_engine</span>
+<span class="kn">from</span> <span class="n">sqlalchemy.future</span> <span class="kn">import</span> <span class="n">select</span>
+<span class="kn">from</span> <span class="n">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+
+<span class="kn">from</span> <span class="n">models</span> <span class="kn">import</span> <span class="n">Base</span><span class="p">,</span> <span class="n">Todo</span>
+</code></pre></div></div>
+
+<p><strong>What each import does:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">os</code> - Access environment variables</li>
+  <li><code class="language-plaintext highlighter-rouge">datetime</code> - Handle timestamps</li>
+  <li><code class="language-plaintext highlighter-rouge">List, Optional</code> - Type hints for function parameters</li>
+  <li><code class="language-plaintext highlighter-rouge">dotenv</code> - Load environment variables from .env file</li>
+  <li><code class="language-plaintext highlighter-rouge">FastAPI</code> - The web framework</li>
+  <li><code class="language-plaintext highlighter-rouge">Depends</code> - Dependency injection for database sessions</li>
+  <li><code class="language-plaintext highlighter-rouge">HTTPException</code> - Raise HTTP errors (404, etc.)</li>
+  <li><code class="language-plaintext highlighter-rouge">CORSMiddleware</code> - Allow frontend to make requests</li>
+  <li><code class="language-plaintext highlighter-rouge">FileResponse, StaticFiles</code> - Serve static files in production</li>
+  <li><code class="language-plaintext highlighter-rouge">BaseModel</code> - Pydantic models for request/response validation</li>
+  <li><code class="language-plaintext highlighter-rouge">AsyncSession, create_async_engine</code> - Async database connection</li>
+  <li><code class="language-plaintext highlighter-rouge">select</code> - SQLAlchemy query builder</li>
+  <li><code class="language-plaintext highlighter-rouge">sessionmaker</code> - Create database sessions</li>
+  <li><code class="language-plaintext highlighter-rouge">Base, Todo</code> - Your database models</li>
+</ul>
+
+<h3 id="id_32-load-environment-variables">3.2. Load Environment Variables</h3>
+
+<p>Below the import statements, add code to load the database URL from environment variables:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 2: Load environment variables from .env file
+# Looks for .env file in current directory and parent directories
+</span><span class="nf">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># Step 3: Connect to the database
+# Get DATABASE_URL from environment variable, fallback to local development
+# Format: postgresql+asyncpg://username:password@host:port/database_name
+</span><span class="n">DATABASE_URL</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="nf">getenv</span><span class="p">(</span><span class="sh">"</span><span class="s">DATABASE_URL</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="id_33-set-up-database-connection">3.3. Set Up Database Connection</h3>
+
+<p>Below the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code>, create the database engine and session factory:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Create the database engine - this manages the connection pool
+# Think of it as a "factory" that creates database connections
+</span><span class="n">engine</span> <span class="o">=</span> <span class="nf">create_async_engine</span><span class="p">(</span><span class="n">DATABASE_URL</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Create a session factory - this creates individual database sessions
+# Each request will get its own session to query the database
+</span><span class="n">AsyncSessionLocal</span> <span class="o">=</span> <span class="nf">sessionmaker</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">AsyncSession</span><span class="p">,</span> <span class="n">expire_on_commit</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">create_async_engine()</code> - Creates a connection pool to the database</li>
+  <li><code class="language-plaintext highlighter-rouge">sessionmaker()</code> - Creates a factory for database sessions</li>
+  <li><code class="language-plaintext highlighter-rouge">expire_on_commit=False</code> - Keeps objects accessible after commit</li>
+</ul>
+
+<h3 id="id_34-create-database-session-dependency">3.4. Create Database Session Dependency</h3>
+
+<p>Below <code class="language-plaintext highlighter-rouge">AsyncSessionLocal</code>, create a function that FastAPI will use to get database sessions:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 4: Create a function to get database sessions
+# This is called a "dependency" - FastAPI will automatically call this
+# for each request and pass the result to your endpoint functions
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
+    <span class="sh">"""</span><span class="s">
+    Generator function that yields a database session.
+
+    The </span><span class="sh">'</span><span class="s">yield</span><span class="sh">'</span><span class="s"> keyword is special - it:
+    1. Creates a session when the function is called
+    2. Gives it to your endpoint function
+    3. Closes the session when the endpoint finishes
+
+    This ensures database connections are properly cleaned up.
+    </span><span class="sh">"""</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="nc">AsyncSessionLocal</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">session</span>  <span class="c1"># Give the session to the endpoint
+</span>        <span class="c1"># After the endpoint finishes, the session is automatically closed
+</span></code></pre></div></div>
+
+<p><strong>Why use <code class="language-plaintext highlighter-rouge">yield</code>:</strong></p>
+<ul>
+  <li>Creates the session when the endpoint starts</li>
+  <li>Gives it to your endpoint function</li>
+  <li>Automatically closes it when the endpoint finishes</li>
+  <li>Prevents database connection leaks</li>
+</ul>
+
+<h3 id="id_35-create-pydantic-schemas">3.5. Create Pydantic Schemas</h3>
+
+<p>Below the <code class="language-plaintext highlighter-rouge">get_db()</code> function you just made, create some objects to define the structure of data for requests and responses:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 5: Define what our API requests and responses will look like
+# These are called "Pydantic models" or "schemas"
+# They define the structure of data that will be sent to and from the API
+</span>
+
+<span class="k">class</span> <span class="nc">TodoBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Base schema with common fields for todos</span><span class="sh">"""</span>
+
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">completed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="bp">False</span>
+
+
+<span class="k">class</span> <span class="nc">TodoCreate</span><span class="p">(</span><span class="n">TodoBase</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Schema for creating a new todo</span><span class="sh">"""</span>
+
+    <span class="k">pass</span>
+
+
+<span class="k">class</span> <span class="nc">TodoUpdate</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">Schema for updating a todo - all fields optional</span><span class="sh">"""</span>
+
+    <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">completed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="k">class</span> <span class="nc">TodoResponse</span><span class="p">(</span><span class="n">TodoBase</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">What a todo looks like when we send it back to the client</span><span class="sh">"""</span>
+
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">created_at</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">updated_at</span><span class="p">:</span> <span class="n">datetime</span>
+
+    <span class="c1"># This tells Pydantic to automatically convert SQLAlchemy models
+</span>    <span class="c1"># (like our Todo model) into this Pydantic model
+</span>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+        <span class="n">from_attributes</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<p><strong>What each schema does:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">TodoBase</code> - Common fields shared by todos</li>
+  <li><code class="language-plaintext highlighter-rouge">TodoCreate</code> - Data needed to create a todo (inherits from TodoBase)</li>
+  <li><code class="language-plaintext highlighter-rouge">TodoUpdate</code> - Data for updating (all fields optional)</li>
+  <li><code class="language-plaintext highlighter-rouge">TodoResponse</code> - What we send back (includes id and timestamps)</li>
+</ul>
+
+<p><strong>Why schemas matter:</strong></p>
+<ul>
+  <li>Validate incoming data automatically</li>
+  <li>Document the API (FastAPI generates docs from these)</li>
+  <li>Type safety - catch errors before they happen</li>
+</ul>
+
+<h3 id="id_36-create-fastapi-app">3.6. Create FastAPI App</h3>
+
+<p>Below your Pydandic schemas, initialize the FastAPI application by creating a <code class="language-plaintext highlighter-rouge">FastAPI</code> instance:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 6: Create the FastAPI app
+# This is the main application object - it handles all incoming requests
+</span><span class="n">app</span> <span class="o">=</span> <span class="nc">FastAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sh">"</span><span class="s">TODO API</span><span class="sh">"</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sh">"</span><span class="s">A simple CRUD API for managing TODO items</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>The <code class="language-plaintext highlighter-rouge">app</code> object is responsible for fielding HTTP requests and directing them to the associated functions; and also building a nice, convenient web tester for you to use.</p>
+
+<h3 id="id_37-create-tables-on-startup">3.7. Create Tables on Startup</h3>
+
+<p>Add code to create database tables when the app starts:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 7: Create database tables on startup
+# This automatically creates all tables defined in your SQLAlchemy models
+</span><span class="nd">@app.on_event</span><span class="p">(</span><span class="sh">"</span><span class="s">startup</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_tables</span><span class="p">():</span>
+    <span class="sh">"""</span><span class="s">
+    Create all database tables on application startup.
+    This uses SQLAlchemy to generate tables from your model definitions.
+    Works for both Docker and Railway databases.
+
+    Note: Docker Compose</span><span class="sh">'</span><span class="s">s depends_on: service_healthy ensures the database
+    is ready before this code runs.
+    </span><span class="sh">"""</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">engine</span><span class="p">.</span><span class="nf">begin</span><span class="p">()</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="c1"># Use run_sync to run the synchronous create_all method
+</span>        <span class="k">await</span> <span class="n">conn</span><span class="p">.</span><span class="nf">run_sync</span><span class="p">(</span><span class="n">Base</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">create_all</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">✅ Database tables created successfully</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Runs automatically when the server starts</li>
+  <li>Creates all tables defined in your models</li>
+  <li>Uses <code class="language-plaintext highlighter-rouge">Base.metadata.create_all</code> to generate SQL</li>
+</ul>
+
+<blockquote class="info">
+  <h4 id="id_-why-you-should-be-clapping-and-cheering"><i class="fa-solid fa-hands-clapping"></i> Why you should be clapping and cheering:</h4>
+  <p>The <code class="language-plaintext highlighter-rouge">create_tables()</code> function you just made is amazing! It actually autogenerates the SQL needed to create the tables in your database, based on how you defined the models above.</p>
+</blockquote>
+
+<h3 id="id_38-add-cors-middleware">3.8. Add CORS Middleware</h3>
+
+<p>By default, most web servers block requests that don’t come from the same server, and can be tricky to understand if you’re new to web development. What this code does is allow computers from anywhere in the world to access and interact with your server. That’s what <code class="language-plaintext highlighter-rouge">allow_origins=["*"]</code> means (the “*” is a wildcard that basically says, “anyone can issue requests to me!”).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 8: Add CORS middleware to allow frontend requests
+# CORS (Cross-Origin Resource Sharing) is needed because your React app
+# runs on a different port (5173) than your API (8000)
+# Without this, browsers would block requests from your frontend
+# Note: In production with combined deployment, CORS may not be needed
+# but we keep it for development flexibility
+</span><span class="n">app</span><span class="p">.</span><span class="nf">add_middleware</span><span class="p">(</span>
+    <span class="n">CORSMiddleware</span><span class="p">,</span>
+    <span class="n">allow_origins</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">*</span><span class="sh">"</span><span class="p">],</span>  <span class="c1"># Allows all origins (in production, specify exact URLs)
+</span>    <span class="n">allow_credentials</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">allow_methods</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">*</span><span class="sh">"</span><span class="p">],</span>  <span class="c1"># Allows all HTTP methods (GET, POST, etc.)
+</span>    <span class="n">allow_headers</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">*</span><span class="sh">"</span><span class="p">],</span>  <span class="c1"># Allows all headers
+</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Why CORS is needed:</strong></p>
+<ul>
+  <li>Browsers block requests between different origins (ports, domains)</li>
+  <li>Your frontend (port 5173) needs to call your backend (port 8000)</li>
+  <li>CORS middleware tells the browser “this is allowed”</li>
+</ul>
+
+<h3 id="id_39-create-get-endpoints">3.9. Create GET Endpoints</h3>
+
+<p>Add endpoints to read todos:</p>
+
+<h4 id="id_get-all-todos">Get All Todos</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 9: Create our API endpoints
+# These are the URLs that clients can visit to interact with todos
+# IMPORTANT: API routes must be defined BEFORE the SPA catch-all route
+</span>
+
+<span class="c1"># READ: Get all todos
+</span><span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos</span><span class="sh">"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">TodoResponse</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_all_todos</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="sh">"""</span><span class="s">
+    Get all todos from the database.
+
+    Returns: A list of all todos in the database
+    </span><span class="sh">"""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">Todo</span><span class="p">))</span>
+    <span class="n">todos</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">scalars</span><span class="p">().</span><span class="nf">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">todos</span>
+</code></pre></div></div>
+
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@app.get("/todos")</code> - Creates a GET endpoint at <code class="language-plaintext highlighter-rouge">/todos</code></li>
+  <li><code class="language-plaintext highlighter-rouge">response_model=List[TodoResponse]</code> - Validates response format</li>
+  <li><code class="language-plaintext highlighter-rouge">db: AsyncSession = Depends(get_db)</code> - Injects database session</li>
+  <li><code class="language-plaintext highlighter-rouge">select(Todo)</code> - SQLAlchemy query to get all todos</li>
+  <li><code class="language-plaintext highlighter-rouge">result.scalars().all()</code> - Extract all results as a list</li>
+</ul>
+
+<h4 id="id_get-one-todo">Get One Todo</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># READ: Get a single todo by ID
+</span><span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos/{todo_id}</span><span class="sh">"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">TodoResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_todo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="sh">"""</span><span class="s">
+    Get a single todo by its ID.
+
+    Returns: The todo if found, or a 404 error if not
+    </span><span class="sh">"""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">Todo</span><span class="p">).</span><span class="nf">where</span><span class="p">(</span><span class="n">Todo</span><span class="p">.</span><span class="nb">id</span> <span class="o">==</span> <span class="n">todo_id</span><span class="p">))</span>
+    <span class="n">todo</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">scalar_one_or_none</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">todo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="sh">"</span><span class="s">Todo with ID </span><span class="si">{</span><span class="n">todo_id</span><span class="si">}</span><span class="s"> not found</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">todo</span>
+</code></pre></div></div>
+
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{todo_id}</code> - Path parameter (extracted from URL)</li>
+  <li><code class="language-plaintext highlighter-rouge">.where(Todo.id == todo_id)</code> - Filter by ID</li>
+  <li><code class="language-plaintext highlighter-rouge">scalar_one_or_none()</code> - Get one result or None</li>
+  <li><code class="language-plaintext highlighter-rouge">HTTPException</code> - Return 404 if not found</li>
+</ul>
+
+<h3 id="id_310-create-post-endpoint">3.10. Create POST Endpoint</h3>
+
+<p>Add endpoint to create new todos:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 10: 
+# CREATE: Create a new todo
+</span><span class="nd">@app.post</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos</span><span class="sh">"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">TodoResponse</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_todo</span><span class="p">(</span><span class="n">todo</span><span class="p">:</span> <span class="n">TodoCreate</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="sh">"""</span><span class="s">
+    Create a new todo item.
+
+    Returns: The created todo
+    </span><span class="sh">"""</span>
+    <span class="c1"># Create a new Todo object from the request data
+</span>    <span class="n">db_todo</span> <span class="o">=</span> <span class="nc">Todo</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">todo</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">todo</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+        <span class="n">completed</span><span class="o">=</span><span class="n">todo</span><span class="p">.</span><span class="n">completed</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add it to the database session
+</span>    <span class="n">db</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">db_todo</span><span class="p">)</span>
+    <span class="c1"># Commit the transaction to save it
+</span>    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+    <span class="c1"># Refresh to get the updated data (like the generated ID)
+</span>    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">refresh</span><span class="p">(</span><span class="n">db_todo</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">db_todo</span>
+</code></pre></div></div>
+
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@app.post("/todos")</code> - Creates a POST endpoint</li>
+  <li><code class="language-plaintext highlighter-rouge">todo: TodoCreate</code> - FastAPI validates request body against this schema</li>
+  <li><code class="language-plaintext highlighter-rouge">db.add()</code> - Add to session (not yet saved)</li>
+  <li><code class="language-plaintext highlighter-rouge">await db.commit()</code> - Save to database</li>
+  <li><code class="language-plaintext highlighter-rouge">await db.refresh()</code> - Reload from database (gets generated ID)</li>
+</ul>
+
+<h3 id="id_311-create-patch-endpoint">3.11. Create PATCH Endpoint</h3>
+
+<p>PATCH is is a way to update select data fields for an existing resource:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 11: 
+# UPDATE: Update an existing todo (PATCH - partial update)
+</span><span class="nd">@app.patch</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos/{todo_id}</span><span class="sh">"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">TodoResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">patch_todo</span><span class="p">(</span>
+    <span class="n">todo_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">todo_update</span><span class="p">:</span> <span class="n">TodoUpdate</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Partially update an existing todo item (PATCH).
+    Only the fields provided in the request will be updated.
+    Returns: The updated todo, or a 404 error if not found
+    </span><span class="sh">"""</span>
+    <span class="c1"># Get the existing todo
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">Todo</span><span class="p">).</span><span class="nf">where</span><span class="p">(</span><span class="n">Todo</span><span class="p">.</span><span class="nb">id</span> <span class="o">==</span> <span class="n">todo_id</span><span class="p">))</span>
+    <span class="n">db_todo</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">scalar_one_or_none</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">db_todo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="sh">"</span><span class="s">Todo with ID </span><span class="si">{</span><span class="n">todo_id</span><span class="si">}</span><span class="s"> not found</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># Update only the fields that were provided
+</span>    <span class="n">update_data</span> <span class="o">=</span> <span class="n">todo_update</span><span class="p">.</span><span class="nf">model_dump</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">update_data</span><span class="p">.</span><span class="nf">items</span><span class="p">():</span>
+        <span class="nf">setattr</span><span class="p">(</span><span class="n">db_todo</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># Update the updated_at timestamp
+</span>    <span class="n">db_todo</span><span class="p">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">utcnow</span><span class="p">()</span>
+
+    <span class="c1"># Commit the changes
+</span>    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">refresh</span><span class="p">(</span><span class="n">db_todo</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">db_todo</span>
+</code></pre></div></div>
+
+<h3 id="id_312-create-delete-endpoint">3.12. Create DELETE Endpoint</h3>
+
+<p>Add endpoint to delete todos:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># DELETE: Delete a todo
+</span><span class="nd">@app.delete</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos/{todo_id}</span><span class="sh">"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">204</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">delete_todo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+    <span class="sh">"""</span><span class="s">
+    Delete a todo item.
+
+    Returns: 204 No Content if successful, or a 404 error if not found
+    </span><span class="sh">"""</span>
+    <span class="c1"># Get the existing todo
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="nf">select</span><span class="p">(</span><span class="n">Todo</span><span class="p">).</span><span class="nf">where</span><span class="p">(</span><span class="n">Todo</span><span class="p">.</span><span class="nb">id</span> <span class="o">==</span> <span class="n">todo_id</span><span class="p">))</span>
+    <span class="n">db_todo</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="nf">scalar_one_or_none</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">db_todo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="sh">"</span><span class="s">Todo with ID </span><span class="si">{</span><span class="n">todo_id</span><span class="si">}</span><span class="s"> not found</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># Delete it from the database
+</span>    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">db_todo</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">db</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<p><strong>How it works:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">status_code=204</code> - No Content (standard for successful DELETE)</li>
+  <li><code class="language-plaintext highlighter-rouge">db.delete()</code> - Mark for deletion</li>
+  <li><code class="language-plaintext highlighter-rouge">db.commit()</code> - Actually delete from database</li>
+  <li>Returns <code class="language-plaintext highlighter-rouge">None</code> (FastAPI converts to 204 response)</li>
+</ul>
+
+<h3 id="id_313-add-production-static-file-serving">3.13. Add Production Static File Serving</h3>
+
+<p>Add code to serve the frontend in production:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 8: Serve static files (frontend) in production
+# This must come AFTER all API routes so API routes are matched first
+# Check if static directory exists (production build)
+</span><span class="n">static_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">"</span><span class="s">..</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">static</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">static_dir</span><span class="p">):</span>
+    <span class="c1"># Mount static files (CSS, JS, images, etc.)
+</span>    <span class="n">app</span><span class="p">.</span><span class="nf">mount</span><span class="p">(</span>
+        <span class="sh">"</span><span class="s">/assets</span><span class="sh">"</span><span class="p">,</span>
+        <span class="nc">StaticFiles</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">static_dir</span><span class="p">,</span> <span class="sh">"</span><span class="s">assets</span><span class="sh">"</span><span class="p">)),</span>
+        <span class="n">name</span><span class="o">=</span><span class="sh">"</span><span class="s">assets</span><span class="sh">"</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Serve index.html for all non-API routes (SPA routing)
+</span>    <span class="c1"># This catch-all route must be last so API routes take precedence
+</span>    <span class="nd">@app.get</span><span class="p">(</span><span class="sh">"</span><span class="s">/{full_path:path}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">serve_spa</span><span class="p">(</span><span class="n">full_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sh">"""</span><span class="s">
+        Serve the React app for all non-API routes.
+        This allows React Router to handle client-side routing.
+        </span><span class="sh">"""</span>
+        <span class="n">index_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">static_dir</span><span class="p">,</span> <span class="sh">"</span><span class="s">index.html</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">index_path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nc">FileResponse</span><span class="p">(</span><span class="n">index_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="nc">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="sh">"</span><span class="s">Frontend not found</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Why this matters:</strong></p>
+<ul>
+  <li>In production, frontend is built and served as static files</li>
+  <li>API routes must come first (so <code class="language-plaintext highlighter-rouge">/todos</code> works)</li>
+  <li>Catch-all route serves <code class="language-plaintext highlighter-rouge">index.html</code> for React Router</li>
+  <li>Only runs if <code class="language-plaintext highlighter-rouge">static/</code> directory exists (production mode)</li>
+</ul>
+
+<h3 id="id_314-add-main-block">3.14. Add Main Block</h3>
+
+<p>Add code to run the server directly:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 9: Run the server
+# This code only runs if you execute the file directly (not if imported)
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="n">uvicorn</span>
+
+    <span class="c1"># uvicorn is the web server that runs FastAPI
+</span>    <span class="c1"># --reload means it will restart when you change the code
+</span>    <span class="n">uvicorn</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="sh">"</span><span class="s">0.0.0.0</span><span class="sh">"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+
+
+<span class="c1"># Note: The server will be run in Docker (see Docker Configuration section)
+# If you have Poetry installed locally, you can also run:
+# poetry run uvicorn server:app --reload
+</span></code></pre></div></div>
+
+<h2 id="id_4-create-backend-dockerfile">4. Create Backend Dockerfile</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/Dockerfile</code>:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use Python 3.11 as the base image</span>
+<span class="k">FROM</span><span class="s"> python:3.11-slim</span>
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Install system dependencies</span>
+<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\
+</span>    curl <span class="se">\
+</span>    <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/apt/lists/<span class="k">*</span>
+
+<span class="c"># Install Poetry</span>
+<span class="k">RUN </span>pip <span class="nb">install </span>poetry
+
+<span class="c"># Configure Poetry to not create virtual environments (we're in Docker)</span>
+<span class="k">RUN </span>poetry config virtualenvs.create <span class="nb">false</span>
+
+<span class="c"># Copy dependency files</span>
+<span class="k">COPY</span><span class="s"> pyproject.toml poetry.lock* ./</span>
+
+<span class="c"># Install dependencies</span>
+<span class="k">RUN </span>poetry <span class="nb">install</span> <span class="nt">--no-interaction</span> <span class="nt">--no-ansi</span>
+
+<span class="c"># Copy application code</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="c"># Expose the port FastAPI runs on</span>
+<span class="k">EXPOSE</span><span class="s"> 8000</span>
+
+<span class="c"># Default command (can be overridden in docker-compose.yaml)</span>
+<span class="k">CMD</span><span class="s"> ["poetry", "run", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">server.py</code> and <code class="language-plaintext highlighter-rouge">Dockerfile</code> exist in the <code class="language-plaintext highlighter-rouge">backend/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── Dockerfile
+├── backend/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── todo.py
+│   ├── server.py      <span class="c"># new</span>
+│   ├── Dockerfile    <span class="c"># new</span>
+│   └── pyproject.toml
+├── ui/
+│   └── src/
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_5-configuring-linters-and-formatters">5. Configuring Linters and Formatters</h2>
+
+<p>Linters and formatters help maintain code quality and consistency. This section shows you how to configure them for both backend and frontend.</p>
+
+<p>The backend uses three tools:</p>
+<ul>
+  <li><strong>Black</strong> - Code formatter</li>
+  <li><strong>isort</strong> - Import sorter</li>
+  <li><strong>flake8</strong> - Linter</li>
+</ul>
+
+<h3 id="id_51-configure-black-and-isort-in-pyprojecttoml">5.1. Configure Black and isort in pyproject.toml</h3>
+
+<p>Add these sections to your <code class="language-plaintext highlighter-rouge">backend/pyproject.toml</code> file (add them after the <code class="language-plaintext highlighter-rouge">[build-system]</code> section):</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[tool.black]</span>
+<span class="py">line-length</span> <span class="p">=</span> <span class="mi">88</span>
+<span class="py">target-version</span> <span class="p">=</span> <span class="p">[</span><span class="s">'py39'</span><span class="p">,</span> <span class="s">'py310'</span><span class="p">,</span> <span class="s">'py311'</span><span class="p">]</span>
+<span class="py">include</span> <span class="p">=</span> <span class="s">'\.pyi?$'</span>
+<span class="py">extend-exclude</span> <span class="p">=</span> <span class="s">'''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | __pycache__
+)/
+'''</span>
+
+<span class="nn">[tool.isort]</span>
+<span class="py">profile</span> <span class="p">=</span> <span class="s">"black"</span>
+<span class="py">line_length</span> <span class="p">=</span> <span class="mi">88</span>
+<span class="py">multi_line_output</span> <span class="p">=</span> <span class="mi">3</span>
+<span class="py">include_trailing_comma</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="py">force_grid_wrap</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="py">use_parentheses</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="py">ensure_newline_before_comments</span> <span class="p">=</span> <span class="kc">true</span>
+<span class="py">skip_glob</span> <span class="p">=</span> <span class="p">[</span><span class="s">"*/__pycache__/*"</span><span class="p">,</span> <span class="s">"*/migrations/*"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[tool.black]</code> - Configures Black formatter (88 char line length, Python 3.9+)</li>
+  <li><code class="language-plaintext highlighter-rouge">[tool.isort]</code> - Configures isort to work with Black’s style</li>
+</ul>
+
+<h3 id="id_52-configure-flake8">5.2. Configure flake8</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">backend/.flake8</code> with the following content:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[flake8]</span>
+<span class="c"># Black allows for 88 chars per line. Let's make flake8 do that too!
+</span><span class="py">max-line-length</span> <span class="p">=</span> <span class="s">88</span>
+
+<span class="c"># some flake8 errors to ignore (b/c Black says they're OK):
+</span><span class="py">ignore</span> <span class="p">=</span> <span class="s">W291, W293, W503 </span>
+
+<span class="py">exclude</span> <span class="p">=</span>
+    <span class="err">.venv</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Sets line length to 88 (matches Black)</li>
+  <li>Ignores whitespace errors that Black handles</li>
+  <li>Excludes virtual environment from linting</li>
+</ul>
+
+<h3 id="id_53-create-helper-scripts">5.3. Create Helper Scripts</h3>
+<p>To make running linters easier, create a new directory within <code class="language-plaintext highlighter-rouge">backend</code> called <code class="language-plaintext highlighter-rouge">scripts</code>. Within <code class="language-plaintext highlighter-rouge">scripts</code>:</p>
+
+<p><strong>Create <code class="language-plaintext highlighter-rouge">backend/scripts/check.sh</code>:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nb">echo</span> <span class="s1">'Running flake8...'</span>
+poetry run flake8
+
+<span class="nb">echo</span> <span class="s1">'Running isort...'</span>
+poetry run isort <span class="nb">.</span> <span class="nt">--check-only</span>   <span class="c"># run the Python import sorter</span>
+
+<span class="nb">echo</span> <span class="s1">'Running black...'</span>
+poetry run black <span class="nb">.</span> <span class="nt">--check</span>        <span class="c"># runs the Python formatter</span>
+
+<span class="nb">echo</span> <span class="s1">'✨✨✨✨✨ Completed checks ✨✨✨✨✨'</span>
+</code></pre></div></div>
+
+<p><strong>Create <code class="language-plaintext highlighter-rouge">backend/scripts/fix.sh</code>:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># Running this file will modify all unformatted python files in this project.</span>
+<span class="c"># Run from project root directory: $ bash backend/scripts/fix.sh</span>
+
+poetry run isort <span class="nb">.</span>      <span class="c"># run the Python import sorter</span>
+poetry run black <span class="nb">.</span>      <span class="c"># runs the Python formatter</span>
+</code></pre></div></div>
+
+<p><strong>Using the scripts:</strong></p>
+
+<p>On the Docker backend container, run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check code quality (doesn't modify files)</span>
+bash scripts/check.sh
+
+<span class="c"># Fix formatting issues (modifies files)</span>
+bash scripts/fix.sh
+</code></pre></div></div>
+
+<p><strong>What each script does:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">check.sh</code> - Runs all checks (flake8, isort, black) without modifying files</li>
+  <li><code class="language-plaintext highlighter-rouge">fix.sh</code> - Automatically fixes formatting issues (isort and black)</li>
+</ul>
+
+<h2 id="id_6-final-testing-after-docker-container-is-built">6. Final Testing (After Docker Container Is Built)</h2>
+
+<p><strong>Note:</strong> These tests should be run after Docker is set up (see Docker Configuration section). The server will be running in a Docker container.</p>
+
+<p>Test all endpoints:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make sure Docker is running (docker-compose up)</span>
+<span class="c"># The server should already be running at http://localhost:8000</span>
+
+<span class="c"># Test GET all</span>
+curl http://localhost:8000/todos
+
+<span class="c"># Test POST</span>
+curl <span class="nt">-X</span> POST http://localhost:8000/todos <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"title": "Test", "description": "Test todo"}'</span>
+
+<span class="c"># Test GET one (use ID from POST response)</span>
+curl http://localhost:8000/todos/1
+
+<span class="c"># Test PATCH</span>
+curl <span class="nt">-X</span> PATCH http://localhost:8000/todos/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"title": "Updated", "completed": true}'</span>
+
+<span class="c"># Test DELETE</span>
+curl <span class="nt">-X</span> DELETE http://localhost:8000/todos/1
+
+<span class="c"># View API documentation</span>
+<span class="c"># Open http://localhost:8000/docs in your browser</span>
+</code></pre></div></div>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script>
+            window.h_max = "3";
+        </script>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

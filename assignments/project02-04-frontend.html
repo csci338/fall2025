@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Frontend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_4-frontend">4. Frontend</a>
+    <ol>
+      <li><a href="#id_step-41-create-packagejson">Step 4.1: Create package.json</a></li>
+      <li><a href="#id_step-42-do-not-install-dependencies-locally">Step 4.2: Do Not Install Dependencies Locally</a></li>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+      <li><a href="#id_step-43-create-vite-configuration">Step 4.3: Create Vite Configuration</a></li>
+      <li><a href="#id_step-44-create-html-entry-point">Step 4.4: Create HTML Entry Point</a></li>
+      <li><a href="#id_step-45-create-react-application">Step 4.5: Create React Application</a></li>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+      <li><a href="#id_step-46-create-frontend-dockerfile">Step 4.6: Create Frontend Dockerfile</a></li>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Frontend
+    </h1>
+    
+ 
+                <p>
+    
+        Due on Fri, 12/05 @ 11:59PM.
+    
+    
+    
+</p>
+
+<h2 id="id_4-frontend">4. Frontend</h2>
+
+<h3 id="id_step-41-create-packagejson">Step 4.1: Create package.json</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/package.json</code> with the following <strong>exact</strong> dependencies:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ui"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main.js"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --max-warnings 0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --fix"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">src/**/*.{js,jsx,json,css}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">src/**/*.{js,jsx,json,css}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format:check &amp;&amp; npm run lint:check"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format:fix &amp;&amp; npm run lint:fix"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commonjs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.2.2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@eslint/js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^9.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.57.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-mocha"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.34.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react-hooks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.6.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react-refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"globals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^15.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prettier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.3.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Important:</strong> Copy these versions exactly.</p>
+
+<h3 id="id_step-42-do-not-install-dependencies-locally">Step 4.2: Do Not Install Dependencies Locally</h3>
+
+<p><strong>Important:</strong> You don’t need to install dependencies locally! The Docker container will install them automatically when you build it.</p>
+
+<p>Dependencies will be installed automatically when:</p>
+<ul>
+  <li>Docker builds your frontend container (see the Docker Configuration section)</li>
+  <li>The container runs <code class="language-plaintext highlighter-rouge">npm install</code> during the build process</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your <code class="language-plaintext highlighter-rouge">package.json</code> file exists and contains all the required dependencies listed above.</p>
+</blockquote>
+
+<h3 id="id_step-43-create-vite-configuration">Step 4.3: Create Vite Configuration</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/vite.config.js</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vite</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// https://vitejs.dev/config/</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">defineConfig</span><span class="p">({</span>
+    <span class="na">server</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">host</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0.0.0</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Allow external connections</span>
+        <span class="na">port</span><span class="p">:</span> <span class="mi">5173</span><span class="p">,</span>
+        <span class="na">strictPort</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Fail if port is already in use</span>
+        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">usePolling</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Required for Docker file watching</span>
+            <span class="na">interval</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// Poll every second</span>
+        <span class="p">},</span>
+        <span class="na">hmr</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">clientPort</span><span class="p">:</span> <span class="mi">5173</span><span class="p">,</span> <span class="c1">// Port the browser connects to (mapped port from docker-compose)</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="c1">// Production build settings</span>
+    <span class="na">build</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">outDir</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dist</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">sourcemap</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">minify</span><span class="p">:</span> <span class="dl">"</span><span class="s2">esbuild</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// Environment variables - Vite requires VITE_ prefix</span>
+    <span class="na">envPrefix</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VITE_</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="id_step-44-create-html-entry-point">Step 4.4: Create HTML Entry Point</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/index.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>TODO App<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"root"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/src/main.jsx"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="id_step-45-create-react-application">Step 4.5: Create React Application</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/main.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">StrictMode</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">createRoot</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-dom/client</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./App.jsx</span><span class="dl">'</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./globals.css</span><span class="dl">'</span>
+
+<span class="nf">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">root</span><span class="dl">'</span><span class="p">)).</span><span class="nf">render</span><span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">StrictMode</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/StrictMode&gt;</span><span class="err">,
+</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code> - This is where you’ll build your main application component. It should:</p>
+<ul>
+  <li>Fetch todos from the API</li>
+  <li>Display a list of todos</li>
+  <li>Allow creating new todos</li>
+  <li>Allow updating/deleting todos</li>
+</ul>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/Todos.jsx</code> - Component to display the list of todos</p>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/CreateTodo.jsx</code> - Component to create new todos</p>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/globals.css</code> - Your application styles</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your React component files are created. You’ll test the app after Docker is set up (see Docker Configuration section).</p>
+</blockquote>
+
+<h3 id="id_step-46-create-frontend-dockerfile">Step 4.6: Create Frontend Dockerfile</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/Dockerfile</code>:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use Node.js 20 as the base image</span>
+<span class="k">FROM</span><span class="s"> node:20-slim</span>
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Copy package files</span>
+<span class="k">COPY</span><span class="s"> package.json ./</span>
+
+<span class="c"># Install dependencies</span>
+<span class="k">RUN </span>npm <span class="nb">install</span>
+
+<span class="c"># Copy application code</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="c"># Expose the port Vite runs on</span>
+<span class="k">EXPOSE</span><span class="s"> 5173</span>
+
+<span class="c"># Default command (can be overridden in docker-compose.yaml)</span>
+<span class="k">CMD</span><span class="s"> ["npm", "run", "dev", "--", "--host", "0.0.0.0"]</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">Dockerfile</code> exists in the <code class="language-plaintext highlighter-rouge">ui/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── Dockerfile
+├── backend/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── todo.py
+│   ├── server.py
+│   ├── Dockerfile
+│   └── pyproject.toml
+├── ui/
+│   ├── src/
+│   │   ├── main.jsx      <span class="c"># new</span>
+│   │   ├── App.jsx       <span class="c"># new</span>
+│   │   ├── Todos.jsx     <span class="c"># new</span>
+│   │   ├── CreateTodo.jsx <span class="c"># new</span>
+│   │   └── globals.css   <span class="c"># new</span>
+│   ├── index.html        <span class="c"># new</span>
+│   ├── package.json      <span class="c"># new</span>
+│   ├── vite.config.js    <span class="c"># new</span>
+│   └── Dockerfile        <span class="c"># new</span>
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>
