@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>Docker Configuration</title>
+    <title>Docker Compose File + Build Your Containers</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="/fall2025/assets/main.css">
     
@@ -53,12 +53,16 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_5-docker-configuration">5. Docker Configuration</a>
+  <li><a href="#id_what-is-docker-compose">What is Docker Compose?</a></li>
+  <li><a href="#id_create-docker-composeyaml">Create docker-compose.yaml</a></li>
+  <li><a href="#id_build-and-start-your-containers">Build and Start Your Containers</a>
     <ol>
-      <li><a href="#id_step-51-create-docker-composeyaml">Step 5.1: Create docker-compose.yaml</a></li>
-      <li><a href="#id_step-52-create-env-file-optional">Step 5.2: Create .env File (Optional)</a></li>
+      <li><a href="#id_verify-your-backend-endpoints">Verify your backend endpoints</a></li>
       <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
-      <li><a href="#id_step-53-create-production-dockerfile">Step 5.3: Create Production Dockerfile</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_commit-and-push">Commit and Push</a>
+    <ol>
       <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
     </ol>
   </li>
@@ -71,23 +75,34 @@
 
     <h1>
         <a href="../assignments/project02">Project 2</a> >
-        Docker Configuration
+        Docker Compose File + Build Your Containers
     </h1>
     
  
                 <p>
     
-        Due on Fri, 12/05 @ 11:59PM.
-    
     
     
 </p>
 
-<h2 id="id_5-docker-configuration">5. Docker Configuration</h2>
+<h2 id="id_what-is-docker-compose">What is Docker Compose?</h2>
 
-<p>This section covers both development and production Docker configurations.</p>
+<p><strong>Docker Compose</strong> is a tool that lets you define and run multiple Docker containers together with a single configuration file. Instead of running each container separately with <code class="language-plaintext highlighter-rouge">docker run</code>, you can use <code class="language-plaintext highlighter-rouge">docker-compose up</code> to start all your services at once.</p>
 
-<h3 id="id_step-51-create-docker-composeyaml">Step 5.1: Create docker-compose.yaml</h3>
+<p><strong>Why use Docker Compose?</strong></p>
+
+<ul class="compact">
+  <li><strong>Orchestration</strong> - Manages multiple containers (database, backend, frontend) as one application</li>
+  <li><strong>Networking</strong> - Automatically creates a network so containers can communicate</li>
+  <li><strong>Dependencies</strong> - Ensures services start in the correct order (e.g., database before backend)</li>
+  <li><strong>Volume Management</strong> - Handles data persistence and file mounting</li>
+  <li><strong>Environment Variables</strong> - Centralized configuration for all services</li>
+</ul>
+
+<p><strong>Important: Docker Compose is for Development Only</strong>
+Docker Compose is <strong>not used in production</strong> environments. In production, each service typically runs in its own container on separate machines or cloud instances. The <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> file you create here is <strong>only for local development</strong> to make it easy to run your entire stack with one command</p>
+
+<h2 id="id_create-docker-composeyaml">Create docker-compose.yaml</h2>
 
 <p>Create <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> in the root directory:</p>
 
@@ -153,115 +168,81 @@
   <span class="na">postgres_data</span><span class="pi">:</span>
 </code></pre></div></div>
 
-<h3 id="id_step-52-create-env-file-optional">Step 5.2: Create .env File (Optional)</h3>
+<h2 id="id_build-and-start-your-containers">Build and Start Your Containers</h2>
 
-<p>Create <code class="language-plaintext highlighter-rouge">.env</code> in the root directory (optional, for local development):</p>
+<p>Now that you’ve created your <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> file, you can build and start all your containers in detached mode (so that your Terminal isn’t tied up):</p>
 
-<pre><code class="language-env"># Optional: Override DATABASE_URL to use external database
-# DATABASE_URL=postgresql+asyncpg://user:password@host:port/database
-</code></pre>
+<p>Make sure that Docker Desktop is running. Then, issue the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># From the root of your project (where docker-compose.yaml is located)</span>
+docker-compose up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<p><strong>What you should see:</strong></p>
+
+<ul>
+  <li>Database container starting and becoming healthy</li>
+  <li>Backend container starting and connecting to the database</li>
+  <li>Frontend container starting and running Vite dev server</li>
+  <li>All services running and accessible:
+    <ul>
+      <li>Frontend: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a></li>
+      <li>Backend API: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></li>
+      <li>Backend Docs: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="id_verify-your-backend-endpoints">Verify your backend endpoints</h3>
+<p>Test all endpoints from the command line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make sure Docker is running (docker-compose up)</span>
+<span class="c"># The server should already be running at http://localhost:8000</span>
+
+<span class="c"># Test GET all</span>
+curl http://localhost:8000/todos
+
+<span class="c"># Test POST</span>
+curl <span class="nt">-X</span> POST http://localhost:8000/todos <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"title": "Test", "description": "Test todo"}'</span>
+
+<span class="c"># Test GET one (use ID from POST response)</span>
+curl http://localhost:8000/todos/1
+
+<span class="c"># Test PATCH</span>
+curl <span class="nt">-X</span> PATCH http://localhost:8000/todos/1 <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"title": "Updated", "completed": true}'</span>
+
+<span class="c"># Test DELETE</span>
+curl <span class="nt">-X</span> DELETE http://localhost:8000/todos/1
+
+<span class="c"># View API documentation</span>
+<span class="c"># Open http://localhost:8000/docs in your browser</span>
+</code></pre></div></div>
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Test your Docker setup:</p>
-
-  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">--build</span>
-</code></pre></div>  </div>
+  <p>Verify that all three containers are running:</p>
+  <ul>
+    <li>Check that you can access http://localhost:5173 (frontend)</li>
+    <li>Check that you can access http://localhost:8000/docs (backend API documentation)</li>
+    <li>Verify your containers are running with: <code class="language-plaintext highlighter-rouge">docker ps</code></li>
+  </ul>
 </blockquote>
 
-<p>You should be able to access:</p>
-<ul>
-  <li>Frontend: http://localhost:5173</li>
-  <li>Backend API: http://localhost:8000</li>
-  <li>API Docs: http://localhost:8000/docs</li>
-</ul>
-
-<h3 id="id_step-53-create-production-dockerfile">Step 5.3: Create Production Dockerfile</h3>
-
-<p>Create <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> in the root directory:</p>
-
-<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Combined Production Dockerfile for Railway</span>
-<span class="c"># Builds both frontend and backend, serves them together</span>
-
-<span class="c"># Stage 1: Build Frontend</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">node:20-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">frontend-builder</span>
-
-<span class="k">WORKDIR</span><span class="s"> /app/frontend</span>
-
-<span class="c"># Copy frontend package files</span>
-<span class="k">COPY</span><span class="s"> ui/package.json ./</span>
-
-<span class="c"># Install dependencies</span>
-<span class="k">RUN </span>npm <span class="nb">install</span> <span class="nt">--production</span><span class="o">=</span><span class="nb">false</span> <span class="o">&amp;&amp;</span> <span class="se">\
-</span>    npm <span class="nb">install</span> @rollup/rollup-linux-x64-gnu <span class="nt">--save-optional</span> <span class="o">||</span> <span class="nb">true</span>
-
-<span class="c"># Copy frontend source code</span>
-<span class="k">COPY</span><span class="s"> ui/ ./</span>
-
-<span class="c"># Build the React app</span>
-<span class="k">RUN </span>npm run build
-
-<span class="c"># Stage 2: Build Backend Dependencies</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">backend-builder</span>
-
-<span class="k">WORKDIR</span><span class="s"> /app</span>
-
-<span class="c"># Install Poetry</span>
-<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> poetry
-
-<span class="c"># Configure Poetry</span>
-<span class="k">RUN </span>poetry config virtualenvs.create <span class="nb">false</span>
-
-<span class="c"># Copy backend dependency files</span>
-<span class="k">COPY</span><span class="s"> backend/pyproject.toml backend/poetry.lock* ./</span>
-
-<span class="c"># Install dependencies (production only)</span>
-<span class="k">RUN </span>poetry <span class="nb">install</span> <span class="nt">--no-interaction</span> <span class="nt">--no-ansi</span> <span class="nt">--only</span><span class="o">=</span>main <span class="nt">--no-root</span>
-
-<span class="c"># Stage 3: Final Runtime Image</span>
-<span class="k">FROM</span><span class="s"> python:3.11-slim</span>
-
-<span class="k">WORKDIR</span><span class="s"> /app</span>
-
-<span class="c"># Copy installed Python packages and binaries from builder</span>
-<span class="k">COPY</span><span class="s"> --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages</span>
-<span class="k">COPY</span><span class="s"> --from=backend-builder /usr/local/bin /usr/local/bin</span>
-
-<span class="c"># Copy backend application code</span>
-<span class="k">COPY</span><span class="s"> backend/ ./backend/</span>
-
-<span class="c"># Copy built frontend from frontend-builder to /app/static</span>
-<span class="k">COPY</span><span class="s"> --from=frontend-builder /app/frontend/dist ./static</span>
-
-<span class="c"># Create non-root user for security</span>
-<span class="k">RUN </span>useradd <span class="nt">-m</span> <span class="nt">-u</span> 1000 appuser <span class="o">&amp;&amp;</span> <span class="se">\
-</span>    <span class="nb">chown</span> <span class="nt">-R</span> appuser:appuser /app
-
-<span class="k">USER</span><span class="s"> appuser</span>
-
-<span class="c"># Expose port (Railway sets PORT automatically)</span>
-<span class="k">EXPOSE</span><span class="s"> 8000</span>
-
-<span class="c"># Use PORT environment variable if set, otherwise default to 8000</span>
-<span class="k">ENV</span><span class="s"> PORT=8000</span>
-
-<span class="c"># Change to backend directory and run server</span>
-<span class="k">WORKDIR</span><span class="s"> /app/backend</span>
-<span class="k">CMD</span><span class="s"> sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"</span>
-</code></pre></div></div>
-
-<p><strong>Important Notes:</strong></p>
-<ul>
-  <li>This is a multi-stage build that combines frontend and backend</li>
-  <li>The frontend is built and served as static files by the backend</li>
-  <li>Make sure your <code class="language-plaintext highlighter-rouge">server.py</code> has code to serve static files in production</li>
-</ul>
+<h2 id="id_commit-and-push">Commit and Push</h2>
+<p>Go ahead and commit / push your changes to git / GitHub.</p>
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your production Dockerfile is in the root directory.</p>
+  <p>Verify that all your new code is on GitHub.</p>
 </blockquote>
 
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
 
 
 

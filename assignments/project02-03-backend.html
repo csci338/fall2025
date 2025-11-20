@@ -91,9 +91,14 @@
       <li><a href="#id_51-configure-black-and-isort-in-pyprojecttoml">5.1. Configure Black and isort in pyproject.toml</a></li>
       <li><a href="#id_52-configure-flake8">5.2. Configure flake8</a></li>
       <li><a href="#id_53-create-helper-scripts">5.3. Create Helper Scripts</a></li>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
     </ol>
   </li>
-  <li><a href="#id_6-final-testing-after-docker-container-is-built">6. Final Testing (After Docker Container Is Built)</a></li>
+  <li><a href="#id_6-commit-and-push">6. Commit and Push</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
+    </ol>
+  </li>
 </ol>
 
             </aside>
@@ -108,8 +113,6 @@
     
  
                 <p>
-    
-        Due on Fri, 12/05 @ 11:59PM.
     
     
     
@@ -882,37 +885,45 @@ bash scripts/fix.sh
   <li><code class="language-plaintext highlighter-rouge">fix.sh</code> - Automatically fixes formatting issues (isort and black)</li>
 </ul>
 
-<h2 id="id_6-final-testing-after-docker-container-is-built">6. Final Testing (After Docker Container Is Built)</h2>
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify all your backend files are created correctly.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
 
-<p><strong>Note:</strong> These tests should be run after Docker is set up (see Docker Configuration section). The server will be running in a Docker container.</p>
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── Dockerfile
+├── backend/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── todo.py
+│   ├── scripts/
+│   │   ├── check.sh      <span class="c"># new</span>
+│   │   └── fix.sh        <span class="c"># new</span>
+│   ├── server.py
+│   ├── Dockerfile
+│   ├── pyproject.toml    <span class="c"># updated with linter stuff</span>
+│   └── .flake8           <span class="c"># new</span>
+├── ui/
+│   └── src/
+└── .env
+</code></pre></div>  </div>
+</blockquote>
 
-<p>Test all endpoints:</p>
+<h2 id="id_6-commit-and-push">6. Commit and Push</h2>
+<p>Go ahead and commit / push your changes to git / GitHub.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make sure Docker is running (docker-compose up)</span>
-<span class="c"># The server should already be running at http://localhost:8000</span>
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that all your new code is on GitHub.</p>
+</blockquote>
 
-<span class="c"># Test GET all</span>
-curl http://localhost:8000/todos
+<hr />
 
-<span class="c"># Test POST</span>
-curl <span class="nt">-X</span> POST http://localhost:8000/todos <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{"title": "Test", "description": "Test todo"}'</span>
-
-<span class="c"># Test GET one (use ID from POST response)</span>
-curl http://localhost:8000/todos/1
-
-<span class="c"># Test PATCH</span>
-curl <span class="nt">-X</span> PATCH http://localhost:8000/todos/1 <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{"title": "Updated", "completed": true}'</span>
-
-<span class="c"># Test DELETE</span>
-curl <span class="nt">-X</span> DELETE http://localhost:8000/todos/1
-
-<span class="c"># View API documentation</span>
-<span class="c"># Open http://localhost:8000/docs in your browser</span>
-</code></pre></div></div>
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
 
 
 

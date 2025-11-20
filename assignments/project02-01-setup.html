@@ -53,7 +53,31 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_1-create-project-structure">1. Create Project Structure</a></li>
+  <li><a href="#id_1-create-project-structure">1. Create Project Structure</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-initialize-git-repository">2. Initialize Git Repository</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-create-readmemd">3. Create README.md</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-set-up-github-repository">4. Set Up GitHub Repository</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_5-git-workflow-basics">5. Git Workflow Basics</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
+    </ol>
+  </li>
 </ol>
 
             </aside>
@@ -68,8 +92,6 @@
     
  
                 <p>
-    
-        Due on Fri, 12/05 @ 11:59PM.
     
     
     
@@ -92,7 +114,7 @@
   <p>Verify your folder structure matches the above.</p>
 </blockquote>
 
-<h3 id="id_11-initialize-git-repository">1.1. Initialize Git Repository</h3>
+<h2 id="id_2-initialize-git-repository">2. Initialize Git Repository</h2>
 <p>Initialize a git repo at the root of your <code class="language-plaintext highlighter-rouge">project02-fall2025</code> folder:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
@@ -129,7 +151,79 @@ Thumbs.db
   <p>Verify your <code class="language-plaintext highlighter-rouge">.gitignore</code> file exists and contains the above patterns.</p>
 </blockquote>
 
-<h3 id="id_13-set-up-github-repository">1.3. Set Up GitHub Repository</h3>
+<h2 id="id_3-create-readmemd">3. Create README.md</h2>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">README.md</code> file in the root directory with basic project information:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># Project 2: Full-Stack TODO Application</span>
+
+A full-stack web application built with FastAPI (backend), React (frontend), and PostgreSQL (database).
+
+<span class="gu">## Tech Stack</span>
+<span class="p">
+-</span> <span class="gs">**Backend:**</span> FastAPI, SQLAlchemy, PostgreSQL
+<span class="p">-</span> <span class="gs">**Frontend:**</span> React, Vite
+<span class="p">-</span> <span class="gs">**Database:**</span> PostgreSQL
+<span class="p">-</span> <span class="gs">**Containerization:**</span> Docker, Docker Compose
+
+<span class="gu">## Project Structure</span><span class="sb">
+
+
+</span>project02-fall2025/
+├── database/     # Database Dockerfile
+├── backend/      # FastAPI application
+└── ui/           # React application<span class="sb">
+
+
+</span><span class="gu">## Getting Started</span>
+
+<span class="gu">### Prerequisites</span>
+<span class="p">
+-</span> Docker Desktop installed and running
+
+<span class="gu">### Running the Application</span>
+<span class="p">
+1.</span> Clone this repository
+<span class="p">2.</span> Create a <span class="sb">`.env`</span> file in the root directory (see project documentation) with your database connection string.
+<span class="p">3.</span> Run <span class="sb">`docker-compose up -d`</span> to start all services
+<span class="p">4.</span> Access the application:
+<span class="p">   -</span> Frontend: http://localhost:5173
+<span class="p">   -</span> Backend API: http://localhost:8000
+<span class="p">   -</span> API Documentation: http://localhost:8000/docs
+
+<span class="gu">## Development</span>
+
+See the project documentation for detailed setup and development instructions.
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Provides an overview of your project</li>
+  <li>Documents the tech stack</li>
+  <li>Shows the project structure</li>
+  <li>Includes basic getting started instructions</li>
+  <li>Makes your repository more professional and easier to understand</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">README.md</code> file exists in the root directory with the basic content above.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+├── backend/
+│   └── models/
+├── ui/
+│   └── src/
+├── .gitignore    <span class="c"># new</span>
+└── README.md      <span class="c"># new</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_4-set-up-github-repository">4. Set Up GitHub Repository</h2>
 
 <p>If you’re using GitHub (recommended), set it up now so you can push your code as you work:</p>
 
@@ -147,7 +241,7 @@ Thumbs.db
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Make your initial commit first</span>
 git add <span class="nb">.</span>
-git commit <span class="nt">-m</span> <span class="s2">"Initial project setup with folder structure and .gitignore"</span>
+git commit <span class="nt">-m</span> <span class="s2">"Initial project setup with folder structure, .gitignore, and README"</span>
 
 <span class="c"># Connect to GitHub using SSH (replace with your actual repository URL)</span>
 <span class="c"># On GitHub, click the green "Code" button and copy the SSH URL (starts with git@github.com)</span>
@@ -159,28 +253,28 @@ git push <span class="nt">-u</span> origin main
 <p><strong>Note:</strong> Make sure you have SSH keys set up with GitHub. If you haven’t done this yet, follow the instructions from Lab 2 to set up SSH key authentication.</p>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your local repository is connected to GitHub and your initial commit is pushed.</p>
 </blockquote>
 
-<h3 id="id_14-git-workflow-basics">1.4. Git Workflow Basics</h3>
+<h2 id="id_5-git-workflow-basics">5. Git Workflow Basics</h2>
 
 <p>Throughout development, you should commit your code regularly. Use this workflow for regular commits:</p>
 
-<h4 id="id_regular-commits">Regular Commits</h4>
-
-<p>Commit after completing each major section:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status   <span class="c"># what has changed?</span>
+git add <span class="nb">.</span>
 git commit <span class="nt">-m</span> <span class="s2">"Meaningful message"</span>
 git push
 </code></pre></div></div>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Make sure you understand the Git workflow for committing and pushing code regularly throughout development.</p>
 </blockquote>
 
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
 
 
 
@@ -205,7 +299,7 @@ git push
 </script> -->
         
         <script>
-            window.h_max = "2";
+            window.h_max = "3";
         </script>
         
         <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>

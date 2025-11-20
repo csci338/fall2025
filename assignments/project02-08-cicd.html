@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>CI/CD Pipeline</title>
+    <title>Continuous Integration on GitHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="/fall2025/assets/main.css">
     
@@ -53,13 +53,22 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_6-cicd-pipeline">6. CI/CD Pipeline</a>
+  <li><a href="#id_what-is-github-actions">What is GitHub Actions?</a></li>
+  <li><a href="#id_1-create-github-actions-workflow">1. Create GitHub Actions Workflow</a>
     <ol>
-      <li><a href="#id_step-61-create-github-actions-workflow">Step 6.1: Create GitHub Actions Workflow</a></li>
+      <li><a href="#id_11-create-workflow-directory">1.1. Create Workflow Directory</a></li>
+      <li><a href="#id_12-create-workflow-file">1.2. Create Workflow File</a></li>
       <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
-      <li><a href="#id_step-62-test-github-actions">Step 6.2: Test GitHub Actions</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-commit-and-push-your-workflow">2. Commit and Push Your Workflow</a></li>
+  <li><a href="#id_3-test-github-actions">3. Test GitHub Actions</a>
+    <ol>
       <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
-      <li><a href="#id_step-63-understanding-workflow-results">Step 6.3: Understanding Workflow Results</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-understanding-workflow-results">4. Understanding Workflow Results</a>
+    <ol>
       <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
     </ol>
   </li>
@@ -72,32 +81,55 @@
 
     <h1>
         <a href="../assignments/project02">Project 2</a> >
-        CI/CD Pipeline
+        Continuous Integration on GitHub
     </h1>
     
  
                 <p>
     
-        Due on Fri, 12/05 @ 11:59PM.
-    
     
     
 </p>
 
-<h2 id="id_6-cicd-pipeline">6. CI/CD Pipeline</h2>
+<h2 id="id_what-is-github-actions">What is GitHub Actions?</h2>
 
-<h3 id="id_step-61-create-github-actions-workflow">Step 6.1: Create GitHub Actions Workflow</h3>
+<p><strong>GitHub Actions</strong> is a CI/CD (Continuous Integration/Continuous Deployment) platform built into GitHub. It allows you to automate tasks whenever you push code to your repository.</p>
 
-<p>GitHub Actions will automatically check your code quality when you push changes. This helps catch issues early.</p>
+<p><strong>What is CI/CD?</strong></p>
+<ul>
+  <li><strong>CI (Continuous Integration)</strong> - Automatically test and check your code when you push changes</li>
+  <li><strong>CD (Continuous Deployment)</strong> - Automatically deploy your application when tests pass</li>
+</ul>
 
-<h4 id="id_step-611-create-workflow-directory">Step 6.1.1: Create Workflow Directory</h4>
+<p><strong>Why use GitHub Actions?</strong></p>
+<ul>
+  <li><strong>Catch errors early</strong> - Find code quality issues before they become problems</li>
+  <li><strong>Automated testing</strong> - Run your linters and formatters automatically</li>
+  <li><strong>Consistent checks</strong> - Everyone’s code is checked the same way</li>
+  <li><strong>Professional workflow</strong> - Industry standard for software development</li>
+</ul>
+
+<p><strong>How it works:</strong></p>
+<ol>
+  <li>You push code to GitHub</li>
+  <li>GitHub Actions automatically runs your workflow</li>
+  <li>The workflow checks your code quality (linting, formatting)</li>
+  <li>You get immediate feedback on whether your code passes or fails</li>
+</ol>
+
+<p><strong>For this project:</strong>
+We’ll set up a workflow that automatically checks your code quality (formatting and linting) every time you push code. This ensures your code meets quality standards before it’s merged.</p>
+
+<h2 id="id_1-create-github-actions-workflow">1. Create GitHub Actions Workflow</h2>
+
+<h3 id="id_11-create-workflow-directory">1.1. Create Workflow Directory</h3>
 
 <p>Create the necessary directory structure:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> .github/workflows
 </code></pre></div></div>
 
-<h4 id="id_step-612-create-workflow-file">Step 6.1.2: Create Workflow File</h4>
+<h3 id="id_12-create-workflow-file">1.2. Create Workflow File</h3>
 
 <p>Create <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> with the following content:</p>
 
@@ -190,19 +222,28 @@
   <p>Verify your <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> file exists.</p>
 </blockquote>
 
-<h3 id="id_step-62-test-github-actions">Step 6.2: Test GitHub Actions</h3>
+<h2 id="id_2-commit-and-push-your-workflow">2. Commit and Push Your Workflow</h2>
 
-<ol>
-  <li><strong>Commit and push the workflow:</strong></li>
-</ol>
+<p>Before testing, commit and push your workflow file to GitHub:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .github/
 git commit <span class="nt">-m</span> <span class="s2">"Add GitHub Actions workflow for code quality checks"</span>
 git push
 </code></pre></div></div>
 
+<p><strong>Why commit now?</strong></p>
+<ul>
+  <li>GitHub Actions only runs on code that’s been pushed to GitHub</li>
+  <li>You need to push the workflow file itself before it can run</li>
+  <li>This ensures the workflow is part of your repository</li>
+</ul>
+
+<h2 id="id_3-test-github-actions">3. Test GitHub Actions</h2>
+
 <ol>
-  <li><strong>Verify it runs:</strong>
+  <li>
+    <p><strong>Verify it runs:</strong></p>
+
     <ul>
       <li>Go to your GitHub repository</li>
       <li>Click on the “Actions” tab</li>
@@ -210,7 +251,8 @@ git push
       <li>Wait for it to complete (should show green checkmarks if everything passes)</li>
     </ul>
   </li>
-  <li><strong>If it fails:</strong>
+  <li>
+    <p><strong>If it fails:</strong></p>
     <ul>
       <li>Click on the failed workflow</li>
       <li>Review the error messages</li>
@@ -225,7 +267,7 @@ git push
   <p>Verify your GitHub Actions workflow runs successfully on push.</p>
 </blockquote>
 
-<h3 id="id_step-63-understanding-workflow-results">Step 6.3: Understanding Workflow Results</h3>
+<h2 id="id_4-understanding-workflow-results">4. Understanding Workflow Results</h2>
 
 <p><strong>Green checkmark (✓):</strong> All checks passed! Your code meets quality standards.</p>
 
@@ -247,8 +289,31 @@ git push
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Make sure you understand how to read and fix workflow results.</p>
+
+  <p><strong>Backend</strong>:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run all checks (doesn't modify files)</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend bash scripts/check.sh
+
+<span class="c"># Automatically fix formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend bash scripts/fix.sh
+</code></pre></div>  </div>
+
+  <p><strong>Frontend</strong>:</p>
+
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check for linting and formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm run check
+
+<span class="c"># Automatically fix linting and formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm run fix
+</code></pre></div>  </div>
+
+  <p>Then, stage, commit, push and try again!</p>
 </blockquote>
 
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
 
 
 

@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>'Starter' Frontend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-create-packagejson">1. Create package.json</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-create-vite-configuration">2. Create Vite Configuration</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-create-html-entry-point">3. Create HTML Entry Point</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-create-javascript-entry-point-mainjsx">4. Create JavaScript Entry Point (main.jsx)</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_5-create-a-minimal-app-component">5. Create a Minimal App Component</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_6-add-basic-styling">6. Add Basic Styling</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-5"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_7-configure-linters-and-formatters">7. Configure Linters and Formatters</a>
+    <ol>
+      <li><a href="#id_71-configure-eslint">7.1. Configure ESLint</a></li>
+      <li><a href="#id_72-configure-prettier">7.2. Configure Prettier</a></li>
+      <li><a href="#id_73-create-prettier-ignore-file">7.3. Create Prettier Ignore File</a></li>
+      <li><a href="#id_-before-you-move-on-6"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_8-create-a-dockerfile-to-build-the-frontend-server">8. Create A Dockerfile to Build the Frontend Server</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-7"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_9-summary">9. Summary</a></li>
+  <li><a href="#id_10-commit-and-push">10. Commit and Push</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-8"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        'Starter' Frontend
+    </h1>
+    
+ 
+                <p>
+    
+    
+    
+</p>
+
+<p>We will build the frontend user interface (UI) in two parts. First (this page), we’ll build the most minimal working react app possible. Then, in section 6, we’ll enhance our UI so that it interacts with our FastAPI Backend.</p>
+
+<h2 id="id_1-create-packagejson">1. Create package.json</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/package.json</code> - This file defines your project dependencies and scripts:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ui"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main.js"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"preview"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vite preview"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --max-warnings 0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint . --fix"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --check </span><span class="se">\"</span><span class="s2">src/**/*.{js,jsx,json,css}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"format:fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prettier --write </span><span class="se">\"</span><span class="s2">src/**/*.{js,jsx,json,css}</span><span class="se">\"</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"check"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format:check &amp;&amp; npm run lint:check"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fix"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run format:fix &amp;&amp; npm run lint:fix"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"commonjs"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"react-dom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^19.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vite"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.2.2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@eslint/js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^9.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.57.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-mocha"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.34.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react-hooks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.6.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"eslint-plugin-react-refresh"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.4.6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"globals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^15.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"prettier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.3.0"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li><strong>dependencies</strong> - Packages needed to run your app (React, Vite)</li>
+  <li><strong>devDependencies</strong> - Tools for development (ESLint, Prettier)</li>
+  <li><strong>scripts</strong> - Commands you can run with <code class="language-plaintext highlighter-rouge">npm run</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">dev</code> - Start development server</li>
+      <li><code class="language-plaintext highlighter-rouge">build</code> - Build for production</li>
+      <li><code class="language-plaintext highlighter-rouge">lint:check</code> / <code class="language-plaintext highlighter-rouge">lint:fix</code> - Check/fix code quality</li>
+      <li><code class="language-plaintext highlighter-rouge">format:check</code> / <code class="language-plaintext highlighter-rouge">format:fix</code> - Check/fix code formatting</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Important:</strong></p>
+<ul>
+  <li>Copy these versions exactly. Different versions may cause compatibility issues.</li>
+  <li>You don’t need to install dependencies locally! The Docker container will install them automatically when you build it.</li>
+</ul>
+
+<p>Dependencies will be installed automatically when you build your containers (<code class="language-plaintext highlighter-rouge">npm install</code> will run during the build process).</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">package.json</code> file exists and contains all the required dependencies listed above.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   └── package.json      <span class="c"># new</span>
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_2-create-vite-configuration">2. Create Vite Configuration</h2>
+
+<p><strong>What is Vite?</strong>
+Vite (pronounced “veet”, French for “fast”) is a build tool and development server for modern web applications. It’s what will:</p>
+
+<ul class="compact">
+  <li>Start your development server (so you can see your app in the browser)</li>
+  <li>Handle hot module replacement (HMR) - automatically refresh your browser when you change code</li>
+  <li>Bundle your code for production</li>
+  <li>Transform your JSX into regular JavaScript that browsers can understand</li>
+</ul>
+
+<p><strong>What is the config file?</strong>
+The <code class="language-plaintext highlighter-rouge">vite.config.js</code> file tells Vite how to behave. It’s like a settings file that configures:</p>
+
+<ul class="compact">
+  <li>Which port to run the development server on</li>
+  <li>How to watch for file changes (important for Docker)</li>
+  <li>Where to output production builds</li>
+  <li>How to handle environment variables</li>
+</ul>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/vite.config.js</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vite</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// https://vitejs.dev/config/</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">defineConfig</span><span class="p">({</span>
+    <span class="na">server</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">host</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0.0.0</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// Allow external connections</span>
+        <span class="na">port</span><span class="p">:</span> <span class="mi">5173</span><span class="p">,</span>
+        <span class="na">strictPort</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Fail if port is already in use</span>
+        <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">usePolling</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Required for Docker file watching</span>
+            <span class="na">interval</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1">// Poll every second</span>
+        <span class="p">},</span>
+        <span class="na">hmr</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">clientPort</span><span class="p">:</span> <span class="mi">5173</span><span class="p">,</span> <span class="c1">// Port the browser connects to (mapped port from docker-compose)</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="c1">// Production build settings</span>
+    <span class="na">build</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">outDir</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dist</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">sourcemap</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">minify</span><span class="p">:</span> <span class="dl">"</span><span class="s2">esbuild</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="c1">// Environment variables - Vite requires VITE_ prefix</span>
+    <span class="na">envPrefix</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VITE_</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">vite.config.js</code> file exists in the <code class="language-plaintext highlighter-rouge">ui/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   ├── package.json
+│   └── vite.config.js    <span class="c"># new</span>
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_3-create-html-entry-point">3. Create HTML Entry Point</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/index.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>TODO App<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"app"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"./src/main.jsx"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Creates the <code class="language-plaintext highlighter-rouge">&lt;div id="app"&gt;</code> where React will render</li>
+  <li>Loads <code class="language-plaintext highlighter-rouge">main.jsx</code> as a module (Vite handles the rest)</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">index.html</code> file exists in the <code class="language-plaintext highlighter-rouge">ui/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   ├── index.html 
+│   ├── package.json 
+│   └── vite.config.js    <span class="c"># new</span>
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_4-create-javascript-entry-point-mainjsx">4. Create JavaScript Entry Point (main.jsx)</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/main.jsx</code> - This is where React starts rendering your app:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">createRoot</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-dom/client</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./App.jsx</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">rootEl</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nf">createRoot</span><span class="p">(</span><span class="nx">rootEl</span><span class="p">);</span>
+    <span class="nx">root</span><span class="p">.</span><span class="nf">render</span><span class="p">(&lt;</span><span class="nc">App</span> <span class="p">/&gt;);</span>
+<span class="p">}</span>
+
+<span class="nf">main</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Finds the <code class="language-plaintext highlighter-rouge">&lt;div id="app"&gt;</code> element in <code class="language-plaintext highlighter-rouge">index.html</code></li>
+  <li>Creates a React root (React 18+ way to render)</li>
+  <li>Renders the <code class="language-plaintext highlighter-rouge">App</code> component into that div</li>
+  <li>This is the entry point - React starts here</li>
+</ul>
+
+<p><strong>Why this structure:</strong></p>
+
+<ul class="compact">
+  <li>Separates rendering logic into a function</li>
+  <li>Makes it clear where the app starts</li>
+  <li>Works with Vite’s module system</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">main.jsx</code> file exists in the <code class="language-plaintext highlighter-rouge">ui/src/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   │   └── main.jsx      <span class="c"># new</span>
+│   ├── index.html 
+│   ├── package.json
+│   └── vite.config.js
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_5-create-a-minimal-app-component">5. Create a Minimal App Component</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code> - Start with the simplest possible component:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>TODO List<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Your app will go here!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Creates a simple React component</li>
+  <li>Returns JSX (HTML-like syntax)</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;&gt;...&lt;/&gt;</code> is a React Fragment (groups elements without adding extra HTML)</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+
+<ul class="compact">
+  <li><strong>Component</strong> - A function that returns JSX</li>
+  <li><strong>JSX</strong> - JavaScript syntax that looks like HTML</li>
+  <li><strong>Export default</strong> - Makes this component available to import</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">App.jsx</code> file exists in the <code class="language-plaintext highlighter-rouge">ui/src/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   │   ├── main.jsx
+│   │   └── App.jsx       <span class="c"># new</span>
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_6-add-basic-styling">6. Add Basic Styling</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/globals.css</code> - Add styles so you can see your app taking shape:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#f0f0f0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">header</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">hotpink</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">black</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">30px</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Update App.jsx</strong> to import the CSS:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./globals.css</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// &lt;-- Add this line</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="p">&lt;&gt;</span>
+            <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>TODO List<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Your app will go here!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+        <span class="p">&lt;/&gt;</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Adds global styles to your app</li>
+  <li>Makes the header pink so you can see it</li>
+  <li>Centers content with max-width</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-5"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">globals.css</code> file exists and is imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── globals.css   <span class="c"># new</span>
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_7-configure-linters-and-formatters">7. Configure Linters and Formatters</h2>
+
+<p>The frontend uses two linting and formatting tools:</p>
+
+<ul class="compact">
+  <li><strong>ESLint</strong> - JavaScript/React linter (finds code quality issues)</li>
+  <li><strong>Prettier</strong> - Code formatter (ensures consistent code style)</li>
+</ul>
+
+<h3 id="id_71-configure-eslint">7.1. Configure ESLint</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/.eslintrc.cjs</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">root</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">env</span><span class="p">:</span> <span class="p">{</span> <span class="na">browser</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">es2020</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="na">extends</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">eslint:recommended</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">plugin:react/recommended</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">plugin:react/jsx-runtime</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">plugin:react-hooks/recommended</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">],</span>
+  <span class="na">ignorePatterns</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">.eslintrc.cjs</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">parserOptions</span><span class="p">:</span> <span class="p">{</span> <span class="na">ecmaVersion</span><span class="p">:</span> <span class="dl">'</span><span class="s1">latest</span><span class="dl">'</span><span class="p">,</span> <span class="na">sourceType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">module</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="na">settings</span><span class="p">:</span> <span class="p">{</span> <span class="na">react</span><span class="p">:</span> <span class="p">{</span> <span class="na">version</span><span class="p">:</span> <span class="dl">'</span><span class="s1">18.2</span><span class="dl">'</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">react-refresh</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">rules</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">react-refresh/only-export-components</span><span class="dl">'</span><span class="p">:</span> <span class="p">[</span>
+      <span class="dl">'</span><span class="s1">warn</span><span class="dl">'</span><span class="p">,</span>
+      <span class="p">{</span> <span class="na">allowConstantExport</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="dl">'</span><span class="s1">react/prop-types</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">off</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Disable prop-types as we're not using TypeScript</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Enables ESLint for browser and ES2020 environment</li>
+  <li>Extends recommended React rules</li>
+  <li>Configures React hooks linting</li>
+  <li>Disables prop-types (since we’re not using TypeScript)</li>
+  <li>Warns about React Refresh best practices</li>
+</ul>
+
+<h3 id="id_72-configure-prettier">7.2. Configure Prettier</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/.prettierrc</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"semi"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"trailingComma"</span><span class="p">:</span><span class="w"> </span><span class="s2">"es5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"singleQuote"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"printWidth"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tabWidth"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"useTabs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"arrowParens"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endOfLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lf"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Uses semicolons</li>
+  <li>Single quotes for strings</li>
+  <li>80 character line width</li>
+  <li>4 spaces for indentation</li>
+  <li>Consistent line endings (LF)</li>
+</ul>
+
+<h3 id="id_73-create-prettier-ignore-file">7.3. Create Prettier Ignore File</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/.prettierignore</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node_modules
+dist
+build
+coverage
+*.lock
+package-lock.json
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+
+<ul class="compact">
+  <li>Tells Prettier to skip formatting these files/directories</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-6"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your linter configuration files exist:
+      <ul>
+        <li><code class="language-plaintext highlighter-rouge">ui/.eslintrc.cjs</code></li>
+        <li><code class="language-plaintext highlighter-rouge">ui/.prettierrc</code></li>
+        <li><code class="language-plaintext highlighter-rouge">ui/.prettierignore</code></li>
+      </ul>
+    </li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── globals.css
+│   ├── .eslintrc.cjs        <span class="c"># new</span>
+│   ├── .prettierrc          <span class="c"># new</span>
+│   ├── .prettierignore      <span class="c"># new</span>
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_8-create-a-dockerfile-to-build-the-frontend-server">8. Create A Dockerfile to Build the Frontend Server</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/Dockerfile</code>:</p>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use Node.js 20 as the base image</span>
+<span class="k">FROM</span><span class="s"> node:20-slim</span>
+
+<span class="c"># Set working directory</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Copy package files</span>
+<span class="k">COPY</span><span class="s"> package.json ./</span>
+
+<span class="c"># Install dependencies</span>
+<span class="k">RUN </span>npm <span class="nb">install</span>
+
+<span class="c"># Copy application code</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="c"># Expose the port Vite runs on</span>
+<span class="k">EXPOSE</span><span class="s"> 5173</span>
+
+<span class="c"># Default command (can be overridden in docker-compose.yaml)</span>
+<span class="k">CMD</span><span class="s"> ["npm", "run", "dev", "--", "--host", "0.0.0.0"]</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-7"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">Dockerfile</code> exists in the <code class="language-plaintext highlighter-rouge">ui/</code> directory.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── ...
+├── backend/
+│   └── ...
+├── ui/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── globals.css
+│   ├── .eslintrc.cjs       
+│   ├── .prettierrc          
+│   ├── .prettierignore      
+│   ├── Dockerfile           <span class="c"># new</span>
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_9-summary">9. Summary</h2>
+
+<p>You now have a working React app with:</p>
+
+<ul class="compact">
+  <li>Project configuration (package.json)</li>
+  <li>Vite bundler</li>
+  <li>Entry point (main.jsx)</li>
+  <li>Basic component (App.jsx)</li>
+  <li>Styling (globals.css)</li>
+  <li>HTML structure (index.html)</li>
+  <li>Linting</li>
+  <li>A Dockerfile to build the UI container</li>
+</ul>
+
+<p><strong>What you’ve learned:</strong></p>
+
+<ul class="compact">
+  <li>How to set up a React project with npm/package.json</li>
+  <li>How React renders components</li>
+  <li>Basic JSX syntax</li>
+  <li>How to import and use CSS</li>
+  <li>Component structure</li>
+  <li>How to configure Vite as a build tool and development server</li>
+  <li>How to set up ESLint for code quality checking</li>
+  <li>How to configure Prettier for consistent code formatting</li>
+  <li>How to create a Dockerfile to containerize your frontend application</li>
+</ul>
+
+<p><strong>Next:</strong> In Part 6 (coming in future steps), you’ll add the Todos and CreateTodo components to make it functional.</p>
+
+<h2 id="id_10-commit-and-push">10. Commit and Push</h2>
+<p>Go ahead and commit / push your changes to git / GitHub.</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-8"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that all your new code is on GitHub.</p>
+</blockquote>
+
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

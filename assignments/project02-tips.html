@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_common-issues-and-solutions">Common Issues and Solutions</a>
+    <ol>
+      <li><a href="#id_issue-command-not-found-poetry">Issue: “Command not found: poetry”</a></li>
+      <li><a href="#id_issue-module-not-found-errors">Issue: “Module not found” errors</a></li>
+      <li><a href="#id_issue-database-connection-errors">Issue: Database connection errors</a></li>
+      <li><a href="#id_issue-frontend-cant-connect-to-backend">Issue: Frontend can’t connect to backend</a></li>
+      <li><a href="#id_issue-port-already-in-use">Issue: Port already in use</a></li>
+      <li><a href="#id_issue-github-actions-fails">Issue: GitHub Actions fails</a></li>
+      <li><a href="#id_issue-workflow-file-not-found-in-github-actions">Issue: “Workflow file not found” in GitHub Actions</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_additional-resources">Additional Resources</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Tips
+    </h1>
+    
+ 
+                <p>
+    
+    
+    
+</p>
+
+<h2 id="id_common-issues-and-solutions">Common Issues and Solutions</h2>
+
+<h3 id="id_issue-command-not-found-poetry">Issue: “Command not found: poetry”</h3>
+<p><strong>Solution:</strong> Make sure you’ve run <code class="language-plaintext highlighter-rouge">poetry install</code> in the backend directory.</p>
+
+<h3 id="id_issue-module-not-found-errors">Issue: “Module not found” errors</h3>
+<p><strong>Solution:</strong> Verify all dependencies are installed and versions match exactly.</p>
+
+<h3 id="id_issue-database-connection-errors">Issue: Database connection errors</h3>
+<p><strong>Solution:</strong> Check that the database service is healthy before the backend starts (healthcheck in docker-compose).</p>
+
+<h3 id="id_issue-frontend-cant-connect-to-backend">Issue: Frontend can’t connect to backend</h3>
+<p><strong>Solution:</strong> Verify <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> environment variable is set correctly in docker-compose.</p>
+
+<h3 id="id_issue-port-already-in-use">Issue: Port already in use</h3>
+<p><strong>Solution:</strong> Change ports in docker-compose.yaml or stop other services using those ports.</p>
+
+<h3 id="id_issue-github-actions-fails">Issue: GitHub Actions fails</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+  <li>Check the error message in the Actions tab</li>
+  <li>Run the same commands locally that failed in CI</li>
+  <li>Fix formatting: <code class="language-plaintext highlighter-rouge">poetry run black .</code> and <code class="language-plaintext highlighter-rouge">poetry run isort .</code> in backend</li>
+  <li>Fix linting: <code class="language-plaintext highlighter-rouge">npm run fix</code> in frontend</li>
+  <li>Commit and push again</li>
+</ul>
+
+<h3 id="id_issue-workflow-file-not-found-in-github-actions">Issue: “Workflow file not found” in GitHub Actions</h3>
+<p><strong>Solution:</strong> Make sure <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> exists and is committed to the repository.</p>
+
+<h2 id="id_additional-resources">Additional Resources</h2>
+
+<ul>
+  <li><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></li>
+  <li><a href="https://react.dev/">React Documentation</a></li>
+  <li><a href="https://docs.docker.com/compose/">Docker Compose Documentation</a></li>
+  <li><a href="https://vitejs.dev/">Vite Documentation</a></li>
+</ul>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

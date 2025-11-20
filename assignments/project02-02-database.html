@@ -53,8 +53,11 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_1-create-database-dockerfile">1. Create Database Dockerfile</a></li>
-  <li><a href="#id_2-create-env-file">2. Create .env File</a></li>
+  <li><a href="#id_1-introduction">1. Introduction</a></li>
+  <li><a href="#id_2-create-a-new-branch">2. Create a New Branch</a></li>
+  <li><a href="#id_3-create-database-dockerfile">3. Create Database Dockerfile</a></li>
+  <li><a href="#id_4-create-env-file">4. Create .env File</a></li>
+  <li><a href="#id_5-push-your-new-branch">5. Push your new branch</a></li>
 </ol>
 
             </aside>
@@ -70,13 +73,95 @@
  
                 <p>
     
-        Due on Fri, 12/05 @ 11:59PM.
-    
     
     
 </p>
 
-<h2 id="id_1-create-database-dockerfile">1. Create Database Dockerfile</h2>
+<h2 id="id_1-introduction">1. Introduction</h2>
+
+<p>We are now going to start building our Docker containers. This project uses a <strong>three-container architecture</strong> where each service runs in its own isolated container:</p>
+
+<ol>
+  <li><strong>Database Container</strong> - PostgreSQL database for storing application data</li>
+  <li><strong>Backend Container</strong> - FastAPI server that handles API requests and communicates with the database</li>
+  <li><strong>Frontend Container</strong> - React application that provides the user interface</li>
+</ol>
+
+<p><strong>Why three containers?</strong></p>
+<ul>
+  <li><strong>Separation of concerns</strong> - Each service has its own environment and dependencies</li>
+  <li><strong>Scalability</strong> - You can scale each service independently</li>
+  <li><strong>Isolation</strong> - Problems in one container don’t affect the others</li>
+  <li><strong>Development</strong> - Each service can be developed and tested independently</li>
+</ul>
+
+<p>The containers communicate with each other through Docker’s internal networking, which we’ll configure in the <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> file.</p>
+
+<p><strong>Architecture Diagram:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────┐
+│                    Your Laptop                              │
+│                                                             │
+│  ┌──────────────┐         ┌──────────────┐                  │
+│  │   Browser    │────────▶│  Frontend    │                  │
+│  │              │  :5173  │  Container   │                  │
+│  │ localhost    │◀────────│  (React)     │                  │
+│  └──────────────┘         └──────┬───────┘                  │
+│                                  │                          │
+│                                  │ HTTP Requests            │
+│                                  │ (localhost:8000)         │
+│                                  ▼                          │
+│                          ┌──────────────┐                   │
+│                          │   Backend    │                   │
+│                          │  Container   │                   │
+│                          │  (FastAPI)   │                   │
+│                          └──────┬───────┘                   │
+│                                  │                          │
+│                                  │ SQL Queries              │
+│                                  │ (internal Docker network)│
+│                                  ▼                          │
+│                          ┌──────────────┐                   │
+│                          │  Database    │                   │
+│                          │  Container   │                   │
+│                          │ (PostgreSQL) │                   │
+│                          └──────────────┘                   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Port Mappings:
+- Frontend:  localhost:5173  ←→  Container:5173
+- Backend:   localhost:8000  ←→  Container:8000
+- Database:  localhost:5433  ←→  Container:5432 (internal only)
+</code></pre></div></div>
+
+<p><strong>How it works:</strong></p>
+<ul>
+  <li>Your <strong>browser</strong> connects to the frontend container on port 5173</li>
+  <li>The <strong>frontend</strong> makes HTTP requests to the backend on port 8000</li>
+  <li>The <strong>backend</strong> communicates with the database using Docker’s internal network</li>
+  <li>All three containers run simultaneously on your laptop via Docker</li>
+</ul>
+
+<h2 id="id_2-create-a-new-branch">2. Create a New Branch</h2>
+
+<p>Before you begin, create a new Git branch for this work:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-b</span> system-setup
+</code></pre></div></div>
+
+<p><strong>Why create a branch?</strong></p>
+<ul>
+  <li>Keeps your work organized</li>
+  <li>Allows you to experiment without affecting the main branch</li>
+  <li>Makes it easier to review changes before merging</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that you’re on your new branch – not main.</p>
+</blockquote>
+
+<h2 id="id_3-create-database-dockerfile">3. Create Database Dockerfile</h2>
 
 <p>Create <code class="language-plaintext highlighter-rouge">database/Dockerfile</code> with the following <strong>exact</strong> content:</p>
 
@@ -91,7 +176,7 @@
   <li>PostgreSQL will create databases as needed</li>
 </ul>
 
-<h2 id="id_2-create-env-file">2. Create .env File</h2>
+<h2 id="id_4-create-env-file">4. Create .env File</h2>
 
 <p>Create a <code class="language-plaintext highlighter-rouge">.env</code> file at the root of your project with the following content:</p>
 
@@ -109,7 +194,7 @@
 </ul>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <ul>
     <li>Verify your <code class="language-plaintext highlighter-rouge">.env</code> file exists at the project root and contains the DATABASE_URL.</li>
     <li>Also verify that your file structure looks like the one below:</li>
@@ -122,10 +207,23 @@
 │   └── models/
 ├── ui/
 │   └── src/
-└── .env            <span class="c"># new (and excluded from version control via .gitignore)</span>
+├── .env            <span class="c"># new (and excluded from version control via .gitignore)</span>
+├── .gitignore
+└── README.md
 </code></pre></div>  </div>
 </blockquote>
 
+<h2 id="id_5-push-your-new-branch">5. Push your new branch</h2>
+<p>Go ahead and push your new branch to GitHub.</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that your new branch is on GitHub.</p>
+</blockquote>
+
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
 
 
 

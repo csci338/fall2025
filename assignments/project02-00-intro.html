@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Introduction to the Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_what-youll-build">What You’ll Build</a>
+    <ol>
+      <li><a href="#id_development-environment">Development Environment</a></li>
+      <li><a href="#id_code-development">Code Development</a></li>
+      <li><a href="#id_continuous-integration">Continuous Integration</a></li>
+      <li><a href="#id_production-deployment">Production Deployment</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_architecture-development-vs-production">Architecture: Development vs. Production</a>
+    <ol>
+      <li><a href="#id_development-architecture-local">Development Architecture (Local)</a></li>
+      <li><a href="#id_production-architecture-railway">Production Architecture (Railway)</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_project-overview">Project Overview</a></li>
+  <li><a href="#id_learning-objectives">Learning Objectives</a></li>
+  <li><a href="#id_getting-started">Getting Started</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Introduction to the Project
+    </h1>
+    
+ 
+                <p>
+    
+    
+    
+</p>
+
+<p>Congratulations! You’ve made it to the end of Software Engineering. For your final assignment, you’ll build a complete full-stack web application from scratch.</p>
+
+<h2 id="id_what-youll-build">What You’ll Build</h2>
+
+<p>Throughout this semester, you’ve worked with individual pieces of a full-stack system. Now it’s time to put it all together and build a complete application that includes:</p>
+
+<h3 id="id_development-environment">Development Environment</h3>
+<ul>
+  <li><strong>Database Container</strong> - PostgreSQL database running in Docker</li>
+  <li><strong>Backend Container</strong> - FastAPI server with REST API endpoints</li>
+  <li><strong>Frontend Container</strong> - React application with modern UI</li>
+  <li><strong>Docker Compose</strong> - Orchestrates all three containers locally</li>
+</ul>
+
+<h3 id="id_code-development">Code Development</h3>
+<ul>
+  <li><strong>Backend Code</strong> - FastAPI routes, database models, business logic</li>
+  <li><strong>Frontend Code</strong> - React components, API integration, user interface</li>
+  <li><strong>Code Quality</strong> - Formatting (Black, Prettier) and linting (flake8, ESLint)</li>
+</ul>
+
+<h3 id="id_continuous-integration">Continuous Integration</h3>
+<ul>
+  <li><strong>GitHub Actions</strong> - Automated code quality checks on every push</li>
+  <li><strong>Workflow Automation</strong> - Catches issues before they reach production</li>
+</ul>
+
+<h3 id="id_production-deployment">Production Deployment</h3>
+<ul>
+  <li><strong>Cloud Database</strong> - PostgreSQL database hosted on Railway</li>
+  <li><strong>Production Container</strong> - Optimized Docker image for deployment</li>
+  <li><strong>Live Application</strong> - Your app accessible on the internet via Railway</li>
+</ul>
+
+<h2 id="id_architecture-development-vs-production">Architecture: Development vs. Production</h2>
+
+<h3 id="id_development-architecture-local">Development Architecture (Local)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────┐
+│                    Your Laptop (Development)                │
+│                                                             │
+│  ┌──────────────┐         ┌──────────────┐                  │
+│  │   Browser    │────────▶│  Frontend    │                  │
+│  │              │  :5173  │  Container   │                  │
+│  │ localhost    │◀────────│  (React)     │                  │
+│  └──────────────┘         └──────┬───────┘                  │
+│                                  │                          │
+│                                  │ HTTP Requests            │
+│                                  │ (localhost:8000)         │
+│                                  ▼                          │
+│                          ┌──────────────┐                   │
+│                          │   Backend    │                   │
+│                          │  Container   │                   │
+│                          │  (FastAPI)   │                   │
+│                          └──────┬───────┘                   │
+│                                 │                           │
+│                                 │ SQL Queries               │
+│                                 │ (Docker network)          │
+│                                 ▼                           │
+│                          ┌──────────────┐                   │
+│                          │  Database    │                   │
+│                          │  Container   │                   │
+│                          │ (PostgreSQL) │                   │
+│                          └──────────────┘                   │
+│                                                             │
+│  All containers managed by docker-compose.yaml              │
+│  Code changes reflect immediately (hot reload)              │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+
+<p><strong>Key characteristics:</strong></p>
+<ul>
+  <li>All services run on your laptop</li>
+  <li>Docker Compose manages containers</li>
+  <li>Hot reload for rapid development</li>
+  <li>Local database with test data</li>
+  <li>Development tools enabled (debugging, verbose logging)</li>
+</ul>
+
+<h3 id="id_production-architecture-railway">Production Architecture (Railway)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────┐
+│                      Internet Users                         │
+│                                                             │
+│  ┌──────────────┐                                           │
+│  │   Browser    │                                           │
+│  │              │                                           │
+│  │  https://    │                                           │
+│  │  your-app.   │                                           │
+│  │  railway.app │                                           │
+│  └──────┬───────┘                                           │
+│         │                                                   │
+│         │ HTTPS Requests                                    │
+│         │                                                   │
+│         ▼                                                   │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │              Railway Platform                        │   │
+│  │                                                      │   │
+│  │  ┌──────────────┐         ┌──────────────┐           │   │
+│  │  │  Frontend    │────────▶│   Backend    │           │   │
+│  │  │  Container   │  HTTP   │   Container  │           │   │
+│  │  │  (React)     │◀────────│  (FastAPI)   │           │   │
+│  │  └──────────────┘         └──────┬───────┘           │   │
+│  │                                  │                   │   │
+│  │                                  │ SQL Queries       │   │
+│  │                                  │ (SSL connection)  │   │
+│  │                                  ▼                   │   │
+│  │                           ┌──────────────┐           │   │
+│  │                           │   Railway    │           │   │
+│  │                           │   PostgreSQL │           │   │
+│  │                           │   Database   │           │   │
+│  │                           │  (Managed)   │           │   │
+│  │                           └──────────────┘           │   │
+│  │                                                      │   │
+│  │  Each service runs in its own isolated container     │   │
+│  │  Database is managed by Railway (separate service)   │   │
+│  └──────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+
+<p><strong>Key characteristics:</strong></p>
+<ul>
+  <li>Services run on Railway’s cloud infrastructure</li>
+  <li>Each service is independently scalable</li>
+  <li>Database is a managed service (not a container)</li>
+  <li>HTTPS encryption for all traffic</li>
+  <li>Optimized for performance (no hot reload, production builds)</li>
+  <li>Accessible from anywhere on the internet</li>
+</ul>
+
+<h2 id="id_project-overview">Project Overview</h2>
+
+<p>This project is divided into several sections, each building on the previous:</p>
+
+<ol>
+  <li><strong>Setup &amp; Git</strong> - Project structure, Git repository, GitHub connection</li>
+  <li><strong>Database</strong> - PostgreSQL container configuration</li>
+  <li><strong>Backend</strong> - FastAPI server with CRUD endpoints, models, and database connection</li>
+  <li><strong>Frontend</strong> - React application with API integration</li>
+  <li><strong>Docker Configuration</strong> - Development and production container setup</li>
+  <li><strong>Continuous Integration</strong> - GitHub Actions for automated code quality checks</li>
+  <li><strong>Cloud Deployment</strong> - Railway setup with production database and containers</li>
+  <li><strong>Working with Containers</strong> - Commands for package management and database queries</li>
+  <li><strong>Enhancements</strong> - Ideas for extending your application</li>
+</ol>
+
+<h2 id="id_learning-objectives">Learning Objectives</h2>
+
+<p>By completing this project, you will:</p>
+
+<ul>
+  <li><strong>Understand full-stack architecture</strong> - How frontend, backend, and database work together</li>
+  <li><strong>Master containerization</strong> - Docker and Docker Compose for development and production</li>
+  <li><strong>Practice CI/CD</strong> - Automated testing and code quality checks</li>
+  <li><strong>Deploy to production</strong> - Real-world cloud deployment on Railway</li>
+  <li><strong>Write production-quality code</strong> - Formatting, linting, and best practices</li>
+  <li><strong>Build a portfolio project</strong> - A complete application you can showcase</li>
+</ul>
+
+<h2 id="id_getting-started">Getting Started</h2>
+
+<p>This project builds incrementally. Follow each section in order, and don’t skip ahead! Each section includes checkpoints to verify your progress before moving on.</p>
+
+<p><strong>Ready to begin?</strong> Start with the Setup &amp; Git section to create your project structure.</p>
+
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script>
+            window.h_max = "3";
+        </script>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

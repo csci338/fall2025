@@ -53,11 +53,14 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_table-of-contents">Table of Contents</a></li>
-  <li><a href="#id_final-validation-checklist">Final Validation Checklist</a></li>
-  <li><a href="#id_common-issues-and-solutions">Common Issues and Solutions</a></li>
-  <li><a href="#id_additional-resources">Additional Resources</a></li>
-  <li><a href="#id_grading-criteria">Grading Criteria</a></li>
+  <li><a href="#id_table-of-contents">Table of Contents</a>
+    <ol>
+      <li><a href="#id_part-1-build-your-system">Part 1. Build Your System</a></li>
+      <li><a href="#id_part-2-get-react-to-communicate-with-fastapi">Part 2. Get React to Communicate with FastAPI</a></li>
+      <li><a href="#id_part-3-your-tasks">Part 3. Your Tasks</a></li>
+      <li><a href="#id_part-4-deployment">Part 4. Deployment</a></li>
+    </ol>
+  </li>
 </ol>
 
             </aside>
@@ -76,7 +79,7 @@
         Due on Fri, 12/05 @ 11:59PM.
     
     
-        20 Points.
+        100 Points.
     
     
 </p>
@@ -85,93 +88,34 @@
 
 <h2 id="id_table-of-contents">Table of Contents</h2>
 
+<h3 id="id_part-1-build-your-system">Part 1. Build Your System</h3>
 <ol>
+  <li><a href="project02-00-intro">Introduction</a></li>
   <li><a href="project02-01-setup">Project Setup &amp; Git</a></li>
   <li><a href="project02-02-database">Database</a></li>
   <li><a href="project02-03-backend">Backend</a></li>
-  <li><a href="project02-04-frontend">Frontend</a></li>
-  <li><a href="project02-05-docker">Docker Configuration</a></li>
-  <li><a href="project02-06-cicd">CI/CD Pipeline</a></li>
-  <li><a href="project02-07-railway">Railway Deployment</a></li>
+  <li><a href="project02-04-starter-ui">“Starter” Frontend</a></li>
+  <li><a href="project02-05-docker">Build Your Containers with the Docker Compose File</a></li>
 </ol>
 
-<hr />
-
-<h2 id="id_final-validation-checklist">Final Validation Checklist</h2>
-
-<p>Before submitting, verify:</p>
-
-<ul class="checkbox-list">
-  <li>All Dockerfiles exist and are in correct locations</li>
-  <li><code class="language-plaintext highlighter-rouge">pyproject.toml</code> has exact dependency versions listed</li>
-  <li><code class="language-plaintext highlighter-rouge">package.json</code> has exact dependency versions listed</li>
-  <li><code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> exists and all services are defined</li>
-  <li><code class="language-plaintext highlighter-rouge">.gitignore</code> is in place</li>
-  <li>Application runs with <code class="language-plaintext highlighter-rouge">docker-compose up</code></li>
-  <li>Frontend connects to backend API</li>
-  <li>CRUD operations work (Create, Read, Update, Delete todos)</li>
-  <li>Production Dockerfile builds successfully</li>
-  <li>Git repository initialized and code committed</li>
-  <li>GitHub Actions workflow file exists (<code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code>)</li>
-  <li>GitHub Actions workflow runs successfully (green checkmarks)</li>
-</ul>
-
-<hr />
-
-<blockquote class="info">
-  <h2 id="id_common-issues-and-solutions">Common Issues and Solutions</h2>
-
-  <h3 id="id_issue-command-not-found-poetry">Issue: “Command not found: poetry”</h3>
-  <p><strong>Solution:</strong> Make sure you’ve run <code class="language-plaintext highlighter-rouge">poetry install</code> in the backend directory.</p>
-
-  <h3 id="id_issue-module-not-found-errors">Issue: “Module not found” errors</h3>
-  <p><strong>Solution:</strong> Verify all dependencies are installed and versions match exactly.</p>
-
-  <h3 id="id_issue-database-connection-errors">Issue: Database connection errors</h3>
-  <p><strong>Solution:</strong> Check that the database service is healthy before the backend starts (healthcheck in docker-compose).</p>
-
-  <h3 id="id_issue-frontend-cant-connect-to-backend">Issue: Frontend can’t connect to backend</h3>
-  <p><strong>Solution:</strong> Verify <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> environment variable is set correctly in docker-compose.</p>
-
-  <h3 id="id_issue-port-already-in-use">Issue: Port already in use</h3>
-  <p><strong>Solution:</strong> Change ports in docker-compose.yaml or stop other services using those ports.</p>
-
-  <h3 id="id_issue-github-actions-fails">Issue: GitHub Actions fails</h3>
-  <p><strong>Solution:</strong></p>
-  <ul>
-    <li>Check the error message in the Actions tab</li>
-    <li>Run the same commands locally that failed in CI</li>
-    <li>Fix formatting: <code class="language-plaintext highlighter-rouge">poetry run black .</code> and <code class="language-plaintext highlighter-rouge">poetry run isort .</code> in backend</li>
-    <li>Fix linting: <code class="language-plaintext highlighter-rouge">npm run fix</code> in frontend</li>
-    <li>Commit and push again</li>
-  </ul>
-
-  <h3 id="id_issue-workflow-file-not-found-in-github-actions">Issue: “Workflow file not found” in GitHub Actions</h3>
-  <p><strong>Solution:</strong> Make sure <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> exists and is committed to the repository.</p>
-</blockquote>
-
-<h2 id="id_additional-resources">Additional Resources</h2>
-
-<ul>
-  <li><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></li>
-  <li><a href="https://react.dev/">React Documentation</a></li>
-  <li><a href="https://docs.docker.com/compose/">Docker Compose Documentation</a></li>
-  <li><a href="https://vitejs.dev/">Vite Documentation</a></li>
-</ul>
-
-<h2 id="id_grading-criteria">Grading Criteria</h2>
-
-<p>Your project will be evaluated on:</p>
-
+<h3 id="id_part-2-get-react-to-communicate-with-fastapi">Part 2. Get React to Communicate with FastAPI</h3>
 <ol>
-  <li><strong>Correctness:</strong> All CRUD operations work</li>
-  <li><strong>Code Quality:</strong> Clean, readable code following best practices</li>
-  <li><strong>Docker Setup:</strong> All containers build and run correctly</li>
-  <li><strong>Production Ready:</strong> Production Dockerfile works</li>
-  <li><strong>Documentation:</strong> Code is well-commented</li>
+  <li><a href="project02-06-enhanced-ui">Implement Frontend &lt;&gt; Backend Communication</a></li>
+  <li><a href="project02-07-working-with-your-containers">Before Moving On: How to work with your containers</a></li>
 </ol>
 
-<p>Good luck!</p>
+<h3 id="id_part-3-your-tasks">Part 3. Your Tasks</h3>
+<ol>
+  <li><a href="project02-08-cicd">Add Continuous Integration on GitHub</a></li>
+  <li><a href="project02-09-enhancements">Enhancing the System</a></li>
+</ol>
+
+<h3 id="id_part-4-deployment">Part 4. Deployment</h3>
+<ol>
+  <li>Railway Deployment: Instructions forthcoming</li>
+</ol>
+
+<p>Rubric will be added soon…</p>
 
 
 
@@ -197,7 +141,7 @@
 </script> -->
         
         <script>
-            window.h_max = "2";
+            window.h_max = "3";
         </script>
         
         <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>

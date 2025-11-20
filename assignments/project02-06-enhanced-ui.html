@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Enhanced Frontend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_1-build-the-read-feature-display-todos">1. Build the READ Feature (Display Todos)</a>
+    <ol>
+      <li><a href="#id_11-create-the-todos-component">1.1. Create the Todos Component</a></li>
+      <li><a href="#id_12-add-todos-to-app">1.2. Add Todos to App</a></li>
+      <li><a href="#id_13-add-styling-for-todos">1.3. Add Styling for Todos</a></li>
+      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_2-build-the-create-feature-add-new-todos">2. Build the CREATE Feature (Add New Todos)</a>
+    <ol>
+      <li><a href="#id_21-create-the-createtodo-component">2.1. Create the CreateTodo Component</a></li>
+      <li><a href="#id_22-add-createtodo-to-app">2.2. Add CreateTodo to App</a></li>
+      <li><a href="#id_23-add-form-styling">2.3. Add Form Styling</a></li>
+      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_3-connect-components-together-component-communication">3. Connect Components Together (Component Communication)</a>
+    <ol>
+      <li><a href="#id_31-understanding-the-problem">3.1. Understanding the Problem</a></li>
+      <li><a href="#id_32-add-refresh-mechanism-to-app">3.2. Add Refresh Mechanism to App</a></li>
+      <li><a href="#id_33-update-todos-to-watch-for-refresh">3.3. Update Todos to Watch for Refresh</a></li>
+      <li><a href="#id_34-update-createtodo-to-call-callback">3.4. Update CreateTodo to Call Callback</a></li>
+      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_4-add-delete-feature">4. Add DELETE Feature</a>
+    <ol>
+      <li><a href="#id_41-add-delete-function-to-todos">4.1. Add Delete Function to Todos</a></li>
+      <li><a href="#id_42-add-button-styling">4.2. Add Button Styling</a></li>
+      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_5-final-testing-after-docker-container-is-built">5. Final Testing (After Docker Container Is Built)</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_6-summary">6. Summary</a>
+    <ol>
+      <li><a href="#id_the-complete-flow">The Complete Flow</a></li>
+      <li><a href="#id_component-communication-pattern">Component Communication Pattern</a></li>
+      <li><a href="#id_key-react-concepts-learned">Key React Concepts Learned</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_7-commit-and-push">7. Commit and Push</a>
+    <ol>
+      <li><a href="#id_-before-you-move-on-5"> Before you move on</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Enhanced Frontend
+    </h1>
+    
+ 
+                <p>
+    
+    
+    
+</p>
+
+<p>Now that you have a working app, let’s add the features that make it functional: displaying todos, creating new ones, and deleting them.</p>
+
+<h2 id="id_1-build-the-read-feature-display-todos">1. Build the READ Feature (Display Todos)</h2>
+
+<p>We’ll create a component that fetches and displays todos from the backend.</p>
+
+<h3 id="id_11-create-the-todos-component">1.1. Create the Todos Component</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/Todos.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Todos</span><span class="p">({</span> <span class="nx">API_URL</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">todoList</span><span class="p">,</span> <span class="nx">setTodoList</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([]);</span>
+
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchTodos</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos`</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+        <span class="nf">setTodoList</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">fetchTodos</span><span class="p">();</span>
+    <span class="p">},</span> <span class="p">[]);</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">todos-container</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">todoList</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">todo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+                    <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">completed</span> <span class="p">?</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Completed</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">In</span> <span class="nx">Progress</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)}{</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">}</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+                            <span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span>
+                        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>                <span class="p">))}</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><strong>useState</strong> - Creates state to store the list of todos</li>
+  <li><strong>fetchTodos()</strong> - Makes a GET request to <code class="language-plaintext highlighter-rouge">/todos</code> endpoint</li>
+  <li><strong>useEffect</strong> - Runs <code class="language-plaintext highlighter-rouge">fetchTodos()</code> when component first loads</li>
+  <li><strong>map()</strong> - Loops through todos and creates HTML for each one</li>
+  <li><strong>Conditional rendering</strong> - Shows “Completed” or “In Progress”</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>State</strong> - <code class="language-plaintext highlighter-rouge">todoList</code> stores data that can change</li>
+  <li><strong>useEffect</strong> - Runs code when component mounts (empty array <code class="language-plaintext highlighter-rouge">[]</code> means “run once”)</li>
+  <li><strong>async/await</strong> - Handles asynchronous operations (API calls)</li>
+  <li><strong>fetch API</strong> - Browser function to make HTTP requests</li>
+</ul>
+
+<h3 id="id_12-add-todos-to-app">1.2. Add Todos to App</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./globals.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Todos</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Todos</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Add this</span>
+
+<span class="kd">const</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://localhost:8000</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Add this</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;&gt;</span>
+            <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">TODO</span> <span class="nx">List</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">main</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">Todos</span> <span class="nx">API_URL</span><span class="o">=</span><span class="p">{</span><span class="nx">API_URL</span><span class="p">}</span> <span class="sr">/&gt;  {/</span><span class="o">*</span> <span class="nx">Add</span> <span class="k">this</span> <span class="o">*</span><span class="sr">/</span><span class="err">}
+</span>            <span class="o">&lt;</span><span class="sr">/main</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Imports the Todos component</li>
+  <li>Defines the backend URL</li>
+  <li>Passes <code class="language-plaintext highlighter-rouge">API_URL</code> as a prop to Todos</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>Props</strong> - Data passed from parent (App) to child (Todos)</li>
+  <li><strong>Props are read-only</strong> - Child can’t change props directly</li>
+</ul>
+
+<h3 id="id_13-add-styling-for-todos">1.3. Add Styling for Todos</h3>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">ui/src/globals.css</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.todos-container</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">30px</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">dashed</span> <span class="m">3px</span> <span class="nx">hotpink</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">ul</span> <span class="p">{</span>
+    <span class="nl">list-style-type</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">li</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">flex</span><span class="p">;</span>
+    <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">space-between</span><span class="p">;</span>
+    <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#fff</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.4rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">span</span> <span class="p">{</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">black</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">hotpink</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">2px</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Understanding what just happened:</strong></p>
+<ul>
+  <li>When the page loads, <code class="language-plaintext highlighter-rouge">useEffect</code> runs</li>
+  <li>It calls <code class="language-plaintext highlighter-rouge">fetchTodos()</code> which makes a GET request</li>
+  <li>The backend returns JSON data</li>
+  <li><code class="language-plaintext highlighter-rouge">setTodoList(data)</code> updates the state</li>
+  <li>React re-renders, showing the todos</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your <code class="language-plaintext highlighter-rouge">Todos.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>. You’ll test it after Docker is set up (see Docker Configuration section).</p>
+</blockquote>
+
+<h2 id="id_2-build-the-create-feature-add-new-todos">2. Build the CREATE Feature (Add New Todos)</h2>
+
+<p>Now we’ll add a form to create new todos.</p>
+
+<h3 id="id_21-create-the-createtodo-component">2.1. Create the CreateTodo Component</h3>
+
+<p>Create <code class="language-plaintext highlighter-rouge">ui/src/CreateTodo.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">CreateTodo</span><span class="p">({</span> <span class="nx">API_URL</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">title</span><span class="p">,</span> <span class="nx">setTitle</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">description</span><span class="p">,</span> <span class="nx">setDescription</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos`</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span> <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">description</span><span class="p">,</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}),</span>
+        <span class="p">});</span>
+
+        <span class="k">if </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">setTitle</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+            <span class="nf">setDescription</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-container</span><span class="dl">"</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">input</span>
+                <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+                <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Title</span><span class="dl">"</span>
+                <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span>
+                <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">setTitle</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+                <span class="nx">required</span>
+            <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">input</span>
+                <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+                <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Description</span><span class="dl">"</span>
+                <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span>
+                <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">setDescription</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+            <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Create</span> <span class="nx">TODO</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><strong>useState</strong> - Tracks form input values (<code class="language-plaintext highlighter-rouge">title</code> and <code class="language-plaintext highlighter-rouge">description</code>)</li>
+  <li><strong>handleSubmit()</strong> - Handles form submission
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">e.preventDefault()</code> - Stops page from refreshing</li>
+      <li>Makes POST request to create a new todo</li>
+      <li>Clears form if successful</li>
+    </ul>
+  </li>
+  <li><strong>Controlled inputs</strong> - Input values are controlled by React state</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>Controlled components</strong> - Input value comes from state, not DOM</li>
+  <li><strong>onChange</strong> - Updates state when user types</li>
+  <li><strong>onSubmit</strong> - Handles form submission</li>
+  <li><strong>JSON.stringify()</strong> - Converts JavaScript object to JSON string</li>
+</ul>
+
+<h3 id="id_22-add-createtodo-to-app">2.2. Add CreateTodo to App</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./globals.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Todos</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Todos</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">CreateTodo</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./CreateTodo</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Add this</span>
+
+<span class="kd">const</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://localhost:8000</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;&gt;</span>
+            <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">TODO</span> <span class="nx">List</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">main</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">Todos</span> <span class="nx">API_URL</span><span class="o">=</span><span class="p">{</span><span class="nx">API_URL</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">CreateTodo</span> <span class="nx">API_URL</span><span class="o">=</span><span class="p">{</span><span class="nx">API_URL</span><span class="p">}</span> <span class="sr">/&gt;  {/</span><span class="o">*</span> <span class="nx">Add</span> <span class="k">this</span> <span class="o">*</span><span class="sr">/</span><span class="err">}
+</span>            <span class="o">&lt;</span><span class="sr">/main</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="id_23-add-form-styling">2.3. Add Form Styling</h3>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">ui/src/globals.css</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.form-container</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">30px</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#fff</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">flex</span><span class="p">;</span>
+    <span class="nl">flex-direction</span><span class="p">:</span> <span class="nb">column</span><span class="p">;</span>
+    <span class="nl">gap</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.form-container</span> <span class="nt">input</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="nx">#ccc</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.form-container</span> <span class="nt">button</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span> <span class="m">20px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">hotpink</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">black</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.form-container</span> <span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#ff69b4</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Understanding what just happened:</strong></p>
+<ul>
+  <li>User fills out form and clicks submit</li>
+  <li><code class="language-plaintext highlighter-rouge">handleSubmit</code> makes a POST request</li>
+  <li>Backend creates the todo in the database</li>
+  <li>But the Todos component doesn’t know to refresh!</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your <code class="language-plaintext highlighter-rouge">CreateTodo.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>. Note: The new todo won’t appear in the list yet - we’ll fix this in the next section.</p>
+</blockquote>
+
+<h2 id="id_3-connect-components-together-component-communication">3. Connect Components Together (Component Communication)</h2>
+
+<p>This is the key part! We need to make the Todos component refresh when a new todo is created. This teaches you how React components communicate.</p>
+
+<h3 id="id_31-understanding-the-problem">3.1. Understanding the Problem</h3>
+
+<p>Right now:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">App</code> renders <code class="language-plaintext highlighter-rouge">Todos</code> and <code class="language-plaintext highlighter-rouge">CreateTodo</code> side by side</li>
+  <li>They don’t know about each other</li>
+  <li>When <code class="language-plaintext highlighter-rouge">CreateTodo</code> creates a todo, <code class="language-plaintext highlighter-rouge">Todos</code> doesn’t know to refresh</li>
+</ul>
+
+<p><strong>Solution:</strong> Use “state lifting” - manage shared state in the parent (<code class="language-plaintext highlighter-rouge">App</code>)</p>
+
+<h3 id="id_32-add-refresh-mechanism-to-app">3.2. Add Refresh Mechanism to App</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>  <span class="c1">// Add useState</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">./globals.css</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Todos</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Todos</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">CreateTodo</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./CreateTodo</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">API_URL</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">http://localhost:8000</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">refreshTrigger</span><span class="p">,</span> <span class="nx">setRefreshTrigger</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>  <span class="c1">// Add this</span>
+
+    <span class="kd">function</span> <span class="nf">refreshTodos</span><span class="p">()</span> <span class="p">{</span>  <span class="c1">// Add this function</span>
+        <span class="nf">setRefreshTrigger</span><span class="p">((</span><span class="nx">prev</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">prev</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;&gt;</span>
+            <span class="o">&lt;</span><span class="nx">header</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">TODO</span> <span class="nx">List</span><span class="o">&lt;</span><span class="sr">/h1</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/header</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">main</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">Todos</span> <span class="nx">API_URL</span><span class="o">=</span><span class="p">{</span><span class="nx">API_URL</span><span class="p">}</span> <span class="nx">refreshTrigger</span><span class="o">=</span><span class="p">{</span><span class="nx">refreshTrigger</span><span class="p">}</span> <span class="sr">/&gt;  {/</span><span class="o">*</span> <span class="nx">Add</span> <span class="nx">prop</span> <span class="o">*</span><span class="sr">/</span><span class="err">}
+</span>                <span class="o">&lt;</span><span class="nx">CreateTodo</span> <span class="nx">API_URL</span><span class="o">=</span><span class="p">{</span><span class="nx">API_URL</span><span class="p">}</span> <span class="nx">onTodoCreated</span><span class="o">=</span><span class="p">{</span><span class="nx">refreshTodos</span><span class="p">}</span> <span class="sr">/&gt;  {/</span><span class="o">*</span> <span class="nx">Add</span> <span class="nx">prop</span> <span class="o">*</span><span class="sr">/</span><span class="err">}
+</span>            <span class="o">&lt;</span><span class="sr">/main</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><strong>refreshTrigger</strong> - A number that changes when we want to refresh</li>
+  <li><strong>refreshTodos()</strong> - Function that increments the trigger</li>
+  <li>Passes <code class="language-plaintext highlighter-rouge">refreshTrigger</code> to Todos (so it knows when to refresh)</li>
+  <li>Passes <code class="language-plaintext highlighter-rouge">onTodoCreated</code> to CreateTodo (callback to call after creating)</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>State in parent</strong> - App manages the refresh trigger</li>
+  <li><strong>Callback props</strong> - Passing functions as props</li>
+  <li><strong>State changes trigger re-renders</strong> - When <code class="language-plaintext highlighter-rouge">refreshTrigger</code> changes, Todos re-renders</li>
+</ul>
+
+<h3 id="id_33-update-todos-to-watch-for-refresh">3.3. Update Todos to Watch for Refresh</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/Todos.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Todos</span><span class="p">({</span> <span class="nx">API_URL</span><span class="p">,</span> <span class="nx">refreshTrigger</span> <span class="p">})</span> <span class="p">{</span>  <span class="c1">// Add refreshTrigger prop</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">todoList</span><span class="p">,</span> <span class="nx">setTodoList</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([]);</span>
+
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchTodos</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos`</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+        <span class="nf">setTodoList</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">fetchTodos</span><span class="p">();</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">refreshTrigger</span><span class="p">]);</span>  <span class="c1">// Add refreshTrigger to dependencies</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">todos-container</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">todoList</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">todo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+                    <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">completed</span> <span class="p">?</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Completed</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">In</span> <span class="nx">Progress</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)}{</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">}</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+                            <span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span>
+                        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>                <span class="p">))}</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Adds <code class="language-plaintext highlighter-rouge">refreshTrigger</code> to <code class="language-plaintext highlighter-rouge">useEffect</code> dependencies</li>
+  <li>When <code class="language-plaintext highlighter-rouge">refreshTrigger</code> changes, <code class="language-plaintext highlighter-rouge">useEffect</code> runs again</li>
+  <li>This calls <code class="language-plaintext highlighter-rouge">fetchTodos()</code> to get the latest data</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>useEffect dependencies</strong> - Array tells React when to re-run the effect</li>
+  <li>When <code class="language-plaintext highlighter-rouge">refreshTrigger</code> changes → <code class="language-plaintext highlighter-rouge">useEffect</code> runs → <code class="language-plaintext highlighter-rouge">fetchTodos()</code> called → list updates</li>
+</ul>
+
+<h3 id="id_34-update-createtodo-to-call-callback">3.4. Update CreateTodo to Call Callback</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/CreateTodo.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">CreateTodo</span><span class="p">({</span> <span class="nx">API_URL</span><span class="p">,</span> <span class="nx">onTodoCreated</span> <span class="p">})</span> <span class="p">{</span>  <span class="c1">// Add onTodoCreated prop</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">title</span><span class="p">,</span> <span class="nx">setTitle</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">description</span><span class="p">,</span> <span class="nx">setDescription</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos`</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span> <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">description</span><span class="p">,</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}),</span>
+        <span class="p">});</span>
+
+        <span class="k">if </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span> <span class="o">&amp;&amp;</span> <span class="nx">onTodoCreated</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Add check for callback</span>
+            <span class="nf">onTodoCreated</span><span class="p">();</span>  <span class="c1">// Call the callback!</span>
+            <span class="nf">setTitle</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+            <span class="nf">setDescription</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">form</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">form-container</span><span class="dl">"</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">input</span>
+                <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+                <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Title</span><span class="dl">"</span>
+                <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">title</span><span class="p">}</span>
+                <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">setTitle</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+                <span class="nx">required</span>
+            <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="nx">input</span>
+                <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">text</span><span class="dl">"</span>
+                <span class="nx">placeholder</span><span class="o">=</span><span class="dl">"</span><span class="s2">Description</span><span class="dl">"</span>
+                <span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">description</span><span class="p">}</span>
+                <span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nf">setDescription</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+            <span class="sr">/</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">submit</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">Create</span> <span class="nx">TODO</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">side-note</span><span class="dl">"</span><span class="o">&gt;</span>
+                <span class="nx">The</span> <span class="nx">todo</span> <span class="nx">list</span> <span class="nx">will</span> <span class="nx">automatically</span> <span class="nx">update</span> <span class="nx">after</span> <span class="nx">creating</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">todo</span><span class="o">!</span>
+            <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/form</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>Receives <code class="language-plaintext highlighter-rouge">onTodoCreated</code> callback as a prop</li>
+  <li>Calls it after successfully creating a todo</li>
+  <li>This triggers the refresh in the parent (App)</li>
+</ul>
+
+<p><strong>Understanding the complete flow:</strong></p>
+<ol>
+  <li>User creates todo → <code class="language-plaintext highlighter-rouge">handleSubmit</code> runs</li>
+  <li>POST request succeeds → <code class="language-plaintext highlighter-rouge">onTodoCreated()</code> called</li>
+  <li>This calls <code class="language-plaintext highlighter-rouge">refreshTodos()</code> in App</li>
+  <li><code class="language-plaintext highlighter-rouge">refreshTrigger</code> increments → Todos’ <code class="language-plaintext highlighter-rouge">useEffect</code> runs</li>
+  <li><code class="language-plaintext highlighter-rouge">fetchTodos()</code> called → New list fetched → UI updates!</li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your component communication is set up correctly. After Docker is running, new todos should automatically appear in the list when created!</p>
+</blockquote>
+
+<h2 id="id_4-add-delete-feature">4. Add DELETE Feature</h2>
+
+<p>Now we’ll add the ability to delete todos.</p>
+
+<h3 id="id_41-add-delete-function-to-todos">4.1. Add Delete Function to Todos</h3>
+
+<p>Update <code class="language-plaintext highlighter-rouge">ui/src/Todos.jsx</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useEffect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Todos</span><span class="p">({</span> <span class="nx">API_URL</span><span class="p">,</span> <span class="nx">refreshTrigger</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="p">[</span><span class="nx">todoList</span><span class="p">,</span> <span class="nx">setTodoList</span><span class="p">]</span> <span class="o">=</span> <span class="nf">useState</span><span class="p">([]);</span>
+
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchTodos</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos`</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+        <span class="nf">setTodoList</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nf">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nf">fetchTodos</span><span class="p">();</span>
+    <span class="p">},</span> <span class="p">[</span><span class="nx">refreshTrigger</span><span class="p">]);</span>
+
+    <span class="c1">// Add this function</span>
+    <span class="k">async</span> <span class="kd">function</span> <span class="nf">deleteTodo</span><span class="p">(</span><span class="nx">todoId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/todos/</span><span class="p">${</span><span class="nx">todoId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">});</span>
+        <span class="c1">// Refresh the list to show the todo is gone</span>
+        <span class="nf">fetchTodos</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return </span><span class="p">(</span>
+        <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">todos-container</span><span class="dl">"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">todoList</span><span class="p">.</span><span class="nf">map</span><span class="p">((</span><span class="nx">todo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+                    <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                        <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">completed</span> <span class="p">?</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">Completed</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+                                <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="nx">In</span> <span class="nx">Progress</span><span class="o">&lt;</span><span class="sr">/span</span><span class="err">&gt;
+</span>                            <span class="p">)}{</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">}</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+                            <span class="o">&lt;</span><span class="nx">br</span> <span class="o">/&gt;</span>
+                            <span class="p">{</span><span class="nx">todo</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span>
+                        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>                        <span class="p">{</span><span class="cm">/* Add delete button */</span><span class="p">}</span>
+                        <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="nf">deleteTodo</span><span class="p">(</span><span class="nx">todo</span><span class="p">.</span><span class="nx">id</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Delete</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>                    <span class="o">&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span>                <span class="p">))}</span>
+            <span class="o">&lt;</span><span class="sr">/ul</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li><strong>deleteTodo()</strong> - Makes DELETE request to remove a todo</li>
+  <li><strong>onClick handler</strong> - Calls <code class="language-plaintext highlighter-rouge">deleteTodo</code> when button is clicked</li>
+  <li><strong>fetchTodos()</strong> - Refreshes the list after deletion</li>
+</ul>
+
+<p><strong>Key concepts:</strong></p>
+<ul>
+  <li><strong>Event handlers</strong> - <code class="language-plaintext highlighter-rouge">onClick={() =&gt; deleteTodo(todo.id)}</code></li>
+  <li><strong>Arrow functions</strong> - <code class="language-plaintext highlighter-rouge">() =&gt;</code> creates a function that calls <code class="language-plaintext highlighter-rouge">deleteTodo</code></li>
+  <li><strong>DELETE method</strong> - HTTP method for removing resources</li>
+</ul>
+
+<h3 id="id_42-add-button-styling">4.2. Add Button Styling</h3>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">ui/src/globals.css</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">button</span> <span class="p">{</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#ff4444</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+    <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="nx">#cc0000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.side-note</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nx">#666</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">italic</span><span class="p">;</span>
+    <span class="nl">margin-top</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Understanding what just happened:</strong></p>
+<ul>
+  <li>User clicks Delete button</li>
+  <li><code class="language-plaintext highlighter-rouge">deleteTodo(todo.id)</code> is called</li>
+  <li>DELETE request sent to backend</li>
+  <li>Backend removes todo from database</li>
+  <li><code class="language-plaintext highlighter-rouge">fetchTodos()</code> refreshes the list</li>
+  <li>Todo no longer appears</li>
+</ul>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify your delete functionality is implemented. After Docker is running, clicking Delete should remove todos from the list.</p>
+</blockquote>
+
+<h2 id="id_5-final-testing-after-docker-container-is-built">5. Final Testing (After Docker Container Is Built)</h2>
+
+<p><strong>Note:</strong> These tests should be run after Docker is set up (see Docker Configuration section). The frontend and backend will be running in Docker containers.</p>
+
+<p>Test all functionality:</p>
+
+<ol>
+  <li><strong>READ:</strong> Todos should load automatically when page opens</li>
+  <li><strong>CREATE:</strong> Fill out form, click “Create TODO”, verify it appears automatically</li>
+  <li><strong>DELETE:</strong> Click “Delete” on a todo, verify it disappears</li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <ul>
+    <li>Verify all CRUD operations work correctly.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── database/
+│   └── Dockerfile
+├── backend/
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── todo.py
+│   ├── server.py
+│   ├── Dockerfile
+│   └── pyproject.toml
+├── ui/
+│   ├── src/
+│   │   ├── main.jsx
+│   │   ├── App.jsx          <span class="c"># updated</span>
+│   │   ├── Todos.jsx        <span class="c"># new</span>
+│   │   ├── CreateTodo.jsx   <span class="c"># new</span>
+│   │   └── globals.css      <span class="c"># updated</span>
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── Dockerfile
+└── .env
+</code></pre></div>  </div>
+</blockquote>
+
+<h2 id="id_6-summary">6. Summary</h2>
+<p>How It All Works Together:</p>
+
+<h3 id="id_the-complete-flow">The Complete Flow</h3>
+
+<ol>
+  <li><strong>Page Loads:</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">main.jsx</code> renders <code class="language-plaintext highlighter-rouge">App</code></li>
+      <li><code class="language-plaintext highlighter-rouge">App</code> renders <code class="language-plaintext highlighter-rouge">Todos</code> and <code class="language-plaintext highlighter-rouge">CreateTodo</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Todos</code>’ <code class="language-plaintext highlighter-rouge">useEffect</code> runs → <code class="language-plaintext highlighter-rouge">fetchTodos()</code> → GET request → todos displayed</li>
+    </ul>
+  </li>
+  <li><strong>User Creates Todo:</strong>
+    <ul>
+      <li>User fills form → clicks “Create TODO”</li>
+      <li><code class="language-plaintext highlighter-rouge">CreateTodo</code>’s <code class="language-plaintext highlighter-rouge">handleSubmit</code> runs → POST request → todo created</li>
+      <li><code class="language-plaintext highlighter-rouge">onTodoCreated()</code> called → <code class="language-plaintext highlighter-rouge">App</code>’s <code class="language-plaintext highlighter-rouge">refreshTodos()</code> runs</li>
+      <li><code class="language-plaintext highlighter-rouge">refreshTrigger</code> increments → <code class="language-plaintext highlighter-rouge">Todos</code>’ <code class="language-plaintext highlighter-rouge">useEffect</code> runs → <code class="language-plaintext highlighter-rouge">fetchTodos()</code> → list updates</li>
+    </ul>
+  </li>
+  <li><strong>User Deletes Todo:</strong>
+    <ul>
+      <li>User clicks “Delete” → <code class="language-plaintext highlighter-rouge">deleteTodo()</code> runs → DELETE request → todo removed</li>
+      <li><code class="language-plaintext highlighter-rouge">fetchTodos()</code> called → list refreshes → todo gone</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="id_component-communication-pattern">Component Communication Pattern</h3>
+
+<p><strong>Key Pattern:</strong></p>
+<ul>
+  <li><strong>State lifting</strong> - Shared state lives in parent (App)</li>
+  <li><strong>Props down</strong> - Data flows from parent to children</li>
+  <li><strong>Callbacks up</strong> - Events flow from children to parent via callbacks</li>
+</ul>
+
+<h3 id="id_key-react-concepts-learned">Key React Concepts Learned</h3>
+
+<h4 id="id_hooks">Hooks</h4>
+<ul>
+  <li><strong>useState</strong> - Manage component state</li>
+  <li><strong>useEffect</strong> - Handle side effects (API calls, subscriptions)</li>
+</ul>
+
+<h4 id="id_component-communication">Component Communication</h4>
+<ul>
+  <li><strong>Props</strong> - Pass data from parent to child</li>
+  <li><strong>Callbacks</strong> - Pass functions to trigger parent updates</li>
+  <li><strong>State lifting</strong> - Managing shared state in parent component</li>
+</ul>
+
+<h4 id="id_event-handling">Event Handling</h4>
+<ul>
+  <li><strong>onClick</strong> - Handle button clicks</li>
+  <li><strong>onChange</strong> - Handle input changes</li>
+  <li><strong>onSubmit</strong> - Handle form submission</li>
+</ul>
+
+<h4 id="id_data-fetching">Data Fetching</h4>
+<ul>
+  <li><strong>fetch API</strong> - Make HTTP requests</li>
+  <li><strong>async/await</strong> - Handle asynchronous operations</li>
+  <li><strong>JSON</strong> - Parse and stringify data</li>
+</ul>
+
+<h4 id="id_conditional-rendering">Conditional Rendering</h4>
+<ul>
+  <li><strong>Ternary operator</strong> - <code class="language-plaintext highlighter-rouge">{condition ? true : false}</code></li>
+  <li><strong>Logical AND</strong> - <code class="language-plaintext highlighter-rouge">{condition &amp;&amp; &lt;Component /&gt;}</code></li>
+</ul>
+
+<h2 id="id_7-commit-and-push">7. Commit and Push</h2>
+<p>Go ahead and commit / push your changes to git / GitHub.</p>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on-5"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that all your new code is on GitHub.</p>
+</blockquote>
+
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>

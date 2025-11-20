@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+    <head>
+            <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>Working with Your Containers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/fall2025/assets/main.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+    </script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/fall2025/">CSCI 338: Fall 2025</a></h1>
+        <h2 class="desktop">Software Engineering</h2>
+        <a class="mobile" href="#">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 338: Fall 2025</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" />
+</header>
+        <nav>
+    <ul>
+        <li ><a href="/fall2025/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/fall2025/">Schedule</a></li>
+        <li class="active" ><a
+                href="/fall2025/assignments/">Assignments</a></li>
+        <li ><a
+                href="/fall2025/resources/">Resources</a></li>
+        <li ><a href="/fall2025/repos/">Repos</a>
+        </li>
+        <li><a href="https://drive.google.com/drive/folders/1iI-Iz85UpjGyuu9q_reuq4vT6hC4AEQq?usp=drive_link"
+                target="_blank">Videos</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                
+                
+                <ol class="side-menu">
+  <li><a href="#id_your-host-computer">Your Host Computer</a></li>
+  <li><a href="#id_your-containers">Your Containers</a>
+    <ol>
+      <li><a href="#id_1-always-install-new-packages-on-the-correct-container">1. Always install new packages on the correct container:</a></li>
+      <li><a href="#id_2-always-run-the-linters-on-the-correct-container">2. Always run the linters on the correct container:</a></li>
+      <li><a href="#id_3-query-your-database">3. Query your database</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+
+    <h1>
+        <a href="../assignments/project02">Project 2</a> >
+        Working with Your Containers
+    </h1>
+    
+ 
+                <p>
+    
+    
+    
+</p>
+
+<p>When working with Docker containers, it can be confusing to know whether you should run a command on your <strong>host computer</strong> (your laptop) or inside a <strong>Docker container</strong>. This guide will help clarify when to use each.</p>
+
+<h2 id="id_your-host-computer">Your Host Computer</h2>
+
+<p><strong>Run commands on your host computer when:</strong></p>
+<ul>
+  <li>You’re <strong>editing files</strong> (code, configuration, etc.)</li>
+  <li>You’re <strong>creating or deleting files</strong></li>
+  <li>You’re using <strong>Git</strong> (commits, pushes, branches)</li>
+  <li>You’re <strong>viewing files</strong> in your file explorer or editor</li>
+</ul>
+
+<p>I recommend navigating to <code class="language-plaintext highlighter-rouge">project02-fall2025</code> on your terminal and typing <code class="language-plaintext highlighter-rouge">code .</code> to edit your code files on your laptop (host machine).</p>
+
+<h2 id="id_your-containers">Your Containers</h2>
+<p><strong>Run commands inside containers when:</strong></p>
+<ul>
+  <li>You need to <strong>install packages</strong> (npm, poetry, pip)</li>
+  <li>You’re <strong>running tools</strong> that require the container’s environment (linters, formatters, database clients)</li>
+  <li>You’re <strong>executing code</strong> that needs container-specific dependencies</li>
+  <li>You’re <strong>querying the database</strong> directly</li>
+</ul>
+
+<p><strong>Why this matters:</strong></p>
+<ul>
+  <li>Your host computer may not have Node.js, Python, or PostgreSQL installed</li>
+  <li>Containers have isolated environments with all the dependencies pre-installed</li>
+  <li>File changes on your host are automatically reflected in containers (via volume mounts)</li>
+  <li>But package installations and tool execution must happen inside the container where those tools exist</li>
+</ul>
+
+<h3 id="id_1-always-install-new-packages-on-the-correct-container">1. Always install new packages on the correct container:</h3>
+
+<p><strong>Frontend (Node.js packages):</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install a new npm package (e.g., antd)</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm <span class="nb">install </span>antd
+
+<span class="c"># Or if you've updated package.json, reinstall all dependencies</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm <span class="nb">install</span>
+</code></pre></div></div>
+
+<p><strong>Backend (Python packages):</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add a new package to pyproject.toml first, then install</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend poetry add package-name
+
+<span class="c"># Or if you've updated pyproject.toml, reinstall all dependencies</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend poetry <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="id_2-always-run-the-linters-on-the-correct-container">2. Always run the linters on the correct container:</h3>
+
+<p><strong>Frontend (ESLint and Prettier):</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check for linting and formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm run check
+
+<span class="c"># Automatically fix linting and formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_frontend npm run fix
+</code></pre></div></div>
+
+<p><strong>Backend (Black, isort, flake8):</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run all checks (doesn't modify files)</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend bash scripts/check.sh
+
+<span class="c"># Automatically fix formatting issues</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_backend bash scripts/fix.sh
+</code></pre></div></div>
+
+<h3 id="id_3-query-your-database">3. Query your database</h3>
+
+<p><strong>Connect to PostgreSQL:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Connect to the database container</span>
+docker <span class="nb">exec</span> <span class="nt">-it</span> todo_db psql <span class="nt">-U</span> postgres <span class="nt">-d</span> todo_db
+
+<span class="c"># Once connected, you can run SQL queries:</span>
+<span class="c"># SELECT * FROM todos;</span>
+<span class="c"># \dt  (list all tables)</span>
+<span class="c"># \q   (quit)</span>
+</code></pre></div></div>
+
+<p><strong>Run a single SQL query without entering interactive mode:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-it</span> todo_db psql <span class="nt">-U</span> postgres <span class="nt">-d</span> todo_db <span class="nt">-c</span> <span class="s2">"SELECT * FROM todos;"</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><a href="project02">← Back to Project 2 Instructions</a></p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+        <script type="text/javascript" src="/fall2025/assets/js/main.js"></script>
+<script type="text/javascript" src="/fall2025/assets/js/copy-code.js"></script>
+
+<!-- <script>
+    //little bit of a hack:
+    const scrollLeft = () => {
+        //console.log('scrollLeft');
+        document.documentElement.scrollLeft = 0;
+    };
+    setTimeout(scrollLeft, 100);
+</script> -->
+        
+        <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
+        <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
+    </body>
+</html>
