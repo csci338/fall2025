@@ -153,7 +153,8 @@ span {
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your `Todos.jsx` component is created and imported in `App.jsx`. You'll test it after Docker is set up (see Docker Configuration section).
+> * Verify your `Todos.jsx` component is created and imported in `App.jsx`.
+> * **Test it now:** Make sure your Docker containers are running (`docker-compose up -d`), then visit http://localhost:5173. You should see any existing todos displayed in the list. If you don't have any todos yet, that's okay - you'll create some in the next section.
 
 ## 2. Build the CREATE Feature (Add New Todos)
 
@@ -294,7 +295,8 @@ Add to `ui/src/globals.css`:
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your `CreateTodo.jsx` component is created and imported in `App.jsx`. Note: The new todo won't appear in the list yet - we'll fix this in the next section.
+> * Verify your `CreateTodo.jsx` component is created and imported in `App.jsx`.
+> * **Test it now:** Visit http://localhost:5173 and try creating a new todo. Note: The new todo won't appear in the list yet (we'll fix this in the next section), but you should see the form and be able to submit it. Check your browser's developer console (F12) for any errors.
 
 ## 3. Connect Components Together (Component Communication)
 
@@ -470,7 +472,8 @@ export default function CreateTodo({ API_URL, onTodoCreated }) {  // Add onTodoC
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your component communication is set up correctly. After Docker is running, new todos should automatically appear in the list when created!
+> * Verify your component communication is set up correctly.
+> * **Test it now:** Visit http://localhost:5173 and create a new todo. The new todo should automatically appear in the list immediately after you submit the form! If it doesn't, check your browser's developer console (F12) for errors and verify your containers are running.
 
 ## 4. Add DELETE Feature
 
@@ -576,22 +579,31 @@ button:hover {
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your delete functionality is implemented. After Docker is running, clicking Delete should remove todos from the list.
+> * Verify your delete functionality is implemented.
+> * **Test it now:** Visit http://localhost:5173, create a test todo if needed, then click the "Delete" button. The todo should immediately disappear from the list. Test this with multiple todos to ensure it works correctly.
 
-## 5. Final Testing (After Docker Container Is Built)
+## 5. Final Testing
 
-**Note:** These tests should be run after Docker is set up (see Docker Configuration section). The frontend and backend will be running in Docker containers.
+Now that all features are implemented, test your complete application:
 
-Test all functionality:
+1. **READ:** Visit http://localhost:5173 - todos should load automatically when the page opens
+2. **CREATE:** Fill out the form, click "Create TODO", verify it appears automatically in the list
+3. **DELETE:** Click "Delete" on a todo, verify it immediately disappears from the list
 
-1. **READ:** Todos should load automatically when page opens
-2. **CREATE:** Fill out form, click "Create TODO", verify it appears automatically
-3. **DELETE:** Click "Delete" on a todo, verify it disappears
+**Make sure your Docker containers are running:**
+```bash
+docker-compose up -d
+```
+
+If you encounter any issues, check:
+- Browser developer console (F12) for JavaScript errors
+- Backend logs: `docker logs todo_backend`
+- Frontend logs: `docker logs todo_frontend`
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> * Verify all CRUD operations work correctly.
-> * Also verify that your file structure looks like the one below:
+> * **Test all CRUD operations:** Make sure READ, CREATE, and DELETE all work correctly in your browser.
+> * Verify that your file structure looks like the one below:
 >
 > ```sh
 > project02-fall2025
