@@ -1,5 +1,5 @@
 ---
-title: "CI/CD Pipeline"
+title: "Continuous Integration on GitHub"
 layout: assignment-two-column
 type: partial
 draft: 0
@@ -9,13 +9,33 @@ parent: project02
 start_date: 2025-11-15
 due_date: 2025-12-05
 ---
-## 6. CI/CD Pipeline
 
-### Step 6.1: Create GitHub Actions Workflow
+## What is GitHub Actions?
 
-GitHub Actions will automatically check your code quality when you push changes. This helps catch issues early.
+**GitHub Actions** is a CI/CD (Continuous Integration/Continuous Deployment) platform built into GitHub. It allows you to automate tasks whenever you push code to your repository.
 
-#### Step 6.1.1: Create Workflow Directory
+**What is CI/CD?**
+- **CI (Continuous Integration)** - Automatically test and check your code when you push changes
+- **CD (Continuous Deployment)** - Automatically deploy your application when tests pass
+
+**Why use GitHub Actions?**
+- **Catch errors early** - Find code quality issues before they become problems
+- **Automated testing** - Run your linters and formatters automatically
+- **Consistent checks** - Everyone's code is checked the same way
+- **Professional workflow** - Industry standard for software development
+
+**How it works:**
+1. You push code to GitHub
+2. GitHub Actions automatically runs your workflow
+3. The workflow checks your code quality (linting, formatting)
+4. You get immediate feedback on whether your code passes or fails
+
+**For this project:**
+We'll set up a workflow that automatically checks your code quality (formatting and linting) every time you push code. This ensures your code meets quality standards before it's merged.
+
+## 1. Create GitHub Actions Workflow
+
+### 1.1. Create Workflow Directory
 
 Create the necessary directory structure:
 
@@ -23,7 +43,7 @@ Create the necessary directory structure:
 mkdir -p .github/workflows
 ```
 
-#### Step 6.1.2: Create Workflow File
+### 1.2. Create Workflow File
 
 Create `.github/workflows/pr.yml` with the following content:
 
@@ -114,9 +134,9 @@ jobs:
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify your `.github/workflows/pr.yml` file exists.
 
-### Step 6.2: Test GitHub Actions
+## 2. Commit and Push Your Workflow
 
-1. **Commit and push the workflow:**
+Before testing, commit and push your workflow file to GitHub:
 
 ```bash
 git add .github/
@@ -124,7 +144,15 @@ git commit -m "Add GitHub Actions workflow for code quality checks"
 git push
 ```
 
-2. **Verify it runs:**
+**Why commit now?**
+- GitHub Actions only runs on code that's been pushed to GitHub
+- You need to push the workflow file itself before it can run
+- This ensures the workflow is part of your repository
+
+## 3. Test GitHub Actions
+
+1. **Verify it runs:**
+
    - Go to your GitHub repository
    - Click on the "Actions" tab
    - You should see a workflow run in progress
@@ -140,7 +168,7 @@ git push
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify your GitHub Actions workflow runs successfully on push.
 
-### Step 6.3: Understanding Workflow Results
+## 4. Understanding Workflow Results
 
 **Green checkmark (✓):** All checks passed! Your code meets quality standards.
 
@@ -158,4 +186,29 @@ git push
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Make sure you understand how to read and fix workflow results.
+>
+> **Backend**:
+>
+> ```bash
+> # Run all checks (doesn't modify files)
+> docker exec -it todo_backend bash scripts/check.sh
+> 
+> # Automatically fix formatting issues
+> docker exec -it todo_backend bash scripts/fix.sh
+> ```
+>
+> **Frontend**:
+>
+> ```bash
+> # Check for linting and formatting issues
+> docker exec -it todo_frontend npm run check
+> 
+> # Automatically fix linting and formatting issues
+> docker exec -it todo_frontend npm run fix
+> ```
+> 
+> Then, stage, commit, push and try again!
 
+---
+
+[← Back to Project 2 Instructions](project02)

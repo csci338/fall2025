@@ -780,36 +780,39 @@ bash scripts/fix.sh
 - `check.sh` - Runs all checks (flake8, isort, black) without modifying files
 - `fix.sh` - Automatically fixes formatting issues (isort and black)
 
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> * Verify all your backend files are created correctly.
+> * Also verify that your file structure looks like the one below:
+>
+> ```sh
+> project02-fall2025
+> ├── database/
+> │   └── Dockerfile
+> ├── backend/
+> │   ├── models/
+> │   │   ├── __init__.py
+> │   │   ├── base.py
+> │   │   └── todo.py
+> │   ├── scripts/
+> │   │   ├── check.sh      # new
+> │   │   └── fix.sh        # new
+> │   ├── server.py
+> │   ├── Dockerfile
+> │   ├── pyproject.toml    # updated with linter stuff
+> │   └── .flake8           # new
+> ├── ui/
+> │   └── src/
+> └── .env
+> ```
 
-## 6. Final Testing (After Docker Container Is Built)
+## 6. Commit and Push
+Go ahead and commit / push your changes to git / GitHub. 
 
-**Note:** These tests should be run after Docker is set up (see Docker Configuration section). The server will be running in a Docker container.
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> Verify that all your new code is on GitHub.
 
-Test all endpoints:
+---
 
-```bash
-# Make sure Docker is running (docker-compose up)
-# The server should already be running at http://localhost:8000
-
-# Test GET all
-curl http://localhost:8000/todos
-
-# Test POST
-curl -X POST http://localhost:8000/todos \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Test", "description": "Test todo"}'
-
-# Test GET one (use ID from POST response)
-curl http://localhost:8000/todos/1
-
-# Test PATCH
-curl -X PATCH http://localhost:8000/todos/1 \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Updated", "completed": true}'
-
-# Test DELETE
-curl -X DELETE http://localhost:8000/todos/1
-
-# View API documentation
-# Open http://localhost:8000/docs in your browser
-```
+[← Back to Project 2 Instructions](project02)

@@ -1,5 +1,5 @@
 ---
-title: "Docker Configuration"
+title: "Docker Compose File + Build Your Containers"
 layout: assignment-two-column
 type: partial
 draft: 0
@@ -9,11 +9,24 @@ parent: project02
 start_date: 2025-11-15
 due_date: 2025-12-05
 ---
-## 5. Docker Configuration
 
-This section covers both development and production Docker configurations.
+## What is Docker Compose?
 
-### Step 5.1: Create docker-compose.yaml
+**Docker Compose** is a tool that lets you define and run multiple Docker containers together with a single configuration file. Instead of running each container separately with `docker run`, you can use `docker-compose up` to start all your services at once.
+
+**Why use Docker Compose?**
+
+{:.compact}
+- **Orchestration** - Manages multiple containers (database, backend, frontend) as one application
+- **Networking** - Automatically creates a network so containers can communicate
+- **Dependencies** - Ensures services start in the correct order (e.g., database before backend)
+- **Volume Management** - Handles data persistence and file mounting
+- **Environment Variables** - Centralized configuration for all services
+
+**Important: Docker Compose is for Development Only**
+Docker Compose is **not used in production** environments. In production, each service typically runs in its own container on separate machines or cloud instances. The `docker-compose.yaml` file you create here is **only for local development** to make it easy to run your entire stack with one command
+
+## Create docker-compose.yaml
 
 Create `docker-compose.yaml` in the root directory:
 
@@ -80,109 +93,74 @@ volumes:
   postgres_data:
 ```
 
-### Step 5.2: Create .env File (Optional)
+## Build and Start Your Containers
 
-Create `.env` in the root directory (optional, for local development):
+Now that you've created your `docker-compose.yaml` file, you can build and start all your containers in detached mode (so that your Terminal isn't tied up):
 
-```env
-# Optional: Override DATABASE_URL to use external database
-# DATABASE_URL=postgresql+asyncpg://user:password@host:port/database
+Make sure that Docker Desktop is running. Then, issue the following command:
+
+```bash
+# From the root of your project (where docker-compose.yaml is located)
+docker-compose up -d
 ```
+
+**What you should see:**
+
+
+- Database container starting and becoming healthy
+- Backend container starting and connecting to the database
+- Frontend container starting and running Vite dev server
+- All services running and accessible:
+  - Frontend: <a href="http://localhost:5173" target="_blank">http://localhost:5173</a>
+  - Backend API: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>
+  - Backend Docs: <a href="http://localhost:8000/docs" target="_blank">http://localhost:8000/docs</a>
+
+### Verify your backend endpoints
+Test all endpoints from the command line:
+
+```bash
+# Make sure Docker is running (docker-compose up)
+# The server should already be running at http://localhost:8000
+
+# Test GET all
+curl http://localhost:8000/todos
+
+# Test POST
+curl -X POST http://localhost:8000/todos \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Test", "description": "Test todo"}'
+
+# Test GET one (use ID from POST response)
+curl http://localhost:8000/todos/1
+
+# Test PATCH
+curl -X PATCH http://localhost:8000/todos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Updated", "completed": true}'
+
+# Test DELETE
+curl -X DELETE http://localhost:8000/todos/1
+
+# View API documentation
+# Open http://localhost:8000/docs in your browser
+```
+
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Test your Docker setup:
->
-> ```bash
-> docker-compose up --build
-> ```
+> Verify that all three containers are running:
+> - Check that you can access http://localhost:5173 (frontend)
+> - Check that you can access http://localhost:8000/docs (backend API documentation)
+> - Verify your containers are running with: `docker ps`
 
-You should be able to access:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
 
-### Step 5.3: Create Production Dockerfile
-
-Create `Dockerfile.prod` in the root directory:
-
-```dockerfile
-# Combined Production Dockerfile for Railway
-# Builds both frontend and backend, serves them together
-
-# Stage 1: Build Frontend
-FROM node:20-slim as frontend-builder
-
-WORKDIR /app/frontend
-
-# Copy frontend package files
-COPY ui/package.json ./
-
-# Install dependencies
-RUN npm install --production=false && \
-    npm install @rollup/rollup-linux-x64-gnu --save-optional || true
-
-# Copy frontend source code
-COPY ui/ ./
-
-# Build the React app
-RUN npm run build
-
-# Stage 2: Build Backend Dependencies
-FROM python:3.11-slim as backend-builder
-
-WORKDIR /app
-
-# Install Poetry
-RUN pip install --no-cache-dir poetry
-
-# Configure Poetry
-RUN poetry config virtualenvs.create false
-
-# Copy backend dependency files
-COPY backend/pyproject.toml backend/poetry.lock* ./
-
-# Install dependencies (production only)
-RUN poetry install --no-interaction --no-ansi --only=main --no-root
-
-# Stage 3: Final Runtime Image
-FROM python:3.11-slim
-
-WORKDIR /app
-
-# Copy installed Python packages and binaries from builder
-COPY --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
-COPY --from=backend-builder /usr/local/bin /usr/local/bin
-
-# Copy backend application code
-COPY backend/ ./backend/
-
-# Copy built frontend from frontend-builder to /app/static
-COPY --from=frontend-builder /app/frontend/dist ./static
-
-# Create non-root user for security
-RUN useradd -m -u 1000 appuser && \
-    chown -R appuser:appuser /app
-
-USER appuser
-
-# Expose port (Railway sets PORT automatically)
-EXPOSE 8000
-
-# Use PORT environment variable if set, otherwise default to 8000
-ENV PORT=8000
-
-# Change to backend directory and run server
-WORKDIR /app/backend
-CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
-```
-
-**Important Notes:**
-- This is a multi-stage build that combines frontend and backend
-- The frontend is built and served as static files by the backend
-- Make sure your `server.py` has code to serve static files in production
+## Commit and Push
+Go ahead and commit / push your changes to git / GitHub. 
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your production Dockerfile is in the root directory.
+> Verify that all your new code is on GitHub.
 
+---
+
+[← Back to Project 2 Instructions](project02)

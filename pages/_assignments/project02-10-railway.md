@@ -10,9 +10,95 @@ start_date: 2025-11-15
 due_date: 2025-12-05
 ---
 
-## 7. Railway Deployment
 
-### Step 7.1: Create Railway Account and Project
+
+## Production Dockerfile
+
+Create `Dockerfile.prod` in the root directory:
+
+```dockerfile
+# Combined Production Dockerfile for Railway
+# Builds both frontend and backend, serves them together
+
+# Stage 1: Build Frontend
+FROM node:20-slim as frontend-builder
+
+WORKDIR /app/frontend
+
+# Copy frontend package files
+COPY ui/package.json ./
+
+# Install dependencies
+RUN npm install --production=false && \
+    npm install @rollup/rollup-linux-x64-gnu --save-optional || true
+
+# Copy frontend source code
+COPY ui/ ./
+
+# Build the React app
+RUN npm run build
+
+# Stage 2: Build Backend Dependencies
+FROM python:3.11-slim as backend-builder
+
+WORKDIR /app
+
+# Install Poetry
+RUN pip install --no-cache-dir poetry
+
+# Configure Poetry
+RUN poetry config virtualenvs.create false
+
+# Copy backend dependency files
+COPY backend/pyproject.toml backend/poetry.lock* ./
+
+# Install dependencies (production only)
+RUN poetry install --no-interaction --no-ansi --only=main --no-root
+
+# Stage 3: Final Runtime Image
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy installed Python packages and binaries from builder
+COPY --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=backend-builder /usr/local/bin /usr/local/bin
+
+# Copy backend application code
+COPY backend/ ./backend/
+
+# Copy built frontend from frontend-builder to /app/static
+COPY --from=frontend-builder /app/frontend/dist ./static
+
+# Create non-root user for security
+RUN useradd -m -u 1000 appuser && \
+    chown -R appuser:appuser /app
+
+USER appuser
+
+# Expose port (Railway sets PORT automatically)
+EXPOSE 8000
+
+# Use PORT environment variable if set, otherwise default to 8000
+ENV PORT=8000
+
+# Change to backend directory and run server
+WORKDIR /app/backend
+CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
+```
+
+**Important Notes:**
+- This is a multi-stage build that combines frontend and backend
+- The frontend is built and served as static files by the backend
+- Make sure your `server.py` has code to serve static files in production
+
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> Verify your production Dockerfile is in the root directory.
+
+
+
+## Create Railway Account and Project
 
 1. **Sign up for Railway:**
    - Go to https://railway.app
@@ -29,7 +115,7 @@ due_date: 2025-12-05
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify you have a Railway account and project connected to your GitHub repository.
 
-### Step 7.2: Create PostgreSQL Database
+## Create PostgreSQL Database
 
 1. **Add a PostgreSQL service:**
    - In your Railway project dashboard, click "+ New"
@@ -63,7 +149,7 @@ due_date: 2025-12-05
 > - The `DATABASE_URL` connection string copied
 > - The connection string modified to use `postgresql+asyncpg://`
 
-### Step 7.3: Deploy Your Application
+## Deploy Your Application
 
 1. **Add your application service:**
    - In your Railway project dashboard, click "+ New"
@@ -109,7 +195,7 @@ due_date: 2025-12-05
 > - Accessible via a public URL
 > - Test it by visiting your Railway URL
 
-### Step 7.4: Update Frontend API URL (If Needed)
+## Update Frontend API URL (If Needed)
 
 If your frontend needs to connect to the deployed backend:
 
@@ -129,7 +215,7 @@ If your frontend needs to connect to the deployed backend:
 > - Frontend connecting to the deployed backend
 > - Database operations working correctly
 
-### Step 7.5: Verify Deployment
+## Verify Deployment
 
 Test your deployed application:
 
@@ -156,3 +242,6 @@ Test your deployed application:
 > - Successfully performs all CRUD operations
 > - Is accessible from any device with internet access
 
+---
+
+[← Back to Project 2 Instructions](project02)

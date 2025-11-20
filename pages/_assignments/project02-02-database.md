@@ -11,7 +11,84 @@ start_date: 2025-11-15
 due_date: 2025-12-05
 ---
 
-## 1. Create Database Dockerfile
+## 1. Introduction
+
+We are now going to start building our Docker containers. This project uses a **three-container architecture** where each service runs in its own isolated container:
+
+1. **Database Container** - PostgreSQL database for storing application data
+2. **Backend Container** - FastAPI server that handles API requests and communicates with the database
+3. **Frontend Container** - React application that provides the user interface
+
+**Why three containers?**
+- **Separation of concerns** - Each service has its own environment and dependencies
+- **Scalability** - You can scale each service independently
+- **Isolation** - Problems in one container don't affect the others
+- **Development** - Each service can be developed and tested independently
+
+The containers communicate with each other through Docker's internal networking, which we'll configure in the `docker-compose.yaml` file.
+
+**Architecture Diagram:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Your Laptop                              │
+│                                                             │
+│  ┌──────────────┐         ┌──────────────┐                  │
+│  │   Browser    │────────▶│  Frontend    │                  │
+│  │              │  :5173  │  Container   │                  │
+│  │ localhost    │◀────────│  (React)     │                  │
+│  └──────────────┘         └──────┬───────┘                  │
+│                                  │                          │
+│                                  │ HTTP Requests            │
+│                                  │ (localhost:8000)         │
+│                                  ▼                          │
+│                          ┌──────────────┐                   │
+│                          │   Backend    │                   │
+│                          │  Container   │                   │
+│                          │  (FastAPI)   │                   │
+│                          └──────┬───────┘                   │
+│                                  │                          │
+│                                  │ SQL Queries              │
+│                                  │ (internal Docker network)│
+│                                  ▼                          │
+│                          ┌──────────────┐                   │
+│                          │  Database    │                   │
+│                          │  Container   │                   │
+│                          │ (PostgreSQL) │                   │
+│                          └──────────────┘                   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Port Mappings:
+- Frontend:  localhost:5173  ←→  Container:5173
+- Backend:   localhost:8000  ←→  Container:8000
+- Database:  localhost:5433  ←→  Container:5432 (internal only)
+```
+
+**How it works:**
+- Your **browser** connects to the frontend container on port 5173
+- The **frontend** makes HTTP requests to the backend on port 8000
+- The **backend** communicates with the database using Docker's internal network
+- All three containers run simultaneously on your laptop via Docker
+
+## 2. Create a New Branch
+
+Before you begin, create a new Git branch for this work:
+
+```bash
+git checkout -b system-setup
+```
+
+**Why create a branch?**
+- Keeps your work organized
+- Allows you to experiment without affecting the main branch
+- Makes it easier to review changes before merging
+
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> Verify that you're on your new branch -- not main.
+
+## 3. Create Database Dockerfile
 
 Create `database/Dockerfile` with the following **exact** content:
 
@@ -25,7 +102,7 @@ ENV POSTGRES_PASSWORD=postgres
 - Sets default password for development
 - PostgreSQL will create databases as needed
 
-## 2. Create .env File
+## 4. Create .env File
 
 Create a `.env` file at the root of your project with the following content:
 
@@ -57,7 +134,18 @@ DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/todo_db
 > │   └── models/
 > ├── ui/
 > │   └── src/
-> └── .env            # new (and excluded from version control via .gitignore)
+> ├── .env            # new (and excluded from version control via .gitignore)
+> ├── .gitignore
+> └── README.md
 > ```
 
+## 5. Push your new branch
+Go ahead and push your new branch to GitHub. 
 
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> Verify that your new branch is on GitHub.
+
+---
+
+[← Back to Project 2 Instructions](project02)

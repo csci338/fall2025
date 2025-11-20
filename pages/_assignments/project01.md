@@ -3,7 +3,7 @@ title: UNCA Course Lookup
 layout: assignment-two-column
 type: project
 draft: 0
-points: 20
+points: 100
 abbreviation: Project 1
 num: 1
 h_max: 3

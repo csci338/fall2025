@@ -5,7 +5,7 @@ type: partial
 draft: 0
 abbreviation: "Project 2"
 num: 2
-h_max: 2
+h_max: 3
 parent: project02
 start_date: 2025-11-15
 due_date: 2025-12-05
@@ -29,7 +29,7 @@ project02-fall2025
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify your folder structure matches the above.
 
-### 1.1. Initialize Git Repository
+## 2. Initialize Git Repository
 Initialize a git repo at the root of your `project02-fall2025` folder:
 
 ```bash
@@ -67,7 +67,76 @@ Thumbs.db
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify your `.gitignore` file exists and contains the above patterns.
 
-### 1.3. Set Up GitHub Repository
+## 3. Create README.md
+
+Create a `README.md` file in the root directory with basic project information:
+
+```markdown
+# Project 2: Full-Stack TODO Application
+
+A full-stack web application built with FastAPI (backend), React (frontend), and PostgreSQL (database).
+
+## Tech Stack
+
+- **Backend:** FastAPI, SQLAlchemy, PostgreSQL
+- **Frontend:** React, Vite
+- **Database:** PostgreSQL
+- **Containerization:** Docker, Docker Compose
+
+## Project Structure
+
+
+project02-fall2025/
+├── database/     # Database Dockerfile
+├── backend/      # FastAPI application
+└── ui/           # React application
+
+
+## Getting Started
+
+### Prerequisites
+
+- Docker Desktop installed and running
+
+### Running the Application
+
+1. Clone this repository
+2. Create a `.env` file in the root directory (see project documentation) with your database connection string.
+3. Run `docker-compose up -d` to start all services
+4. Access the application:
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:8000
+   - API Documentation: http://localhost:8000/docs
+
+## Development
+
+See the project documentation for detailed setup and development instructions.
+```
+
+**What this does:**
+- Provides an overview of your project
+- Documents the tech stack
+- Shows the project structure
+- Includes basic getting started instructions
+- Makes your repository more professional and easier to understand
+
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> * Verify your `README.md` file exists in the root directory with the basic content above.
+> * Also verify that your file structure looks like the one below:
+>
+> ```sh
+> project02-fall2025
+> ├── database/
+> ├── backend/
+> │   └── models/
+> ├── ui/
+> │   └── src/
+> ├── .gitignore    # new
+> └── README.md      # new
+> ```
+
+## 4. Set Up GitHub Repository
 
 If you're using GitHub (recommended), set it up now so you can push your code as you work:
 
@@ -82,7 +151,7 @@ If you're using GitHub (recommended), set it up now so you can push your code as
 ```bash
 # Make your initial commit first
 git add .
-git commit -m "Initial project setup with folder structure and .gitignore"
+git commit -m "Initial project setup with folder structure, .gitignore, and README"
 
 # Connect to GitHub using SSH (replace with your actual repository URL)
 # On GitHub, click the green "Code" button and copy the SSH URL (starts with git@github.com)
@@ -97,15 +166,12 @@ git push -u origin main
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify your local repository is connected to GitHub and your initial commit is pushed.
 
-### 1.4. Git Workflow Basics
+## 5. Git Workflow Basics
 
 Throughout development, you should commit your code regularly. Use this workflow for regular commits:
 
-#### Regular Commits
-
-Commit after completing each major section:
-
 ```bash
+git status   # what has changed?
 git add .
 git commit -m "Meaningful message"
 git push
@@ -115,3 +181,6 @@ git push
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Make sure you understand the Git workflow for committing and pushing code regularly throughout development.
 
+---
+
+[← Back to Project 2 Instructions](project02)

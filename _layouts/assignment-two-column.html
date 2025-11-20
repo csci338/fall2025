@@ -3,7 +3,7 @@ layout: two-column
 ---
 
 <p>
-    {% if page.due_date %}
+    {% if page.due_date and page.type != "partial" %}
         Due on {{ page.due_date  | date: "%a, %m/%d" }} @ 11:59PM.
     {% endif %}
     {% if page.points %}
