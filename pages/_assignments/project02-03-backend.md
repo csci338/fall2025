@@ -516,7 +516,7 @@ async def patch_todo(
 Add endpoint to delete todos:
 
 ```python
-# DELETE: Delete a todo
+# Step 12: DELETE: Delete a todo
 @app.delete("/todos/{todo_id}", status_code=204)
 async def delete_todo(todo_id: int, db: AsyncSession = Depends(get_db)):
     """
@@ -550,7 +550,7 @@ async def delete_todo(todo_id: int, db: AsyncSession = Depends(get_db)):
 Add code to serve the frontend in production:
 
 ```python
-# Step 8: Serve static files (frontend) in production
+# Step 13: Serve static files (frontend) in production
 # This must come AFTER all API routes so API routes are matched first
 # Check if static directory exists (production build)
 static_dir = os.path.join(os.path.dirname(__file__), "..", "static")
@@ -588,7 +588,7 @@ if os.path.exists(static_dir):
 Add code to run the server directly:
 
 ```python
-# Step 9: Run the server
+# Step 14: Run the server
 # This code only runs if you execute the file directly (not if imported)
 if __name__ == "__main__":
     import uvicorn
@@ -768,7 +768,7 @@ poetry run black .      # runs the Python formatter
 
 **Using the scripts:**
 
-On the Docker backend container, run:
+When you eventually create the Docker backend container, you can run the linter as follows:
 
 ```bash
 # Check code quality (doesn't modify files)
