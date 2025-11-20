@@ -619,7 +619,7 @@ HOW IT WORKS:
 
 <p>Add endpoint to delete todos:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># DELETE: Delete a todo
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 12: DELETE: Delete a todo
 </span><span class="nd">@app.delete</span><span class="p">(</span><span class="sh">"</span><span class="s">/todos/{todo_id}</span><span class="sh">"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">204</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">delete_todo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">AsyncSession</span> <span class="o">=</span> <span class="nc">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
     <span class="sh">"""</span><span class="s">
@@ -653,7 +653,7 @@ HOW IT WORKS:
 
 <p>Add code to serve the frontend in production:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 8: Serve static files (frontend) in production
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 13: Serve static files (frontend) in production
 # This must come AFTER all API routes so API routes are matched first
 # Check if static directory exists (production build)
 </span><span class="n">static_dir</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="sh">"</span><span class="s">..</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">static</span><span class="sh">"</span><span class="p">)</span>
@@ -691,7 +691,7 @@ HOW IT WORKS:
 
 <p>Add code to run the server directly:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 9: Run the server
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Step 14: Run the server
 # This code only runs if you execute the file directly (not if imported)
 </span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="kn">import</span> <span class="n">uvicorn</span>
@@ -872,7 +872,7 @@ poetry run black <span class="nb">.</span>      <span class="c"># runs the Pytho
 
 <p><strong>Using the scripts:</strong></p>
 
-<p>On the Docker backend container, run:</p>
+<p>When you eventually create the Docker backend container, you can run the linter as follows:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Check code quality (doesn't modify files)</span>
 bash scripts/check.sh
