@@ -201,15 +201,16 @@ Port Mappings:
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
-│   └── Dockerfile  <span class="c"># new</span>
+├── .env            <span class="c"># new (and excluded from version control via .gitignore)</span>
+├── .git/
+├── .gitignore
 ├── backend/
 │   └── models/
-├── ui/
-│   └── src/
-├── .env            <span class="c"># new (and excluded from version control via .gitignore)</span>
-├── .gitignore
-└── README.md
+├── database/
+│   └── Dockerfile  <span class="c"># new</span>
+├── README.md
+└── ui/
+    └── src/
 </code></pre></div>  </div>
 </blockquote>
 
@@ -218,7 +219,8 @@ Port Mappings:
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify that your new branch is on GitHub.</p>
+  <p>Verify that your new branch is on GitHub.
+Don’t worry about making a PR or merging anything yet. We’ll address that later.</p>
 </blockquote>
 
 <hr />

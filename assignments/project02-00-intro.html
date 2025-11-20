@@ -119,7 +119,7 @@
 <h3 id="id_production-deployment">Production Deployment</h3>
 <ul>
   <li><strong>Cloud Database</strong> - PostgreSQL database hosted on Railway</li>
-  <li><strong>Production Container</strong> - Optimized Docker image for deployment</li>
+  <li><strong>Production Container</strong> - Single optimized Docker image containing both frontend and backend</li>
   <li><strong>Live Application</strong> - Your app accessible on the internet via Railway</li>
 </ul>
 
@@ -187,23 +187,28 @@
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │              Railway Platform                        │   │
 │  │                                                      │   │
-│  │  ┌──────────────┐         ┌──────────────┐           │   │
-│  │  │  Frontend    │────────▶│   Backend    │           │   │
-│  │  │  Container   │  HTTP   │   Container  │           │   │
-│  │  │  (React)     │◀────────│  (FastAPI)   │           │   │
-│  │  └──────────────┘         └──────┬───────┘           │   │
-│  │                                  │                   │   │
-│  │                                  │ SQL Queries       │   │
-│  │                                  │ (SSL connection)  │   │
-│  │                                  ▼                   │   │
-│  │                           ┌──────────────┐           │   │
-│  │                           │   Railway    │           │   │
-│  │                           │   PostgreSQL │           │   │
-│  │                           │   Database   │           │   │
-│  │                           │  (Managed)   │           │   │
-│  │                           └──────────────┘           │   │
+│  │  ┌──────────────────────────────────────────────┐    │   │
+│  │  │         Application Container                │    │   │
+│  │  │                                              │    │   │
+│  │  │  ┌──────────────┐       ┌──────────────┐     │    │   │
+│  │  │  │   Frontend   │──────▶│   Backend    │     │    │   │
+│  │  │  │   (React)    │ HTTP  │  (FastAPI)   │     │    │   │
+│  │  │  │              │◀───── │              │     │    │   │
+│  │  │  └──────────────┘       └──────┬───────┘     │    │   │
+│  │  │                                │             │    │   │
+│  │  │                                │ SQL Queries │    │   │
+│  │  │                                │ (SSL)       │    │   │
+│  │  └────────────────────────────────┼─────────────┘    │   │
+│  │                                   │                  │   │
+│  │                                   ▼                  │   │
+│  │                            ┌──────────────┐          │   │
+│  │                            │   Railway    │          │   │
+│  │                            │   PostgreSQL │          │   │
+│  │                            │   Database   │          │   │
+│  │                            │  (Managed)   │          │   │
+│  │                            └──────────────┘          │   │
 │  │                                                      │   │
-│  │  Each service runs in its own isolated container     │   │
+│  │  Frontend and backend run together in one container  │   │
 │  │  Database is managed by Railway (separate service)   │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
@@ -211,8 +216,8 @@
 
 <p><strong>Key characteristics:</strong></p>
 <ul>
-  <li>Services run on Railway’s cloud infrastructure</li>
-  <li>Each service is independently scalable</li>
+  <li>Application runs on Railway’s cloud infrastructure</li>
+  <li>Frontend and backend are deployed together in a single container</li>
   <li>Database is a managed service (not a container)</li>
   <li>HTTPS encryption for all traffic</li>
   <li>Optimized for performance (no hot reload, production builds)</li>

@@ -102,9 +102,9 @@
 <p>Create the following folder structure:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
 ├── backend/
 │   └── models/
+├── database/
 └── ui/
     └── src/
 </code></pre></div></div>
@@ -170,8 +170,8 @@ A full-stack web application built with FastAPI (backend), React (frontend), and
 
 
 </span>project02-fall2025/
-├── database/     # Database Dockerfile
 ├── backend/      # FastAPI application
+├── database/     # Database Dockerfile
 └── ui/           # React application<span class="sb">
 
 
@@ -213,13 +213,14 @@ See the project documentation for detailed setup and development instructions.
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
+├── .git/
+├── .gitignore    <span class="c"># new</span>
 ├── backend/
 │   └── models/
-├── ui/
-│   └── src/
-├── .gitignore    <span class="c"># new</span>
-└── README.md      <span class="c"># new</span>
+├── database/
+├── README.md      <span class="c"># new</span>
+└── ui/
+    └── src/
 </code></pre></div>  </div>
 </blockquote>
 
@@ -232,7 +233,7 @@ See the project documentation for detailed setup and development instructions.
     <ul>
       <li>Go to https://github.com/new</li>
       <li>Choose a repository name (e.g., <code class="language-plaintext highlighter-rouge">project02-fall2025</code>)</li>
-      <li><strong>Important:</strong> Do NOT initialize with a README, .gitignore, or license</li>
+      <li>Make it private and add <code class="language-plaintext highlighter-rouge">svanwart</code> as a collaborator</li>
       <li>Click “Create repository”</li>
     </ul>
   </li>

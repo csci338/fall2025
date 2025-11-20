@@ -212,17 +212,18 @@ When you create a class that inherits from <code class="language-plaintext highl
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
-│   └── Dockerfile
+├── .env
+├── .git/
 ├── backend/
 │   ├── models/
 │   │   ├── __init__.py  <span class="c"># new</span>
 │   │   ├── base.py      <span class="c"># new</span>
 │   │   └── todo.py      <span class="c"># new</span>
 │   └── pyproject.toml
-├── ui/
-│   └── src/
-└── .env
+├── database/
+│   └── Dockerfile
+└── ui/
+    └── src/
 </code></pre></div>  </div>
 </blockquote>
 
@@ -750,19 +751,20 @@ HOW IT WORKS:
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
-│   └── Dockerfile
+├── .env
+├── .git/
 ├── backend/
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── base.py
 │   │   └── todo.py
-│   ├── server.py      <span class="c"># new</span>
 │   ├── Dockerfile    <span class="c"># new</span>
-│   └── pyproject.toml
-├── ui/
-│   └── src/
-└── .env
+│   ├── pyproject.toml
+│   └── server.py      <span class="c"># new</span>
+├── database/
+│   └── Dockerfile
+└── ui/
+    └── src/
 </code></pre></div>  </div>
 </blockquote>
 
@@ -893,8 +895,8 @@ bash scripts/fix.sh
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
-├── database/
-│   └── Dockerfile
+├── .env
+├── .git/
 ├── backend/
 │   ├── models/
 │   │   ├── __init__.py
@@ -903,13 +905,14 @@ bash scripts/fix.sh
 │   ├── scripts/
 │   │   ├── check.sh      <span class="c"># new</span>
 │   │   └── fix.sh        <span class="c"># new</span>
-│   ├── server.py
+│   ├── .flake8           <span class="c"># new</span>
 │   ├── Dockerfile
 │   ├── pyproject.toml    <span class="c"># updated with linter stuff</span>
-│   └── .flake8           <span class="c"># new</span>
-├── ui/
-│   └── src/
-└── .env
+│   └── server.py
+├── database/
+│   └── Dockerfile
+└── ui/
+    └── src/
 </code></pre></div>  </div>
 </blockquote>
 

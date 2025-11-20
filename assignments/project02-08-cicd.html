@@ -219,7 +219,27 @@ We’ll set up a workflow that automatically checks your code quality (formattin
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> file exists.</p>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">.github/workflows/pr.yml</code> file exists.</li>
+    <li>Also verify that your file structure looks like the one below:</li>
+  </ul>
+
+  <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
+├── .env
+├── .git/
+├── .github/
+│   └── workflows/
+│       └── pr.yml          <span class="c"># new</span>
+├── .gitignore
+├── backend/
+│   └── ...
+├── database/
+│   └── ...
+├── docker-compose.yaml
+├── README.md
+└── ui/
+    └── ...
+</code></pre></div>  </div>
 </blockquote>
 
 <h2 id="id_2-commit-and-push-your-workflow">2. Commit and Push Your Workflow</h2>
