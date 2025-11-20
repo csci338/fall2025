@@ -132,7 +132,26 @@ jobs:
 
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your `.github/workflows/pr.yml` file exists.
+> * Verify your `.github/workflows/pr.yml` file exists.
+> * Also verify that your file structure looks like the one below:
+>
+> ```sh
+> project02-fall2025
+> ├── .env
+> ├── .git/
+> ├── .github/
+> │   └── workflows/
+> │       └── pr.yml          # new
+> ├── .gitignore
+> ├── backend/
+> │   └── ...
+> ├── database/
+> │   └── ...
+> ├── docker-compose.yaml
+> ├── README.md
+> └── ui/
+>     └── ...
+> ```
 
 ## 2. Commit and Push Your Workflow
 

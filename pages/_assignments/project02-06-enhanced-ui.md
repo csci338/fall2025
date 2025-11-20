@@ -607,28 +607,23 @@ If you encounter any issues, check:
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── Dockerfile
+> ├── .env
+> ├── .git/
 > ├── backend/
-> │   ├── models/
-> │   │   ├── __init__.py
-> │   │   ├── base.py
-> │   │   └── todo.py
-> │   ├── server.py
-> │   ├── Dockerfile
-> │   └── pyproject.toml
-> ├── ui/
-> │   ├── src/
-> │   │   ├── main.jsx
-> │   │   ├── App.jsx          # updated
-> │   │   ├── Todos.jsx        # new
-> │   │   ├── CreateTodo.jsx   # new
-> │   │   └── globals.css      # updated
-> │   ├── index.html
-> │   ├── package.json
-> │   ├── vite.config.js
-> │   └── Dockerfile
-> └── .env
+> │   └── ...
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── src/
+>     │   ├── App.jsx          # updated
+>     │   ├── CreateTodo.jsx   # new
+>     │   ├── globals.css      # updated
+>     │   ├── main.jsx
+>     │   └── Todos.jsx        # new
+>     ├── Dockerfile
+>     ├── index.html
+>     ├── package.json
+>     └── vite.config.js
 > ```
 
 ## 6. Summary

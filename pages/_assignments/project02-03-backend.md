@@ -106,17 +106,18 @@ class Todo(Base):
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── Dockerfile
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   ├── models/
 > │   │   ├── __init__.py  # new
 > │   │   ├── base.py      # new
 > │   │   └── todo.py      # new
 > │   └── pyproject.toml
-> ├── ui/
-> │   └── src/
-> └── .env
+> ├── database/
+> │   └── Dockerfile
+> └── ui/
+>     └── src/
 > ```
 
 
@@ -648,19 +649,20 @@ CMD ["poetry", "run", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── Dockerfile
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   ├── models/
 > │   │   ├── __init__.py
 > │   │   ├── base.py
 > │   │   └── todo.py
-> │   ├── server.py      # new
 > │   ├── Dockerfile    # new
-> │   └── pyproject.toml
-> ├── ui/
-> │   └── src/
-> └── .env
+> │   ├── pyproject.toml
+> │   └── server.py      # new
+> ├── database/
+> │   └── Dockerfile
+> └── ui/
+>     └── src/
 > ```
 
 ## 5. Configuring Linters and Formatters
@@ -787,8 +789,8 @@ bash scripts/fix.sh
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── Dockerfile
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   ├── models/
 > │   │   ├── __init__.py
@@ -797,13 +799,14 @@ bash scripts/fix.sh
 > │   ├── scripts/
 > │   │   ├── check.sh      # new
 > │   │   └── fix.sh        # new
-> │   ├── server.py
+> │   ├── .flake8           # new
 > │   ├── Dockerfile
 > │   ├── pyproject.toml    # updated with linter stuff
-> │   └── .flake8           # new
-> ├── ui/
-> │   └── src/
-> └── .env
+> │   └── server.py
+> ├── database/
+> │   └── Dockerfile
+> └── ui/
+>     └── src/
 > ```
 
 ## 6. Commit and Push

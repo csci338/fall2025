@@ -34,7 +34,7 @@ Throughout this semester, you've worked with individual pieces of a full-stack s
 
 ### Production Deployment
 - **Cloud Database** - PostgreSQL database hosted on Railway
-- **Production Container** - Optimized Docker image for deployment
+- **Production Container** - Single optimized Docker image containing both frontend and backend
 - **Live Application** - Your app accessible on the internet via Railway
 
 ## Architecture: Development vs. Production
@@ -101,31 +101,36 @@ Throughout this semester, you've worked with individual pieces of a full-stack s
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │              Railway Platform                        │   │
 │  │                                                      │   │
-│  │  ┌──────────────┐         ┌──────────────┐           │   │
-│  │  │  Frontend    │────────▶│   Backend    │           │   │
-│  │  │  Container   │  HTTP   │   Container  │           │   │
-│  │  │  (React)     │◀────────│  (FastAPI)   │           │   │
-│  │  └──────────────┘         └──────┬───────┘           │   │
-│  │                                  │                   │   │
-│  │                                  │ SQL Queries       │   │
-│  │                                  │ (SSL connection)  │   │
-│  │                                  ▼                   │   │
-│  │                           ┌──────────────┐           │   │
-│  │                           │   Railway    │           │   │
-│  │                           │   PostgreSQL │           │   │
-│  │                           │   Database   │           │   │
-│  │                           │  (Managed)   │           │   │
-│  │                           └──────────────┘           │   │
+│  │  ┌──────────────────────────────────────────────┐    │   │
+│  │  │         Application Container                │    │   │
+│  │  │                                              │    │   │
+│  │  │  ┌──────────────┐       ┌──────────────┐     │    │   │
+│  │  │  │   Frontend   │──────▶│   Backend    │     │    │   │
+│  │  │  │   (React)    │ HTTP  │  (FastAPI)   │     │    │   │
+│  │  │  │              │◀───── │              │     │    │   │
+│  │  │  └──────────────┘       └──────┬───────┘     │    │   │
+│  │  │                                │             │    │   │
+│  │  │                                │ SQL Queries │    │   │
+│  │  │                                │ (SSL)       │    │   │
+│  │  └────────────────────────────────┼─────────────┘    │   │
+│  │                                   │                  │   │
+│  │                                   ▼                  │   │
+│  │                            ┌──────────────┐          │   │
+│  │                            │   Railway    │          │   │
+│  │                            │   PostgreSQL │          │   │
+│  │                            │   Database   │          │   │
+│  │                            │  (Managed)   │          │   │
+│  │                            └──────────────┘          │   │
 │  │                                                      │   │
-│  │  Each service runs in its own isolated container     │   │
+│  │  Frontend and backend run together in one container  │   │
 │  │  Database is managed by Railway (separate service)   │   │
 │  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 **Key characteristics:**
-- Services run on Railway's cloud infrastructure
-- Each service is independently scalable
+- Application runs on Railway's cloud infrastructure
+- Frontend and backend are deployed together in a single container
 - Database is a managed service (not a container)
 - HTTPS encryption for all traffic
 - Optimized for performance (no hot reload, production builds)

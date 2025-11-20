@@ -80,14 +80,15 @@ Dependencies will be installed automatically when you build your containers (`np
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   └── package.json      # new
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── package.json      # new
+>     └── src/
 > ```
 
 ## 2. Create Vite Configuration
@@ -147,15 +148,16 @@ export default defineConfig({
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   ├── package.json
-> │   └── vite.config.js    # new
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── package.json
+>     ├── src/
+>     └── vite.config.js    # new
 > ```
 
 ## 3. Create HTML Entry Point
@@ -190,16 +192,17 @@ Create `ui/index.html`:
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   ├── index.html 
-> │   ├── package.json 
-> │   └── vite.config.js    # new
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── index.html 
+>     ├── package.json 
+>     ├── src/
+>     └── vite.config.js    # new
 > ```
 
 ## 4. Create JavaScript Entry Point (main.jsx)
@@ -242,17 +245,18 @@ main();
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   │   └── main.jsx      # new
-> │   ├── index.html 
-> │   ├── package.json
-> │   └── vite.config.js
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── index.html 
+>     ├── package.json
+>     ├── src/
+>     │   └── main.jsx      # new
+>     └── vite.config.js
 > ```
 
 ## 5. Create a Minimal App Component
@@ -297,18 +301,19 @@ export default function App() {
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   │   ├── main.jsx
-> │   │   └── App.jsx       # new
-> │   ├── package.json
-> │   ├── vite.config.js
-> │   └── index.html
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── index.html
+>     ├── package.json
+>     ├── src/
+>     │   ├── App.jsx       # new
+>     │   └── main.jsx
+>     └── vite.config.js
 > ```
 
 ## 6. Add Basic Styling
@@ -371,19 +376,20 @@ export default function App() {
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   │   ├── App.jsx
-> │   │   ├── main.jsx
-> │   │   └── globals.css   # new
-> │   ├── index.html
-> │   ├── package.json
-> │   └── vite.config.js
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── index.html
+>     ├── package.json
+>     ├── src/
+>     │   ├── App.jsx
+>     │   ├── globals.css   # new
+>     │   └── main.jsx
+>     └── vite.config.js
 > ```
 
 ## 7. Configure Linters and Formatters
@@ -485,22 +491,23 @@ package-lock.json
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   │   ├── App.jsx
-> │   │   ├── main.jsx
-> │   │   └── globals.css
-> │   ├── .eslintrc.cjs        # new
-> │   ├── .prettierrc          # new
-> │   ├── .prettierignore      # new
-> │   ├── index.html
-> │   ├── package.json
-> │   └── vite.config.js
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── .eslintrc.cjs        # new
+>     ├── .prettierignore      # new
+>     ├── .prettierrc          # new
+>     ├── index.html
+>     ├── package.json
+>     ├── src/
+>     │   ├── App.jsx
+>     │   ├── globals.css
+>     │   └── main.jsx
+>     └── vite.config.js
 > ```
 
 ## 8. Create A Dockerfile to Build the Frontend Server
@@ -537,23 +544,24 @@ CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── ...
+> ├── .env
+> ├── .git/
 > ├── backend/
 > │   └── ...
-> ├── ui/
-> │   ├── src/
-> │   │   ├── App.jsx
-> │   │   ├── main.jsx
-> │   │   └── globals.css
-> │   ├── .eslintrc.cjs       
-> │   ├── .prettierrc          
-> │   ├── .prettierignore      
-> │   ├── Dockerfile           # new
-> │   ├── index.html
-> │   ├── package.json
-> │   └── vite.config.js
-> └── .env
+> ├── database/
+> │   └── ...
+> └── ui/
+>     ├── .eslintrc.cjs       
+>     ├── .prettierignore      
+>     ├── .prettierrc          
+>     ├── Dockerfile           # new
+>     ├── index.html
+>     ├── package.json
+>     ├── src/
+>     │   ├── App.jsx
+>     │   ├── globals.css
+>     │   └── main.jsx
+>     └── vite.config.js
 > ```
 
 ## 9. Summary

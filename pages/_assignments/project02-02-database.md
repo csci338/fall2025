@@ -128,15 +128,16 @@ DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/todo_db
 >
 > ```sh
 > project02-fall2025
-> ├── database/
-> │   └── Dockerfile  # new
+> ├── .env            # new (and excluded from version control via .gitignore)
+> ├── .git/
+> ├── .gitignore
 > ├── backend/
 > │   └── models/
-> ├── ui/
-> │   └── src/
-> ├── .env            # new (and excluded from version control via .gitignore)
-> ├── .gitignore
-> └── README.md
+> ├── database/
+> │   └── Dockerfile  # new
+> ├── README.md
+> └── ui/
+>     └── src/
 > ```
 
 ## 5. Push your new branch
@@ -145,6 +146,7 @@ Go ahead and push your new branch to GitHub.
 {:.info}
 > ### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify that your new branch is on GitHub.
+> Don't worry about making a PR or merging anything yet. We'll address that later.
 
 ---
 

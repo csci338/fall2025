@@ -18,9 +18,9 @@ Create the following folder structure:
 
 ```sh
 project02-fall2025
-├── database/
 ├── backend/
 │   └── models/
+├── database/
 └── ui/
     └── src/
 ```
@@ -87,8 +87,8 @@ A full-stack web application built with FastAPI (backend), React (frontend), and
 
 
 project02-fall2025/
-├── database/     # Database Dockerfile
 ├── backend/      # FastAPI application
+├── database/     # Database Dockerfile
 └── ui/           # React application
 
 
@@ -127,13 +127,14 @@ See the project documentation for detailed setup and development instructions.
 >
 > ```sh
 > project02-fall2025
-> ├── database/
+> ├── .git/
+> ├── .gitignore    # new
 > ├── backend/
 > │   └── models/
-> ├── ui/
-> │   └── src/
-> ├── .gitignore    # new
-> └── README.md      # new
+> ├── database/
+> ├── README.md      # new
+> └── ui/
+>     └── src/
 > ```
 
 ## 4. Set Up GitHub Repository
@@ -143,7 +144,7 @@ If you're using GitHub (recommended), set it up now so you can push your code as
 1. **Create a new repository on GitHub:**
    - Go to https://github.com/new
    - Choose a repository name (e.g., `project02-fall2025`)
-   - **Important:** Do NOT initialize with a README, .gitignore, or license
+   - Make it private and add `svanwart` as a collaborator
    - Click "Create repository"
 
 2. **Connect your local repository to GitHub:**
