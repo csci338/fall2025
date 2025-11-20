@@ -85,7 +85,7 @@
       <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
     </ol>
   </li>
-  <li><a href="#id_5-final-testing-after-docker-container-is-built">5. Final Testing (After Docker Container Is Built)</a>
+  <li><a href="#id_5-final-testing">5. Final Testing</a>
     <ol>
       <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
     </ol>
@@ -271,7 +271,10 @@
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your <code class="language-plaintext highlighter-rouge">Todos.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>. You’ll test it after Docker is set up (see Docker Configuration section).</p>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">Todos.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>.</li>
+    <li><strong>Test it now:</strong> Make sure your Docker containers are running (<code class="language-plaintext highlighter-rouge">docker-compose up -d</code>), then visit http://localhost:5173. You should see any existing todos displayed in the list. If you don’t have any todos yet, that’s okay - you’ll create some in the next section.</li>
+  </ul>
 </blockquote>
 
 <h2 id="id_2-build-the-create-feature-add-new-todos">2. Build the CREATE Feature (Add New Todos)</h2>
@@ -419,7 +422,10 @@
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your <code class="language-plaintext highlighter-rouge">CreateTodo.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>. Note: The new todo won’t appear in the list yet - we’ll fix this in the next section.</p>
+  <ul>
+    <li>Verify your <code class="language-plaintext highlighter-rouge">CreateTodo.jsx</code> component is created and imported in <code class="language-plaintext highlighter-rouge">App.jsx</code>.</li>
+    <li><strong>Test it now:</strong> Visit http://localhost:5173 and try creating a new todo. Note: The new todo won’t appear in the list yet (we’ll fix this in the next section), but you should see the form and be able to submit it. Check your browser’s developer console (F12) for any errors.</li>
+  </ul>
 </blockquote>
 
 <h2 id="id_3-connect-components-together-component-communication">3. Connect Components Together (Component Communication)</h2>
@@ -607,7 +613,10 @@
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your component communication is set up correctly. After Docker is running, new todos should automatically appear in the list when created!</p>
+  <ul>
+    <li>Verify your component communication is set up correctly.</li>
+    <li><strong>Test it now:</strong> Visit http://localhost:5173 and create a new todo. The new todo should automatically appear in the list immediately after you submit the form! If it doesn’t, check your browser’s developer console (F12) for errors and verify your containers are running.</li>
+  </ul>
 </blockquote>
 
 <h2 id="id_4-add-delete-feature">4. Add DELETE Feature</h2>
@@ -718,26 +727,38 @@
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your delete functionality is implemented. After Docker is running, clicking Delete should remove todos from the list.</p>
+  <ul>
+    <li>Verify your delete functionality is implemented.</li>
+    <li><strong>Test it now:</strong> Visit http://localhost:5173, create a test todo if needed, then click the “Delete” button. The todo should immediately disappear from the list. Test this with multiple todos to ensure it works correctly.</li>
+  </ul>
 </blockquote>
 
-<h2 id="id_5-final-testing-after-docker-container-is-built">5. Final Testing (After Docker Container Is Built)</h2>
+<h2 id="id_5-final-testing">5. Final Testing</h2>
 
-<p><strong>Note:</strong> These tests should be run after Docker is set up (see Docker Configuration section). The frontend and backend will be running in Docker containers.</p>
-
-<p>Test all functionality:</p>
+<p>Now that all features are implemented, test your complete application:</p>
 
 <ol>
-  <li><strong>READ:</strong> Todos should load automatically when page opens</li>
-  <li><strong>CREATE:</strong> Fill out form, click “Create TODO”, verify it appears automatically</li>
-  <li><strong>DELETE:</strong> Click “Delete” on a todo, verify it disappears</li>
+  <li><strong>READ:</strong> Visit http://localhost:5173 - todos should load automatically when the page opens</li>
+  <li><strong>CREATE:</strong> Fill out the form, click “Create TODO”, verify it appears automatically in the list</li>
+  <li><strong>DELETE:</strong> Click “Delete” on a todo, verify it immediately disappears from the list</li>
 </ol>
+
+<p><strong>Make sure your Docker containers are running:</strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">-d</span>
+</code></pre></div></div>
+
+<p>If you encounter any issues, check:</p>
+<ul>
+  <li>Browser developer console (F12) for JavaScript errors</li>
+  <li>Backend logs: <code class="language-plaintext highlighter-rouge">docker logs todo_backend</code></li>
+  <li>Frontend logs: <code class="language-plaintext highlighter-rouge">docker logs todo_frontend</code></li>
+</ul>
 
 <blockquote class="info">
   <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <ul>
-    <li>Verify all CRUD operations work correctly.</li>
-    <li>Also verify that your file structure looks like the one below:</li>
+    <li><strong>Test all CRUD operations:</strong> Make sure READ, CREATE, and DELETE all work correctly in your browser.</li>
+    <li>Verify that your file structure looks like the one below:</li>
   </ul>
 
   <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project02-fall2025
