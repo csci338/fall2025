@@ -27,7 +27,8 @@ layout: default
             </tr>
         </thead>
         <tbody>
-            {% assign __assignments = site.assignments | where_exp: "item", "item.hide != true" %}
+            {% assign __assignments = site.assignments | where_exp: "item", "item.hide != true and item.type !=
+            'partial'" %}
             {% assign __labs = site.lectures | where: "type", "lab" %}
             {% assign __exams = site.lectures | where: "type", "exam" %}
             {% assign assignments = __assignments | concat: __labs | concat: __exams | sort: 'due_date' %}

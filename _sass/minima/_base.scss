@@ -381,10 +381,12 @@ nav {
     grid-area: menu;
     position: sticky;
     top: 0;
+    z-index: 100;
     &.sticky {
         position: fixed;
         top: 0;
         width: 100%;
+        z-index: 100;
     }
     ul {
         display: flex;
