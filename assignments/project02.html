@@ -53,12 +53,19 @@
                 
                 
                 <ol class="side-menu">
+  <li><a href="#heading_jmsqnw50">Collaboration &amp; AI Policy</a></li>
   <li><a href="#id_table-of-contents">Table of Contents</a>
     <ol>
       <li><a href="#id_part-1-build-your-system">Part 1. Build Your System</a></li>
       <li><a href="#id_part-2-get-react-to-communicate-with-fastapi">Part 2. Get React to Communicate with FastAPI</a></li>
-      <li><a href="#id_part-3-your-tasks">Part 3. Your Tasks</a></li>
+      <li><a href="#id_part-3-extending-the-app">Part 3. Extending the App</a></li>
       <li><a href="#id_part-4-deployment">Part 4. Deployment</a></li>
+    </ol>
+  </li>
+  <li><a href="#id_what-to-submit">What To Submit</a>
+    <ol>
+      <li><a href="#id_before-you-submit">Before You Submit</a></li>
+      <li><a href="#id_submit">Submit</a></li>
     </ol>
   </li>
 </ol>
@@ -86,6 +93,33 @@
 
 <p>This guide will walk you through building a complete full-stack application from scratch. Follow each section in order, and verify your work at each checkpoint.</p>
 
+<blockquote class="info">
+<div class="expandable-section">
+            <div class="toggle-header">
+                <button class="toggle-button" target-panel="#panel_JuNbigLd" onclick="toggleExpandable(this)"><i class="fa-solid fa-angle-down"></i></button>
+                <h2 id="heading_jmsqnw50" target-panel="#panel_JuNbigLd" onclick="toggleExpandable(this)" style="cursor: pointer;">Collaboration &amp; AI Policy</h2>
+            </div>
+            <div class="expandable-content" style="display: block;" id="panel_JuNbigLd"><p><strong>You may:</strong></p>
+<ul>
+  <li>Discuss concepts, approaches, and debugging strategies with classmates</li>
+  <li>Share links to documentation, tutorials, or Stack Overflow posts</li>
+  <li>Help each other understand error messages or explain how technologies work</li>
+  <li>Use AI tools (ChatGPT, GitHub Copilot, etc.) to help understand concepts, debug errors, or generate small code snippets</li>
+</ul>
+
+<p><strong>You may NOT:</strong></p>
+<ul>
+  <li>Share, copy, or view another student’s code (including via screenshots, GitHub repos, or pair programming)</li>
+  <li>Submit code written by someone else (including AI-generated code that you don’t understand)</li>
+  <li>Use AI tools to generate large portions of your application without understanding what the code does</li>
+  <li>Post your code publicly or share it in a way that others can copy it</li>
+</ul>
+
+<p><strong>Remember:</strong> The goal is for you to learn and demonstrate your understanding. If you can’t explain how your code works, you haven’t learned it. All submitted code must be your own work, even if you received help understanding concepts or debugging issues.</p>
+</div>
+        </div>
+</blockquote>
+
 <h2 id="id_table-of-contents">Table of Contents</h2>
 
 <h3 id="id_part-1-build-your-system">Part 1. Build Your System</h3>
@@ -102,20 +136,58 @@
 <ol>
   <li><a href="project02-06-enhanced-ui">Implement Frontend &lt;&gt; Backend Communication</a></li>
   <li><a href="project02-07-working-with-your-containers">Before Moving On: How to work with your containers</a></li>
+  <li><a href="project02-08-cicd">Add Continuous Integration on GitHub</a></li>
 </ol>
 
-<h3 id="id_part-3-your-tasks">Part 3. Your Tasks</h3>
+<h3 id="id_part-3-extending-the-app">Part 3. Extending the App</h3>
 <ol>
-  <li><a href="project02-08-cicd">Add Continuous Integration on GitHub</a></li>
-  <li><a href="project02-09-enhancements">Enhancing the System</a></li>
+  <li><a href="project02-09-enhancements">Backend + Frontend Extensions</a> (complete all required tasks)</li>
 </ol>
 
 <h3 id="id_part-4-deployment">Part 4. Deployment</h3>
 <ol>
-  <li>Railway Deployment: Instructions forthcoming</li>
+  <li><a href="project02-10-railway">Railway Deployment</a></li>
 </ol>
 
-<p>Rubric will be added soon…</p>
+<h2 id="id_what-to-submit">What To Submit</h2>
+
+<h3 id="id_before-you-submit">Before You Submit</h3>
+
+<p>Before submitting, verify you have completed all of the following:</p>
+
+<p><strong><span class="badge info">20 pts</span> Part 1: Build Your System</strong></p>
+<ul class="checkbox-list">
+  <li>Project setup with Git repository</li>
+  <li>Database container created and configured</li>
+  <li>Backend API with CRUD endpoints working</li>
+  <li>Basic React frontend running</li>
+  <li>Docker containers built and running locally</li>
+</ul>
+
+<p><strong><span class="badge info">25 pts</span> Part 2: React ↔ FastAPI Communication</strong></p>
+<ul class="checkbox-list">
+  <li>Frontend successfully communicates with backend API</li>
+  <li>Can create, read, update, and delete items from the UI</li>
+  <li>GitHub Actions CI/CD pipeline configured and passing</li>
+</ul>
+
+<p><strong><span class="badge info">35 pts</span> Part 3: Required Enhancements</strong></p>
+<ul class="checkbox-list">
+  <li>One required backend enhancement (Option 1 or Option 2)</li>
+  <li>One required frontend enhancement (component library integration)</li>
+</ul>
+
+<p><strong><span class="badge info">20 pts</span> Part 4: Deployment</strong></p>
+<ul class="checkbox-list">
+  <li>Application deployed to Railway</li>
+  <li>Production database configured</li>
+  <li>Application accessible via public URL</li>
+</ul>
+
+<p><strong>Optional:</strong> Complete any <a href="project02-09-enhancements#ec">extra credit enhancements</a> for additional points.</p>
+
+<h3 id="id_submit">Submit</h3>
+<p>Once you have verified that your project is done, paste a link to your GitHub Repo and to your Railway deployment into the Moodle submission checkbox.</p>
 
 
 

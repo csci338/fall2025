@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/fall2025/assets/images/favicon.ico" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>Enhancements</title>
+    <title>Backend + Frontend Extensions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="/fall2025/assets/main.css">
     
@@ -53,30 +53,32 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_required-enhancements">Required Enhancements</a>
+  <li><a href="#backend">1. Required Backend Enhancement</a>
     <ol>
-      <li><a href="#id_1-replace-the-existing-data-model-and-ui-with-your-own">1. Replace the Existing Data Model and UI with Your Own</a></li>
-      <li><a href="#id_2-add-a-new-model-with-crud-endpoints">2. Add a New Model with CRUD Endpoints</a></li>
-      <li><a href="#id_3-integrate-a-design-system">3. Integrate a Design System</a></li>
+      <li><a href="#id_option-1-build-your-own-single-model-app">Option 1. Build Your Own Single-Model App</a></li>
+      <li><a href="#id_option-2-extend-the-todo-app-with-a-second-model">Option 2. Extend the TODO App with a Second Model</a></li>
     </ol>
   </li>
-  <li><a href="#id_optional-enhancements">Optional Enhancements</a>
+  <li><a href="#frontend">2. Required Frontend Enhancement</a>
     <ol>
-      <li><a href="#id_4-add-search-and-filtering">4. Add Search and Filtering</a></li>
-      <li><a href="#id_5-add-pagination">5. Add Pagination</a></li>
-      <li><a href="#id_6-add-sorting">6. Add Sorting</a></li>
-      <li><a href="#id_7-add-due-dates-and-reminders">7. Add Due Dates and Reminders</a></li>
-      <li><a href="#id_8-add-loading-states-and-error-handling">8. Add Loading States and Error Handling</a></li>
-      <li><a href="#id_9-add-data-export">9. Add Data Export</a></li>
-      <li><a href="#id_10-add-statistics-dashboard">10. Add Statistics Dashboard</a></li>
-      <li><a href="#id_11-add-categories-or-tags-with-relationships">11. Add Categories or Tags with Relationships</a></li>
+      <li><a href="#id_popular-component-library-options">Popular component library options</a></li>
+      <li><a href="#id_examples-of-what-you-might-try">Examples of what you might try</a></li>
     </ol>
   </li>
-  <li><a href="#id_getting-started">Getting Started</a>
+  <li><a href="#ec">3. Optional Enhancements</a>
     <ol>
-      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
+      <li><a href="#id_31-add-search-and-filtering-5pts">3.1. Add Search and Filtering (5pts)</a></li>
+      <li><a href="#id_32-add-pagination-5pts">3.2. Add Pagination (5pts)</a></li>
+      <li><a href="#id_33-add-sorting-5pts">3.3. Add Sorting (5pts)</a></li>
+      <li><a href="#id_34-add-due-dates-and-reminders-5pts">3.4. Add Due Dates and Reminders (5pts)</a></li>
+      <li><a href="#id_35-add-loading-states-and-error-handling-5pts">3.5. Add Loading States and Error Handling (5pts)</a></li>
+      <li><a href="#id_36-add-data-export-5pts">3.6. Add Data Export (5pts)</a></li>
+      <li><a href="#id_37-add-statistics-dashboard-10pts">3.7. Add Statistics Dashboard (10pts)</a></li>
+      <li><a href="#id_38-add-an-additional-model--crud-endpoints-10pts">3.8. Add an Additional Model + CRUD endpoints (10pts)</a></li>
+      <li><a href="#id_39-add-ui-elements-to-interact-with-the-endpoints-you-created-in-38-10pts">3.9. Add UI elements to interact with the endpoints you created in 3.8. (10pts)</a></li>
     </ol>
   </li>
+  <li><a href="#id_-4-before-you-move-on"> 4. Before you move on</a></li>
 </ol>
 
             </aside>
@@ -86,7 +88,7 @@
 
     <h1>
         <a href="../assignments/project02">Project 2</a> >
-        Enhancements
+        Backend + Frontend Extensions
     </h1>
     
  
@@ -96,192 +98,217 @@
     
 </p>
 
-<p>Now that you have a working full-stack application, here are some ways you can enhance it! These suggestions will help you practice new skills and make your application more feature-rich.</p>
-
-<h2 id="id_required-enhancements">Required Enhancements</h2>
-
-<p><strong>Required Enhancements:</strong> You must complete <strong>two of the first three enhancements</strong> (options 1, 2, or 3). These are required components of your project.If you choose option 1 (Replace the Existing Data Model), you are still required to complete one additional enhancement from options 2 or 3.</p>
-
-<h3 id="id_1-replace-the-existing-data-model-and-ui-with-your-own">1. Replace the Existing Data Model and UI with Your Own</h3>
-
-<p>Replace the TODO application with a completely different domain. Examples include:</p>
+<p>At this point, you should have a <strong>working TODO application</strong> with a single Todo model (SQLAlchemy), CRUD endpoints (FastAPI), and a basic React frontend. Your task is to enhance this application by completing:</p>
 <ul>
-  <li><strong>Favorite Songs</strong> - Track songs, artists, albums, ratings, genres</li>
-  <li><strong>Web Bookmarks</strong> - Save and organize bookmarks with tags and categories</li>
-  <li><strong>Course-Specific Todo Lists</strong> - Separate todo lists for different courses (e.g., CSCI 338, MATH 101)</li>
-  <li><strong>Recipe Collection</strong> - Store recipes with ingredients, instructions, and cooking times</li>
-  <li><strong>Personal Library</strong> - Track books you’ve read or want to read with ratings and notes</li>
+  <li>One required backend enhancement</li>
+  <li>One required frontend enhancement</li>
 </ul>
 
-<p>This involves creating new database models, updating all CRUD endpoints, and redesigning the entire frontend UI to match your new domain.</p>
+<p>You may also complete the extra credit (see the <a href="#ec">extra credit section</a> below) to earn additional points.</p>
 
-<p><strong>Skills practiced:</strong></p>
-<ul>
-  <li>Complete system redesign</li>
-  <li>Database schema design</li>
-  <li>Full-stack application development</li>
-  <li>UI/UX design for a specific domain</li>
-  <li>Creative problem-solving</li>
-</ul>
+<h2 id="backend">1. Required Backend Enhancement</h2>
 
-<h3 id="id_2-add-a-new-model-with-crud-endpoints">2. Add a New Model with CRUD Endpoints</h3>
+<p>You must choose <strong>one</strong> of the following two options:</p>
 
-<p>Create a second database model (like Categories, Tags, Notes, or Users) and build complete CRUD endpoints for it. Then update your React frontend to interact with these new endpoints.</p>
+<h3 id="id_option-1-build-your-own-single-model-app">Option 1. Build Your Own Single-Model App</h3>
 
-<p><strong>Skills practiced:</strong></p>
-<ul>
-  <li>Database modeling</li>
-  <li>API endpoint creation</li>
-  <li>Frontend-backend integration</li>
-  <li>Component communication</li>
-</ul>
+<p>Replace the existing Todo model and all CRUD endpoints with a completely different single-model application. If you choose this option, you must:</p>
 
-<h3 id="id_3-integrate-a-design-system">3. Integrate a Design System</h3>
+<ol>
+  <li>Remove the Todo model and create a new model for your chosen domain</li>
+  <li>Update all CRUD endpoints to work with your new model</li>
+  <li>Update the frontend to match your new domain</li>
+</ol>
 
-<p>Replace your custom CSS with a professional design system. Popular options include:</p>
+<blockquote class="info">
+  <p><strong>Potential Ideas:</strong></p>
 
-<ul>
-  <li><strong>Ant Design (antd)</strong> - Comprehensive, enterprise-grade components</li>
-  <li><strong>Material-UI (MUI)</strong> - Google’s Material Design for React</li>
-  <li><strong>Chakra UI</strong> - Simple, accessible, great developer experience</li>
-  <li><strong>React Bootstrap</strong> - Familiar Bootstrap styling for React</li>
-  <li><strong>Mantine</strong> - Modern, feature-rich component library</li>
-</ul>
+  <ul>
+    <li><strong>Favorite Music</strong> - Track songs, artists, albums, etc.</li>
+    <li><strong>Web Bookmarks</strong> - Save and organize bookmarks with tags and categories</li>
+    <li><strong>Recipe Collection</strong> - Store recipes with ingredients, instructions, and cooking times</li>
+    <li><strong>Personal Library</strong> - Track books you’ve read or want to read with ratings and notes</li>
+  </ul>
+</blockquote>
 
-<p><strong>Skills practiced:</strong></p>
-<ul>
-  <li>Working with third-party libraries</li>
-  <li>Component composition</li>
-  <li>Design system patterns</li>
-  <li>Professional UI/UX</li>
-</ul>
+<h3 id="id_option-2-extend-the-todo-app-with-a-second-model">Option 2. Extend the TODO App with a Second Model</h3>
 
-<h2 id="id_optional-enhancements">Optional Enhancements</h2>
+<p>Keep the existing Todo model and add a second database model with complete CRUD endpoints. If you choose this option, you must:</p>
 
-<p><strong>Extra Credit:</strong> Each of the remaining enhancements (options 4-11) is worth <strong>5 points of extra credit</strong> toward your overall project grade. You can complete as many extra credit enhancements as you’d like.</p>
+<ol>
+  <li>Create a new database model (e.g., Category, Tag, Note, User)</li>
+  <li>Establish a relationship between your new model and the Todo model (e.g., a Todo belongs to a Category, or a Todo has many Tags)</li>
+  <li>Create full CRUD endpoints for your new model (Create, Read, Update, Delete)</li>
+  <li>Update your frontend to interact with the new endpoints</li>
+  <li>Update your frontend to display and manage the relationship (e.g., show which category a todo belongs to, allow assigning categories to todos, allow user to display todos by user or by category)</li>
+</ol>
 
-<h3 id="id_4-add-search-and-filtering">4. Add Search and Filtering</h3>
+<blockquote class="info">
+  <p><strong>Potential Ideas:</strong></p>
+
+  <ul>
+    <li><strong>Categories</strong> - Create a Category model, establish a many-to-one relationship (each Todo belongs to one Category), create CRUD endpoints for Categories, and update the UI to let users assign categories to todos</li>
+    <li><strong>Tags</strong> - Create a Tag model, establish a many-to-many relationship (each Todo can have multiple Tags), create CRUD endpoints for Tags, and update the UI to let users add/remove tags from todos</li>
+    <li><strong>Notes</strong> - Create a Note model, establish a one-to-one relationship (each Todo has one Note), create CRUD endpoints for Notes, and update the UI to display and edit notes</li>
+    <li><strong>Users</strong> - Create a User model, establish a one-to-many relationship (each User has many todos), create CRUD endpoints for Users, and update the UI to support multiple users</li>
+  </ul>
+</blockquote>
+
+<h2 id="frontend">2. Required Frontend Enhancement</h2>
+
+<p>In addition to your required backend enhancement, you must integrate widgets and components from <strong>one or more</strong> third-party component libraries into your React frontend. Specifically, you will complete the following 5 tasks:</p>
+
+<ol>
+  <li><strong>Install and configure</strong> the component library in your React app (e.g., <code class="language-plaintext highlighter-rouge">npm install antd</code> or <code class="language-plaintext highlighter-rouge">npm install @mui/material</code>, then wrap your app with the library’s provider/theme component)</li>
+  <li><strong>Replace form components</strong> - Use the library’s form inputs, buttons, and form validation components instead of basic HTML form elements</li>
+  <li><strong>Replace list/display components</strong> - Use the library’s table, card, or list components to display your data (e.g., todos, categories, songs, etc.)</li>
+  <li><strong>Add interactive components</strong> - Incorporate at least one advanced component from the library (e.g., modals/dialogs for creating/editing items, dropdowns/selects for filtering, notifications/alerts for user feedback, or icons from the library’s icon set)</li>
+  <li><strong>Ensure consistency</strong> - Your entire app should look cohesive and professional, using the library’s design language consistently across all pages and components</li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="id_popular-component-library-options">Popular component library options</h3>
+  <ul>
+    <li><strong><a href="https://ant.design/" target="_blank">Ant Design (antd)</a></strong> - Comprehensive, enterprise-grade components</li>
+    <li><strong><a href="https://mui.com/" target="_blank">Material-UI (MUI)</a></strong> - Google’s Material Design for React</li>
+    <li><strong><a href="https://chakra-ui.com/" target="_blank">Chakra UI</a></strong> - Simple, accessible, great developer experience</li>
+    <li><strong><a href="https://react-bootstrap.github.io/" target="_blank">React Bootstrap</a></strong> - Familiar Bootstrap styling for React</li>
+    <li><strong><a href="https://mantine.dev/" target="_blank">Mantine</a></strong> - Modern, feature-rich component library</li>
+  </ul>
+
+  <h3 id="id_examples-of-what-you-might-try">Examples of what you might try</h3>
+  <ul>
+    <li><strong>Form replacement</strong> - Replace your create/edit forms with the library’s Form, Input, Button, and Select components (e.g., use Ant Design’s <code class="language-plaintext highlighter-rouge">Form</code>, <code class="language-plaintext highlighter-rouge">Input</code>, <code class="language-plaintext highlighter-rouge">Button</code>, and <code class="language-plaintext highlighter-rouge">Select</code> components)</li>
+    <li><strong>List/table replacement</strong> - Replace your todo list with the library’s Table or Card components (e.g., use Material-UI’s <code class="language-plaintext highlighter-rouge">Table</code> or Chakra UI’s <code class="language-plaintext highlighter-rouge">Card</code> components to display items)</li>
+    <li><strong>Modal dialogs</strong> - Use the library’s Modal or Dialog component for creating/editing items instead of inline forms (e.g., use Ant Design’s <code class="language-plaintext highlighter-rouge">Modal</code> or MUI’s <code class="language-plaintext highlighter-rouge">Dialog</code>)</li>
+    <li><strong>Notifications</strong> - Add success/error notifications when items are created, updated, or deleted (e.g., use Ant Design’s <code class="language-plaintext highlighter-rouge">message</code> or MUI’s <code class="language-plaintext highlighter-rouge">Snackbar</code>)</li>
+    <li><strong>Icons</strong> - Replace any text-based buttons or labels with icons from the library’s icon set (e.g., use Ant Design’s <code class="language-plaintext highlighter-rouge">@ant-design/icons</code> or MUI’s <code class="language-plaintext highlighter-rouge">@mui/icons-material</code>)</li>
+  </ul>
+</blockquote>
+
+<h2 id="ec" class="info">3. Optional Enhancements</h2>
+
+<p><strong>Extra Credit:</strong> Each of the enhancements listed below can earn your extra credit points, which will be applied to your Project 2 grade. You can complete as many extra credit enhancements as you’d like from the list below:</p>
+
+<h3 id="id_31-add-search-and-filtering-5pts">3.1. Add Search and Filtering (5pts)</h3>
 
 <p>Allow users to search todos by title or description, and filter by completion status, date created, or category.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Frontend state management</li>
   <li>API query parameters</li>
   <li>Database queries with filters</li>
   <li>User experience design</li>
 </ul>
 
-<h3 id="id_5-add-pagination">5. Add Pagination</h3>
+<h3 id="id_32-add-pagination-5pts">3.2. Add Pagination (5pts)</h3>
 
 <p>Instead of loading all todos at once, implement pagination to show 10-20 todos per page with “Next” and “Previous” buttons.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Backend pagination logic</li>
   <li>Frontend pagination controls</li>
   <li>API design with limits and offsets</li>
   <li>Performance optimization</li>
 </ul>
 
-<h3 id="id_6-add-sorting">6. Add Sorting</h3>
+<h3 id="id_33-add-sorting-5pts">3.3. Add Sorting (5pts)</h3>
 
 <p>Allow users to sort todos by different criteria: date created, title alphabetically, completion status, etc.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Database ordering</li>
   <li>Frontend sorting controls</li>
   <li>Query parameter handling</li>
   <li>User interface design</li>
 </ul>
 
-<h3 id="id_7-add-due-dates-and-reminders">7. Add Due Dates and Reminders</h3>
+<h3 id="id_34-add-due-dates-and-reminders-5pts">3.4. Add Due Dates and Reminders (5pts)</h3>
 
 <p>Add a <code class="language-plaintext highlighter-rouge">due_date</code> field to todos and display todos that are overdue or due soon. Optionally, add visual indicators (colors, badges) for urgency.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Date handling in Python and JavaScript</li>
   <li>Database date fields</li>
   <li>Conditional rendering in React</li>
   <li>Data validation</li>
 </ul>
 
-<h3 id="id_8-add-loading-states-and-error-handling">8. Add Loading States and Error Handling</h3>
+<h3 id="id_35-add-loading-states-and-error-handling-5pts">3.5. Add Loading States and Error Handling (5pts)</h3>
 
 <p>Improve user experience by showing loading spinners while data is fetching, and displaying user-friendly error messages when something goes wrong.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>React state management</li>
   <li>Error boundaries</li>
   <li>User experience design</li>
   <li>Async/await error handling</li>
 </ul>
 
-<h3 id="id_9-add-data-export">9. Add Data Export</h3>
+<h3 id="id_36-add-data-export-5pts">3.6. Add Data Export (5pts)</h3>
 
 <p>Allow users to export their todos to CSV or JSON format for backup or use in other applications.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>File generation on the backend</li>
   <li>File downloads in the browser</li>
   <li>Data serialization</li>
   <li>API response formatting</li>
 </ul>
 
-<h3 id="id_10-add-statistics-dashboard">10. Add Statistics Dashboard</h3>
+<h3 id="id_37-add-statistics-dashboard-10pts">3.7. Add Statistics Dashboard (10pts)</h3>
 
 <p>Create a dashboard that shows statistics about todos: total count, completed vs. incomplete, todos created this week, etc.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Database aggregation queries</li>
   <li>Data visualization</li>
   <li>Component design</li>
   <li>API endpoint design</li>
 </ul>
 
-<h3 id="id_11-add-categories-or-tags-with-relationships">11. Add Categories or Tags with Relationships</h3>
+<h3 id="id_38-add-an-additional-model--crud-endpoints-10pts">3.8. Add an Additional Model + CRUD endpoints (10pts)</h3>
 
 <p>Create a Category or Tag model and establish a relationship with Todo (many-to-one or many-to-many). Allow users to assign categories to todos and filter by category.</p>
 
 <p><strong>Skills practiced:</strong></p>
-<ul>
+<ul class="compact">
   <li>Database relationships (foreign keys)</li>
   <li>SQLAlchemy relationships</li>
   <li>Join queries</li>
   <li>Complex data modeling</li>
 </ul>
 
-<h2 id="id_getting-started">Getting Started</h2>
+<h3 id="id_39-add-ui-elements-to-interact-with-the-endpoints-you-created-in-38-10pts">3.9. Add UI elements to interact with the endpoints you created in 3.8. (10pts)</h3>
 
-<p><strong>Required:</strong> Complete <strong>two of the first three enhancements</strong> (options 1, 2, or 3).</p>
+<p>Create a Category or Tag model and establish a relationship with Todo (many-to-one or many-to-many). Allow users to assign categories to todos and filter by category.</p>
 
-<p><strong>Optional:</strong> Complete any of the extra credit enhancements (options 4-11) for additional points. Start with the simplest one to build confidence, then tackle more complex features.</p>
-
-<p><strong>Tips:</strong></p>
-<ul>
-  <li>Work on one enhancement at a time</li>
-  <li>Test thoroughly after each change</li>
-  <li>Commit your work frequently</li>
-  <li>Use your GitHub Actions workflow to catch issues early</li>
-  <li>Don’t be afraid to experiment and learn!</li>
+<p><strong>Skills practiced:</strong></p>
+<ul class="compact">
+  <li>Database relationships (foreign keys)</li>
+  <li>SQLAlchemy relationships</li>
+  <li>Join queries</li>
+  <li>Complex data modeling</li>
 </ul>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Make sure you understand:</p>
-  <ul>
-    <li>You must complete <strong>two of the first three enhancements</strong> (options 1, 2, or 3)</li>
-    <li>Each extra credit enhancement (options 4-11) is worth 3 points</li>
-    <li>Choose enhancements that interest you and will help you practice new skills</li>
-  </ul>
-</blockquote>
+  <h2 id="id_-4-before-you-move-on"><i class="fa-regular fa-circle-check"></i> 4. Before you move on</h2>
+  <p>Make sure you have completed:</p>
 
-<hr />
+  <ul class="checkbox-list">
+    <li>The required <a href="#backend">backend enhancements</a> (either option 1 or 2)</li>
+    <li>The required <a href="#frontend">frontend enhancements</a></li>
+  </ul>
+
+  <p><a href="#ec">Extra credit enhancements</a> (2.1-2.9) are optional but can earn you additional points (point values noted in the task).</p>
+</blockquote>
 
 <p><a href="project02">← Back to Project 2 Instructions</a></p>
 
