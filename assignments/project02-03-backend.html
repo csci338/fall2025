@@ -785,24 +785,7 @@ HOW IT WORKS:
 
 <div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[tool.black]</span>
 <span class="py">line-length</span> <span class="p">=</span> <span class="mi">88</span>
-<span class="py">target-version</span> <span class="p">=</span> <span class="p">[</span><span class="s">'py39'</span><span class="p">,</span> <span class="s">'py310'</span><span class="p">,</span> <span class="s">'py311'</span><span class="p">]</span>
-<span class="py">include</span> <span class="p">=</span> <span class="s">'\.pyi?$'</span>
-<span class="py">extend-exclude</span> <span class="p">=</span> <span class="s">'''
-/(
-  # directories
-  \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-  | __pycache__
-)/
-'''</span>
+<span class="py">target-version</span> <span class="p">=</span> <span class="p">[</span><span class="s">'py311'</span><span class="p">]</span>
 
 <span class="nn">[tool.isort]</span>
 <span class="py">profile</span> <span class="p">=</span> <span class="s">"black"</span>
@@ -812,7 +795,6 @@ HOW IT WORKS:
 <span class="py">force_grid_wrap</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="py">use_parentheses</span> <span class="p">=</span> <span class="kc">true</span>
 <span class="py">ensure_newline_before_comments</span> <span class="p">=</span> <span class="kc">true</span>
-<span class="py">skip_glob</span> <span class="p">=</span> <span class="p">[</span><span class="s">"*/__pycache__/*"</span><span class="p">,</span> <span class="s">"*/migrations/*"</span><span class="p">]</span>
 </code></pre></div></div>
 
 <p><strong>What this does:</strong></p>
