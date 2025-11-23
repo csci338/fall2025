@@ -681,24 +681,7 @@ Add these sections to your `backend/pyproject.toml` file (add them after the `[b
 ```toml
 [tool.black]
 line-length = 88
-target-version = ['py39', 'py310', 'py311']
-include = '\.pyi?$'
-extend-exclude = '''
-/(
-  # directories
-  \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-  | __pycache__
-)/
-'''
+target-version = ['py311']
 
 [tool.isort]
 profile = "black"
@@ -708,7 +691,6 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 ensure_newline_before_comments = true
-skip_glob = ["*/__pycache__/*", "*/migrations/*"]
 ```
 
 **What this does:**
