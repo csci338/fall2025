@@ -324,15 +324,6 @@
       <li><strong>Important:</strong> Use the modified connection string (with <code class="language-plaintext highlighter-rouge">+asyncpg</code>) here</li>
     </ul>
   </li>
-  <li><strong>Link the database:</strong>
-    <ul>
-      <li>Railway can automatically link services</li>
-      <li>In your application service, go to the “Variables” tab</li>
-      <li>You should see a “Reference Variable” option</li>
-      <li>Reference the PostgreSQL service’s <code class="language-plaintext highlighter-rouge">DATABASE_URL</code></li>
-      <li><strong>But remember:</strong> You still need to modify it to use <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code></li>
-    </ul>
-  </li>
   <li><strong>Deploy:</strong>
     <ul>
       <li>Railway will automatically deploy when you push to your main branch</li>
