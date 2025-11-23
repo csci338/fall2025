@@ -11,6 +11,13 @@ start_date: 2025-11-15
 due_date: 2025-12-05
 ---
 
+{:.info}
+> ## Video Walkthroughs
+> 1. <a href="https://drive.google.com/file/d/1MmyV83eMFzVLnYDhGSQZn2ynRZYo1WYK/view?usp=drive_link" target="_blank">Introduction</a>
+> 1. <a href="https://drive.google.com/file/d/1_X_hPsT97gRtj3-GskBUrNDQI6yxiVRY/view?usp=drive_link" target="_blank">Code Modifications + Production Dockerfile</a>
+> 1. <a href="https://drive.google.com/file/d/17wGhOXOghkXdeTwlzqdi634zgL2vMoab/view?usp=drive_link" target="_blank">Railway Deployment</a>
+> 1. <a href="https://drive.google.com/file/d/1U00tHLq0D8uR08dpS24OEzJdre0H5zTR/view?usp=drive_link" target="_blank">CI / CD in Action</a>
+
 ## 1. Update Frontend API Configuration
 
 Before creating the production Dockerfile, you need to update your `App.jsx` file to use an environment variable for the API URL. This allows your app to work in both development (localhost) and production (Railway).
