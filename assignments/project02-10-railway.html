@@ -58,29 +58,17 @@
       <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
     </ol>
   </li>
-  <li><a href="#id_create-railway-account-and-project">Create Railway Account and Project</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on-1"> Before you move on</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_create-postgresql-database">Create PostgreSQL Database</a>
+  <li><a href="#id_1-sign-up-for-railway">1. Sign up for Railway</a></li>
+  <li><a href="#id_2-create-a-new-project">2. Create a new project</a></li>
+  <li><a href="#id_3-create-a-postgresql-service">3. Create a PostgreSQL service</a></li>
+  <li><a href="#id_4-create-a-web-service">4. Create a Web Service</a>
     <ol>
       <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
     </ol>
   </li>
-  <li><a href="#id_deploy-your-application">Deploy Your Application</a>
+  <li><a href="#id_5-verify-deployment">5. Verify Deployment</a>
     <ol>
       <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_update-frontend-api-url-if-needed">Update Frontend API URL (If Needed)</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on-4"> Before you move on</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_verify-deployment">Verify Deployment</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on-5"> Before you move on</a></li>
     </ol>
   </li>
 </ol>
@@ -176,6 +164,40 @@
 <span class="k">CMD</span><span class="s"> sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"</span>
 </code></pre></div></div>
 
+<p><strong>What this Dockerfile does:</strong></p>
+
+<p>This Dockerfile uses a <strong>multi-stage build</strong> to create a single container that runs both your frontend and backend together. Here’s what happens in simple terms:</p>
+
+<p><strong>Stage 1: Build the Frontend</strong></p>
+<ul>
+  <li>Starts with a Node.js image</li>
+  <li>Installs all the frontend dependencies (React, Vite, etc.)</li>
+  <li>Builds your React app into static files (HTML, CSS, JavaScript)</li>
+  <li>The built files are saved in a <code class="language-plaintext highlighter-rouge">dist</code> folder</li>
+</ul>
+
+<p><strong>Stage 2: Prepare the Backend</strong></p>
+<ul>
+  <li>Starts with a Python image</li>
+  <li>Installs Poetry and all your Python dependencies (FastAPI, SQLAlchemy, etc.)</li>
+  <li>Gets everything ready to run your backend</li>
+</ul>
+
+<p><strong>Stage 3: Combine Everything</strong></p>
+<ul>
+  <li>Takes the built frontend files from Stage 1 and copies them into the final container</li>
+  <li>Takes the backend code and Python packages from Stage 2 and copies them into the final container</li>
+  <li>Creates a non-root user for security</li>
+  <li>Sets up the container to run your FastAPI server, which will serve both:
+    <ul>
+      <li>Your backend API (at <code class="language-plaintext highlighter-rouge">/api/*</code> endpoints)</li>
+      <li>Your frontend static files (at the root <code class="language-plaintext highlighter-rouge">/</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>The result:</strong> One container that has everything your app needs to run in production. When Railway starts this container, it runs your FastAPI server, which handles both API requests and serves your React frontend.</p>
+
 <p><strong>Important Notes:</strong></p>
 <ul>
   <li>This is a multi-stage build that combines frontend and backend</li>
@@ -188,69 +210,47 @@
   <p>Verify your production Dockerfile is in the root directory.</p>
 </blockquote>
 
-<h2 id="id_create-railway-account-and-project">Create Railway Account and Project</h2>
+<h2 id="id_1-sign-up-for-railway">1. Sign up for Railway</h2>
+<ul>
+  <li>Go to https://railway.app</li>
+  <li>Sign up with your GitHub account (recommended) or email</li>
+  <li>Railway offers a free tier with $5/month credit</li>
+</ul>
 
-<ol>
-  <li><strong>Sign up for Railway:</strong>
-    <ul>
-      <li>Go to https://railway.app</li>
-      <li>Sign up with your GitHub account (recommended) or email</li>
-      <li>Railway offers a free tier with $5/month credit</li>
-    </ul>
-  </li>
-  <li><strong>Create a new project:</strong>
-    <ul>
-      <li>Click “New Project” in the Railway dashboard</li>
-      <li>Select “Deploy from GitHub repo”</li>
-      <li>Choose your <code class="language-plaintext highlighter-rouge">project02-fall2025</code> repository</li>
-      <li>Railway will create a new project for you</li>
-    </ul>
-  </li>
-</ol>
+<h2 id="id_2-create-a-new-project">2. Create a new project</h2>
+<ul>
+  <li>Click “New Project” in the Railway dashboard</li>
+  <li>Choose “Empty Project (the bottom option)</li>
+</ul>
 
-<blockquote class="info">
-  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify you have a Railway account and project connected to your GitHub repository.</p>
-</blockquote>
+<p>Within your new project, you will add two new containers (called services)</p>
 
-<h2 id="id_create-postgresql-database">Create PostgreSQL Database</h2>
+<h2 id="id_3-create-a-postgresql-service">3. Create a PostgreSQL service</h2>
+<ul>
+  <li>From within your project, click the “Add a service” button</li>
+  <li>Select “Database” → “Add PostgreSQL”</li>
+  <li>Railway will automatically create a PostgreSQL database</li>
+</ul>
 
-<ol>
-  <li><strong>Add a PostgreSQL service:</strong>
-    <ul>
-      <li>In your Railway project dashboard, click “+ New”</li>
-      <li>Select “Database” → “Add PostgreSQL”</li>
-      <li>Railway will automatically create a PostgreSQL database</li>
-    </ul>
+<p>Once the service has been built, click on the PostgreSQL service you just created. Then:</p>
+<ul>
+  <li>Go to the “Variables” tab</li>
+  <li>Find the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> variable (Railway creates this automatically)</li>
+  <li>Copy the connection string and paste it somewhere safe:
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  postgresql://postgres:password@hostname.railway.app:5432/railway
+</code></pre></div>    </div>
   </li>
-  <li><strong>Get the database connection string:</strong>
-    <ul>
-      <li>Click on the PostgreSQL service you just created</li>
-      <li>Go to the “Variables” tab</li>
-      <li>Find the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> variable (Railway creates this automatically)</li>
-      <li>Copy the connection string - it will look like:
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgresql://postgres:password@hostname.railway.app:5432/railway
-</code></pre></div>        </div>
-      </li>
-      <li><strong>Important:</strong> Note that Railway uses <code class="language-plaintext highlighter-rouge">postgresql://</code> (not <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code>). You’ll need to modify this for SQLAlchemy.</li>
-    </ul>
-  </li>
-  <li><strong>Convert the connection string for SQLAlchemy:</strong>
+  <li>Modify the connection string to work with asynchronous connections:
     <ul>
       <li>Railway’s <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> uses the format: <code class="language-plaintext highlighter-rouge">postgresql://...</code></li>
       <li>SQLAlchemy with asyncpg needs: <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://...</code></li>
       <li>Replace <code class="language-plaintext highlighter-rouge">postgresql://</code> with <code class="language-plaintext highlighter-rouge">postgresql+asyncpg://</code> in your connection string</li>
-      <li>Example:
-        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Original: postgresql://postgres:password@hostname.railway.app:5432/railway
-Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railway
-</code></pre></div>        </div>
-      </li>
     </ul>
   </li>
-</ol>
+</ul>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h4 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h4>
   <p>Verify you have:</p>
   <ul>
     <li>A PostgreSQL database created in Railway</li>
@@ -259,21 +259,15 @@ Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railw
   </ul>
 </blockquote>
 
-<h2 id="id_deploy-your-application">Deploy Your Application</h2>
+<h2 id="id_4-create-a-web-service">4. Create a Web Service</h2>
+<p>Now that you’ve created your database container, you’re ready to create your web server, which will host your Backend and your Frontend on the same box. To do this, you will add a second service to your project:</p>
 
 <ol>
   <li><strong>Add your application service:</strong>
     <ul>
       <li>In your Railway project dashboard, click “+ New”</li>
       <li>Select “GitHub Repo” → choose your repository</li>
-      <li>Railway will detect your <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> automatically</li>
-    </ul>
-  </li>
-  <li><strong>Configure the service:</strong>
-    <ul>
-      <li>Railway should automatically detect <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> in the root directory</li>
-      <li>If not, go to Settings → General → Root Directory (leave blank if Dockerfile is in root)</li>
-      <li>Go to Settings → Deploy → Dockerfile Path: <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code></li>
+      <li>You will also need to teach Railway how to deploy your web server by going to Settings → Deploy → Dockerfile Path: <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code></li>
     </ul>
   </li>
   <li><strong>Set environment variables:</strong>
@@ -316,7 +310,7 @@ Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railw
 </ol>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your application is:</p>
   <ul>
     <li>Deployed on Railway</li>
@@ -326,37 +320,7 @@ Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railw
   </ul>
 </blockquote>
 
-<h2 id="id_update-frontend-api-url-if-needed">Update Frontend API URL (If Needed)</h2>
-
-<p>If your frontend needs to connect to the deployed backend:</p>
-
-<ol>
-  <li><strong>Set the API URL:</strong>
-    <ul>
-      <li>In your Railway application service, go to Variables</li>
-      <li>Add: <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> = <code class="language-plaintext highlighter-rouge">https://your-app-name.up.railway.app</code></li>
-      <li>Or update your frontend code to use the Railway URL instead of <code class="language-plaintext highlighter-rouge">localhost:8000</code></li>
-    </ul>
-  </li>
-  <li><strong>Rebuild and redeploy:</strong>
-    <ul>
-      <li>Railway will automatically rebuild when you push changes</li>
-      <li>Or trigger a manual redeploy from the dashboard</li>
-    </ul>
-  </li>
-</ol>
-
-<blockquote class="info">
-  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
-  <p>Verify your full-stack application is:</p>
-  <ul>
-    <li>Fully deployed and accessible online</li>
-    <li>Frontend connecting to the deployed backend</li>
-    <li>Database operations working correctly</li>
-  </ul>
-</blockquote>
-
-<h2 id="id_verify-deployment">Verify Deployment</h2>
+<h2 id="id_5-verify-deployment">5. Verify Deployment</h2>
 
 <p>Test your deployed application:</p>
 
@@ -385,7 +349,7 @@ Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railw
 </ol>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-5"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your deployed application:</p>
   <ul>
     <li>Loads correctly in the browser</li>
