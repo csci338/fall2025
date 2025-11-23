@@ -5,12 +5,46 @@ type: partial
 draft: 0
 abbreviation: "Project 2"
 num: 2
+h_max: 2
 parent: project02
 start_date: 2025-11-15
 due_date: 2025-12-05
 ---
 
-## Production Dockerfile
+## 1. Update Frontend API Configuration
+
+Before creating the production Dockerfile, you need to update your `App.jsx` file to use an environment variable for the API URL. This allows your app to work in both development (localhost) and production (Railway).
+
+Open `ui/src/App.jsx` and update the API URL configuration at the top of the file:
+
+```javascript
+// Use environment variable for API URL, default to localhost for development
+// In production (Railway), this will be empty string since frontend and backend are same origin
+// Check if VITE_API_URL is explicitly set (even if empty string), otherwise use localhost
+const API_URL =
+    import.meta.env.VITE_API_URL !== undefined
+        ? import.meta.env.VITE_API_URL      // address for production architecture
+        : 'http://localhost:8000';          // address for local architecture
+```
+
+**What this does:**
+- In **development**, `VITE_API_URL` is not set, so it defaults to `http://localhost:8000`
+- In **production**, the Dockerfile will set `VITE_API_URL` to an empty string (since frontend and backend are served from the same origin)
+- When `VITE_API_URL` is empty, your API calls will use relative URLs (e.g., `/api/todos` instead of `http://localhost:8000/api/todos`)
+
+**Important:** Make sure you're using `API_URL` in all your `fetch()` calls throughout your React components. For example:
+
+```javascript
+fetch(`${API_URL}/api/todos`)
+```
+
+{:.info}
+> ### <i class="fa-regular fa-circle-check"></i> Before you move on
+> Verify that:
+> - Your `App.jsx` (or wherever you define your API URL) uses the environment variable
+> - All your `fetch()` calls use the `API_URL` constant instead of hardcoded URLs
+
+## 2. Create a Production Dockerfile
 
 Create `Dockerfile.prod` in the root directory:
 
@@ -22,6 +56,10 @@ Create `Dockerfile.prod` in the root directory:
 FROM node:20-slim as frontend-builder
 
 WORKDIR /app/frontend
+
+# Accept VITE_API_URL as build argument (defaults to empty string for production)
+ARG VITE_API_URL=""
+ENV VITE_API_URL=$VITE_API_URL
 
 # Copy frontend package files
 COPY ui/package.json ./
@@ -75,14 +113,14 @@ RUN useradd -m -u 1000 appuser && \
 USER appuser
 
 # Expose port (Railway sets PORT automatically)
-EXPOSE 8000
+EXPOSE 8080
 
-# Use PORT environment variable if set, otherwise default to 8000
-ENV PORT=8000
+# Use PORT environment variable if set, otherwise default to 8080
+ENV PORT=8080
 
 # Change to backend directory and run server
 WORKDIR /app/backend
-CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
+CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8080}"
 ```
 
 **What this Dockerfile does:**
@@ -122,18 +160,18 @@ This Dockerfile uses a **multi-stage build** to create a single container that r
 
 
 
-## 1. Sign up for Railway
+## 3. Sign up for Railway
 - Go to https://railway.app
 - Sign up with your GitHub account (recommended) or email
 - Railway offers a free tier with $5/month credit
 
-## 2. Create a new project
+## 4. Create a new project
 - Click "New Project" in the Railway dashboard
 - Choose "Empty Project (the bottom option)
 
 Within your new project, you will add two new containers (called services)
 
-## 3. Create a PostgreSQL service
+## 5. Create a PostgreSQL service
 - From within your project, click the "Add a service" button
 - Select "Database" → "Add PostgreSQL"
 - Railway will automatically create a PostgreSQL database
@@ -157,7 +195,7 @@ Once the service has been built, click on the PostgreSQL service you just create
 > - The `DATABASE_URL` connection string copied
 > - The connection string modified to use `postgresql+asyncpg://`
 
-## 4. Create a Web Service
+## 6. Create a Web Service
 Now that you've created your database container, you're ready to create your web server, which will host your Backend and your Frontend on the same box. To do this, you will add a second service to your project:
 
 1. **Add your application service:**
@@ -200,7 +238,7 @@ Now that you've created your database container, you're ready to create your web
 > - Test it by visiting your Railway URL
 
 
-## 5. Verify Deployment
+## 7. Verify Deployment
 
 Test your deployed application:
 
