@@ -218,20 +218,12 @@ Now that you've created your database container, you're ready to create your web
      - Value: Your modified connection string (with `postgresql+asyncpg://`)
      - Click "Add"
    - **Important:** Use the modified connection string (with `+asyncpg`) here
-
-3. **Link the database:**
-   - Railway can automatically link services
-   - In your application service, go to the "Variables" tab
-   - You should see a "Reference Variable" option
-   - Reference the PostgreSQL service's `DATABASE_URL`
-   - **But remember:** You still need to modify it to use `postgresql+asyncpg://`
-
-4. **Deploy:**
+3. **Deploy:**
    - Railway will automatically deploy when you push to your main branch
    - Or click "Deploy" in the dashboard to trigger a manual deployment
    - Watch the build logs to see the deployment progress
 
-6. **Get your application URL:**
+4. **Get your application URL:**
    - Once deployed, Railway will provide a public URL
    - Go to Settings → Networking → Generate Domain
    - Your app will be available at: `https://your-app-name.up.railway.app`
