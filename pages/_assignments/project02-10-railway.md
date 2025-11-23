@@ -10,8 +10,6 @@ start_date: 2025-11-15
 due_date: 2025-12-05
 ---
 
-
-
 ## Production Dockerfile
 
 Create `Dockerfile.prod` in the root directory:
@@ -87,6 +85,31 @@ WORKDIR /app/backend
 CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
 ```
 
+**What this Dockerfile does:**
+
+This Dockerfile uses a **multi-stage build** to create a single container that runs both your frontend and backend together. Here's what happens in simple terms:
+
+**Stage 1: Build the Frontend**
+- Starts with a Node.js image
+- Installs all the frontend dependencies (React, Vite, etc.)
+- Builds your React app into static files (HTML, CSS, JavaScript)
+- The built files are saved in a `dist` folder
+
+**Stage 2: Prepare the Backend**
+- Starts with a Python image
+- Installs Poetry and all your Python dependencies (FastAPI, SQLAlchemy, etc.)
+- Gets everything ready to run your backend
+
+**Stage 3: Combine Everything**
+- Takes the built frontend files from Stage 1 and copies them into the final container
+- Takes the backend code and Python packages from Stage 2 and copies them into the final container
+- Creates a non-root user for security
+- Sets up the container to run your FastAPI server, which will serve both:
+  - Your backend API (at `/api/*` endpoints)
+  - Your frontend static files (at the root `/`)
+
+**The result:** One container that has everything your app needs to run in production. When Railway starts this container, it runs your FastAPI server, which handles both API requests and serves your React frontend.
+
 **Important Notes:**
 - This is a multi-stage build that combines frontend and backend
 - The frontend is built and served as static files by the backend
@@ -98,70 +121,51 @@ CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
 
 
 
-## Create Railway Account and Project
 
-1. **Sign up for Railway:**
-   - Go to https://railway.app
-   - Sign up with your GitHub account (recommended) or email
-   - Railway offers a free tier with $5/month credit
+## 1. Sign up for Railway
+- Go to https://railway.app
+- Sign up with your GitHub account (recommended) or email
+- Railway offers a free tier with $5/month credit
 
-2. **Create a new project:**
-   - Click "New Project" in the Railway dashboard
-   - Select "Deploy from GitHub repo"
-   - Choose your `project02-fall2025` repository
-   - Railway will create a new project for you
+## 2. Create a new project
+- Click "New Project" in the Railway dashboard
+- Choose "Empty Project (the bottom option)
 
-{:.info}
-> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify you have a Railway account and project connected to your GitHub repository.
+Within your new project, you will add two new containers (called services)
 
-## Create PostgreSQL Database
+## 3. Create a PostgreSQL service
+- From within your project, click the "Add a service" button
+- Select "Database" → "Add PostgreSQL"
+- Railway will automatically create a PostgreSQL database
 
-1. **Add a PostgreSQL service:**
-   - In your Railway project dashboard, click "+ New"
-   - Select "Database" → "Add PostgreSQL"
-   - Railway will automatically create a PostgreSQL database
-
-2. **Get the database connection string:**
-   - Click on the PostgreSQL service you just created
-   - Go to the "Variables" tab
-   - Find the `DATABASE_URL` variable (Railway creates this automatically)
-   - Copy the connection string - it will look like:
-     ```
-     postgresql://postgres:password@hostname.railway.app:5432/railway
-     ```
-   - **Important:** Note that Railway uses `postgresql://` (not `postgresql+asyncpg://`). You'll need to modify this for SQLAlchemy.
-
-3. **Convert the connection string for SQLAlchemy:**
+Once the service has been built, click on the PostgreSQL service you just created. Then:
+- Go to the "Variables" tab
+- Find the `DATABASE_URL` variable (Railway creates this automatically)
+- Copy the connection string and paste it somewhere safe:
+    ```sh
+    postgresql://postgres:password@hostname.railway.app:5432/railway
+    ```
+- Modify the connection string to work with asynchronous connections:
    - Railway's `DATABASE_URL` uses the format: `postgresql://...`
    - SQLAlchemy with asyncpg needs: `postgresql+asyncpg://...`
    - Replace `postgresql://` with `postgresql+asyncpg://` in your connection string
-   - Example:
-     ```
-     Original: postgresql://postgres:password@hostname.railway.app:5432/railway
-     Modified: postgresql+asyncpg://postgres:password@hostname.railway.app:5432/railway
-     ```
 
 {:.info}
-> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
+> #### <i class="fa-regular fa-circle-check"></i> Before you move on 
 > Verify you have:
 > - A PostgreSQL database created in Railway
 > - The `DATABASE_URL` connection string copied
 > - The connection string modified to use `postgresql+asyncpg://`
 
-## Deploy Your Application
+## 4. Create a Web Service
+Now that you've created your database container, you're ready to create your web server, which will host your Backend and your Frontend on the same box. To do this, you will add a second service to your project:
 
 1. **Add your application service:**
    - In your Railway project dashboard, click "+ New"
    - Select "GitHub Repo" → choose your repository
-   - Railway will detect your `Dockerfile.prod` automatically
+   - You will also need to teach Railway how to deploy your web server by going to Settings → Deploy → Dockerfile Path: `Dockerfile.prod`
 
-2. **Configure the service:**
-   - Railway should automatically detect `Dockerfile.prod` in the root directory
-   - If not, go to Settings → General → Root Directory (leave blank if Dockerfile is in root)
-   - Go to Settings → Deploy → Dockerfile Path: `Dockerfile.prod`
-
-3. **Set environment variables:**
+2. **Set environment variables:**
    - Go to the "Variables" tab in your application service
    - Add the `DATABASE_URL` variable:
      - Click "+ New Variable"
@@ -170,14 +174,14 @@ CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
      - Click "Add"
    - **Important:** Use the modified connection string (with `+asyncpg`) here
 
-4. **Link the database:**
+3. **Link the database:**
    - Railway can automatically link services
    - In your application service, go to the "Variables" tab
    - You should see a "Reference Variable" option
    - Reference the PostgreSQL service's `DATABASE_URL`
    - **But remember:** You still need to modify it to use `postgresql+asyncpg://`
 
-5. **Deploy:**
+4. **Deploy:**
    - Railway will automatically deploy when you push to your main branch
    - Or click "Deploy" in the dashboard to trigger a manual deployment
    - Watch the build logs to see the deployment progress
@@ -195,27 +199,8 @@ CMD sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"
 > - Accessible via a public URL
 > - Test it by visiting your Railway URL
 
-## Update Frontend API URL (If Needed)
 
-If your frontend needs to connect to the deployed backend:
-
-1. **Set the API URL:**
-   - In your Railway application service, go to Variables
-   - Add: `VITE_API_URL` = `https://your-app-name.up.railway.app`
-   - Or update your frontend code to use the Railway URL instead of `localhost:8000`
-
-2. **Rebuild and redeploy:**
-   - Railway will automatically rebuild when you push changes
-   - Or trigger a manual redeploy from the dashboard
-
-{:.info}
-> ### <i class="fa-regular fa-circle-check"></i> Before you move on 
-> Verify your full-stack application is:
-> - Fully deployed and accessible online
-> - Frontend connecting to the deployed backend
-> - Database operations working correctly
-
-## Verify Deployment
+## 5. Verify Deployment
 
 Test your deployed application:
 
