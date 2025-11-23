@@ -53,24 +53,13 @@
                 
                 
                 <ol class="side-menu">
-  <li><a href="#id_production-dockerfile">Production Dockerfile</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on"> Before you move on</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_1-sign-up-for-railway">1. Sign up for Railway</a></li>
-  <li><a href="#id_2-create-a-new-project">2. Create a new project</a></li>
-  <li><a href="#id_3-create-a-postgresql-service">3. Create a PostgreSQL service</a></li>
-  <li><a href="#id_4-create-a-web-service">4. Create a Web Service</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on-2"> Before you move on</a></li>
-    </ol>
-  </li>
-  <li><a href="#id_5-verify-deployment">5. Verify Deployment</a>
-    <ol>
-      <li><a href="#id_-before-you-move-on-3"> Before you move on</a></li>
-    </ol>
-  </li>
+  <li><a href="#id_1-update-frontend-api-configuration">1. Update Frontend API Configuration</a></li>
+  <li><a href="#id_2-create-a-production-dockerfile">2. Create a Production Dockerfile</a></li>
+  <li><a href="#id_3-sign-up-for-railway">3. Sign up for Railway</a></li>
+  <li><a href="#id_4-create-a-new-project">4. Create a new project</a></li>
+  <li><a href="#id_5-create-a-postgresql-service">5. Create a PostgreSQL service</a></li>
+  <li><a href="#id_6-create-a-web-service">6. Create a Web Service</a></li>
+  <li><a href="#id_7-verify-deployment">7. Verify Deployment</a></li>
 </ol>
 
             </aside>
@@ -90,7 +79,43 @@
     
 </p>
 
-<h2 id="id_production-dockerfile">Production Dockerfile</h2>
+<h2 id="id_1-update-frontend-api-configuration">1. Update Frontend API Configuration</h2>
+
+<p>Before creating the production Dockerfile, you need to update your <code class="language-plaintext highlighter-rouge">App.jsx</code> file to use an environment variable for the API URL. This allows your app to work in both development (localhost) and production (Railway).</p>
+
+<p>Open <code class="language-plaintext highlighter-rouge">ui/src/App.jsx</code> and update the API URL configuration at the top of the file:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Use environment variable for API URL, default to localhost for development</span>
+<span class="c1">// In production (Railway), this will be empty string since frontend and backend are same origin</span>
+<span class="c1">// Check if VITE_API_URL is explicitly set (even if empty string), otherwise use localhost</span>
+<span class="kd">const</span> <span class="nx">API_URL</span> <span class="o">=</span>
+    <span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VITE_API_URL</span> <span class="o">!==</span> <span class="kc">undefined</span>
+        <span class="p">?</span> <span class="k">import</span><span class="p">.</span><span class="nx">meta</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VITE_API_URL</span>      <span class="c1">// address for production architecture</span>
+        <span class="p">:</span> <span class="dl">'</span><span class="s1">http://localhost:8000</span><span class="dl">'</span><span class="p">;</span>          <span class="c1">// address for local architecture</span>
+</code></pre></div></div>
+
+<p><strong>What this does:</strong></p>
+<ul>
+  <li>In <strong>development</strong>, <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> is not set, so it defaults to <code class="language-plaintext highlighter-rouge">http://localhost:8000</code></li>
+  <li>In <strong>production</strong>, the Dockerfile will set <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> to an empty string (since frontend and backend are served from the same origin)</li>
+  <li>When <code class="language-plaintext highlighter-rouge">VITE_API_URL</code> is empty, your API calls will use relative URLs (e.g., <code class="language-plaintext highlighter-rouge">/api/todos</code> instead of <code class="language-plaintext highlighter-rouge">http://localhost:8000/api/todos</code>)</li>
+</ul>
+
+<p><strong>Important:</strong> Make sure you’re using <code class="language-plaintext highlighter-rouge">API_URL</code> in all your <code class="language-plaintext highlighter-rouge">fetch()</code> calls throughout your React components. For example:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">API_URL</span><span class="p">}</span><span class="s2">/api/todos`</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <p>Verify that:</p>
+  <ul>
+    <li>Your <code class="language-plaintext highlighter-rouge">App.jsx</code> (or wherever you define your API URL) uses the environment variable</li>
+    <li>All your <code class="language-plaintext highlighter-rouge">fetch()</code> calls use the <code class="language-plaintext highlighter-rouge">API_URL</code> constant instead of hardcoded URLs</li>
+  </ul>
+</blockquote>
+
+<h2 id="id_2-create-a-production-dockerfile">2. Create a Production Dockerfile</h2>
 
 <p>Create <code class="language-plaintext highlighter-rouge">Dockerfile.prod</code> in the root directory:</p>
 
@@ -101,6 +126,10 @@
 <span class="k">FROM</span><span class="w"> </span><span class="s">node:20-slim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s">frontend-builder</span>
 
 <span class="k">WORKDIR</span><span class="s"> /app/frontend</span>
+
+<span class="c"># Accept VITE_API_URL as build argument (defaults to empty string for production)</span>
+<span class="k">ARG</span><span class="s"> VITE_API_URL=""</span>
+<span class="k">ENV</span><span class="s"> VITE_API_URL=$VITE_API_URL</span>
 
 <span class="c"># Copy frontend package files</span>
 <span class="k">COPY</span><span class="s"> ui/package.json ./</span>
@@ -154,14 +183,14 @@
 <span class="k">USER</span><span class="s"> appuser</span>
 
 <span class="c"># Expose port (Railway sets PORT automatically)</span>
-<span class="k">EXPOSE</span><span class="s"> 8000</span>
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
 
-<span class="c"># Use PORT environment variable if set, otherwise default to 8000</span>
-<span class="k">ENV</span><span class="s"> PORT=8000</span>
+<span class="c"># Use PORT environment variable if set, otherwise default to 8080</span>
+<span class="k">ENV</span><span class="s"> PORT=8080</span>
 
 <span class="c"># Change to backend directory and run server</span>
 <span class="k">WORKDIR</span><span class="s"> /app/backend</span>
-<span class="k">CMD</span><span class="s"> sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8000}"</span>
+<span class="k">CMD</span><span class="s"> sh -c "uvicorn server:app --host 0.0.0.0 --port \${PORT:-8080}"</span>
 </code></pre></div></div>
 
 <p><strong>What this Dockerfile does:</strong></p>
@@ -206,18 +235,18 @@
 </ul>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your production Dockerfile is in the root directory.</p>
 </blockquote>
 
-<h2 id="id_1-sign-up-for-railway">1. Sign up for Railway</h2>
+<h2 id="id_3-sign-up-for-railway">3. Sign up for Railway</h2>
 <ul>
   <li>Go to https://railway.app</li>
   <li>Sign up with your GitHub account (recommended) or email</li>
   <li>Railway offers a free tier with $5/month credit</li>
 </ul>
 
-<h2 id="id_2-create-a-new-project">2. Create a new project</h2>
+<h2 id="id_4-create-a-new-project">4. Create a new project</h2>
 <ul>
   <li>Click “New Project” in the Railway dashboard</li>
   <li>Choose “Empty Project (the bottom option)</li>
@@ -225,7 +254,7 @@
 
 <p>Within your new project, you will add two new containers (called services)</p>
 
-<h2 id="id_3-create-a-postgresql-service">3. Create a PostgreSQL service</h2>
+<h2 id="id_5-create-a-postgresql-service">5. Create a PostgreSQL service</h2>
 <ul>
   <li>From within your project, click the “Add a service” button</li>
   <li>Select “Database” → “Add PostgreSQL”</li>
@@ -250,7 +279,7 @@
 </ul>
 
 <blockquote class="info">
-  <h4 id="id_-before-you-move-on-1"><i class="fa-regular fa-circle-check"></i> Before you move on</h4>
+  <h4 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h4>
   <p>Verify you have:</p>
   <ul>
     <li>A PostgreSQL database created in Railway</li>
@@ -259,7 +288,7 @@
   </ul>
 </blockquote>
 
-<h2 id="id_4-create-a-web-service">4. Create a Web Service</h2>
+<h2 id="id_6-create-a-web-service">6. Create a Web Service</h2>
 <p>Now that you’ve created your database container, you’re ready to create your web server, which will host your Backend and your Frontend on the same box. To do this, you will add a second service to your project:</p>
 
 <ol>
@@ -310,7 +339,7 @@
 </ol>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-2"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your application is:</p>
   <ul>
     <li>Deployed on Railway</li>
@@ -320,7 +349,7 @@
   </ul>
 </blockquote>
 
-<h2 id="id_5-verify-deployment">5. Verify Deployment</h2>
+<h2 id="id_7-verify-deployment">7. Verify Deployment</h2>
 
 <p>Test your deployed application:</p>
 
@@ -349,7 +378,7 @@
 </ol>
 
 <blockquote class="info">
-  <h3 id="id_-before-you-move-on-3"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
+  <h3 id="id_-before-you-move-on-4"><i class="fa-regular fa-circle-check"></i> Before you move on</h3>
   <p>Verify your deployed application:</p>
   <ul>
     <li>Loads correctly in the browser</li>
@@ -384,6 +413,10 @@
     };
     setTimeout(scrollLeft, 100);
 </script> -->
+        
+        <script>
+            window.h_max = "2";
+        </script>
         
         <script type="text/javascript" src="/fall2025/assets/js/scrollspy.js"></script>
         <script type="text/javascript" src="/fall2025/assets/js/expandable.js"></script>
