@@ -11,7 +11,7 @@ slides:
       type: lecture
       title: Scaling an App
       draft: 1
-      url: https://docs.google.com/presentation/d/1cyXi_ZKqdMzDDWBOerW02yPTl2K8chkoNI5htzjkciE/edit#slide=id.g29c926bd7b1_0_477
+      url: https://docs.google.com/presentation/d/1XUxfaWeoV7K7REbVr2kYpL5SjERiKpGe5J02BMzMTaM/edit?usp=sharing
 readings:
     - start_date: 2025-12-02
       type: reading
