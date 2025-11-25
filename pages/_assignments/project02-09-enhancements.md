@@ -14,6 +14,12 @@ At this point, you should have a **working TODO application** with a single Todo
 * One required backend enhancement
 * One required frontend enhancement
 
+{:.info}
+> ## Example
+> Here is one example of how Sarah added a `Category` model (backend) and combined it with the `Mantine` React components (frontend) to create this App: 
+> * Frontend: <a href="https://project02-fall2025-production-88d7.up.railway.app/" target="_blank">https://project02-fall2025-production-88d7.up.railway.app/</a>
+> * Backend: <a href="https://project02-fall2025-production-88d7.up.railway.app/docs" target="_blank">https://project02-fall2025-production-88d7.up.railway.app/docs</a>.
+
 You may also complete the extra credit (see the [extra credit section](#ec) below) to earn additional points.
 
 {:#backend}

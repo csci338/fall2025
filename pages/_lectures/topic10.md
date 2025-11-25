@@ -5,6 +5,7 @@ type: topic
 num: 10
 draft: 1
 start_date: 2025-11-27
+projects: [2]
 slides:
     - start_date: 2025-11-20
       num: 16
@@ -15,7 +16,7 @@ slides:
     - start_date: 2025-11-25
       num: 17
       type: lecture
-      title: "Tutorial: Creating a vertical feature"
+      title: "Project 2 work: Ideally, you'll begin customizing your vertical feature today"
       draft: 1
       url: #
 ---

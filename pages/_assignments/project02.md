@@ -7,7 +7,7 @@ points: 100
 abbreviation: Project 2
 num: 2
 h_max: 3
-start_date: 2025-11-15
+start_date: 2025-11-20
 due_date: 2025-12-05
 ---
 
@@ -17,13 +17,17 @@ This guide will walk you through building a complete full-stack application from
 {% expandable expanded="true" level=2 title="Collaboration & AI Policy"%}
 
 **You may:**
+- Work in **pairs** or individually on this assignment -- your choice. 
+- If you work with a partner:
+    - both parties must have their own individual repo and deploy their own repo on Railway
+    - Any extra credit earned will be split evenly between the two partners to ensure fairness (e.g., if 10 extra credit points are awarded, each person will receive 5 points)
 - Discuss concepts, approaches, and debugging strategies with classmates
 - Share links to documentation, tutorials, or Stack Overflow posts
 - Help each other understand error messages or explain how technologies work
 - Use AI tools (ChatGPT, GitHub Copilot, etc.) to help understand concepts, debug errors, or generate small code snippets
 
 **You may NOT:**
-- Share, copy, or view another student's code (including via screenshots, GitHub repos, or pair programming)
+- Share, copy, or view another student's code (including via screenshots, GitHub repos), unless it is with your partner
 - Submit code written by someone else (including AI-generated code that you don't understand)
 - Use AI tools to generate large portions of your application without understanding what the code does
 - Post your code publicly or share it in a way that others can copy it
