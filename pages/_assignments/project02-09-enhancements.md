@@ -67,7 +67,7 @@ Keep the existing Todo model and add a second database model with complete CRUD 
 
 In addition to your required backend enhancement, you must integrate widgets and components from **one or more** third-party component libraries into your React frontend. Specifically, you will complete the following 5 tasks:
 
-1. **Install and configure** the component library in your React app (e.g., `npm install antd` or `npm install @mui/material`, then wrap your app with the library's provider/theme component)
+1. **Install and configure** the component library in your React app (e.g., `npm install antd` or `npm install @mui/material`). You may need to wrap your app with the library's provider/theme component.
 1. **Replace form components** - Use the library's form inputs, buttons, and form validation components instead of basic HTML form elements
 1. **Replace list/display components** - Use the library's table, card, or list components to display your data (e.g., todos, categories, songs, etc.)
 1. **Add interactive components** - Incorporate at least one advanced component from the library (e.g., modals/dialogs for creating/editing items, dropdowns/selects for filtering, notifications/alerts for user feedback, or icons from the library's icon set)
