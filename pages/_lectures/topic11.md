@@ -10,7 +10,7 @@ slides:
       num: 17
       type: lecture
       title: Scaling an App
-      draft: 1
+      draft: 0
       url: https://docs.google.com/presentation/d/1XUxfaWeoV7K7REbVr2kYpL5SjERiKpGe5J02BMzMTaM/edit?usp=sharing
 readings:
     - start_date: 2025-12-02
